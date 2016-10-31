@@ -1,8 +1,6 @@
 const fs                = require('fs');
 const express           = require('express');
 const path              = require('path');
-const logger            = require('morgan');
-const fileStreamRotator = require('file-stream-rotator');
 const cookieParser      = require('cookie-parser');
 const bodyParser        = require('body-parser');
 const compression       = require('compression');
@@ -10,52 +8,38 @@ const forceDomain       = require('forcedomain');
 const timeout           = require('connect-timeout');
 const basicAuth         = require('basic-auth');
 const responseTime      = require('response-time');
-const expressRedirect   = require('express-redirect');
+const redirect          = require('express-redirect');
+const rewrite           = require('express-urlrewrite');
 const vhost             = require('vhost');
+const logger            = require('morgan');
+const fileStreamRotator = require('file-stream-rotator');
 const routes            = require('./routes/index');
 const users             = require('./routes/users');
+const {seo}             = require('./middlewares');
 const debug             = require('debug')('app:server');
 
 const redirects = {
-  // external 301 redirects
+  // external 301 redirects for `express-redirect`
 };
 const rewrites = {
-  // internal redirects
+  // internal redirects for `express-urlrewrite`
 };
 
+const cwd = process.cwd();
 const app = express();
+
 debug(`Setup ${app.get('env')} server`);
 
 app.set('strict routing', true);
 app.set('x-powered-by', false);
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(cwd, 'views'));
 app.set('view engine', 'jade');
 
-// seo
-app.use(function (req, res, next) {
-  let url = req.url;
-  if (url !== '/' && /\/$/.test(url)) {
-    url = url
-      .replace(/^\/+/, '/')
-      .replace(/\/+$/, '')
-    ;
-  }
-  if (/\.html$/.test(url)) {
-    url = url.replace(/\.html$/, '');
-  }
-  if (/[A-Z]/.test(url)) {
-    url = url.toLowerCase();
-  }
+redirect(app);
 
-  if (url != req.url) {
-    return res.redirect(301, url);
-  }
-  return next();
-});
-
+app.use(seo());
 app.use(vhost('api.localhost', function (req, res) {
-  // handle req + res belonging to mail.example.com
+  // handle req + res belonging to api.localhost
   res.send('is api host');
 }));
 
@@ -64,8 +48,6 @@ app.use(forceDomain({
   port: app.get('port'),
   // protocol: 'https'
 }));
-
-expressRedirect(app);
 
 Object.keys(redirects).forEach(from => {
   let to = redirects[from];
@@ -79,12 +61,12 @@ Object.keys(rewrites).forEach(from => {
 // /seo
 
 // const favicon = require('serve-favicon');
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(cwd, 'public', 'favicon.ico')));
 
 if (app.get('env') != 'production') {
   app.use(logger('dev'));
 } else {
-  let logDirectory = __dirname + '/logs';
+  let logDirectory = path.join(cwd, '/logs');
   !fs.accessSync(logDirectory) || fs.mkdirSync(logDirectory);
 
   app.use(logger('common', {
@@ -115,8 +97,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(require('node-sass-middleware')({
-  src:            path.join(__dirname, 'public'),
-  dest:           path.join(__dirname, 'public'),
+  src:            path.join(cwd, 'public'),
+  dest:           path.join(cwd, 'public'),
   indentedSyntax: false,
   sourceMap:      true
 }));
@@ -124,7 +106,7 @@ app.use(compression({filter: function shouldCompress (req, res) {
   return req.headers['x-no-compression'] ? false : compression.filter(req, res);
 }}));
 app.use(responseTime());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(cwd, 'public')));
 
 
 app.use('/', routes);
