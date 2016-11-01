@@ -1,23 +1,11 @@
 {
-  "presets": ["es2015"],
+  "presets": ["node6"],
   "plugins": [
-    "transform-export-extensions",
-    "syntax-trailing-function-commas",
-    "transform-exponentiation-operator",
-    "syntax-async-functions",
     "transform-promise-to-bluebird",
-    "transform-regenerator",
-    "transform-runtime",
-    "transform-es2015-modules-commonjs",
-    "transform-export-extensions",
-    "transform-object-rest-spread",
-    "transform-class-properties",
-    "syntax-trailing-function-commas",
-    // "transform-async-to-generator", // вот из-за него не работает async/await
-    "transform-exponentiation-operator",
-    "transform-es5-property-mutators"
+    "syntax-async-functions",
+    ["transform-async-to-module-method", {
+      "module": "bluebird",
+      "method": "coroutine"
+    }]
   ]
-//  "ignore": [
-//    "**/babel_ignore_*.js",
-//  ]
 }

@@ -102,11 +102,11 @@ app.use(require('node-sass-middleware')({
   indentedSyntax: false,
   sourceMap:      true
 }));
-app.use(compression({filter: function shouldCompress (req, res) {
-  return req.headers['x-no-compression'] ? false : compression.filter(req, res);
-}}));
 app.use(responseTime());
 app.use(express.static(path.join(cwd, 'public')));
+app.use(compression({filter (req, res) {
+  return req.headers['x-no-compression'] ? false : compression.filter(req, res);
+}}));
 
 
 app.use('/', routes);

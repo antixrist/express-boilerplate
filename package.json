@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "./node_modules/.bin/nodemon ./server/index.js --exec babel-node",
+    "build": "./node_modules/.bin/babel app -d dist/app --source-maps inline && ./node_modules/.bin/babel server -d dist/server --source-maps inline",
+    "serve": "node dist/server/index.js",
+    "test": "mocha --compilers js:babel-register"
   },
   "dependencies": {
     "basic-auth": "^1.0.4",
@@ -30,18 +33,12 @@
   "license": "MIT",
   "devDependencies": {
     "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
     "babel-plugin-syntax-async-functions": "^6.13.0",
-    "babel-plugin-syntax-trailing-function-commas": "^6.13.0",
-    "babel-plugin-transform-class-properties": "^6.18.0",
+    "babel-plugin-transform-async-to-module-method": "^6.16.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
-    "babel-plugin-transform-es5-property-mutators": "^6.8.0",
-    "babel-plugin-transform-exponentiation-operator": "^6.8.0",
-    "babel-plugin-transform-export-extensions": "^6.8.0",
-    "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-plugin-transform-promise-to-bluebird": "^1.1.0",
-    "babel-plugin-transform-regenerator": "^6.16.1",
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-register": "^6.18.0"
+    "babel-preset-node6": "^11.0.0",
+    "nodemon": "^1.11.0"
   }
 }

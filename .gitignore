@@ -5,3 +5,4 @@ tmp
 .idea
 npm-debug.log
 logs
+dist
