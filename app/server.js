@@ -18,6 +18,9 @@ const users             = require('./routes/users');
 const {seo}             = require('./middlewares');
 const debug             = require('debug')('app:server');
 
+import {cookieSecret} from './config';
+console.log('config', cookieSecret);
+
 const redirects = {
   // external 301 redirects for `express-redirect`
 };

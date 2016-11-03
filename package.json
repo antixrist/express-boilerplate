@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "./node_modules/.bin/nodemon ./server/index.js --exec babel-node",
-    "build": "./node_modules/.bin/babel app -d dist/app --source-maps inline && ./node_modules/.bin/babel server -d dist/server --source-maps inline",
-    "serve": "node dist/server/index.js",
+    "dev": "./node_modules/.bin/nodemon ./app/launcher.js --exec babel-node",
+    "development": "npm run dev",
+    "build": "./node_modules/.bin/babel app -d dist",
+    "serve": "./node_modules/.bin/cross-env NODE_ENV=production node ./dist/launcher.js",
+    "production": "npm run build && npm run serve",
     "test": "mocha --compilers js:babel-register"
   },
   "dependencies": {
@@ -26,7 +28,6 @@
     "morgan": "~1.7.0",
     "node-sass-middleware": "0.8.0",
     "response-time": "^2.3.1",
-    "serve-favicon": "~2.3.0",
     "vhost": "^3.0.2"
   },
   "main": "app/index.js",
@@ -40,6 +41,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
     "babel-plugin-transform-promise-to-bluebird": "^1.1.0",
     "babel-preset-node6": "^11.0.0",
+    "cross-env": "^3.1.3",
     "nodemon": "^1.11.0"
   }
 }
