@@ -32,14 +32,14 @@ const isProduction = app.get('env') == 'production';
 
 debug(`Setup ${app.get('env')} server`);
 
-app.set('strict routing', true);
-app.set('x-powered-by', false);
-app.set('views', path.join(cwd, 'views'));
-app.set('view engine', 'jade');
-
-redirect(app);
+// setup express instance
+if (_.isPlainObject(expressConfig.set)) {
+  _.forEach(expressConfig.set, (val, key) => app.set(key, val));
+}
 
 // seo
+redirect(app);
+
 app.use(seo({
   toLower: true,
   removeHtmlSuffix: true,

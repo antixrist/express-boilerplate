@@ -8,6 +8,14 @@ const rewrites  = {
 };
 
 const express = {
+  set: {
+    'case sensitive routing': true,
+    'strict routing': true,
+    'x-powered-by': false,
+    'view engine': 'jade',
+    'views': './views',
+    // port: process.env.PORT || '4000'
+  },
   static: {
     dotfiles: 'ignore',
     etag: true,
