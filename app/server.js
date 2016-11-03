@@ -2,6 +2,7 @@ import _                 from 'lodash';
 import fs                from 'fs';
 import express           from 'express';
 import path              from 'path';
+import pathExists        from 'path-exists';
 import cookieParser      from 'cookie-parser';
 import bodyParser        from 'body-parser';
 import compression       from 'compression';
@@ -76,7 +77,7 @@ if (!isProduction) {
   app.use(logger('dev'));
 } else {
   let logDirectory = path.join(cwd, '/logs');
-  !fs.accessSync(logDirectory) || fs.mkdirSync(logDirectory);
+  !pathExists.sync(logDirectory) && fs.mkdirSync(logDirectory);
 
   app.use(logger('common', {
     stream: fileStreamRotator.getStream({

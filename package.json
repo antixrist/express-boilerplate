@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "./node_modules/.bin/cross-env DEBUG=app:* ./node_modules/.bin/nodemon ./app/launcher.js --exec babel-node",
+    "dev": "cross-env DEBUG=app:* nodemon app/launcher.js --exec babel-node",
     "development": "npm run dev",
-    "build": "./node_modules/.bin/babel app -d dist",
-    "serve": "./node_modules/.bin/cross-env NODE_ENV=production node ./dist/launcher.js",
+    "build": "babel app -d dist",
+    "serve": "cross-env NODE_ENV=production node dist/launcher.js",
     "prod": "npm run build && npm run serve",
     "production": "npm run prod",
     "test": "mocha --compilers js:babel-register"
@@ -37,6 +37,7 @@
     "lodash": "^4.16.6",
     "morgan": "~1.7.0",
     "nodemon": "^1.11.0",
+    "path-exists": "^3.0.0",
     "portastic": "^1.0.1",
     "response-time": "^2.3.1",
     "vhost": "^3.0.2"
