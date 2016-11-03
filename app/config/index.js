@@ -9,10 +9,19 @@ const rewrites  = {
 
 const express = {
   static: {
-    redirect: false
+    dotfiles: 'ignore',
+    etag: true,
+    extensions: false,
+    fallthrough: true,
+    index: 'index.html',
+    lastModified: true,
+    maxAge: 0,
+    redirect: false,
   },
   router: {
-    strict: true
+    strict: true,
+    mergeParams: false,
+    caseSensitive: true
   },
   basicAuth: (process.env.NODE_ENV == 'production') ? [{
     name: 'admin',

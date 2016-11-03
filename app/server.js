@@ -101,12 +101,12 @@ if (!!expressConfig.basicAuth) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
-app.use(require('node-sass-middleware')({
-  src:            path.join(cwd, 'public'),
-  dest:           path.join(cwd, 'public'),
-  indentedSyntax: false,
-  sourceMap:      true
-}));
+// app.use(require('node-sass-middleware')({
+//   src:            path.join(cwd, 'public'),
+//   dest:           path.join(cwd, 'public'),
+//   indentedSyntax: false,
+//   sourceMap:      true
+// }));
 app.use(responseTime());
 app.use(express.static(path.join(cwd, 'public'), expressConfig.static));
 app.use(compression({filter (req, res) {

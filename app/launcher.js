@@ -4,15 +4,21 @@
  * Module dependencies.
  */
 
-import app   from './server';
-import http  from 'http';
-import Debug from 'debug';
+import app       from './server';
+import http      from 'http';
+import Debug     from 'debug';
 
-const debug = Debug('app:server');
+const debug = Debug('app:launcher');
 
 /**
  * Get port from environment and store in Express.
  */
+
+// let qwe = (async function () {
+//   return await findUnusedPort();
+// })();
+//
+// qwe.then(port => console.log(`Ports available between 8000 and 8080 are: ${port}`));
 
 const port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
