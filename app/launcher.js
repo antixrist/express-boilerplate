@@ -7,13 +7,14 @@ import {findUnusedPort} from './utils';
 import app   from './server';
 
 const debug = Debug('app:launcher');
+const isProduction = app.get('env') == 'production';
 
 (async function () {
   /**
    * Get port and store in Express.
    */
   let port = normalizePort(app.get('port'));
-  if (app.get('env') == 'production') {
+  if (isProduction) {
     if (!port) {
       console.error(`Port '${port}' is invalid`);
       process.exit(1);
@@ -47,7 +48,11 @@ const debug = Debug('app:launcher');
    */
   server.on('error', onError);
   app.listen(port, function () {
-    debug('Start listening on ' + port);
+    if (isProduction) {
+      console.log('Start listening on ' + port);
+    } else {
+      debug('Start listening on ' + port);
+    }
   });
 
   /**
