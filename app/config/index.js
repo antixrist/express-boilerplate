@@ -3,7 +3,7 @@ const cookieSecret = `${process.env.NODE_ENV} very strong cookies secret string 
 const redirects = {
   // external 301 redirects for `express-redirect`
 };
-const rewrites  = {
+const rewrites = {
   // internal redirects for `express-urlrewrite`
 };
 
