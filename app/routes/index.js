@@ -1,8 +1,9 @@
 // const Promise = require('bluebird');
-import express from 'express';
+import {express as expressConfig} from '../config';
+import {Router} from 'express';
 import usersRouter from './users';
 
-const router = express.Router();
+const router = Router(expressConfig.router);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

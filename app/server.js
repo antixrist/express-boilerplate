@@ -1,3 +1,4 @@
+import _                 from 'lodash';
 import fs                from 'fs';
 import express           from 'express';
 import path              from 'path';
@@ -15,11 +16,13 @@ import logger            from 'morgan';
 import fileStreamRotator from 'file-stream-rotator';
 import Debug             from 'debug';
 import * as routes       from './routes';
+import {toArray}         from './utils';
 import {seo}             from './middlewares';
 import {
   cookieSecret,
   redirects,
-  rewrites
+  rewrites,
+  express as expressConfig
 } from './config';
 
 const app = express();
@@ -37,7 +40,11 @@ app.set('view engine', 'jade');
 redirect(app);
 
 // seo
-app.use(seo());
+app.use(seo({
+  toLower: true,
+  removeHtmlSuffix: true,
+  removeTrailingSlash: true
+}));
 app.use(vhost('api.localhost', function (req, res) {
   // handle req + res belonging to api.localhost
   res.send('is api host');
@@ -76,13 +83,14 @@ if (!isProduction) {
   }));
 }
 
-if (isProduction) {
+if (!!expressConfig.basicAuth) {
+  let allowedCredentials = toArray(expressConfig.basicAuth);
   app.use(function (req, res, next) {
-    var credentials = basicAuth(req);
-    if (!credentials || credentials.name !== 'admin' || credentials.pass !== 'pass') {
+    let credentials = basicAuth(req);
+    if (!credentials || !_.find(allowedCredentials, credentials)) {
       res.statusCode = 401;
       res.set('WWW-Authenticate', 'Basic realm="Authentication Required"');
-      res.end('Access denied');
+      res.render('403');
     } else {
       next();
     }
@@ -100,7 +108,7 @@ app.use(require('node-sass-middleware')({
   sourceMap:      true
 }));
 app.use(responseTime());
-app.use(express.static(path.join(cwd, 'public')));
+app.use(express.static(path.join(cwd, 'public'), expressConfig.static));
 app.use(compression({filter (req, res) {
   return req.headers['x-no-compression'] ? false : compression.filter(req, res);
 }}));
@@ -124,4 +132,4 @@ app.use(function (err, req, res, next) {
   });
 });
 
-module.exports = app;
+export default app;

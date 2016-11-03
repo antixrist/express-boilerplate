@@ -1,6 +1,7 @@
-import express from 'express';
+import {express as expressConfig} from '../config';
+import {Router} from 'express';
 
-const router = express.Router();
+const router = Router(expressConfig.router);
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

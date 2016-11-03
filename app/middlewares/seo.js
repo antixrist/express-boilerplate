@@ -1,7 +1,7 @@
 export default function ({
-  removeTrailingSlash = true,
+  toLower = true,
   removeHtmlSuffix = true,
-  toLower = true
+  removeTrailingSlash = true
 } = {}) {
   return function (req, res, next) {
     let url = req.url;

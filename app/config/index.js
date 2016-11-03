@@ -10,4 +10,20 @@ const rewrites  = {
   // internal redirects for `express-urlrewrite`
 };
 
-export {cookieSecret, redirects, rewrites};
+const express = {
+  static: {
+    redirect: false
+  },
+  router: {
+    strict: true
+  },
+  basicAuth: (process.env.NODE_ENV == 'production') ? [{
+    name: 'admin',
+    pass: 'pass'
+  }, {
+    name: 'admin2',
+    pass: 'pass2'
+  }] : false
+};
+
+export {cookieSecret, redirects, rewrites, express};
