@@ -15,8 +15,12 @@ import logger            from 'morgan';
 import fileStreamRotator from 'file-stream-rotator';
 import Debug             from 'debug';
 import * as routes       from './routes';
-import {cookieSecret, redirects, rewrites} from './config';
-import {seo} from './middlewares';
+import {seo}             from './middlewares';
+import {
+  cookieSecret,
+  redirects,
+  rewrites
+} from './config';
 
 const debug = Debug('app:server');
 const cwd = process.cwd();
