@@ -22,9 +22,10 @@ import {
   rewrites
 } from './config';
 
-const debug = Debug('app:server');
-const cwd = process.cwd();
 const app = express();
+const cwd = process.cwd();
+const debug = Debug('app:server');
+const isProduction = app.get('env') == 'production';
 
 debug(`Setup ${app.get('env')} server`);
 
@@ -35,6 +36,7 @@ app.set('view engine', 'jade');
 
 redirect(app);
 
+// seo
 app.use(seo());
 app.use(vhost('api.localhost', function (req, res) {
   // handle req + res belonging to api.localhost
@@ -58,10 +60,7 @@ Object.keys(rewrites).forEach(from => {
 });
 // /seo
 
-// const favicon = require('serve-favicon');
-// app.use(favicon(path.join(cwd, 'public', 'favicon.ico')));
-
-if (app.get('env') != 'production') {
+if (!isProduction) {
   app.use(logger('dev'));
 } else {
   let logDirectory = path.join(cwd, '/logs');
@@ -77,7 +76,7 @@ if (app.get('env') != 'production') {
   }));
 }
 
-if (app.get('env') == 'production') {
+if (isProduction) {
   app.use(function (req, res, next) {
     var credentials = basicAuth(req);
     if (!credentials || credentials.name !== 'admin' || credentials.pass !== 'pass') {
@@ -117,24 +116,12 @@ app.use(function (req, res, next) {
   next(err);
 });
 
-// development error handler
-// will print stacktrace
-if (app.get('env') != 'production') {
-  app.use(function (err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error:   err
-    });
+app.use(function (err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error:   app.get('env') != 'production' ? err : {}
   });
-} else {
-  app.use(function (err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error:   {} // no stacktraces
-    });
-  });
-}
+});
 
 module.exports = app;
