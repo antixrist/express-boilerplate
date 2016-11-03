@@ -1,4 +1,4 @@
-module.exports = function seo ({
+export default function ({
   removeTrailingSlash = true,
   removeHtmlSuffix = true,
   toLower = true

@@ -1,5 +1,7 @@
 // const Promise = require('bluebird');
-const express = require('express');
+import express from 'express';
+import usersRouter from './users';
+
 const router = express.Router();
 
 /* GET home page. */
@@ -12,4 +14,4 @@ router.get('/async', async function (req, res, next) {
   res.render('index', { title: 'Express', asyncAwait });
 });
 
-module.exports = router;
+export {router as app, usersRouter as users};

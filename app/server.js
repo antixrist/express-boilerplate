@@ -1,33 +1,24 @@
-const fs                = require('fs');
-const express           = require('express');
-const path              = require('path');
-const cookieParser      = require('cookie-parser');
-const bodyParser        = require('body-parser');
-const compression       = require('compression');
-const forceDomain       = require('forcedomain');
-const timeout           = require('connect-timeout');
-const basicAuth         = require('basic-auth');
-const responseTime      = require('response-time');
-const redirect          = require('express-redirect');
-const rewrite           = require('express-urlrewrite');
-const vhost             = require('vhost');
-const logger            = require('morgan');
-const fileStreamRotator = require('file-stream-rotator');
-const routes            = require('./routes/index');
-const users             = require('./routes/users');
-const {seo}             = require('./middlewares');
-const debug             = require('debug')('app:server');
+import fs                from 'fs';
+import express           from 'express';
+import path              from 'path';
+import cookieParser      from 'cookie-parser';
+import bodyParser        from 'body-parser';
+import compression       from 'compression';
+import forceDomain       from 'forcedomain';
+import timeout           from 'connect-timeout';
+import basicAuth         from 'basic-auth';
+import responseTime      from 'response-time';
+import redirect          from 'express-redirect';
+import rewrite           from 'express-urlrewrite';
+import vhost             from 'vhost';
+import logger            from 'morgan';
+import fileStreamRotator from 'file-stream-rotator';
+import Debug             from 'debug';
+import * as routes       from './routes';
+import {cookieSecret, redirects, rewrites} from './config';
+import {seo} from './middlewares';
 
-import {cookieSecret} from './config';
-console.log('config', cookieSecret);
-
-const redirects = {
-  // external 301 redirects for `express-redirect`
-};
-const rewrites = {
-  // internal redirects for `express-urlrewrite`
-};
-
+const debug = Debug('app:server');
 const cwd = process.cwd();
 const app = express();
 
@@ -112,8 +103,8 @@ app.use(compression({filter (req, res) {
 }}));
 
 
-app.use('/', routes);
-app.use('/users', users);
+app.use('/', routes.app);
+app.use('/users', routes.users);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

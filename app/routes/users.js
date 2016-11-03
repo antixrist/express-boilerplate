@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+
+const router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -10,4 +11,4 @@ router.get('/qwe', function(req, res, next) {
   res.send('its users qwe');
 });
 
-module.exports = router;
+export default router;

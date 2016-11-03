@@ -1,3 +1,3 @@
-const seo = require('./seo');
+import seo from './seo';
 
-module.exports = {seo};
+export {seo};
