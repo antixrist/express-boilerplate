@@ -7,7 +7,8 @@
     "development": "npm run dev",
     "build": "./node_modules/.bin/babel app -d dist",
     "serve": "./node_modules/.bin/cross-env NODE_ENV=production node ./dist/launcher.js",
-    "production": "npm run build && npm run serve",
+    "prod": "npm run build && npm run serve",
+    "production": "npm run prod",
     "test": "mocha --compilers js:babel-register"
   },
   "dependencies": {
