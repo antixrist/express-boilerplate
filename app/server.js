@@ -115,10 +115,12 @@ app.use(cookieParser());
 // }));
 app.use(responseTime());
 app.use(express.static(path.join(cwd, 'public'), expressConfig.static));
-app.use(compression({filter (req, res) {
-  return req.headers['x-no-compression'] ? false : compression.filter(req, res);
-}}));
-
+app.use(compression({
+  threshold: 128,
+  filter (req, res) {
+    return req.headers['x-no-compression'] ? false : compression.filter(req, res);
+  }
+}));
 
 app.use('/', routes.app);
 app.use('/users', routes.users);
