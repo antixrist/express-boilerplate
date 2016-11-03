@@ -1,7 +1,4 @@
-const cookieSecret = (process.env.NODE_ENV == 'production')
-        ? 'production very strong cookies secret string blablabla 123qwe$%^RTY'
-        : 'development very strong cookies secret string blablabla 123qwe$%^RTY'
-;
+const cookieSecret = `${process.env.NODE_ENV} very strong cookies secret string blablabla 123qwe$%^RTY`;
 
 const redirects = {
   // external 301 redirects for `express-redirect`
