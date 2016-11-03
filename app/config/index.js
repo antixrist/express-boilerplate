@@ -1,5 +1,5 @@
+const isProduction = (process.env.NODE_ENV == 'production');
 const cookieSecret = `${process.env.NODE_ENV} very strong cookies secret string blablabla 123qwe$%^RTY`;
-
 const redirects = {
   // external 301 redirects for `express-redirect`
 };
@@ -9,12 +9,16 @@ const rewrites  = {
 
 const express = {
   set: {
-    'case sensitive routing': true,
-    'strict routing': true,
-    'x-powered-by': false,
+    port: process.env.PORT || isProduction ? 3000 : 4000,
+    views: './views',
     'view engine': 'jade',
-    'views': './views',
-    // port: process.env.PORT || '4000'
+    'x-powered-by': false,
+    'strict routing': true,
+    'case sensitive routing': true,
+    // 'trust proxy': ''
+  },
+  locals: {
+
   },
   static: {
     dotfiles: 'ignore',
@@ -31,7 +35,7 @@ const express = {
     mergeParams: false,
     caseSensitive: true
   },
-  basicAuth: (process.env.NODE_ENV == 'production') ? [{
+  basicAuth: isProduction ? [{
     name: 'admin',
     pass: 'pass'
   }, {

@@ -37,6 +37,11 @@ if (_.isPlainObject(expressConfig.set)) {
   _.forEach(expressConfig.set, (val, key) => app.set(key, val));
 }
 
+// setup app's locals
+if (_.isPlainObject(expressConfig.locals)) {
+  _.assign(app.locals, expressConfig.locals);
+}
+
 // seo
 redirect(app);
 

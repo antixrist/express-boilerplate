@@ -1,40 +1,87 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
-
-import app       from './server';
-import http      from 'http';
-import Debug     from 'debug';
+import http  from 'http';
+import Debug from 'debug';
+import portastic from 'portastic';
+import {findUnusedPort} from './utils';
+import app   from './server';
 
 const debug = Debug('app:launcher');
 
-/**
- * Get port from environment and store in Express.
- */
+(async function () {
+  /**
+   * Get port and store in Express.
+   */
+  let port = normalizePort(app.get('port'));
+  if (app.get('env') == 'production') {
+    if (!port) {
+      console.error(`Port '${port}' is invalid`);
+      process.exit(1);
+    }
 
-const port = normalizePort(process.env.PORT || '4000');
-app.set('port', port);
+    let postIsOpen = await portastic.test(port);
+    if (!postIsOpen) {
+      console.error(`Port ${port} is already in use`);
+      process.exit(1);
+    }
+  } else {
+    if (!port) {
+      console.warn(`Port '${port}' is invalid. Fallback to random port`);
+      port = await findUnusedPort();
+    }
+    if (!port) {
+      console.error(`Not found available port`);
+      process.exit(1);
+    }
+  }
 
-/**
- * Create HTTP server.
- */
+  app.set('port', port);
 
-const server = http.createServer(app);
+  /**
+   * Create HTTP server.
+   */
+  const server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+  /**
+   * Listen on provided port, on all network interfaces.
+   */
+  server.on('error', onError);
+  app.listen(port, function () {
+    debug('Start listening on ' + port);
+  });
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+  /**
+   * Event listener for HTTP server "error" event.
+   */
+  function onError (error) {
+    if (error.syscall !== 'listen') {
+      throw error;
+    }
+
+    let bind = typeof port === 'string'
+          ? 'Pipe ' + port
+          : 'Port ' + port
+      ;
+
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+      case 'EACCES':
+        console.error(bind + ' requires elevated privileges');
+        process.exit(1);
+        break;
+      case 'EADDRINUSE':
+        console.error(bind + ' is already in use');
+        process.exit(1);
+        break;
+      default:
+        throw error;
+    }
+  }
+})();
 
 /**
  * Normalize a port into a number, string, or false.
  */
-
 function normalizePort (val) {
   let port = parseInt(val, 10);
 
@@ -49,46 +96,4 @@ function normalizePort (val) {
   }
 
   return false;
-}
-
-/**
- * Event listener for HTTP server "error" event.
- */
-
-function onError (error) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
-
-  let bind = typeof port === 'string'
-        ? 'Pipe ' + port
-        : 'Port ' + port
-    ;
-
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-}
-
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening () {
-  let addr = server.address();
-  let bind = typeof addr === 'string'
-        ? 'pipe ' + addr
-        : 'port ' + addr.port
-    ;
-  debug('Listening on ' + bind);
 }
