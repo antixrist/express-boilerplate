@@ -115,6 +115,7 @@ app.use(cookieParser());
 // }));
 app.use(responseTime());
 app.use(express.static(path.join(cwd, 'public'), expressConfig.static));
+// сессии после статики, чтобы не создавать пустые сессии на каждый статичный файл
 app.use(compression({
   threshold: 128,
   filter (req, res) {
@@ -133,6 +134,7 @@ app.use(function (req, res, next) {
 });
 
 app.use(function (err, req, res, next) {
+  console.error(err);
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,

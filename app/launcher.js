@@ -47,7 +47,11 @@ const isProduction = app.get('env') == 'production';
    * Listen on provided port, on all network interfaces.
    */
   server.on('error', onError);
-  app.listen(port, function () {
+  app.listen(port, function (err) {
+    if (err) {
+      return onError(err);
+    }
+    
     if (isProduction) {
       console.log('Start listening on ' + port);
     } else {
