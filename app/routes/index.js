@@ -7,6 +7,17 @@ const router = Router(expressConfig.router);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  res.cookie('asd', 'qwe', {
+    path: '/',
+    // secure: true,
+    httpOnly: true
+  });
+  res.cookie('asdSigned', 'qwe', {
+    signed: true,
+    path: '/',
+    // secure: true,
+    httpOnly: true
+  });
   res.render('index', { title: 'Express' });
 });
 
@@ -15,4 +26,6 @@ router.get('/async', async function (req, res, next) {
   res.render('index', { title: 'Express', asyncAwait });
 });
 
-export {router as app, usersRouter as users};
+router.use('/users', usersRouter);
+
+export default router;

@@ -29,7 +29,7 @@
 - `cookie-parser`
 - `cookie-signature` - подпись кук
 - `connect-redis` (сессии в редисе) / `express-mysql-session` (сессии в mysql)
-- `passport` и его стратегии
+- `passport` и его стратегии (в т.ч. `passport-local`, `passport-hash`)
 - `bcrypt-nodejs` / `pwd` / `pswd` для паролей
 - `express-urlrewrite` - 301 редирект
 - `passport.socketio` / `express-socket.io-session` - шаринг сессии между экспрессом и socket.io
@@ -270,6 +270,10 @@ app.set('x-powered-by', false);
 
 ### Генерация документации
 - `apidoc`
+
+### Деплой
+- [dokku](https://github.com/dokku/dokku)
+- [shipit](https://github.com/shipitjs/shipit)
 
 ## Примеры приложений
 - [hackathon-starter](https://github.com/sahat/hackathon-starter)

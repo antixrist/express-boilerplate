@@ -16,13 +16,14 @@ import vhost             from 'vhost';
 import logger            from 'morgan';
 import fileStreamRotator from 'file-stream-rotator';
 import Debug             from 'debug';
-import * as routes       from './routes';
+import routes            from './routes';
 import {toArray}         from './utils';
 import {seo}             from './middlewares';
 import {
+  cookies,
   cookieSecret,
-  redirects,
-  rewrites,
+  // redirects,
+  // rewrites,
   express as expressConfig
 } from './config';
 
@@ -44,7 +45,6 @@ if (_.isPlainObject(expressConfig.locals)) {
 }
 
 // seo
-redirect(app);
 
 app.use(seo({
   toLower: true,
@@ -62,15 +62,16 @@ app.use(forceDomain({
   // protocol: 'https'
 }));
 
-Object.keys(redirects).forEach(from => {
-  let to = redirects[from];
-  app.redirect(from, to, 301, true);
-});
-
-Object.keys(rewrites).forEach(from => {
-  let to = rewrites[from];
-  app.use(rewrite(from, to));
-});
+// redirect(app);
+// Object.keys(redirects).forEach(from => {
+//   let to = redirects[from];
+//   app.redirect(from, to, 301, true);
+// });
+//
+// Object.keys(rewrites).forEach(from => {
+//   let to = rewrites[from];
+//   app.use(rewrite(from, to));
+// });
 // /seo
 
 if (!isProduction) {
@@ -106,7 +107,7 @@ if (!!expressConfig.basicAuth) {
 // app.use(timeout(15000));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cookieParser());
+app.use(cookieParser(cookies.secret));
 // app.use(require('node-sass-middleware')({
 //   src:            path.join(cwd, 'public'),
 //   dest:           path.join(cwd, 'public'),
@@ -123,8 +124,7 @@ app.use(compression({
   }
 }));
 
-app.use('/', routes.app);
-app.use('/users', routes.users);
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -134,6 +134,29 @@ app.use(function (req, res, next) {
 });
 
 app.use(function (err, req, res, next) {
+  // respect err.statusCode
+  if (err.statusCode) {
+    res.statusCode = err.statusCode
+  }
+  
+  // respect err.status
+  if (err.status) {
+    res.statusCode = err.status
+  }
+  
+  // default status code to 500
+  if (res.statusCode < 400) {
+    res.statusCode = 500
+  }
+  
+  // cannot actually respond
+  if (res._header) {
+    return req.socket.destroy()
+  }
+  
+  // Security header for content sniffing
+  res.set('X-Content-Type-Options', 'nosniff');
+  
   console.error(err);
   res.status(err.status || 500);
   res.render('error', {

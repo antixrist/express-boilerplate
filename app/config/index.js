@@ -1,11 +1,15 @@
 const isProduction = (process.env.NODE_ENV == 'production');
+const cookies      = {
+  secret: `${process.env.NODE_ENV} very strong cookies secret string blablabla 123qwe$%^RTY`,
+  sessionName: 'PHPSESSID'
+};
 const cookieSecret = `${process.env.NODE_ENV} very strong cookies secret string blablabla 123qwe$%^RTY`;
-const redirects = {
-  // external 301 redirects for `express-redirect`
-};
-const rewrites = {
-  // internal redirects for `express-urlrewrite`
-};
+// const redirects    = {
+//   // external 301 redirects for `express-redirect`
+// };
+// const rewrites     = {
+//   // internal redirects for `express-urlrewrite`
+// };
 
 const express = {
   set: {
@@ -44,4 +48,10 @@ const express = {
   }] : false
 };
 
-export {cookieSecret, redirects, rewrites, express};
+export {
+  cookies,
+  cookieSecret,
+  // redirects,
+  // rewrites,
+  express
+};
