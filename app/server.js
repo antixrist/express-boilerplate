@@ -23,7 +23,6 @@ import {toArray}         from './utils';
 import {seo}             from './middlewares';
 import {
   cookies,
-  cookieSecret,
   // redirects,
   // rewrites,
   express as expressConfig
@@ -156,6 +155,9 @@ app.use(helmet.ieNoOpen());
 
 /** ставим "X-Content-Type-Options: nosniff", чтобы браузер доверял посланным сервером миме-типам, бюлочил не совпадающие и не пытался угадывать миме по содежимому загруженных файлов (а то ещё начнёт выполнять то, чего выполнять не должен) */
 app.use(helmet.noSniff());
+
+/** устанавливаем "Referrer-Policy". Честно говоря лень разбираться во всех значениях: https://www.w3.org/TR/referrer-policy/#referrer-policies */
+// app.use(helmet.referrerPolicy({ policy: 'same-origin' }));
 
 /** если юзается ssl, то надо послать браузеру открытые ключи, чтобы он их сохранил и при последующих запросах оберегал юзера от скомпрометированных CA */
 app.use(helmet.hpkp({
