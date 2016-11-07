@@ -151,14 +151,16 @@ app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
 /** установим "X-DNS-Prefetch-Control: off", чтобы браузеры (которые это умеют) не префетчили ip нашего домена */
 app.use(helmet.dnsPrefetchControl());
 
-/** если юзается ssl, то надо послеть браузеру открытые ключи, чтобы он их сохранил и при последующих запросах оберегал юзера от скомпрометированных CA */
-// let ninetyDaysInSeconds = 7776000;
+/** если юзается ssl, то надо послать браузеру открытые ключи, чтобы он их сохранил и при последующих запросах оберегал юзера от скомпрометированных CA */
 // app.use(helmet.hpkp({
-//   maxAge: ninetyDaysInSeconds,
+//   maxAge: 7776000, // ninety days in seconds
 //   sha256s: ['AbCdEf123=', 'ZyXwVu456='],
 //   includeSubdomains: true,
-//   reportUri: 'https://example.com/hpkp-report'
-//   reportOnly: false
+//   reportUri: 'https://example.com/hpkp-report',
+//   reportOnly: false,
+//   setIf: function (req, res) {
+//     return !!req.secure;
+//   }
 // }));
 
 /** csurf должен идти _после_ этого роута */

@@ -34,6 +34,7 @@
 - `bcrypt-nodejs` / `pwd` / `pswd` для паролей
 - `express-urlrewrite` - 301 редирект
 - `passport.socketio` / `express-socket.io-session` - шаринг сессии между экспрессом и socket.io
+- `clearsitedata` - устанавливает специальный заголовок, чтобы браузер почистил кэш, куки, стораджи (полезно при логауте)
 - 
 - `express-validator` - для валидации данных в теле запроса (надстройка над `validator`)
 - `lusca` - csrf, csp, xframe, p3p, hsts, xssProtection, nosniff
