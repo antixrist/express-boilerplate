@@ -24,7 +24,7 @@
 - `express-redirect`
 - `forcedomain`
 - `express-uncapitalize` (todo: проверить - возможно `express` имеет встроенные средства для таких редиректов)
-- `redirect-trailing-slash`
+- `redirect-trailing-slash` / `express-slash`
 - 
 - `express-session`
 - `cookie-parser`
@@ -49,6 +49,7 @@
 - `express-resource` (очень старый) / `restler` - rest
 - `join-monster` - GraphQL -> SQL
 - `method-override`
+- `connect-rid` - генератор request-id
 - 
 - `node-inspector` / `devtool` - отладка в консоли хрома
 - `errorhandler` - для рендера ошибок на клиент (only dev)

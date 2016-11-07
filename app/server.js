@@ -12,6 +12,8 @@ import basicAuth         from 'basic-auth';
 import responseTime      from 'response-time';
 import redirect          from 'express-redirect';
 import rewrite           from 'express-urlrewrite';
+import httpError         from 'http-errors';
+import helmet            from 'helmet';
 import vhost             from 'vhost';
 import logger            from 'morgan';
 import fileStreamRotator from 'file-stream-rotator';
@@ -34,33 +36,39 @@ const isProduction = app.get('env') == 'production';
 
 debug(`Setup ${app.get('env')} server`);
 
-// setup express instance
+/**
+ * Устанавливаем настройки всего приложения
+ */
 if (_.isPlainObject(expressConfig.set)) {
   _.forEach(expressConfig.set, (val, key) => app.set(key, val));
 }
 
-// setup app's locals
+/**
+ * Устанавливаем переменные для шаблонов, которые будут доступны всегда
+ * (если их не перезаписывать)
+ */
 if (_.isPlainObject(expressConfig.locals)) {
   _.assign(app.locals, expressConfig.locals);
 }
 
-// seo
-
+/**
+ * Немного seo-шной консистентности
+ */
 app.use(seo({
   toLower: true,
   removeHtmlSuffix: true,
   removeTrailingSlash: true
 }));
-app.use(vhost('api.localhost', function (req, res) {
-  // handle req + res belonging to api.localhost
-  res.send('is api host');
-}));
-
-app.use(forceDomain({
-  hostname: 'localhost',
-  port: app.get('port'),
-  // protocol: 'https'
-}));
+// app.use(vhost('api.localhost', function (req, res) {
+//   // handle req + res belonging to api.localhost
+//   res.send('is api host');
+// }));
+//
+// app.use(forceDomain({
+//   hostname: 'localhost',
+//   port: app.get('port'),
+//   // protocol: 'https'
+// }));
 
 // redirect(app);
 // Object.keys(redirects).forEach(from => {
@@ -74,9 +82,13 @@ app.use(forceDomain({
 // });
 // /seo
 
+/**
+ * Логирование запросов
+ */
 if (!isProduction) {
   app.use(logger('dev'));
 } else {
+  /** на продакшене логируем в файл, с суточной ротацией */
   let logDirectory = path.join(cwd, '/logs');
   !pathExists.sync(logDirectory) && fs.mkdirSync(logDirectory);
 
@@ -90,6 +102,10 @@ if (!isProduction) {
   }));
 }
 
+/**
+ * Устанавливаем http-аутентификацию, если логины-пароли заданы в конфиге.
+ * В конфиге можно задать несколько логинов/паролей.
+ */
 if (!!expressConfig.basicAuth) {
   let allowedCredentials = toArray(expressConfig.basicAuth);
   app.use(function (req, res, next) {
@@ -102,21 +118,79 @@ if (!!expressConfig.basicAuth) {
       next();
     }
   });
+
+  /** todo: вынести логаут-урл http-аутентификации в конфиг */
+  app.get('/logout', function (req, res) {
+    res.set('WWW-Authenticate', 'Basic realm="Flush Authorization"');
+    return res.sendStatus(401);
+  });
 }
 
+/**
+ * Основная настройка - таймауты, парсеры тела запроса, кук
+ */
 // app.use(timeout(15000));
-app.use(bodyParser.json());
+app.use(bodyParser.json({
+  type: ['json', 'application/csp-report']
+}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser(cookies.secret));
+app.use(responseTime());
+
+
+/**
+ * Настройка заголовков безопасности
+ */
+
+/** Запрет на показ в айфрейме (sameorigin - можно только с того же домена) */
+app.use(helmet.frameguard({action: 'sameorigin'})); // or { action: 'deny' }
+
+/** csurf должен идти _после_ этого роута */
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'", 'default.com'],
+    styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
+    imgSrc: ['img.com', 'data:'],
+    sandbox: ['allow-forms', 'allow-scripts'],
+    reportUri: '/report-csp-violation',
+    objectSrc: [], // An empty array allows nothing through
+  },
+  setAllHeaders: true,
+  disableAndroid: true
+}));
+
+/** роут для приёма репортов о нарушении csp (нормальные браузеры будут слать сюда отчёты) */
+app.post('/report-csp-violation', function (req, res) {
+  if (req.body) {
+    console.warning('CSP Violation: ', req.body);
+  } else {
+    console.warning('CSP Violation: No data received!');
+  }
+
+  res.status(204).end();
+});
+
+/**
+ * Ну как бы можно включить парсинг sass'а на лету,
+ * но как бы нехер говнокодить.
+ */
 // app.use(require('node-sass-middleware')({
 //   src:            path.join(cwd, 'public'),
 //   dest:           path.join(cwd, 'public'),
 //   indentedSyntax: false,
 //   sourceMap:      true
 // }));
-app.use(responseTime());
+
+/**
+ * Шарим статику.
+ * Настройка сессий должна идти после статики,
+ * чтобы не создавать пустые сессии на каждый статичный файл.
+ */
 app.use(express.static(path.join(cwd, 'public'), expressConfig.static));
-// сессии после статики, чтобы не создавать пустые сессии на каждый статичный файл
+
+/**
+ * Кукожим ответ
+ */
 app.use(compression({
   threshold: 128,
   filter (req, res) {
@@ -124,15 +198,21 @@ app.use(compression({
   }
 }));
 
+/**
+ * Пошли маршруты
+ */
 app.use('/', routes);
 
-// catch 404 and forward to error handler
+
+
+/** Если дошли сюда, значит на запрос не нашлось нужного роута. Выкинем 404. */
 app.use(function (req, res, next) {
-  var err    = new Error('Not Found');
-  err.status = 404;
-  next(err);
+  return next(new httpError.NotFound());
 });
 
+/**
+ * Обрабатываем ошибки
+ */
 app.use(function (err, req, res, next) {
   // respect err.statusCode
   if (err.statusCode) {
