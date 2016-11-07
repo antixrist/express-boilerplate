@@ -18,7 +18,7 @@
 - `response-time`
 - `connect-timeout`
 - `basic-auth-connect` (deprecated) / `basic-auth`
-- `http-errors`
+- `http-errors` - удобная обёртка для посыла http-ошибок
 - 
 - `express-redirect`
 - `forcedomain`
