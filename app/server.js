@@ -159,27 +159,25 @@ app.use(helmet.noSniff());
 
 /** если юзается ssl, то надо послать браузеру открытые ключи, чтобы он их сохранил и при последующих запросах оберегал юзера от скомпрометированных CA */
 app.use(helmet.hpkp({
+  setIf (req, res) {
+    return !!req.secure;
+  },
   maxAge: 7776000, // ninety days in seconds
   sha256s: ['AbCdEf123=', 'ZyXwVu456='],
   includeSubdomains: true,
   reportUri: 'https://example.com/hpkp-report',
-  reportOnly: false,
-  setIf (req, res) {
-    return !!req.secure;
-  }
+  reportOnly: false
 }));
 
 /** опять же, если юзается ssl. говорит браузеру ходить только по https */
 app.use(helmet.hsts({
-  maxAge: 5184000, // sixty days in seconds
-  includeSubDomains: true,
-  preload: true,
-  // either
+  // or `force: true`
   setIf (req, res) {
     return !!req.secure;
   },
-  // or
-  // force: true
+  maxAge: 5184000, // sixty days in seconds
+  includeSubDomains: true,
+  preload: true
 }));
 
 /** csurf должен идти _после_ этого роута */
