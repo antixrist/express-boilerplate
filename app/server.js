@@ -150,10 +150,10 @@ app.use(helmet.frameguard({action: 'sameorigin'})); // or { action: 'deny' }
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'", 'somecdn.com'],
-    styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
+    styleSrc: ["'self'", "'unsafe-inline'", 'maxcdn.bootstrapcdn.com'],
     imgSrc: ['img.com', 'data:'],
     // todo: печеньки не читаются. изучить про sandbox
-    sandbox: ['allow-forms', 'allow-scripts'],
+    // sandbox: ['allow-forms', 'allow-scripts', 'allow-same-origin'],
     reportUri: '/report-csp-violation',
     objectSrc: ["'none'"], // An empty array allows nothing through
   },
