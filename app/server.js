@@ -148,6 +148,19 @@ app.use(helmet.frameguard({action: 'sameorigin'})); // or { action: 'deny' }
 /** пусть мамкины хакеры голову ломают */
 app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
 
+/** установим "X-DNS-Prefetch-Control: off", чтобы браузеры (которые это умеют) не префетчили ip нашего домена */
+app.use(helmet.dnsPrefetchControl());
+
+/** если юзается ssl, то надо послеть браузеру открытые ключи, чтобы он их сохранил и при последующих запросах оберегал юзера от скомпрометированных CA */
+// let ninetyDaysInSeconds = 7776000;
+// app.use(helmet.hpkp({
+//   maxAge: ninetyDaysInSeconds,
+//   sha256s: ['AbCdEf123=', 'ZyXwVu456='],
+//   includeSubdomains: true,
+//   reportUri: 'https://example.com/hpkp-report'
+//   reportOnly: false
+// }));
+
 /** csurf должен идти _после_ этого роута */
 /** todo: вынести настройки csp в конфиг */
 app.use(helmet.contentSecurityPolicy({
