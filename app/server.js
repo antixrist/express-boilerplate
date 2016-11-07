@@ -139,7 +139,7 @@ app.use(responseTime());
 
 
 /**
- * Настройка заголовков безопасности
+ * Настройки безопасности.
  */
 
 /** Запрет на показ в айфрейме (sameorigin - можно только с того же домена) */
@@ -148,7 +148,7 @@ app.use(helmet.frameguard({action: 'sameorigin'})); // or { action: 'deny' }
 /** csurf должен идти _после_ этого роута */
 app.use(helmet.contentSecurityPolicy({
   directives: {
-    defaultSrc: ["'self'", 'default.com'],
+    defaultSrc: ["'self'", 'somecdn.com'],
     styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
     imgSrc: ['img.com', 'data:'],
     sandbox: ['allow-forms', 'allow-scripts'],
