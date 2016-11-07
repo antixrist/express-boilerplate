@@ -145,6 +145,9 @@ app.use(responseTime());
 /** Запрет на показ в айфрейме (sameorigin - можно только с того же домена) */
 app.use(helmet.frameguard({action: 'sameorigin'})); // or { action: 'deny' }
 
+/** пусть мамкины хакеры голову ломают */
+app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
+
 /** csurf должен идти _после_ этого роута */
 /** todo: вынести настройки csp в конфиг */
 app.use(helmet.contentSecurityPolicy({
@@ -160,7 +163,6 @@ app.use(helmet.contentSecurityPolicy({
   setAllHeaders: true,
   disableAndroid: true
 }));
-
 /** роут для приёма репортов о нарушении csp (нормальные браузеры будут слать сюда отчёты) */
 app.post('/report-csp-violation', function (req, res) {
   if (!isProduction) {
@@ -187,6 +189,7 @@ app.post('/report-csp-violation', function (req, res) {
 
   res.status(204).end();
 });
+
 
 /**
  * Ну как бы можно включить парсинг sass'а на лету,
