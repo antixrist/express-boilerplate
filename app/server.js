@@ -154,6 +154,9 @@ app.use(helmet.dnsPrefetchControl());
 /** для старых ишаков ставим "X-Download-Options: noopen", чтобы контент, который надо скачать, они не открывали в контекста сайта  */
 app.use(helmet.ieNoOpen());
 
+/** ставим "X-Content-Type-Options: nosniff", чтобы браузер доверял посланным сервером миме-типам, бюлочил не совпадающие и не пытался угадывать миме по содежимому загруженных файлов (а то ещё начнёт выполнять то, чего выполнять не должен) */
+app.use(helmet.noSniff());
+
 /** если юзается ssl, то надо послать браузеру открытые ключи, чтобы он их сохранил и при последующих запросах оберегал юзера от скомпрометированных CA */
 app.use(helmet.hpkp({
   maxAge: 7776000, // ninety days in seconds
@@ -286,9 +289,6 @@ app.use(function (err, req, res, next) {
     return req.socket.destroy()
   }
   
-  // Security header for content sniffing
-  res.set('X-Content-Type-Options', 'nosniff');
-
   // todo логировать ошибки в файлы
   console.error(err);
   res.status(err.status || 500);
