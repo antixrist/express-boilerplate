@@ -82,6 +82,14 @@ app.use(seo({
 // /seo
 
 /**
+ * Шарим статику.
+ * Настройка сессий должна идти после статики,
+ * чтобы не создавать пустые сессии на каждый статичный файл.
+ * Если нужны логи статики, то надо поместить эту мидлварю после логгирования.
+ */
+app.use(express.static(path.join(cwd, 'public'), expressConfig.static));
+
+/**
  * Логирование запросов
  */
 if (!isProduction) {
@@ -239,13 +247,6 @@ app.post('/report-csp-violation', function (req, res) {
 //   indentedSyntax: false,
 //   sourceMap:      true
 // }));
-
-/**
- * Шарим статику.
- * Настройка сессий должна идти после статики,
- * чтобы не создавать пустые сессии на каждый статичный файл.
- */
-app.use(express.static(path.join(cwd, 'public'), expressConfig.static));
 
 /**
  * Кукожим ответ
