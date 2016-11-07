@@ -19,6 +19,7 @@
 - `connect-timeout`
 - `basic-auth-connect` (deprecated) / `basic-auth`
 - `http-errors` - удобная обёртка для посыла http-ошибок
+- `negotiator` - пока не вкурил как и где юзать, но, видать, штука нужная
 - 
 - `express-redirect`
 - `forcedomain`
