@@ -223,13 +223,13 @@ app.use('/', routes);
 
 
 
-/** Если дошли сюда, значит на запрос не нашлось нужного роута. Выкинем 404. */
+/** Если дошли сюда, значит на запрос не нашлось нужного роута. Отправим 404. */
 app.use(function (req, res, next) {
   return next(new httpError.NotFound());
 });
 
 /**
- * Обрабатываем ошибки
+ * Если дошли сюда - значит пойманная/переданная ошибка.
  */
 app.use(function (err, req, res, next) {
   // respect err.statusCode
@@ -254,7 +254,8 @@ app.use(function (err, req, res, next) {
   
   // Security header for content sniffing
   res.set('X-Content-Type-Options', 'nosniff');
-  
+
+  // todo логировать ошибки в файлы
   console.error(err);
   res.status(err.status || 500);
   res.render('error', {
