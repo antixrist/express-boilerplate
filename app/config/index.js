@@ -13,7 +13,8 @@ const cookieSecret = `${process.env.NODE_ENV} very strong cookies secret string 
 
 const express = {
   set: {
-    port: process.env.PORT || isProduction ? 3000 : 4000,
+    // port: process.env.PORT || isProduction ? 3001 : 4000,
+    port: 4000,
     views: './views',
     'view engine': 'jade',
     'x-powered-by': false,

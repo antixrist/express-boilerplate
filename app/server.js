@@ -151,9 +151,10 @@ app.use(helmet.contentSecurityPolicy({
     defaultSrc: ["'self'", 'somecdn.com'],
     styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
     imgSrc: ['img.com', 'data:'],
+    // todo: печеньки не читаются. изучить про sandbox
     sandbox: ['allow-forms', 'allow-scripts'],
     reportUri: '/report-csp-violation',
-    objectSrc: [], // An empty array allows nothing through
+    objectSrc: ["'none'"], // An empty array allows nothing through
   },
   setAllHeaders: true,
   disableAndroid: true
@@ -161,10 +162,26 @@ app.use(helmet.contentSecurityPolicy({
 
 /** роут для приёма репортов о нарушении csp (нормальные браузеры будут слать сюда отчёты) */
 app.post('/report-csp-violation', function (req, res) {
-  if (req.body) {
-    console.warning('CSP Violation: ', req.body);
+  if (!isProduction) {
+    if (req.body) {
+      console.error('CSP Violation: ', req.body);
+    } else {
+      console.error('CSP Violation: No data received!');
+    }
   } else {
-    console.warning('CSP Violation: No data received!');
+    /** на продакшене логируем в файл, с суточной ротацией */
+    let logDirectory = path.join(cwd, '/logs');
+    !pathExists.sync(logDirectory) && fs.mkdirSync(logDirectory);
+
+    /** todo: добавить генерацию логов */
+    // app.use(logger('csp', {
+    //   stream: fileStreamRotator.getStream({
+    //     frequency:   'daily',
+    //     date_format: 'YYYYMMDD',
+    //     filename:    path.join(logDirectory, 'csp-%DATE%.log'),
+    //     verbose:     false
+    //   })
+    // }));
   }
 
   res.status(204).end();
