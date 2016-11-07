@@ -151,17 +151,33 @@ app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
 /** установим "X-DNS-Prefetch-Control: off", чтобы браузеры (которые это умеют) не префетчили ip нашего домена */
 app.use(helmet.dnsPrefetchControl());
 
+/** для старых ишаков ставим "X-Download-Options: noopen", чтобы контент, который надо скачать, они не открывали в контекста сайта  */
+app.use(helmet.ieNoOpen());
+
 /** если юзается ssl, то надо послать браузеру открытые ключи, чтобы он их сохранил и при последующих запросах оберегал юзера от скомпрометированных CA */
-// app.use(helmet.hpkp({
-//   maxAge: 7776000, // ninety days in seconds
-//   sha256s: ['AbCdEf123=', 'ZyXwVu456='],
-//   includeSubdomains: true,
-//   reportUri: 'https://example.com/hpkp-report',
-//   reportOnly: false,
-//   setIf: function (req, res) {
-//     return !!req.secure;
-//   }
-// }));
+app.use(helmet.hpkp({
+  maxAge: 7776000, // ninety days in seconds
+  sha256s: ['AbCdEf123=', 'ZyXwVu456='],
+  includeSubdomains: true,
+  reportUri: 'https://example.com/hpkp-report',
+  reportOnly: false,
+  setIf (req, res) {
+    return !!req.secure;
+  }
+}));
+
+/** опять же, если юзается ssl. говорит браузеру ходить только по https */
+app.use(helmet.hsts({
+  maxAge: 5184000, // sixty days in seconds
+  includeSubDomains: true,
+  preload: true,
+  // either
+  setIf (req, res) {
+    return !!req.secure;
+  },
+  // or
+  // force: true
+}));
 
 /** csurf должен идти _после_ этого роута */
 /** todo: вынести настройки csp в конфиг */
