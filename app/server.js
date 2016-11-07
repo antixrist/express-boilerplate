@@ -128,6 +128,7 @@ if (!!expressConfig.basicAuth) {
 /**
  * Основная настройка - таймауты, парсеры тела запроса, кук
  */
+// todo: ещё раз изучить connect-timeout
 // app.use(timeout(15000));
 app.use(bodyParser.json({
   type: ['json', 'application/csp-report']
