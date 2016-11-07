@@ -146,6 +146,7 @@ app.use(responseTime());
 app.use(helmet.frameguard({action: 'sameorigin'})); // or { action: 'deny' }
 
 /** csurf должен идти _после_ этого роута */
+/** todo: вынести настройки csp в конфиг */
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'", 'somecdn.com'],
