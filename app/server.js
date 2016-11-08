@@ -218,11 +218,8 @@ app.use(helmet.contentSecurityPolicy({
 /** роут для приёма репортов о нарушении csp (нормальные браузеры будут слать сюда отчёты) */
 app.post('/report-csp-violation', function (req, res) {
   if (!isProduction) {
-    if (req.body) {
-      console.error('CSP Violation: ', req.body);
-    } else {
-      console.error('CSP Violation: No data received!');
-    }
+    let body = req.body ? req.body : 'No data received!';
+    console.error(`CSP Violation: ${body}`);
   } else {
     /** на продакшене логируем в файл, с суточной ротацией */
     let logDirectory = path.join(cwd, '/logs');
