@@ -4,6 +4,7 @@
 ## Node.js
 - `pm2`
 - `cross-spawn` / `execa`
+- `mz` - промайзнутые стандартные библиотеки
 - 
 - `node-notifier`
 - `nodejs-dashboard`
@@ -90,6 +91,7 @@ app.set('x-powered-by', false);
 - `mysql2`
     - `knex`, `bookshelf`
     - `sequelize` (`sequelize-auto`, `sequelize-definer`, `sequelize-hierarchy`, `sequelize-values`)
+- `pg` / `pg-bluebird` / `pg-native`
 - `ioredis` / `redis`
 - `reds` - поиск в редисе
 - `kue` - очередь с приоритетами в редисе
