@@ -133,7 +133,7 @@ if (!!expressConfig.basicAuth) {
 
   /** todo: вынести логаут-урл http-аутентификации в конфиг */
   app.get('/logout', function (req, res) {
-    res.set('WWW-Authenticate', 'Basic realm="Flush Authorization"');
+    res.set('WWW-Authenticate', 'Basic realm="Authentication Required"');
     req.user = {};
     return res.sendStatus(401);
   });
