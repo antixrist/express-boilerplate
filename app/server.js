@@ -135,7 +135,7 @@ if (!!expressConfig.basicAuth) {
   app.get('/logout', function (req, res) {
     res.set('WWW-Authenticate', 'Basic realm="Authentication Required"');
     req.user = {};
-    return res.sendStatus(401);
+    return next(new httpError.Unauthorized());
   });
 }
 
