@@ -93,7 +93,8 @@ app.use(express.static(path.join(cwd, 'public'), expressConfig.static));
  * Логирование запросов
  */
 if (!isProduction) {
-  app.use(logger('dev'));
+  // app.use(logger('dev'));
+  app.use(logger('combined'));
 } else {
   /** на продакшене логируем в файл, с суточной ротацией */
   let logDirectory = path.join(cwd, '/logs');
@@ -116,12 +117,16 @@ if (!isProduction) {
 if (!!expressConfig.basicAuth) {
   let allowedCredentials = toArray(expressConfig.basicAuth);
   app.use(function (req, res, next) {
+    req.user = {};
+
     let credentials = basicAuth(req);
-    if (!credentials || !_.find(allowedCredentials, credentials)) {
+    let user = credentials ? _.find(allowedCredentials, credentials) : null;
+    if (!user) {
       res.statusCode = 401;
       res.set('WWW-Authenticate', 'Basic realm="Authentication Required"');
-      res.render('403');
+      return next(new httpError.Unauthorized());
     } else {
+      req.user = user;
       next();
     }
   });
@@ -129,6 +134,7 @@ if (!!expressConfig.basicAuth) {
   /** todo: вынести логаут-урл http-аутентификации в конфиг */
   app.get('/logout', function (req, res) {
     res.set('WWW-Authenticate', 'Basic realm="Flush Authorization"');
+    req.user = {};
     return res.sendStatus(401);
   });
 }
