@@ -132,7 +132,7 @@ if (!!expressConfig.basicAuth) {
   });
 
   /** todo: вынести логаут-урл http-аутентификации в конфиг */
-  app.get('/logout', function (req, res) {
+  app.get('/logout', function (req, res, next) {
     res.set('WWW-Authenticate', 'Basic realm="Authentication Required"');
     req.user = {};
     return next(new httpError.Unauthorized());
