@@ -17,6 +17,7 @@ const express = {
     port: 4000,
     views: './views',
     'view engine': 'jade',
+    'view cache': false,
     'x-powered-by': false,
     'strict routing': true,
     'case sensitive routing': true,
