@@ -1,0 +1,11 @@
+{
+  "verbose": true,
+  "ignore": [
+    "logs/*",
+    "dist/*",
+    "views/*",
+    "public/*",
+    "node_modules/*",
+    "bower_components/*"
+  ]
+}
