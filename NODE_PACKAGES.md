@@ -71,6 +71,10 @@ app.set('x-powered-by', false);
 - `electrode-confippet`
 - `env-cmd`
 
+### Обработка ошибок
+- `death`
+- `loud-rejection`
+
 ### Кластеризация процессов
 - `strong-cluster-control`
 
@@ -213,6 +217,7 @@ app.set('x-powered-by', false);
 - `delegates` - делегация методов и пропертей прототипа к какому-либо свойству этого прототипа
 - `escape-html`
 - `function-done`
+- `object-path` - продвинутый `_.get()`
 - `numeral` - работа с числами
 - `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов)
 - `mem`
@@ -251,6 +256,7 @@ app.set('x-powered-by', false);
 - `graphicsmagick2`
 
 ### Морфология и текст
+- `leven` - самый быстрый левенштейн
 - `az`
 - `fuzzyset.js`
 - `lunr-languages`
