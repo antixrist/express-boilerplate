@@ -144,11 +144,20 @@ if (!!expressConfig.basicAuth) {
  */
 // todo: ещё раз изучить connect-timeout
 // app.use(timeout(15000));
+/** Кукожим ответ */
+app.use(compression({
+  threshold: 128,
+  filter (req, res) {
+    return req.headers['x-no-compression'] ? false : compression.filter(req, res);
+  }
+}));
 app.use(bodyParser.json({
   type: ['json', 'application/csp-report']
 }));
 app.use(bodyParser.urlencoded({extended: true}));
+/** парсим печеньки в заголовках */
 app.use(cookieParser(cookies.secret));
+/** добавляем заголовок с временем ответа */
 app.use(responseTime());
 
 
@@ -250,16 +259,6 @@ app.post('/report-csp-violation', function (req, res) {
 //   indentedSyntax: false,
 //   sourceMap:      true
 // }));
-
-/**
- * Кукожим ответ
- */
-app.use(compression({
-  threshold: 128,
-  filter (req, res) {
-    return req.headers['x-no-compression'] ? false : compression.filter(req, res);
-  }
-}));
 
 /**
  * Пошли маршруты
