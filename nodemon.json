@@ -1,5 +1,7 @@
 {
   "verbose": true,
+  "delay": "2000",
+  "ext": "js,json,html",
   "ignore": [
     "logs/*",
     "dist/*",
