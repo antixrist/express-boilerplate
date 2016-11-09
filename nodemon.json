@@ -3,11 +3,10 @@
   "delay": "2000",
   "ext": "js,json,html",
   "ignore": [
-    "logs/*",
-    "dist/*",
-    "views/*",
-    "public/*",
-    "node_modules/*",
-    "bower_components/*"
+    "logs",
+    "dist",
+    "views",
+    "public",
+    "bower_components"
   ]
 }
