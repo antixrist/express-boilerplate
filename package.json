@@ -9,7 +9,9 @@
     "serve": "cross-env NODE_ENV=production node dist/launcher.js",
     "prod": "npm run build && npm run serve",
     "production": "npm run prod",
-    "test": "mocha --compilers js:babel-register"
+    "test": "mocha --compilers js:babel-register",
+
+    "postinstall": "bower install"
   },
   "dependencies": {
     "babel": "^6.5.2",
