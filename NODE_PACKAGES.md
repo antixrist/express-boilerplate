@@ -96,7 +96,7 @@ app.set('x-powered-by', false);
     - `knex`, `bookshelf`
     - `sequelize` (`sequelize-auto`, `sequelize-definer`, `sequelize-hierarchy`, `sequelize-values`)
 - `pg` / `pg-bluebird` / `pg-native`
-- `ioredis` / `redis`
+- `ioredis` / `redis`, `redlock`
 - `reds` - поиск в редисе
 - `kue` - очередь с приоритетами в редисе
 
@@ -220,7 +220,7 @@ app.set('x-powered-by', false);
 - `delegates` - делегация методов и пропертей прототипа к какому-либо свойству этого прототипа
 - `escape-html`
 - `function-done`
-- `object-path` - продвинутый `_.get()`
+- `object-path` / `dottie` - продвинутый `_.get()`
 - `numeral` - работа с числами
 - `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов)
 - `mem`
