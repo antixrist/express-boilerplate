@@ -38,7 +38,7 @@
 - `clearsitedata` - устанавливает специальный заголовок, чтобы браузер почистил кэш, куки, стораджи (полезно при логауте)
 - 
 - `express-validator` - для валидации данных в теле запроса (надстройка над `validator`)
-- `lusca` - csrf, csp, xframe, p3p, hsts, xssProtection, nosniff
+- `lusca` / `helmet` (`helmet` лучше)
 - `csurf` - csrf (этот лучше)
 - `cors`
 - `on-finished`
