@@ -142,9 +142,12 @@ app.set('x-powered-by', false);
 - `download`
 - `is-online` - есть ли коннект с интернетом
 - `is-reachable` - есть ли коннект с конкретным ресурсом
+- `node-readability` - вычленение основного текста со страницы
+
+#### Headless-браузеры
 - `node-horseman`
 - `nightmare`
-- `node-readability` - вычленение основного текста со страницы
+[весь список](https://github.com/dhamaniasad/HeadlessBrowsers)
 
 #### Проксики
 - `proxy-search`
