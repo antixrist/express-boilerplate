@@ -43,6 +43,7 @@
 - `lusca` / `helmet` (`helmet` лучше)
 - `csurf` - csrf (этот лучше)
 - `cors`
+- `ratelimiter` - rate limit запросов с хранилищем в редисе
 - `on-finished`
 - 
 - `portastic` - нахождение свободных локальных портов (удобно для dev-запуска)
