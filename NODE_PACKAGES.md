@@ -70,6 +70,7 @@ app.set('x-powered-by', false);
 - `nconf`
 - `electrode-confippet`
 - `env-cmd`
+- `rc`
 
 ### Обработка ошибок
 - `death`
