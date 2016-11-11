@@ -8,6 +8,8 @@
 - 
 - `node-notifier`
 - `nodejs-dashboard`
+- 
+- `safe-regex`
 
 ### Express.js
 - `express-generator`
