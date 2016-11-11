@@ -9,7 +9,7 @@
 - `node-notifier`
 - `nodejs-dashboard`
 - 
-- `safe-regex`
+- `safe-regex` - проверка регулярок на быстроту выполнения - Regular expression Denial of Service (ReDoS)
 
 ### Express.js
 - `express-generator`
