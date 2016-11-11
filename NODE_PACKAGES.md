@@ -38,7 +38,7 @@
 - `clearsitedata` - устанавливает специальный заголовок, чтобы браузер почистил кэш, куки, стораджи (полезно при логауте)
 - 
 - `express-validator` - для валидации данных в теле запроса (надстройка над `validator`)
-- `lusca` - csrf, csp, xframe, p3p, hsts, xssProtection, nosniff
+- `lusca` / `helmet` (`helmet` лучше)
 - `csurf` - csrf (этот лучше)
 - `cors`
 - `on-finished`
@@ -97,7 +97,7 @@ app.set('x-powered-by', false);
     - `knex`, `bookshelf`
     - `sequelize` (`sequelize-auto`, `sequelize-definer`, `sequelize-hierarchy`, `sequelize-values`)
 - `pg` / `pg-bluebird` / `pg-native`
-- `ioredis` / `redis`
+- `ioredis` / `redis`, `redlock`
 - `reds` - поиск в редисе
 - `kue` - очередь с приоритетами в редисе
 
@@ -221,7 +221,7 @@ app.set('x-powered-by', false);
 - `delegates` - делегация методов и пропертей прототипа к какому-либо свойству этого прототипа
 - `escape-html`
 - `function-done`
-- `object-path` - продвинутый `_.get()`
+- `object-path` / `dottie` - продвинутый `_.get()`
 - `numeral` - работа с числами
 - `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов)
 - `mem`
@@ -275,7 +275,8 @@ app.set('x-powered-by', false);
 - `bottlejs`
 
 ### Карты
-- `proj4`
+- `proj4` - перевод из одной проекции в другую
+- `wkx` - парсинг geojson (для браузера в том числе)
 
 ### Сборка
 - `gulp`

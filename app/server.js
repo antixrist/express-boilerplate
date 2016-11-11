@@ -191,8 +191,8 @@ app.use(helmet.hpkp({
   setIf (req, res) {
     return !!req.secure;
   },
-  maxAge: 7776000, // ninety days in seconds
-  sha256s: ['AbCdEf123=', 'ZyXwVu456='],
+  maxAge: 9 * 24 * 60 * 60, // 9 дней в секундах
+  sha256s: ['AbCdEf123=', 'ZyXwVu456='], // заменить на свои значения
   includeSubdomains: true,
   reportUri: 'https://example.com/hpkp-report',
   reportOnly: false
@@ -204,7 +204,7 @@ app.use(helmet.hsts({
   setIf (req, res) {
     return !!req.secure;
   },
-  maxAge: 5184000, // sixty days in seconds
+  maxAge: 5 * 24 * 60 * 60, // 6 дней в секундах
   includeSubDomains: true,
   preload: true
 }));
