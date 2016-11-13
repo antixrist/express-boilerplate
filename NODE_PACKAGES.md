@@ -47,7 +47,7 @@
 - `lusca` / `helmet` (`helmet` лучше)
 - `csurf` - csrf (этот лучше)
 - `cors`
-- `ratelimiter` - rate limit запросов с хранилищем в редисе
+- `ratelimiter` - rate limit запросов с хранилищем в редисе (но по-хорошему этим должен заниматься nginx)
 - `on-finished`
 - 
 - `portastic` - нахождение свободных локальных портов (удобно для dev-запуска)
@@ -114,7 +114,7 @@ app.set('x-powered-by', false);
 
 ### Консоль
 - `debug`
-- `intel` / `bunyan` / `log4js` / `winston` (`winston-daily-rotate-file` для ротации) - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный)
+- `intel` / `bunyan` / `log4js` / **`winston`** (`winston-daily-rotate-file` для ротации) - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный)
 - `microlog`
 - `chalk` - раскраска
 - `better-console` - добавление console.table-методов
