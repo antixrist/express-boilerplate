@@ -6,7 +6,7 @@
 [example-node-server](https://github.com/babel/example-node-server)
 
 ## Node.js
-- `pm2`
+- `pm2` (`pm2-logrotate`)
 - `cross-spawn` / `execa`
 - `mz` - промайзнутые стандартные библиотеки
 - 
@@ -242,10 +242,12 @@ app.set('x-powered-by', false);
 - `cheerio`
 - `shimmer` - типа Proxy через monkeypatching
 
-### Очередя
+### Очередя и таски
 - `queue3`
 - `enqueue`
 - `argumentable-queue`
+- `node-schedule`
+- `cron-parser`
 
 ### Стримы
 - `event-stream`
@@ -275,7 +277,7 @@ app.set('x-powered-by', false);
 - `word2vec` / `word2vec-native` / `word2vec.js`
 - `wuzzy`
 
-### Парсерчики
+### Кравлеры
 - `scrape-it`
 - `x-ray-crawler`
 
