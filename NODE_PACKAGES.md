@@ -12,7 +12,6 @@
 - 
 - `node-notifier`
 - `nodejs-dashboard`
-- 
 - `safe-regex` - проверка регулярок на быстроту выполнения - Regular expression Denial of Service (ReDoS)
 
 ### Express.js
@@ -120,6 +119,7 @@ app.set('x-powered-by', false);
 - `better-console` - добавление console.table-методов
 - `cllc` / `multispinner` / `observatory` / `ora` - вывод с лоадером (вроде как)
 - `commander` - настройка cli-аргументов для запуска приложения (с блекджеком и генератором справки)
+- `liftoff` - bin'арник для своего пакета
 - `eyes` - цветной вывод данных
 - `inquirer` - cli-промптер
 - `minimist` / `yargs` - парсер cli-аргументов
