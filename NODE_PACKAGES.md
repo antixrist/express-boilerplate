@@ -298,6 +298,7 @@ app.set('x-powered-by', false);
 - `apidoc`
 
 ### Деплой
+- [pod](https://github.com/yyx990803/pod)
 - [dokku](https://github.com/dokku/dokku)
 - [shipit](https://github.com/shipitjs/shipit)
 
