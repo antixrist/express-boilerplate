@@ -105,7 +105,7 @@ app.set('x-powered-by', false);
 - `pg` / `pg-bluebird` / `pg-native`
 - `ioredis` / `redis`, `redlock`
 - `reds` - поиск в редисе
-- `kue` - очередь с приоритетами в редисе
+- `kue` - очередь с приоритетами в редисе (но для этих целей лучше брать `rabbitmq`)
 
 ### Права
 - `acl`
