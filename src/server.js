@@ -11,7 +11,7 @@ const isProduction = app.get('env') == 'production';
 
 (async function () {
   /**
-   * Get port and store in Express.
+   * todo: установку/поиск порта перенести в app.js
    */
   let port = normalizePort(app.get('port'));
   if (isProduction) {
