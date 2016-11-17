@@ -112,6 +112,7 @@ app.set('x-powered-by', false);
 - `cancan`
 
 ### Консоль
+- `object-inspect`
 - `debug`
 - `intel` / `bunyan` / `log4js` / **`winston`** (`winston-daily-rotate-file` для ротации) - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный)
 - `microlog`

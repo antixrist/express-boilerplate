@@ -15,6 +15,7 @@ import rewrite           from 'express-urlrewrite';
 import httpError         from 'http-errors';
 import helmet            from 'helmet';
 import vhost             from 'vhost';
+import inspect           from 'object-inspect';
 import logger            from 'morgan';
 import fileStreamRotator from 'file-stream-rotator';
 import Debug             from 'debug';
@@ -233,7 +234,7 @@ app.use(helmet.contentSecurityPolicy({
 app.post('/report-csp-violation', function (req, res) {
   if (!isProduction) {
     let body = req.body ? req.body : 'No data received!';
-    console.error(`CSP Violation: ${body}`);
+    console.error(`CSP Violation: ${inspect(body)}`);
   } else {
     /** на продакшене логируем в файл, с суточной ротацией */
     let logDirectory = path.join(cwd, '/logs');
