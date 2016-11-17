@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "cross-env DEBUG=app:* nodemon app/launcher.js --exec babel-node",
+    "dev": "cross-env DEBUG=app:* nodemon src/server.js --exec babel-node",
     "development": "npm run dev",
-    "build": "babel app -d dist",
-    "serve": "cross-env NODE_ENV=production node dist/launcher.js",
+    "build": "babel src -d dist",
+    "serve": "cross-env NODE_ENV=production node dist/server.js",
     "prod": "npm run build && npm run serve",
     "production": "npm run prod",
     "test": "mocha --compilers js:babel-register",
@@ -51,7 +51,7 @@
     "response-time": "^2.3.1",
     "vhost": "^3.0.2"
   },
-  "main": "app/launcher.js",
+  "main": "dist/server.js",
   "license": "MIT",
   "devDependencies": {
     "pm2": "^2.1.5"

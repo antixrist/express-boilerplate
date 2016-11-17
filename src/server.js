@@ -4,7 +4,7 @@ import http  from 'http';
 import Debug from 'debug';
 import portastic from 'portastic';
 import {findUnusedPort} from './utils';
-import app   from './server';
+import app from './app';
 
 const debug = Debug('app:launcher');
 const isProduction = app.get('env') == 'production';
@@ -57,6 +57,8 @@ const isProduction = app.get('env') == 'production';
     } else {
       debug('Start listening on ' + port);
     }
+    // шлём событие `ready` для `pm2`, если приложение запущено им
+    process.send && process.send('ready');
   });
 
   /**
@@ -118,14 +120,5 @@ process.on('SIGINT', function () {
   //   // если какая-то фигня, то показывем, что завершилось с ошибкой, посылая 1
   //   process.exit(err ? 1 : 0);
   // });
-  process.exit(0);
-});
-
-/**
- * pm2 пошлёт SIGKILL, если процесс не завершился по таймауту после посыла SIGINT.
- * todo: здесь пока не понятно - можно ли это поймать и как-то обработать
-*/
-process.on('SIGKILL', function () {
-  console.log('force shutdown');
-  // process.exit(0);
+  setTimeout(() => process.exit(0), 2000);
 });
