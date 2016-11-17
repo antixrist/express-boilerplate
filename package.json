@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "cross-env DEBUG=app:* nodemon src/server.js --exec babel-node",
     "development": "npm run dev",
-    "build": "rm -rf ./dist && mkdir dist && babel src --out-dir dist --copy-files --source-maps inline",
+    "build": "rm -rf ./dist && mkdir dist && babel src --out-dir dist --copy-files --source-maps",
     "serve": "cross-env NODE_ENV=production node dist/server.js",
     "prod": "npm run build && npm run serve",
     "production": "npm run prod",
@@ -49,6 +49,7 @@
     "path-exists": "^3.0.0",
     "portastic": "^1.0.1",
     "response-time": "^2.3.1",
+    "source-map-support": "^0.4.6",
     "vhost": "^3.0.2"
   },
   "main": "dist/server.js",

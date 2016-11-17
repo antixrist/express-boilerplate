@@ -1,3 +1,4 @@
+import 'source-map-support/register';
 import _                 from 'lodash';
 import fs                from 'fs';
 import express           from 'express';
