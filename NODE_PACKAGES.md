@@ -249,6 +249,7 @@ app.set('x-powered-by', false);
 - `argumentable-queue`
 - `node-schedule`
 - `cron-parser`
+- `node-schedule`
 
 ### Стримы
 - `event-stream`
