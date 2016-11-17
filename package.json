@@ -10,7 +10,6 @@
     "prod": "npm run build && npm run serve",
     "production": "npm run prod",
     "test": "mocha --compilers js:babel-register",
-
     "postinstall": "bower install"
   },
   "dependencies": {
@@ -53,5 +52,7 @@
   },
   "main": "app/launcher.js",
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "pm2": "^2.1.5"
+  }
 }

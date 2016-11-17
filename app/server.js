@@ -132,9 +132,12 @@ if (!!expressConfig.basicAuth) {
   });
 
   /** todo: вынести логаут-урл http-аутентификации в конфиг */
+  /** todo: logout косячный, нормально будет работать только если, слать сюда запрос из front-js */
   app.get('/logout', function (req, res, next) {
     res.set('WWW-Authenticate', 'Basic realm="Authentication Required"');
     req.user = {};
+    res.status(401);
+    // return res.render('redirect');
     return next(new httpError.Unauthorized());
   });
 }
@@ -298,7 +301,7 @@ app.use(function (err, req, res, next) {
   }
   
   // todo логировать ошибки в файлы
-  console.error(err);
+  // console.error(err);
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
