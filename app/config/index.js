@@ -1,3 +1,8 @@
+/**
+ * todo: babel, при сборке, не копирует не-js-файлы в dist-директорию. с этим надо что-то сделать.
+ * webpack'ом собирать? да ну на хер..
+ */
+
 const isProduction = (process.env.NODE_ENV == 'production');
 const cookies      = {
   secret: `${process.env.NODE_ENV} very strong cookies secret string blablabla 123qwe$%^RTY`,

@@ -231,6 +231,7 @@ app.use(helmet.contentSecurityPolicy({
 }));
 /** роут для приёма репортов о нарушении csp (нормальные браузеры будут слать сюда отчёты) */
 /** csurf должен идти _после_ роута для приёма репортов */
+/** todo: добавить дату в лог */
 app.post('/report-csp-violation', function (req, res) {
   if (!isProduction) {
     let body = req.body ? req.body : 'No data received!';
