@@ -106,3 +106,17 @@ function normalizePort (val) {
 
   return false;
 }
+
+/**
+ * pm2, при перезагрузке (reload, не restart) процесса шлёт этот сигнал.
+ * здесь можно остановить всё, что можно и нужно останавливать.
+*/
+process.on('SIGINT', function() {
+  console.log('graceful shutdown');
+  // db.stop(function(err) {
+  //   // если всё остановилось хорошо, то шлём 0.
+  //   // если какая-то фигня, то показывем, что завершилось с ошибкой, посылая 1
+  //   process.exit(err ? 1 : 0);
+  // });
+  process.exit(0);
+});
