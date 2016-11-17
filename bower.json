@@ -1,0 +1,18 @@
+{
+  "name": "express-boilerplate",
+  "description": "",
+  "main": "dist/server.js",
+  "authors": [
+    "Kartashov Alexey <kartashov.al.and@yandex.ru>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/antixrist/express-boilerplate",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
