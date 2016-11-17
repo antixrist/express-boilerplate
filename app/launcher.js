@@ -111,7 +111,7 @@ function normalizePort (val) {
  * pm2, при перезагрузке (reload, не restart) процесса шлёт этот сигнал.
  * здесь можно остановить всё, что можно и нужно останавливать.
 */
-process.on('SIGINT', function() {
+process.on('SIGINT', function () {
   console.log('graceful shutdown');
   // db.stop(function(err) {
   //   // если всё остановилось хорошо, то шлём 0.
@@ -119,4 +119,13 @@ process.on('SIGINT', function() {
   //   process.exit(err ? 1 : 0);
   // });
   process.exit(0);
+});
+
+/**
+ * pm2 пошлёт SIGKILL, если процесс не завершился по таймауту после посыла SIGINT.
+ * todo: здесь пока не понятно - можно ли это поймать и как-то обработать
+*/
+process.on('SIGKILL', function () {
+  console.log('force shutdown');
+  // process.exit(0);
 });
