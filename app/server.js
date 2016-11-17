@@ -213,13 +213,13 @@ app.use(helmet.hsts({
   preload: true
 }));
 
-/** csurf должен идти _после_ роута для приёма репортов */
 /** todo: вынести настройки csp в конфиг */
+/** https://content-security-policy.com/ */
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'", 'somecdn.com'],
     styleSrc: ["'self'", "'unsafe-inline'", 'maxcdn.bootstrapcdn.com'],
-    imgSrc: ['img.com', 'data:'],
+    imgSrc: ["'self'", 'data:'],
     // todo: печеньки не читаются. изучить про sandbox
     // sandbox: ['allow-forms', 'allow-scripts', 'allow-same-origin'],
     reportUri: '/report-csp-violation',
@@ -229,6 +229,7 @@ app.use(helmet.contentSecurityPolicy({
   disableAndroid: true
 }));
 /** роут для приёма репортов о нарушении csp (нормальные браузеры будут слать сюда отчёты) */
+/** csurf должен идти _после_ роута для приёма репортов */
 app.post('/report-csp-violation', function (req, res) {
   if (!isProduction) {
     let body = req.body ? req.body : 'No data received!';
