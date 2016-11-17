@@ -22,6 +22,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+/**
+ * todo: вот в таких async-функциях исключения не ловятся, а молча тушатся блюбёрдом.
+ * сделать с этим чего-нибудь, иначе ошибки не уходят вниз по мидлварям и запрос молча висит
+ */
 router.get('/async', async function (req, res, next) {
   let asyncAwait = await Promise.delay(5).then(() => 'asyncAwait alive!!!');
   // console.log('this.app', typeof this.app);
