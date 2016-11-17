@@ -6,7 +6,7 @@
 [example-node-server](https://github.com/babel/example-node-server)
 
 ## Node.js
-- `pm2` (`pm2-logrotate`)
+- `pm2` (`pm2-logrotate`, [как юзать socket.io на кластеризованном приложении](https://github.com/Unitech/PM2/issues/637#issuecomment-215915328))
 - `cross-spawn` / `execa`
 - `mz` - промайзнутые стандартные библиотеки
 - 
