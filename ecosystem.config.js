@@ -1,10 +1,15 @@
+var argv = require('yargs')
+    .string(['env'])
+    .argv
+;
+
 module.exports = {
   /**
    * Application configuration section
    * http://pm2.keymetrics.io/docs/usage/application-declaration/
    */
   apps: [{
-    name:               'express',
+    name:               argv.env ? 'express-'+ argv.env : 'express',
     script:             './dist/server.js',
     instances:          0,
     exec_mode:          'cluster',
