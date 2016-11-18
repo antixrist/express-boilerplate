@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+import 'source-map-support/register';
 import http  from 'http';
 import Debug from 'debug';
 import portastic from 'portastic';

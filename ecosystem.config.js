@@ -28,9 +28,9 @@ module.exports = {
     max_restarts:       50,
     // post_update: ['npm install', 'echo launching the app'],
     // restart_delay: 3000,
+    /** todo: подгружать переменные окружения из конфигов */
     env:                {
-      NODE_ENV:        'development',
-      COMMON_VARIABLE: 'true'
+      NODE_ENV: 'development'
     },
     env_production:     {
       NODE_ENV: 'production'
@@ -41,25 +41,25 @@ module.exports = {
    * Deployment section
    * http://pm2.keymetrics.io/docs/usage/deployment/
    */
-  // deploy: {
-  //   production: {
-  //     user:          "node",
-  //     host:          "212.83.163.1",
-  //     ref:           "origin/master",
-  //     repo:          "git@github.com:repo.git",
-  //     path:          "/var/www/production",
-  //     "post-deploy": "npm install && pm2 startOrRestart ecosystem.json --env production"
-  //   },
-  //   dev:        {
-  //     user:          "node",
-  //     host:          "212.83.163.1",
-  //     ref:           "origin/master",
-  //     repo:          "git@github.com:repo.git",
-  //     path:          "/var/www/development",
-  //     "post-deploy": "npm install && pm2 startOrRestart ecosystem.json --env dev",
-  //     env:           {
-  //       NODE_ENV: "dev"
-  //     }
-  //   }
-  // }
+  deploy: {
+    production: {
+      user:          "host_username",
+      host:          "host_address",
+      ref:           "origin/production",
+      repo:          "git@repo_address:path/to/project.git",
+      path:          "/path/to/deploy",
+      "post-deploy": "yarn install --production && npm rebuild && yarn run build && pm2 startOrGracefulReload ecosystem.config.js --env production"
+    },
+    // dev:        {
+    //   user:          "node",
+    //   host:          "212.83.163.1",
+    //   ref:           "origin/master",
+    //   repo:          "git@github.com:repo.git",
+    //   path:          "/var/www/development",
+    //   "post-deploy": "npm install && pm2 startOrRestart ecosystem.json --env dev",
+    //   env:           {
+    //     NODE_ENV: "dev"
+    //   }
+    // }
+  }
 };
