@@ -32,7 +32,7 @@ module.exports = function ({
    * (например коннекты к базе данных)
    */
   const onDeath = require('death')(onDeathOpts);
-  
+
   // юзать вот так:
   // const disableOnDeath = onDeath((signal, err) => {
   //
