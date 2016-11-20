@@ -1,5 +1,31 @@
-/** todo: улучшить структуру конфига */
+/** внедрить настройки в код и вытащить оттуда сюда всякие параметры */
 
+import path from 'path';
+import nconf from 'nconf';
+import {parse, stringify} from 'json5';
+
+const format = {parse, stringify};
+const env = process.env.NODE_ENV || 'development';
+
+const defaults = {
+  env
+};
+
+const overrides = {
+  
+};
+
+nconf
+  .overrides(overrides)
+  .env()
+  .file('environment config', {file: path.join(__dirname, `${env}.json`), format})
+  .file('default config', {file: path.join(__dirname, `defaults.json`), format})
+  .defaults(defaults)
+;
+
+// export default nconf;
+
+/** todo: переписав настройки, удалить всё, что ниже */
 const isProduction = (process.env.NODE_ENV == 'production');
 const cookies      = {
   secret: `${process.env.NODE_ENV} very strong cookies secret string blablabla 123qwe$%^RTY`,

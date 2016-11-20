@@ -1,0 +1,10 @@
+{
+  "port": 4000,
+  "basicAuth": [{
+    "name": "admin",
+    "pass": "pass"
+  }, {
+    "name": "admin2",
+    "pass": "pass2"
+  }]
+}

@@ -1,0 +1,44 @@
+{
+  "port": 3000,
+  "basicAuth": null,
+  "express": {
+    "views": "./views",
+    "view engine": "jade",
+    "view cache": false,
+    "x-powered-by": false,
+    "strict routing": true,
+    "case sensitive routing": true,
+    // настройки для реверс-прокси, если перед нодой стоит nginx */
+     "trust proxy": ""
+  },
+  "session": {
+    "secret": "very strong cookies secret string blablabla 123qwe$%^RTY",
+    "key": "PHPSESSID",
+    "cookie": {
+      "path": "/",
+      "httpOnly": true,
+      "maxAge": null
+    }
+  },
+  "db": {
+
+  },
+  "locals": {
+
+  },
+  "static": {
+    "dotfiles": "ignore",
+    "etag": true,
+    "extensions": false,
+    "fallthrough": true,
+    "index": "index.html",
+    "lastModified": true,
+    "maxAge": 0,
+    "redirect": false
+  },
+  "router": {
+    "strict": true,
+    "mergeParams": false,
+    "caseSensitive": true
+  }
+}
