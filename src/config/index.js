@@ -21,6 +21,7 @@ const express = {
     'x-powered-by': false,
     'strict routing': true,
     'case sensitive routing': true,
+    /** todo: настройки для реверт-прокси, если перед нодой стоит nginx */
     // 'trust proxy': ''
   },
   locals: {

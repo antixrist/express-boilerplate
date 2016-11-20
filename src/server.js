@@ -1,18 +1,19 @@
 #!/usr/bin/env node
-import 'source-map-support/register';
+
+const { onDeath } = require('./entries-head')();
+
+import inspect from 'object-inspect';
 import http  from 'http';
 import Debug from 'debug';
 import portastic from 'portastic';
-import {findUnusedPort} from './utils';
-import app from './app';
+import { findUnusedPort } from './utils';
+import { app } from './app';
 
 const debug = Debug('app:launcher');
 const isProduction = app.get('env') == 'production';
 
 (async function () {
-  /**
-   * todo: установку/поиск порта перенести в app.js
-   */
+  /** todo: установку/поиск порта перенести в app.js */
   let port = normalizePort(app.get('port'));
   if (isProduction) {
     if (!port) {
@@ -38,14 +39,10 @@ const isProduction = app.get('env') == 'production';
 
   app.set('port', port);
 
-  /**
-   * Create HTTP server.
-   */
+  /** Create HTTP server. */
   const server = http.createServer(app);
 
-  /**
-   * Listen on provided port, on all network interfaces.
-   */
+  /** Listen on provided port, on all network interfaces. */
   server.on('error', onError);
   app.listen(port, function (err) {
     if (err) {
@@ -61,9 +58,7 @@ const isProduction = app.get('env') == 'production';
     process.send && process.send('ready');
   });
 
-  /**
-   * Event listener for HTTP server "error" event.
-   */
+  /** Event listener for HTTP server "error" event. */
   function onError (error) {
     if (error.syscall !== 'listen') {
       throw error;
@@ -74,7 +69,7 @@ const isProduction = app.get('env') == 'production';
           : 'Port ' + port
       ;
 
-    // handle specific listen errors with friendly messages
+    /** handle specific listen errors with friendly messages */
     switch (error.code) {
       case 'EACCES':
         console.error(bind + ' requires elevated privileges');
@@ -90,9 +85,7 @@ const isProduction = app.get('env') == 'production';
   }
 })();
 
-/**
- * Normalize a port into a number, string, or false.
- */
+/** Normalize a port into a number, string, or false. */
 function normalizePort (val) {
   let port = parseInt(val, 10);
 
@@ -109,12 +102,8 @@ function normalizePort (val) {
   return false;
 }
 
-/**
- * pm2, при перезагрузке (reload, не restart) процесса шлёт этот сигнал.
- * здесь можно остановить всё, что можно и нужно останавливать.
-*/
-process.on('SIGINT', function () {
-  console.log('graceful shutdown');
+const disableOnDeath = onDeath((signal, err) => {
+  console.log('graceful shutdown', inspect(signal), inspect(err));
   // db.stop(function(err) {
   //   // если всё остановилось хорошо, то шлём 0.
   //   // если какая-то фигня, то показывем, что завершилось с ошибкой, посылая 1
