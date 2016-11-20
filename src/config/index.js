@@ -7,13 +7,11 @@ import {parse, stringify} from 'json5';
 const format = {parse, stringify};
 const env = process.env.NODE_ENV || 'development';
 
-const defaults = {
-  env
-};
+/** настройки из этой переменной перезапишут одноимённые из любых других источников */
+const overrides = {};
 
-const overrides = {
-  
-};
+/** настройки из этой переменной будут перезаписаны одноимёнными из любых других источников */
+const defaults = { env };
 
 nconf
   .overrides(overrides)
