@@ -1,3 +1,5 @@
+/** todo: улучшить структуру конфига */
+
 const isProduction = (process.env.NODE_ENV == 'production');
 const cookies      = {
   secret: `${process.env.NODE_ENV} very strong cookies secret string blablabla 123qwe$%^RTY`,
@@ -21,7 +23,7 @@ const express = {
     'x-powered-by': false,
     'strict routing': true,
     'case sensitive routing': true,
-    /** todo: настройки для реверт-прокси, если перед нодой стоит nginx */
+    /** todo: настройки для реверс-прокси, если перед нодой стоит nginx */
     // 'trust proxy': ''
   },
   locals: {
