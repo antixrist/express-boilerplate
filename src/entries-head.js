@@ -2,14 +2,14 @@
 
 let installed = false;
 
-module.exports = function ({
+module.exports = ({
   rejectionLogFn = void 0,
   onDeathOpts = {
     uncaughtException: true,
     debug: true
   },
   sourceMapsOpts = {}
-} = {}) {
+} = {}) => {
   if (installed) { return; }
   installed = true;
   

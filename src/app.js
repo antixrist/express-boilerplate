@@ -303,7 +303,7 @@ app.use(function (err, req, res, next) {
   
   res.status(err.status || 500);
   if (app.get('env') == 'production') {
-    console.error(err);
+    console.error(inspect(err));
     res.render('error', {
       status:  res.statusCode,
       message: 'Internal server error', //err.message,
