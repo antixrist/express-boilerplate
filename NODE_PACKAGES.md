@@ -1,7 +1,3 @@
-# todo
-- абстракция для логгера. обработка запросов в консоль при dev'е и в файл при production'е. а всё остальное писать в stdout/stderr и при запуске перенапрявлять в файл `node_app >> ./app.logs` 
-- обработка ошибок и исключений
-
 ## Запуск с babel'ем
 [example-node-server](https://github.com/babel/example-node-server)
 
