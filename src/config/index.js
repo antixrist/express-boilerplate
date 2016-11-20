@@ -27,7 +27,7 @@ const express = {
     // 'trust proxy': ''
   },
   locals: {
-
+    env: process.env.NODE_ENV || 'development'
   },
   static: {
     dotfiles: 'ignore',

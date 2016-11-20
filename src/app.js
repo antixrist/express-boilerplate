@@ -280,11 +280,8 @@ app.use(function (req, res, next) {
   return next(new httpError.NotFound());
 });
 
-/**
- * Если дошли сюда - значит пойманная/переданная ошибка.
- */
+/** Если дошли сюда - значит передана либо не поймана ошибка. */
 app.use(function (err, req, res, next) {
-  // respect err.statusCode
   if (err.statusCode) {
     res.statusCode = err.statusCode
   }
@@ -304,13 +301,21 @@ app.use(function (err, req, res, next) {
     return req.socket.destroy();
   }
   
-  // todo логировать ошибки в файлы
-  // console.error(err);
   res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error:   app.get('env') != 'production' ? err : {}
-  });
+  if (app.get('env') == 'production') {
+    console.error(err);
+    res.render('error', {
+      status:  res.statusCode,
+      message: 'Internal server error', //err.message,
+      error: {}
+    });
+  } else {
+    res.render('error', {
+      status:  res.statusCode,
+      message: err.message,
+      error:   err,
+    });
+  }
 });
 
 export { app };

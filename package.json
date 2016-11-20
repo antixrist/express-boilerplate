@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "cross-env DEBUG=app:* nodemon src/server.js --exec babel-node",
     "development": "npm run dev",
-    "build": "rm -rf ./dist && mkdir dist && babel src --out-dir dist --copy-files --source-maps",
+    "build": "del-cli ./dist && mkdir dist && babel src --out-dir dist --copy-files --source-maps",
     "serve": "cross-env NODE_ENV=production node dist/server.js",
     "prod": "npm run build && npm run serve",
     "production": "npm run prod",
@@ -31,6 +31,7 @@
     "csurf": "^1.9.0",
     "death": "^1.0.0",
     "debug": "~2.2.0",
+    "del-cli": "^0.2.0",
     "env-cmd": "^2.2.0",
     "express": "^4.14.0",
     "express-mysql-session": "^1.2.0",

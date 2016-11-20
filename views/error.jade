@@ -1,5 +1,7 @@
 extends layout
 
 block content
-  h1 #{error.status} #{message}
+  p #{env}
+  h1 #{status}
+  h2 #{message}
   pre #{error.stack}
