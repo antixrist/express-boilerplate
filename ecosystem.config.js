@@ -1,15 +1,23 @@
-var argv = require('yargs')
+const pkg = require('./package.json');
+const argv = require('yargs')
     .string(['env'])
     .argv
 ;
 
+const pkgName = pkg.name || 'unknown app';
+const env = argv.env || 'development';
+
+/**
+ * если приложение запускается в конкретном окружении (`development`/`stage`/`production`),
+ * то обозначим это в названии приложения для pm2.
+ * при таком подходе можно спокойно на одном физическом сервере запускать одно и то же
+ * приложение в разных средах и pm2 также будет считать их разными.
+ */
+const appName = env ? `${pkgName} (${env})` : pkgName;
+
 module.exports = {
-  /**
-   * Application configuration section
-   * http://pm2.keymetrics.io/docs/usage/application-declaration/
-   */
   apps: [{
-    name:               argv.env ? 'express-'+ argv.env : 'express',
+    name:               appName,
     script:             './dist/server.js',
     instances:          0,
     exec_mode:          'cluster',
@@ -42,10 +50,6 @@ module.exports = {
     }
   }],
   
-  /**
-   * Deployment section
-   * http://pm2.keymetrics.io/docs/usage/deployment/
-   */
   deploy: {
     production: {
       user:          "host_username",
