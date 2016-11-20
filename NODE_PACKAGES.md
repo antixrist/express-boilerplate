@@ -77,6 +77,7 @@ app.set('x-powered-by', false);
 - `electrode-confippet`
 - `env-cmd`
 - `rc`
+- `configstore` - удобно записывать пользовательские конфиги, например
 
 ### Обработка ошибок
 - `death`
