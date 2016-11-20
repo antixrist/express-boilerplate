@@ -33,7 +33,7 @@ module.exports = ({
   const onDeath = require('death')(onDeathOpts);
 
   // юзать вот так:
-  // const disableOnDeath = onDeath((signal, err) => {
+  // const fnDisableOnDeath = onDeath((signal, err) => {
   //
   // });
   
