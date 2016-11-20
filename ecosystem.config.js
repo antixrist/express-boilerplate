@@ -1,8 +1,8 @@
-const pkg = require('./package.json');
+const pkg  = require('./package.json');
 const argv = require('yargs').string(['env']).argv;
 
+const env     = argv.env || 'development';
 const pkgName = pkg.name || 'unknown app';
-const env = argv.env || 'development';
 
 /**
  * если приложение запускается в конкретном окружении (`development`/`stage`/`production`),
