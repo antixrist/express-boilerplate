@@ -245,6 +245,7 @@ app.set('x-powered-by', false);
 - `enqueue`
 - `argumentable-queue`
 - `node-schedule`
+- `cron`
 - `cron-parser`
 - `node-schedule`
 
