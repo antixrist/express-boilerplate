@@ -111,7 +111,7 @@ app.set('x-powered-by', false);
 ### Консоль
 - `object-inspect`
 - `debug`
-- `intel` / `bunyan` / `log4js` / **`winston`** (`winston-daily-rotate-file` для ротации) - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный)
+- `intel` / `bunyan` / `log4js` / `tracer` / `winston` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
 - `microlog`
 - `chalk` - раскраска
 - `better-console` - добавление console.table-методов
