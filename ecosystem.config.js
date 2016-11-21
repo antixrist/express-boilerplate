@@ -1,7 +1,7 @@
 const pkg  = require('./package.json');
 const argv = require('yargs').string(['env']).argv;
 
-const env     = argv.env || 'development';
+const env     = argv.env || '';
 const pkgName = pkg.name || 'unknown app';
 
 /**

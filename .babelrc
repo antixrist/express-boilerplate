@@ -1,13 +1,14 @@
 {
   "plugins": [
     "transform-es2015-modules-commonjs",
-    "closure-elimination",
-    "transform-promise-to-bluebird",
+//    "closure-elimination",
+//    "transform-promise-to-bluebird",
     "syntax-async-functions",
-    ["transform-async-to-module-method", {
-      "module": "bluebird",
-      "method": "coroutine"
-    }]
+    "transform-async-to-generator"
+//    ["transform-async-to-module-method", {
+//      "module": "bluebird",
+//      "method": "coroutine"
+//    }]
   ],
   "ignore": ["node_modules"]
 }

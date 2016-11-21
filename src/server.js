@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 
-const { onDeath } = require('./entries-head')();
+// const { onDeath } = require('./entries-head')();
+require("babel-register")();
+// require('source-map-support').install({
+//   environment: 'node',
+//   handleUncaughtExceptions: false,
+//   // hookRequire: true
+// });
 
 import inspect from 'object-inspect';
 import http  from 'http';
@@ -15,27 +21,28 @@ const isProduction = app.get('env') == 'production';
 (async function () {
   /** todo: установку/поиск порта перенести в app.js */
   let port = normalizePort(app.get('port'));
-  if (isProduction) {
-    if (!port) {
-      console.error(`Port '${port}' is invalid`);
-      process.exit(1);
-    }
-
-    let postIsOpen = await portastic.test(port);
-    if (!postIsOpen) {
-      console.error(`Port ${port} is already in use`);
-      process.exit(1);
-    }
-  } else {
-    if (!port) {
-      console.warn(`Port '${port}' is invalid. Fallback to random port`);
-      port = await findUnusedPort();
-    }
-    if (!port) {
-      console.error(`Not found available port`);
-      process.exit(1);
-    }
-  }
+  // if (isProduction) {
+  //   if (!port) {
+  //     console.error(`Port '${port}' is invalid`);
+  //     process.exit(1);
+  //   }
+  //
+  //   let postIsOpen = await portastic.test(port);
+  //   if (!postIsOpen) {
+  //     console.error(`Port ${port} is already in use`);
+  //     process.exit(1);
+  //   }
+  // } else {
+  //   if (!port) {
+  //     console.warn(`Port '${port}' is invalid. Fallback to random port`);
+  //     port = await findUnusedPort();
+  //   }
+  //   if (!port) {
+  //     console.error(`Not found available port`);
+  //     process.exit(1);
+  //   }
+  // }
+  throw new Error('asdqweasdqwe');
 
   app.set('port', port);
 
@@ -102,12 +109,12 @@ function normalizePort (val) {
   return false;
 }
 
-const disableOnDeath = onDeath((signal, err) => {
-  console.log('graceful shutdown', inspect(signal), inspect(err));
-  // db.stop(function(err) {
-  //   // если всё остановилось хорошо, то шлём 0.
-  //   // если какая-то фигня, то показывем, что завершилось с ошибкой, посылая 1
-  //   process.exit(err ? 1 : 0);
-  // });
-  setTimeout(() => process.exit(0), 2000);
-});
+// const disableOnDeath = onDeath((signal, err) => {
+//   console.log('graceful shutdown', inspect(signal), inspect(err));
+//   // db.stop(function(err) {
+//   //   // если всё остановилось хорошо, то шлём 0.
+//   //   // если какая-то фигня, то показывем, что завершилось с ошибкой, посылая 1
+//   //   process.exit(err ? 1 : 0);
+//   // });
+//   setTimeout(() => process.exit(0), 2000);
+// });
