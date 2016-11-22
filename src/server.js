@@ -10,7 +10,7 @@ onShutdown((err, signal) => err && logger.error(err.stack));
 
 const debug = Debug('app:server');
 const port = app.get('port') || config.get('express:port');
-
+port && app.set('port', port);
 !port && logger.warn('Port is undefined. Random port will used');
 
 /** Listen on provided port, on all network interfaces. */
