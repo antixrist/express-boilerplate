@@ -1,7 +1,8 @@
 // const Promise = require('bluebird');
-import { app } from '../app';
-import { express as expressConfig } from '../config';
+import { app } from '../../app';
+import { express as expressConfig } from '../../config';
 import { Router } from 'express';
+import Promise from 'bluebird';
 import usersRouter from './users';
 import inspect from 'object-inspect';
 const router = Router(expressConfig.router);

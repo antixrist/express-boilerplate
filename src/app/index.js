@@ -20,15 +20,15 @@ import inspect           from 'object-inspect';
 import morgan            from 'morgan';
 import fileStreamRotator from 'file-stream-rotator';
 import Debug             from 'debug';
+import {toArray}         from '../utils';
 import routes            from './routes';
-import {toArray}         from './utils';
 import {seo}             from './middlewares';
 import {
   cookies,
   // redirects,
   // rewrites,
   express as expressConfig
-} from './config';
+} from '../config';
 
 const app = express();
 const cwd = process.cwd();

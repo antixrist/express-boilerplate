@@ -1,4 +1,4 @@
-import {express as expressConfig} from '../config';
+import {express as expressConfig} from '../../config';
 import {Router} from 'express';
 
 const router = Router(expressConfig.router);
