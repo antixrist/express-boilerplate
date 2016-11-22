@@ -1,5 +1,7 @@
-import _ from 'lodash';
+import _         from 'lodash';
+import tracer    from 'tracer';
 import portastic from 'portastic';
+import {inspect} from 'util';
 
 /**
  * @param {*} something
@@ -33,5 +35,46 @@ const findUnusedPort = async function findUnusedPort (min = 3000, max = 65535, s
       : null
   ;
 };
+
+
+
+const inspectOpt = {
+  depth : null,
+  colors: true,
+  // showHidden: true,
+};
+
+const logger = tracer.console({
+  inspectOpt
+  // stackIndex : 0 // default 0
+});
+
+logger.color = tracer.colorConsole({
+  inspectOpt
+  // stackIndex : 0 // default 0
+});
+
+
+let obj = {
+  Request: [
+    {
+      IsValid:           [true],
+      ItemSearchRequest: [
+        {
+          ResponseGroup: ['Small', 'OfferSummary'],
+          Sort:          ['salesrank'],
+          SearchIndex:   ['DVD']
+        }
+      ]
+    }
+  ]
+};
+
+obj.recurse = obj;
+
+logger.log(obj);
+logger.color.log(obj);
+
+
 
 export {toArray, findUnusedPort};
