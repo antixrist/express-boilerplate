@@ -175,7 +175,7 @@ app.use(responseTime());
 app.use(helmet.frameguard({action: 'sameorigin'})); // or { action: 'deny' }
 
 /** пусть мамкины хакеры голову ломают */
-app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
+app.use(helmet.hidePoweredBy({ setTo: 'PHP 5.2.8' }));
 
 /** установим "X-DNS-Prefetch-Control: off", чтобы браузеры (которые это умеют) не префетчили ip нашего домена */
 app.use(helmet.dnsPrefetchControl());
@@ -192,7 +192,7 @@ app.use(helmet.noSniff());
 /** и поставим "X-XSS-Protection: 1; mode=block" */
 app.use(helmet.xssFilter());
 
-/** если юзается ssl, то надо послать браузеру открытые ключи, чтобы он их сохранил и при последующих запросах оберегал юзера от скомпрометированных центрах сертификации */
+/** если юзается ssl, то надо послать браузеру открытые ключи, чтобы он их сохранил и при последующих запросах оберегал юзера от скомпрометированных центров сертификации */
 app.use(helmet.hpkp({
   setIf (req, res) {
     return !!req.secure;

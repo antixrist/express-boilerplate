@@ -44,17 +44,12 @@ const inspectOpt = {
   // showHidden: true,
 };
 
-const logger = tracer.console({
-  inspectOpt
-  // stackIndex : 0 // default 0
+const logger = tracer.colorConsole({
+  inspectOpt,
+  stackIndex: 1
 });
 
-logger.color = tracer.colorConsole({
-  inspectOpt
-  // stackIndex : 0 // default 0
-});
-
-
+let err = new Error('Something wrong!');
 let obj = {
   Request: [
     {
@@ -69,12 +64,29 @@ let obj = {
     }
   ]
 };
-
 obj.recurse = obj;
 
-logger.log(obj);
-logger.color.log(obj);
 
+logger.log(obj);
+logger.debug(err);
+
+// var logger1 = require('tracer').console({
+//   stackIndex : 0 // default 0
+// });
+// var logger2 = require('tracer').console({
+//   stackIndex : 1
+// });
+// var logMgr1 = function(type, msg) {
+//   return logger1[type](msg);
+// };
+// var logMgr2 = function(type, msg) {
+//   return logger2[type](msg);
+// };
+//
+// logger1.log('hello'); // the line info is right
+// logger2.log('hello'); // the line info is error
+// logMgr1('log', 'hello'); // the line info is error
+// logMgr2('log', 'hello'); // the line info is right
 
 
 export {toArray, findUnusedPort};
