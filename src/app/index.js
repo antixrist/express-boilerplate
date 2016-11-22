@@ -7,51 +7,45 @@ import pathExists        from 'path-exists';
 import cookieParser      from 'cookie-parser';
 import bodyParser        from 'body-parser';
 import compression       from 'compression';
-import forceDomain       from 'forcedomain';
-import timeout           from 'connect-timeout';
+import morgan            from 'morgan';
 import basicAuth         from 'basic-auth';
 import responseTime      from 'response-time';
-import redirect          from 'express-redirect';
-import rewrite           from 'express-urlrewrite';
 import httpError         from 'http-errors';
 import helmet            from 'helmet';
+import forceDomain       from 'forcedomain';
+import timeout           from 'connect-timeout';
+import redirect          from 'express-redirect';
+import rewrite           from 'express-urlrewrite';
 import vhost             from 'vhost';
-import inspect           from 'object-inspect';
-import morgan            from 'morgan';
 import fileStreamRotator from 'file-stream-rotator';
+import {inspect}         from 'util';
 import Debug             from 'debug';
+import config            from '../config';
 import {toArray}         from '../utils';
 import routes            from './routes';
 import {seo}             from './middlewares';
-import {
-  cookies,
-  // redirects,
-  // rewrites,
-  express as expressConfig
-} from '../config';
 
 const app = express();
 const cwd = process.cwd();
 const debug = Debug('app:server');
-const isProduction = app.get('env') != 'development';
 const isDevelopment = app.get('env') == 'development';
 
 debug(`Setup ${app.get('env')} server`);
 
+// setTimeout(function () {
+//   throw new Error('something wrong');
+// }, 100);
+
 /**
  * Устанавливаем настройки всего приложения
  */
-if (_.isPlainObject(expressConfig.set)) {
-  _.forEach(expressConfig.set, (val, key) => app.set(key, val));
-}
+_.forEach(config.get('express') || {}, (val, key) => app.set(key, val));
 
 /**
  * Устанавливаем переменные для шаблонов, которые будут доступны всегда
  * (если их не перезаписывать)
  */
-if (_.isPlainObject(expressConfig.locals)) {
-  _.assign(app.locals, expressConfig.locals);
-}
+_.merge(app.locals, config.get('locals') || {});
 
 /**
  * Немного seo-шной консистентности
@@ -90,7 +84,7 @@ app.use(seo({
  * чтобы не создавать пустые сессии на каждый статичный файл.
  * Если нужны логи статики, то надо поместить эту мидлварю после логгирования.
  */
-app.use(express.static(path.join(cwd, 'public'), expressConfig.static));
+app.use(express.static(path.join(cwd, 'public'), config.get('static')));
 
 /**
  * Логирование запросов
@@ -152,8 +146,8 @@ app.use(morgan(':id :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/
  * Устанавливаем http-аутентификацию, если логины-пароли заданы в конфиге.
  * В конфиге можно задать несколько логинов/паролей.
  */
-if (!!expressConfig.basicAuth) {
-  let allowedCredentials = toArray(expressConfig.basicAuth);
+if (!!config.get('basicAuth')) {
+  let allowedCredentials = toArray(config.get('basicAuth'));
   app.use(function (req, res, next) {
     req.user = {};
 
@@ -197,7 +191,7 @@ app.use(bodyParser.json({
 }));
 app.use(bodyParser.urlencoded({extended: true}));
 /** парсим печеньки в заголовках */
-app.use(cookieParser(cookies.secret));
+app.use(cookieParser(config.get('session:secret')));
 /** добавляем заголовок с временем ответа */
 app.use(responseTime());
 
@@ -320,57 +314,71 @@ app.use(function (req, res, next) {
   return next(new httpError.NotFound());
 });
 
-/** Если дошли сюда - значит передана (либо поймана) ошибка. */
-app.use(function (err, req, res, next) {
-  /** если это http-ошибка */
-  if (err instanceof httpError.HttpError) {
-    if (res._header) {
-      return req.socket.destroy();
-    }
-
-    let status = err.statusCode || res.statusCode || 500;
-    // default status code to 500
-    res.statusCode = status < 400 ? 500 : status;
-
-    let viewName = '50x';
-    switch (res.statusCode) {
-      case 401:
-      case 403:
-      case 404:
-        viewName = res.statusCode;
-        break;
-      default:
-        viewName = (res.statusCode < 500) ? '40x' : viewName;
-        break;
-    }
-
-    /** рендерим `viewName` */
-    res.render(`errors/${viewName}`, {
-      status:  res.statusCode,
-      message: err.message, // текстовый статус http-ошибки
-      error:   {}
+/**
+ * Если дошли сюда - значит передана (либо поймана) ошибка.
+ */
+/** если это http-ошибка */
+app.use(function httpErrorsHandler (err, req, res, next) {
+  if (!(err instanceof httpError.HttpError)) {
+    return next(err);
+  }
+  
+  if (res._header) {
+    return req.socket.destroy();
+  }
+  
+  let status = err.statusCode || res.statusCode || 500;
+  // default status code to 500
+  status = status < 400 ? 500 : status;
+  
+  if (req.xhr) {
+    return res.status(status).send({
+      status:  status,
+      // текстовый статус http-ошибки
+      message: err.message,
     });
   }
-  /** если это пойманное исключение */
-  else {
-    let clientErr = new httpError.InternalServerError();
-    if (isDevelopment) {
-      /** в режиме разработки рендерим страницу с ошибкой */
-      res.status(err.statusCode || clientErr.statusCode);
-      res.render('errors/trace', {
-        status:  err.statusCode || clientErr.statusCode,
-        message: err.message,
-        error:   err,
-      });
-    } else {
-      /** в режиме продакшна ошибку пишем в лог и рендерим обычную обычную 50x */
-      console.error(err);
-      res.status(clientErr.statusCode);
-      res.render('errors/50x', {
-        status:  clientErr.statusCode,
-        message: clientErr.message
-      });
-    }
+  
+  let viewName = '50x';
+  switch (res.statusCode) {
+    case 401:
+    case 403:
+    case 404:
+      viewName = res.statusCode;
+      break;
+    default:
+      viewName = (res.statusCode < 500) ? '40x' : viewName;
+      break;
+  }
+  
+  /** рендерим `viewName` */
+  res.render(`errors/${viewName}`, {
+    status:  res.statusCode,
+    message: err.message
+  });
+});
+
+/** если это пойманное исключение */
+app.use(function (err, req, res, next) {
+  /** todo: req.xhr */
+  
+  let clientErr = new httpError.InternalServerError();
+  if (isDevelopment) {
+    /** в режиме разработки рендерим страницу с ошибкой */
+    res.status(err.statusCode || clientErr.statusCode);
+    res.render('errors/trace', {
+      status:  err.statusCode || clientErr.statusCode,
+      message: err.message,
+      error:   err,
+    });
+  } else {
+    /** в режиме продакшна ошибку пишем в лог и рендерим обычную обычную 50x */
+    console.error(err.stack);
+    res.status(clientErr.statusCode);
+    res.render('errors/50x', {
+      status:  clientErr.statusCode,
+      message: clientErr.message
+    });
   }
 });
 

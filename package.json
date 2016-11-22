@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "tmp": "babel-node src/server.js",
     "dev": "cross-env DEBUG=app:* nodemon src/server.js --exec babel-node",
     "development": "npm run dev",
     "build": "del-cli ./dist && mkdir dist && babel src --out-dir dist --copy-files --source-maps",

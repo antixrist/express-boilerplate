@@ -1,14 +1,13 @@
 {
-  "port": 3000,
   "basicAuth": null,
   "express": {
+    "port": 3000,
     "views": "./views",
     "view engine": "jade",
     "view cache": false,
     "x-powered-by": false,
     "strict routing": true,
-    "case sensitive routing": true,
-     "trust proxy": ""
+    "case sensitive routing": true
   },
   "session": {
     "secret": "very strong cookies secret string blablabla 123qwe$%^RTY",

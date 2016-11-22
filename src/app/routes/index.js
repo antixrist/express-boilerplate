@@ -1,11 +1,10 @@
-// const Promise = require('bluebird');
-import { app } from '../../app';
-import { express as expressConfig } from '../../config';
-import { Router } from 'express';
 import Promise from 'bluebird';
+import { Router } from 'express';
+import config from '../../config';
+import { app } from '../../app';
 import usersRouter from './users';
-import inspect from 'object-inspect';
-const router = Router(expressConfig.router);
+
+const router = Router(config.get('router') || {});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

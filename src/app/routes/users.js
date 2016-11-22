@@ -1,7 +1,7 @@
-import {express as expressConfig} from '../../config';
+import config from '../../config';
 import {Router} from 'express';
 
-const router = Router(expressConfig.router);
+const router = Router(config.get('config') || {});
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

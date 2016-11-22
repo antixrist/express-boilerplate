@@ -1,8 +1,6 @@
 import _         from 'lodash';
-import death     from 'death';
 import tracer    from 'tracer';
 import portastic from 'portastic';
-import {inspect} from 'util';
 
 /**
  * @param {*} something
@@ -37,54 +35,11 @@ const findUnusedPort = async function findUnusedPort (min = 3000, max = 65535, s
   ;
 };
 
-
-/**
- * todo: вообще, не логично вешать системные события в модуле с утилитами.
- * дообдумать этот момент, чтоли
- */
 /**
  * @param {function} cb
  */
 const onShutdown = (cb) => onShutdown.handlers.push(cb);
 onShutdown.handlers = [];
-
-/** вешаем обработчик на смерть процесса */
-death({
-  uncaughtException: true,
-  debug: false
-})((signal, err) => {
-  /** если нет кастомных обработчиков */
-  if (!onShutdown.handlers.length) {
-    /** выплёвываем в stderr ошибку, если она есть */
-    err && console.error(err.stack);
-  }
-  /** а если есть кастомные обработчики */
-  else {
-    /** поочереди синхронно их выполняем */
-    onShutdown.handlers.forEach(cb => cb(err, signal));
-  }
-  
-  /**
-   * руками убиваем процесс.
-   * если есть ошибка, то ставим код завершения == `1`.
-   * так внешние демоны смогут понять, что приложение именно упало, а не успешно завершилось.
-   */
-  process.exit(err ? 1 : 0);
-});
-
-/**
- * ловим необработанные promise-исключения.
- * если не надо, чтобы процесс умирал,
- * то подключить `loud-rejection` вместо `hard-rejection`.
- * тогда коллбек будет вызываться для каждого непойманного
- * исключения поочерёдно _в момент остановки процесса_!
- * (а не в момент выброса жтого исключения)
- *
- * В версиях ноды >7.0 использование `process.on('unhandledRejection')` выбрасывает DeprecationWarning.
- * Так что, в принципе, этот обработчик можно удалить и просто следить за тем,
- * чтобы во всех используемых промисах был установлен catch-обработчик.
- */
-// require('hard-rejection')(onShutdownRunner);
 
 
 var colors = require('colors/safe');
