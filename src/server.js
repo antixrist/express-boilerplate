@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 require('source-map-support').install();
 
 import http  from 'http';
@@ -10,12 +9,7 @@ import { app } from './app';
 const debug = Debug('app:launcher');
 const isProduction = app.get('env') == 'production';
 
-onShutdown((error, signal) => {
-  console.log('onShutdown');
-  signal && console.warn(signal);
-  error  && console.error(error);
-  process.exit(1);
-});
+onShutdown((err, signal) => err && console.error(err.stack));
 
 (async function () {
   /** todo: установку/поиск порта перенести в app.js */

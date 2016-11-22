@@ -1,4 +1,5 @@
 import _         from 'lodash';
+import death     from 'death';
 import tracer    from 'tracer';
 import portastic from 'portastic';
 import {inspect} from 'util';
@@ -36,42 +37,41 @@ const findUnusedPort = async function findUnusedPort (min = 3000, max = 65535, s
   ;
 };
 
+
+
+const onShutdownHandlers = [];
+const onDeath = death({
+  uncaughtException: true,
+  debug: false
+});
+const onShutdownRunner = _.once((signal, err) => {
+  onShutdownHandlers.forEach(cb => {
+    cb(err, signal);
+  });
+  err && process.exit(1);
+});
+
 /**
- * @param {function} [cb]
+ * ловим необработанные promise-исключения.
+ * если не надо, чтобы процесс умирал,
+ * то подключить `loud-rejection` вместо `hard-rejection`.
+ * тогда коллбек будет вызываться для каждого непойманного
+ * исключения поочерёдно _в момент остановки процесса_!
+ * (а не в момент выброса жтого исключения)
+ *
+ * В версиях ноды >7.0 использование `process.on('unhandledRejection')` выбрасывает DeprecationWarning.
+ * Так что, в принципе, этот обработчик можно удалить и просто следить за тем,
+ * чтобы во всех используемых промисах был установлен catch-обработчик.
  */
-const onShutdown = (cb = (error, signal) => {
-  signal && console.warn(signal);
-  error  && console.error(error);
-}) => {
-  onShutdown.handler = cb;
-  onShutdown.disableOnDeath = function () {};
-  if (typeof onShutdown.handler == 'function') { return onShutdown.disableOnDeath; }
+// require('hard-rejection')(onShutdownRunner);
 
-  /**
-   * ловим необработанные promise-исключения.
-   * если не надо, чтобы процесс умирал,
-   * то подключить `loud-rejection` вместо `hard-rejection`.
-   * тогда коллбек будет вызываться для каждого непойманного
-   * исключения поочерёдно _в момент остановки процесса_!
-   * (а не в момент выброса жтого исключения)
-   */
-  require('hard-rejection')(onShutdown.handler);
+/**
+ * @param {function} cb
+ */
+const onShutdown = (cb) => {
+  onShutdownHandlers.push(cb);
 
-  /**
-   * ловим все непойманные исключения и системные сигналы об остановке процесса.
-   * здесь можно и нужно тушить и останавливать всё, что можно и нужно потушить и остановить
-   * (например коннекты к базе данных)
-   */
-  const onDeath = require('death')({
-    uncaughtException: true,
-    debug: false
-  });
-
-  onShutdown.disableOnDeath = onDeath((signal, err) => {
-    onShutdown.handler(err, signal);
-  });
-
-  return onShutdown.disableOnDeath;
+  return onDeath(onShutdownRunner);
 };
 
 

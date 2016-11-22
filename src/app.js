@@ -118,31 +118,31 @@ app.use(morgan(':id :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/
   // skip: (req, res) => res.statusCode < 400
 }));
 
-if (isDevelopment) {
-
-} else {
-
-}
-
-if (!isProduction) {
-  // app.use(morgan('dev'));
-  app.use(morgan(':id :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"', {
-    immediate: false
-  }));
-} else {
-  /** на продакшене логируем в файл, с суточной ротацией */
-  let logDirectory = path.join(cwd, '/logs');
-  !pathExists.sync(logDirectory) && fs.mkdirSync(logDirectory);
-
-  app.use(morgan('common', {
-    stream: fileStreamRotator.getStream({
-      frequency:   'daily',
-      date_format: 'YYYYMMDD',
-      filename:    path.join(logDirectory, 'access-%DATE%.log'),
-      verbose:     false
-    })
-  }));
-}
+// if (isDevelopment) {
+//
+// } else {
+//
+// }
+//
+// if (!isProduction) {
+//   // app.use(morgan('dev'));
+//   app.use(morgan(':id :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"', {
+//     immediate: false
+//   }));
+// } else {
+//   /** на продакшене логируем в файл, с суточной ротацией */
+//   let logDirectory = path.join(cwd, '/logs');
+//   !pathExists.sync(logDirectory) && fs.mkdirSync(logDirectory);
+//
+//   app.use(morgan('common', {
+//     stream: fileStreamRotator.getStream({
+//       frequency:   'daily',
+//       date_format: 'YYYYMMDD',
+//       filename:    path.join(logDirectory, 'access-%DATE%.log'),
+//       verbose:     false
+//     })
+//   }));
+// }
 
 /**
  * Устанавливаем http-аутентификацию, если логины-пароли заданы в конфиге.
@@ -308,23 +308,8 @@ app.post('/report-csp-violation', function (req, res) {
  * Пошли маршруты
  */
 app.use('/', routes);
-
 app.use('/admin', (req, res, next) => next(new httpError.Unauthorized()));
 app.use('/admin/users', (req, res, next) => next(new httpError.Forbidden()));
-
-
-app.use('/err', (req, res, next) => {
-  throw new Error('throw rejection in /err');
-
-  // Promise.resolve()
-  //   .then(() => {
-  //     throw new Error('promise rejection');
-  //   })
-  //   .catch(next)
-  //   .then(() => res.status(204).end())
-  // ;
-});
-
 
 /** Если дошли сюда, значит на запрос не нашлось нужного роута. Отправляем 404. */
 app.use(function (req, res, next) {
@@ -373,27 +358,13 @@ app.use(function (err, req, res, next) {
         message: err.message,
         error:   err,
       });
-
-      // process.nextTick(() => {
-        throw err;
-      // });
     } else {
-      /** в режиме продакшна ошибку пишем в лог рендерим обычную обычную 50x */
+      /** в режиме продакшна ошибку пишем в лог и рендерим обычную обычную 50x */
+      console.error(err);
       res.status(clientErr.statusCode);
       res.render('errors/50x', {
         status:  clientErr.statusCode,
         message: clientErr.message
-      });
-
-      /**
-       * и выкидываем исключение, которое отловится ловцом непойманных исключений.
-       * этот ловец-молодец должен:
-       * - залогировать ошибку
-       * - плавно остановить всё, что надо остановить
-       * - убить процесс
-       */
-      process.nextTick(() => {
-        throw err;
       });
     }
   }
