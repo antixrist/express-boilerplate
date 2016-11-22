@@ -50,6 +50,7 @@
     "lusca": "^1.4.1",
     "morgan": "~1.7.0",
     "nconf": "^0.8.4",
+    "node-uuid": "^1.4.7",
     "nodemon": "^1.11.0",
     "object-inspect": "^1.2.1",
     "path-exists": "^3.0.0",

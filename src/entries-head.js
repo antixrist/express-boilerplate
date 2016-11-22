@@ -5,8 +5,7 @@ let installed = false;
 module.exports = ({
   rejectionLogFn = void 0,
   onDeathOpts = {
-    uncaughtException: true,
-    debug: true
+    uncaughtException: true
   },
   sourceMapsOpts = {}
 } = {}) => {

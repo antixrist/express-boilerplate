@@ -38,15 +38,30 @@ const findUnusedPort = async function findUnusedPort (min = 3000, max = 65535, s
 
 
 
-const inspectOpt = {
-  depth : null,
-  colors: true,
-  // showHidden: true,
-};
-
-const logger = tracer.colorConsole({
-  inspectOpt,
-  stackIndex: 0
+var colors = require('colors/safe');
+const logger = tracer.console({
+  format: "{{timestamp}} <{{title}}> {{file}}:{{line}} ({{method}}) {{message}}",
+  dateformat: "isoDateTime",
+  preprocess: function(data) {
+  },
+  transport: function(data) {
+    console.log(data.output);
+  },
+  filters: [{
+    //log: do nothing
+    trace: colors.magenta,
+    debug: colors.cyan,
+    info: colors.green,
+    warn: colors.yellow,
+    error: colors.red.bold
+  }],
+  level: 'log',
+  methods: ['log', 'trace', 'debug', 'info', 'warn', 'error'],
+  stackIndex: 0,
+  inspectOpt: {
+    depth: null
+    // showHidden: true,
+  }
 });
 
 let err = new Error('Something wrong!');
@@ -71,24 +86,24 @@ obj.recurse = obj;
 // logger.debug(err);
 // logger.error(err);
 
-const onDeath = require('death')({
-  uncaughtException: true
-});
-
-onDeath((signal, err) => {
-  signal && logger.debug(signal);
-
-  if (err) {
-    logger.error(err);
-    // process.exit(1);
-  }
-});
+// const onDeath = require('death')({
+//   uncaughtException: true
+// });
+//
+// onDeath((signal, err) => {
+//   signal && logger.debug(signal);
+//
+//   if (err) {
+//     logger.error(err);
+//     // process.exit(1);
+//   }
+// });
 
 // setInterval(() => {}, 100);
 
-setTimeout(() => {
-  throw new Error('Async wrong!');
-}, 2000);
+// setTimeout(() => {
+//   throw new Error('Async wrong!');
+// }, 2000);
 
 // var logger1 = require('tracer').console({
 //   stackIndex : 0 // default 0

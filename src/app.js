@@ -2,6 +2,7 @@ import _                 from 'lodash';
 import fs                from 'fs';
 import express           from 'express';
 import path              from 'path';
+import uuid              from 'node-uuid';
 import pathExists        from 'path-exists';
 import cookieParser      from 'cookie-parser';
 import bodyParser        from 'body-parser';
@@ -16,7 +17,7 @@ import httpError         from 'http-errors';
 import helmet            from 'helmet';
 import vhost             from 'vhost';
 import inspect           from 'object-inspect';
-import logger            from 'morgan';
+import morgan            from 'morgan';
 import fileStreamRotator from 'file-stream-rotator';
 import Debug             from 'debug';
 import routes            from './routes';
@@ -32,7 +33,8 @@ import {
 const app = express();
 const cwd = process.cwd();
 const debug = Debug('app:server');
-const isProduction = app.get('env') == 'production';
+const isProduction = app.get('env') != 'development';
+const isDevelopment = app.get('env') == 'development';
 
 debug(`Setup ${app.get('env')} server`);
 
@@ -94,15 +96,45 @@ app.use(express.static(path.join(cwd, 'public'), expressConfig.static));
  * Логирование запросов
  * todo: подумать над форматом логов
  */
+
+/** сгенерируем для запроса уникальный id */
+app.use((req, res, next) => {
+  req.id = uuid.v4();
+  next();
+});
+
+/** создадим токен для логгера с id-запроса */
+morgan.token('id', req => req.id);
+morgan.token('body', (req, res) => inspect(res.body));
+
+if (isDevelopment) {
+
+} else {
+
+}
+
+app.use(morgan(':id :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status ":referrer" ":user-agent"', {
+  immediate: false,
+  // skip: (req, res) => res.statusCode < 400
+}));
+
+if (isDevelopment) {
+
+} else {
+
+}
+
 if (!isProduction) {
-  // app.use(logger('dev'));
-  app.use(logger('combined'));
+  // app.use(morgan('dev'));
+  app.use(morgan(':id :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"', {
+    immediate: false
+  }));
 } else {
   /** на продакшене логируем в файл, с суточной ротацией */
   let logDirectory = path.join(cwd, '/logs');
   !pathExists.sync(logDirectory) && fs.mkdirSync(logDirectory);
 
-  app.use(logger('common', {
+  app.use(morgan('common', {
     stream: fileStreamRotator.getStream({
       frequency:   'daily',
       date_format: 'YYYYMMDD',
@@ -222,6 +254,7 @@ app.use(helmet.contentSecurityPolicy({
     defaultSrc: ["'self'", 'somecdn.com'],
     styleSrc: ["'self'", "'unsafe-inline'", 'maxcdn.bootstrapcdn.com'],
     imgSrc: ["'self'", 'data:'],
+    // scriptSrc: ["'self'"],
     // todo: печеньки не читаются. изучить про sandbox
     // sandbox: ['allow-forms', 'allow-scripts', 'allow-same-origin'],
     reportUri: '/report-csp-violation',
@@ -237,7 +270,7 @@ app.use(helmet.contentSecurityPolicy({
 /** csurf должен идти _после_ роута для приёма репортов */
 /** todo: добавить дату в лог */
 app.post('/report-csp-violation', function (req, res) {
-  if (!isProduction) {
+  if (isDevelopment) {
     let body = req.body ? req.body : 'No data received!';
     console.error(`CSP Violation: ${inspect(body)}`);
   } else {
@@ -246,7 +279,7 @@ app.post('/report-csp-violation', function (req, res) {
     !pathExists.sync(logDirectory) && fs.mkdirSync(logDirectory);
 
     /** todo: добавить генерацию логов */
-    // app.use(logger('csp', {
+    // app.use(morgan('csp', {
     //   stream: fileStreamRotator.getStream({
     //     frequency:   'daily',
     //     date_format: 'YYYYMMDD',
@@ -277,6 +310,12 @@ app.post('/report-csp-violation', function (req, res) {
 app.use('/', routes);
 
 
+app.use('/err', (req, res, next) => {
+  process.nextTick(() => function () {
+    throw new Error('asdqweasd');
+  });
+});
+
 
 /** Если дошли сюда, значит на запрос не нашлось нужного роута. Отправим 404. */
 app.use(function (req, res, next) {
@@ -305,20 +344,22 @@ app.use(function (err, req, res, next) {
   }
   
   res.status(err.status || 500);
-  if (app.get('env') == 'production') {
-    console.error(inspect(err));
-    res.render('error', {
-      status:  res.statusCode,
-      message: 'Internal server error', //err.message,
-      error: {}
-    });
-  } else {
-    res.render('error', {
+
+  console.error(err);
+
+  if (isDevelopment) {
+    return res.render('error', {
       status:  res.statusCode,
       message: err.message,
       error:   err,
     });
   }
+
+  res.render('error', {
+    status:  res.statusCode,
+    message: 'Internal server error', //err.message,
+    error: {}
+  });
 });
 
 export { app };
