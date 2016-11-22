@@ -266,6 +266,8 @@ if (config.get('security:contentSecurityPolicy:directives:reportUri')) {
 //   sourceMap:      true
 // }));
 
+/** вот здесь можно настроить csurf */
+
 /**
  * Пошли маршруты
  */

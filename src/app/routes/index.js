@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/async', function (req, res, next) {
   (async function () {
-    let asyncAwait = await Promise.delay(5).then(() => 'asyncAwait alive!!!');
+    let asyncAwait = await Promise.delay(0).then(() => 'asyncAwait alive!!!');
     res.set('X-ENV', app.get('env'));
     res.render('index', { title: 'Express', asyncAwait });
   })().catch(next);
