@@ -39,6 +39,10 @@ const findUnusedPort = async function findUnusedPort (min = 3000, max = 65535, s
 
 
 /**
+ * todo: вообще, не логично вешать системные события в модуле с утилитами.
+ * дообдумать этот момент, чтоли
+ */
+/**
  * @param {function} cb
  */
 const onShutdown = (cb) => onShutdown.handlers.push(cb);
