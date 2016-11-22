@@ -14,7 +14,7 @@ port && app.set('port', port);
 !port && logger.warn('Port is undefined. Random port will used');
 
 /** Listen on provided port, on all network interfaces. */
-const server = app.listen(port, function () {
+const server = app.listen(port, () => {
   const address = server.address();
   debug(`Start listening on ${address.address}:${address.port}`);
   
@@ -23,15 +23,15 @@ const server = app.listen(port, function () {
 });
 
 /** Event listener for HTTP server "error" event. */
-server.on('error', function onError (error) {
-  if (error.syscall !== 'listen') {
-    throw error;
+server.on('error', err => {
+  if (err.syscall !== 'listen') {
+    throw err;
   }
   
   let bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
   
   /** handle specific listen errors with friendly messages */
-  switch (error.code) {
+  switch (err.code) {
     case 'EACCES':
       throw new Error (bind + ' requires elevated privileges');
       break;
@@ -39,7 +39,7 @@ server.on('error', function onError (error) {
       throw new Error (bind + ' is already in use');
       break;
     default:
-      throw error;
+      throw err;
   }
 });
 
