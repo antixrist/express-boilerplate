@@ -319,6 +319,11 @@ app.use(function (req, res, next) {
  */
 /** если это http-ошибка */
 app.use(function httpErrorsHandler (err, req, res, next) {
+  if (res.headersSent) {
+    // пусть там express дальше сам разбирается
+    return next(err);
+  }
+  
   if (!(err instanceof httpError.HttpError)) {
     return next(err);
   }
@@ -360,6 +365,11 @@ app.use(function httpErrorsHandler (err, req, res, next) {
 
 /** если это пойманное исключение */
 app.use(function (err, req, res, next) {
+  if (res.headersSent) {
+    // пусть там express дальше сам разбирается
+    return next(err);
+  }
+  
   /** todo: req.xhr */
   
   let clientErr = new httpError.InternalServerError();
