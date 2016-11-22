@@ -36,6 +36,43 @@ const findUnusedPort = async function findUnusedPort (min = 3000, max = 65535, s
   ;
 };
 
+/**
+ * @param {function} [cb]
+ */
+const onShutdown = (cb = (error, signal) => {
+  signal && console.warn(signal);
+  error  && console.error(error);
+}) => {
+  onShutdown.handler = cb;
+  onShutdown.disableOnDeath = function () {};
+  if (typeof onShutdown.handler == 'function') { return onShutdown.disableOnDeath; }
+
+  /**
+   * ловим необработанные promise-исключения.
+   * если не надо, чтобы процесс умирал,
+   * то подключить `loud-rejection` вместо `hard-rejection`.
+   * тогда коллбек будет вызываться для каждого непойманного
+   * исключения поочерёдно _в момент остановки процесса_!
+   * (а не в момент выброса жтого исключения)
+   */
+  require('hard-rejection')(onShutdown.handler);
+
+  /**
+   * ловим все непойманные исключения и системные сигналы об остановке процесса.
+   * здесь можно и нужно тушить и останавливать всё, что можно и нужно потушить и остановить
+   * (например коннекты к базе данных)
+   */
+  const onDeath = require('death')({
+    uncaughtException: true,
+    debug: false
+  });
+
+  onShutdown.disableOnDeath = onDeath((signal, err) => {
+    onShutdown.handler(err, signal);
+  });
+
+  return onShutdown.disableOnDeath;
+};
 
 
 var colors = require('colors/safe');
@@ -79,25 +116,12 @@ let obj = {
     }
   ]
 };
-obj.recurse = obj;
+// obj.recurse = obj;
 
 
 // logger.log(obj);
 // logger.debug(err);
 // logger.error(err);
-
-// const onDeath = require('death')({
-//   uncaughtException: true
-// });
-//
-// onDeath((signal, err) => {
-//   signal && logger.debug(signal);
-//
-//   if (err) {
-//     logger.error(err);
-//     // process.exit(1);
-//   }
-// });
 
 // setInterval(() => {}, 100);
 
@@ -124,4 +148,4 @@ obj.recurse = obj;
 // logMgr2('log', 'hello'); // the line info is right
 
 
-export {toArray, findUnusedPort};
+export {toArray, findUnusedPort, onShutdown};

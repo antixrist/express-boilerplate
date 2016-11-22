@@ -1,16 +1,21 @@
 #!/usr/bin/env node
+require('source-map-support').install();
 
-const { onDeath } = require('./entries-head')();
-
-import inspect from 'object-inspect';
 import http  from 'http';
 import Debug from 'debug';
 import portastic from 'portastic';
-import { findUnusedPort } from './utils';
+import { findUnusedPort, onShutdown } from './utils';
 import { app } from './app';
 
 const debug = Debug('app:launcher');
 const isProduction = app.get('env') == 'production';
+
+onShutdown((error, signal) => {
+  console.log('onShutdown');
+  signal && console.warn(signal);
+  error  && console.error(error);
+  process.exit(1);
+});
 
 (async function () {
   /** todo: установку/поиск порта перенести в app.js */
@@ -101,13 +106,3 @@ function normalizePort (val) {
 
   return false;
 }
-
-const disableOnDeath = onDeath((signal, err) => {
-  console.log('graceful shutdown', inspect(signal), inspect(err));
-  // db.stop(function(err) {
-  //   // если всё остановилось хорошо, то шлём 0.
-  //   // если какая-то фигня, то показывем, что завершилось с ошибкой, посылая 1
-  //   process.exit(err ? 1 : 0);
-  // });
-  setTimeout(() => process.exit(0), 2000);
-});

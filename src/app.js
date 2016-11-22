@@ -309,57 +309,94 @@ app.post('/report-csp-violation', function (req, res) {
  */
 app.use('/', routes);
 
+app.use('/admin', (req, res, next) => next(new httpError.Unauthorized()));
+app.use('/admin/users', (req, res, next) => next(new httpError.Forbidden()));
+
 
 app.use('/err', (req, res, next) => {
-  process.nextTick(() => function () {
-    throw new Error('asdqweasd');
-  });
+  throw new Error('throw rejection in /err');
+
+  // Promise.resolve()
+  //   .then(() => {
+  //     throw new Error('promise rejection');
+  //   })
+  //   .catch(next)
+  //   .then(() => res.status(204).end())
+  // ;
 });
 
 
-/** Если дошли сюда, значит на запрос не нашлось нужного роута. Отправим 404. */
+/** Если дошли сюда, значит на запрос не нашлось нужного роута. Отправляем 404. */
 app.use(function (req, res, next) {
   return next(new httpError.NotFound());
 });
 
-/** Если дошли сюда - значит передана либо не поймана ошибка. */
+/** Если дошли сюда - значит передана (либо поймана) ошибка. */
 app.use(function (err, req, res, next) {
-  if (err.statusCode) {
-    res.statusCode = err.statusCode
-  }
-  
-  // respect err.status
-  if (err.status) {
-    res.statusCode = err.status
-  }
-  
-  // default status code to 500
-  if (res.statusCode < 400) {
-    res.statusCode = 500
-  }
-  
-  // cannot actually respond
-  if (res._header) {
-    return req.socket.destroy();
-  }
-  
-  res.status(err.status || 500);
+  /** если это http-ошибка */
+  if (err instanceof httpError.HttpError) {
+    if (res._header) {
+      return req.socket.destroy();
+    }
 
-  console.error(err);
+    let status = err.statusCode || res.statusCode || 500;
+    // default status code to 500
+    res.statusCode = status < 400 ? 500 : status;
 
-  if (isDevelopment) {
-    return res.render('error', {
+    let viewName = '50x';
+    switch (res.statusCode) {
+      case 401:
+      case 403:
+      case 404:
+        viewName = res.statusCode;
+        break;
+      default:
+        viewName = (res.statusCode < 500) ? '40x' : viewName;
+        break;
+    }
+
+    /** рендерим `viewName` */
+    res.render(`errors/${viewName}`, {
       status:  res.statusCode,
-      message: err.message,
-      error:   err,
+      message: err.message, // текстовый статус http-ошибки
+      error:   {}
     });
   }
+  /** если это пойманное исключение */
+  else {
+    let clientErr = new httpError.InternalServerError();
+    if (isDevelopment) {
+      /** в режиме разработки рендерим страницу с ошибкой */
+      res.status(err.statusCode || clientErr.statusCode);
+      res.render('errors/trace', {
+        status:  err.statusCode || clientErr.statusCode,
+        message: err.message,
+        error:   err,
+      });
 
-  res.render('error', {
-    status:  res.statusCode,
-    message: 'Internal server error', //err.message,
-    error: {}
-  });
+      // process.nextTick(() => {
+        throw err;
+      // });
+    } else {
+      /** в режиме продакшна ошибку пишем в лог рендерим обычную обычную 50x */
+      res.status(clientErr.statusCode);
+      res.render('errors/50x', {
+        status:  clientErr.statusCode,
+        message: clientErr.message
+      });
+
+      /**
+       * и выкидываем исключение, которое отловится ловцом непойманных исключений.
+       * этот ловец-молодец должен:
+       * - залогировать ошибку
+       * - плавно остановить всё, что надо остановить
+       * - убить процесс
+       */
+      process.nextTick(() => {
+        throw err;
+      });
+    }
+  }
 });
 
 export { app };
