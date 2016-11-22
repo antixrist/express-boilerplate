@@ -1,9 +1,13 @@
 {
+  "port": 3000,
   "basicAuth": [{
     "name": "admin",
     "pass": "pass"
   }, {
     "name": "admin2",
     "pass": "pass2"
-  }]
+  }],
+  "express": {
+    "trust proxy": ["loopback", "uniquelocal"]
+  }
 }

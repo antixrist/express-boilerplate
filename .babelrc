@@ -1,7 +1,7 @@
 {
   "plugins": [
     "transform-es2015-modules-commonjs",
-//    "closure-elimination",
+    "closure-elimination",
 //    "transform-promise-to-bluebird",
     "syntax-async-functions",
     "transform-async-to-generator"

@@ -6,5 +6,8 @@
   }, {
     "name": "admin2",
     "pass": "pass2"
-  }]
+  }],
+  "express": {
+    "trust proxy": ["loopback", "uniquelocal"]
+  }
 }

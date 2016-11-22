@@ -2,6 +2,7 @@ import _                 from 'lodash';
 import fs                from 'fs';
 import express           from 'express';
 import path              from 'path';
+import uuid              from 'node-uuid';
 import pathExists        from 'path-exists';
 import cookieParser      from 'cookie-parser';
 import bodyParser        from 'body-parser';
@@ -16,7 +17,7 @@ import httpError         from 'http-errors';
 import helmet            from 'helmet';
 import vhost             from 'vhost';
 import inspect           from 'object-inspect';
-import logger            from 'morgan';
+import morgan            from 'morgan';
 import fileStreamRotator from 'file-stream-rotator';
 import Debug             from 'debug';
 import routes            from './routes';
@@ -32,7 +33,8 @@ import {
 const app = express();
 const cwd = process.cwd();
 const debug = Debug('app:server');
-const isProduction = app.get('env') == 'production';
+const isProduction = app.get('env') != 'development';
+const isDevelopment = app.get('env') == 'development';
 
 debug(`Setup ${app.get('env')} server`);
 
@@ -94,23 +96,53 @@ app.use(express.static(path.join(cwd, 'public'), expressConfig.static));
  * Логирование запросов
  * todo: подумать над форматом логов
  */
-if (!isProduction) {
-  // app.use(logger('dev'));
-  app.use(logger('combined'));
-} else {
-  /** на продакшене логируем в файл, с суточной ротацией */
-  let logDirectory = path.join(cwd, '/logs');
-  !pathExists.sync(logDirectory) && fs.mkdirSync(logDirectory);
 
-  app.use(logger('common', {
-    stream: fileStreamRotator.getStream({
-      frequency:   'daily',
-      date_format: 'YYYYMMDD',
-      filename:    path.join(logDirectory, 'access-%DATE%.log'),
-      verbose:     false
-    })
-  }));
+/** сгенерируем для запроса уникальный id */
+app.use((req, res, next) => {
+  req.id = uuid.v4();
+  next();
+});
+
+/** создадим токен для логгера с id-запроса */
+morgan.token('id', req => req.id);
+morgan.token('body', (req, res) => inspect(res.body));
+
+if (isDevelopment) {
+
+} else {
+
 }
+
+app.use(morgan(':id :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status ":referrer" ":user-agent"', {
+  immediate: false,
+  // skip: (req, res) => res.statusCode < 400
+}));
+
+// if (isDevelopment) {
+//
+// } else {
+//
+// }
+//
+// if (!isProduction) {
+//   // app.use(morgan('dev'));
+//   app.use(morgan(':id :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"', {
+//     immediate: false
+//   }));
+// } else {
+//   /** на продакшене логируем в файл, с суточной ротацией */
+//   let logDirectory = path.join(cwd, '/logs');
+//   !pathExists.sync(logDirectory) && fs.mkdirSync(logDirectory);
+//
+//   app.use(morgan('common', {
+//     stream: fileStreamRotator.getStream({
+//       frequency:   'daily',
+//       date_format: 'YYYYMMDD',
+//       filename:    path.join(logDirectory, 'access-%DATE%.log'),
+//       verbose:     false
+//     })
+//   }));
+// }
 
 /**
  * Устанавливаем http-аутентификацию, если логины-пароли заданы в конфиге.
@@ -175,7 +207,7 @@ app.use(responseTime());
 app.use(helmet.frameguard({action: 'sameorigin'})); // or { action: 'deny' }
 
 /** пусть мамкины хакеры голову ломают */
-app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
+app.use(helmet.hidePoweredBy({ setTo: 'PHP 5.2.8' }));
 
 /** установим "X-DNS-Prefetch-Control: off", чтобы браузеры (которые это умеют) не префетчили ip нашего домена */
 app.use(helmet.dnsPrefetchControl());
@@ -192,7 +224,7 @@ app.use(helmet.noSniff());
 /** и поставим "X-XSS-Protection: 1; mode=block" */
 app.use(helmet.xssFilter());
 
-/** если юзается ssl, то надо послать браузеру открытые ключи, чтобы он их сохранил и при последующих запросах оберегал юзера от скомпрометированных центрах сертификации */
+/** если юзается ssl, то надо послать браузеру открытые ключи, чтобы он их сохранил и при последующих запросах оберегал юзера от скомпрометированных центров сертификации */
 app.use(helmet.hpkp({
   setIf (req, res) {
     return !!req.secure;
@@ -222,11 +254,15 @@ app.use(helmet.contentSecurityPolicy({
     defaultSrc: ["'self'", 'somecdn.com'],
     styleSrc: ["'self'", "'unsafe-inline'", 'maxcdn.bootstrapcdn.com'],
     imgSrc: ["'self'", 'data:'],
+    // scriptSrc: ["'self'"],
     // todo: печеньки не читаются. изучить про sandbox
     // sandbox: ['allow-forms', 'allow-scripts', 'allow-same-origin'],
     reportUri: '/report-csp-violation',
     objectSrc: ["'none'"], // An empty array allows nothing through
   },
+  reportOnly: false,
+  // or
+  // reportOnly: (req, res) => req.query.cspmode === 'debug',
   setAllHeaders: true,
   disableAndroid: true
 }));
@@ -234,7 +270,7 @@ app.use(helmet.contentSecurityPolicy({
 /** csurf должен идти _после_ роута для приёма репортов */
 /** todo: добавить дату в лог */
 app.post('/report-csp-violation', function (req, res) {
-  if (!isProduction) {
+  if (isDevelopment) {
     let body = req.body ? req.body : 'No data received!';
     console.error(`CSP Violation: ${inspect(body)}`);
   } else {
@@ -243,7 +279,7 @@ app.post('/report-csp-violation', function (req, res) {
     !pathExists.sync(logDirectory) && fs.mkdirSync(logDirectory);
 
     /** todo: добавить генерацию логов */
-    // app.use(logger('csp', {
+    // app.use(morgan('csp', {
     //   stream: fileStreamRotator.getStream({
     //     frequency:   'daily',
     //     date_format: 'YYYYMMDD',
@@ -272,49 +308,65 @@ app.post('/report-csp-violation', function (req, res) {
  * Пошли маршруты
  */
 app.use('/', routes);
+app.use('/admin', (req, res, next) => next(new httpError.Unauthorized()));
+app.use('/admin/users', (req, res, next) => next(new httpError.Forbidden()));
 
-
-
-/** Если дошли сюда, значит на запрос не нашлось нужного роута. Отправим 404. */
+/** Если дошли сюда, значит на запрос не нашлось нужного роута. Отправляем 404. */
 app.use(function (req, res, next) {
   return next(new httpError.NotFound());
 });
 
-/** Если дошли сюда - значит передана либо не поймана ошибка. */
+/** Если дошли сюда - значит передана (либо поймана) ошибка. */
 app.use(function (err, req, res, next) {
-  if (err.statusCode) {
-    res.statusCode = err.statusCode
-  }
-  
-  // respect err.status
-  if (err.status) {
-    res.statusCode = err.status
-  }
-  
-  // default status code to 500
-  if (res.statusCode < 400) {
-    res.statusCode = 500
-  }
-  
-  // cannot actually respond
-  if (res._header) {
-    return req.socket.destroy();
-  }
-  
-  res.status(err.status || 500);
-  if (app.get('env') == 'production') {
-    console.error(inspect(err));
-    res.render('error', {
+  /** если это http-ошибка */
+  if (err instanceof httpError.HttpError) {
+    if (res._header) {
+      return req.socket.destroy();
+    }
+
+    let status = err.statusCode || res.statusCode || 500;
+    // default status code to 500
+    res.statusCode = status < 400 ? 500 : status;
+
+    let viewName = '50x';
+    switch (res.statusCode) {
+      case 401:
+      case 403:
+      case 404:
+        viewName = res.statusCode;
+        break;
+      default:
+        viewName = (res.statusCode < 500) ? '40x' : viewName;
+        break;
+    }
+
+    /** рендерим `viewName` */
+    res.render(`errors/${viewName}`, {
       status:  res.statusCode,
-      message: 'Internal server error', //err.message,
-      error: {}
+      message: err.message, // текстовый статус http-ошибки
+      error:   {}
     });
-  } else {
-    res.render('error', {
-      status:  res.statusCode,
-      message: err.message,
-      error:   err,
-    });
+  }
+  /** если это пойманное исключение */
+  else {
+    let clientErr = new httpError.InternalServerError();
+    if (isDevelopment) {
+      /** в режиме разработки рендерим страницу с ошибкой */
+      res.status(err.statusCode || clientErr.statusCode);
+      res.render('errors/trace', {
+        status:  err.statusCode || clientErr.statusCode,
+        message: err.message,
+        error:   err,
+      });
+    } else {
+      /** в режиме продакшна ошибку пишем в лог и рендерим обычную обычную 50x */
+      console.error(err);
+      res.status(clientErr.statusCode);
+      res.render('errors/50x', {
+        status:  clientErr.statusCode,
+        message: clientErr.message
+      });
+    }
   }
 });
 

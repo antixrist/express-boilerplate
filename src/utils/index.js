@@ -1,5 +1,8 @@
-import _ from 'lodash';
+import _         from 'lodash';
+import death     from 'death';
+import tracer    from 'tracer';
 import portastic from 'portastic';
+import {inspect} from 'util';
 
 /**
  * @param {*} something
@@ -34,4 +37,115 @@ const findUnusedPort = async function findUnusedPort (min = 3000, max = 65535, s
   ;
 };
 
-export {toArray, findUnusedPort};
+
+
+const onShutdownHandlers = [];
+const onDeath = death({
+  uncaughtException: true,
+  debug: false
+});
+const onShutdownRunner = _.once((signal, err) => {
+  onShutdownHandlers.forEach(cb => {
+    cb(err, signal);
+  });
+  err && process.exit(1);
+});
+
+/**
+ * ловим необработанные promise-исключения.
+ * если не надо, чтобы процесс умирал,
+ * то подключить `loud-rejection` вместо `hard-rejection`.
+ * тогда коллбек будет вызываться для каждого непойманного
+ * исключения поочерёдно _в момент остановки процесса_!
+ * (а не в момент выброса жтого исключения)
+ *
+ * В версиях ноды >7.0 использование `process.on('unhandledRejection')` выбрасывает DeprecationWarning.
+ * Так что, в принципе, этот обработчик можно удалить и просто следить за тем,
+ * чтобы во всех используемых промисах был установлен catch-обработчик.
+ */
+// require('hard-rejection')(onShutdownRunner);
+
+/**
+ * @param {function} cb
+ */
+const onShutdown = (cb) => {
+  onShutdownHandlers.push(cb);
+
+  return onDeath(onShutdownRunner);
+};
+
+
+var colors = require('colors/safe');
+const logger = tracer.console({
+  format: "{{timestamp}} <{{title}}> {{file}}:{{line}} ({{method}}) {{message}}",
+  dateformat: "isoDateTime",
+  preprocess: function(data) {
+  },
+  transport: function(data) {
+    console.log(data.output);
+  },
+  filters: [{
+    //log: do nothing
+    trace: colors.magenta,
+    debug: colors.cyan,
+    info: colors.green,
+    warn: colors.yellow,
+    error: colors.red.bold
+  }],
+  level: 'log',
+  methods: ['log', 'trace', 'debug', 'info', 'warn', 'error'],
+  stackIndex: 0,
+  inspectOpt: {
+    depth: null
+    // showHidden: true,
+  }
+});
+
+let err = new Error('Something wrong!');
+let obj = {
+  Request: [
+    {
+      IsValid:           [true],
+      ItemSearchRequest: [
+        {
+          ResponseGroup: ['Small', 'OfferSummary'],
+          Sort:          ['salesrank'],
+          SearchIndex:   ['DVD']
+        }
+      ]
+    }
+  ]
+};
+// obj.recurse = obj;
+
+
+// logger.log(obj);
+// logger.debug(err);
+// logger.error(err);
+
+// setInterval(() => {}, 100);
+
+// setTimeout(() => {
+//   throw new Error('Async wrong!');
+// }, 2000);
+
+// var logger1 = require('tracer').console({
+//   stackIndex : 0 // default 0
+// });
+// var logger2 = require('tracer').console({
+//   stackIndex : 1
+// });
+// var logMgr1 = function(type, msg) {
+//   return logger1[type](msg);
+// };
+// var logMgr2 = function(type, msg) {
+//   return logger2[type](msg);
+// };
+//
+// logger1.log('hello'); // the line info is right
+// logger2.log('hello'); // the line info is error
+// logMgr1('log', 'hello'); // the line info is error
+// logMgr2('log', 'hello'); // the line info is right
+
+
+export {toArray, findUnusedPort, onShutdown};

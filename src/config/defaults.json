@@ -8,7 +8,6 @@
     "x-powered-by": false,
     "strict routing": true,
     "case sensitive routing": true,
-    // настройки для реверс-прокси, если перед нодой стоит nginx */
      "trust proxy": ""
   },
   "session": {
