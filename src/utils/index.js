@@ -46,7 +46,7 @@ const inspectOpt = {
 
 const logger = tracer.colorConsole({
   inspectOpt,
-  stackIndex: 1
+  stackIndex: 0
 });
 
 let err = new Error('Something wrong!');
@@ -67,8 +67,28 @@ let obj = {
 obj.recurse = obj;
 
 
-logger.log(obj);
-logger.debug(err);
+// logger.log(obj);
+// logger.debug(err);
+// logger.error(err);
+
+const onDeath = require('death')({
+  uncaughtException: true
+});
+
+onDeath((signal, err) => {
+  signal && logger.debug(signal);
+
+  if (err) {
+    logger.error(err);
+    // process.exit(1);
+  }
+});
+
+// setInterval(() => {}, 100);
+
+setTimeout(() => {
+  throw new Error('Async wrong!');
+}, 2000);
 
 // var logger1 = require('tracer').console({
 //   stackIndex : 0 // default 0

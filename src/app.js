@@ -227,6 +227,9 @@ app.use(helmet.contentSecurityPolicy({
     reportUri: '/report-csp-violation',
     objectSrc: ["'none'"], // An empty array allows nothing through
   },
+  reportOnly: false,
+  // or
+  // reportOnly: (req, res) => req.query.cspmode === 'debug',
   setAllHeaders: true,
   disableAndroid: true
 }));
