@@ -38,17 +38,34 @@ const findUnusedPort = async function findUnusedPort (min = 3000, max = 65535, s
 };
 
 
+/**
+ * @param {function} cb
+ */
+const onShutdown = (cb) => onShutdown.handlers.push(cb);
+onShutdown.handlers = [];
 
-const onShutdownHandlers = [];
-const onDeath = death({
+/** вешаем обработчик на смерть процесса */
+death({
   uncaughtException: true,
   debug: false
-});
-const onShutdownRunner = _.once((signal, err) => {
-  onShutdownHandlers.forEach(cb => {
-    cb(err, signal);
-  });
-  err && process.exit(1);
+})((signal, err) => {
+  /** если нет кастомных обработчиков */
+  if (!onShutdown.handlers.length) {
+    /** выплёвываем в stderr ошибку, если она есть */
+    err && console.error(err.stack);
+  }
+  /** а если есть кастомные обработчики */
+  else {
+    /** поочереди синхронно их выполняем */
+    onShutdown.handlers.forEach(cb => cb(err, signal));
+  }
+  
+  /**
+   * руками убиваем процесс.
+   * если есть ошибка, то ставим код завершения == `1`.
+   * так внешние демоны смогут понять, что приложение именно упало, а не успешно завершилось.
+   */
+  process.exit(err ? 1 : 0);
 });
 
 /**
@@ -64,15 +81,6 @@ const onShutdownRunner = _.once((signal, err) => {
  * чтобы во всех используемых промисах был установлен catch-обработчик.
  */
 // require('hard-rejection')(onShutdownRunner);
-
-/**
- * @param {function} cb
- */
-const onShutdown = (cb) => {
-  onShutdownHandlers.push(cb);
-
-  return onDeath(onShutdownRunner);
-};
 
 
 var colors = require('colors/safe');

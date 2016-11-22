@@ -3,16 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "tmp": "babel-node src/server.js",
     "dev": "cross-env DEBUG=app:* nodemon src/server.js --exec babel-node",
-    "conf": "cross-env DEBUG=app:* nodemon src/config/index.js --exec babel-node",
     "development": "npm run dev",
     "build": "del-cli ./dist && mkdir dist && babel src --out-dir dist --copy-files --source-maps",
-    "tmp2": "del-cli ./tmp2 && mkdir tmp2 && babel src --out-dir tmp2 --copy-files --source-maps",
     "serve": "cross-env NODE_ENV=production node dist/server.js",
-    "tmp3": "node tmp2/tmp.js",
     "prod": "npm run build && npm run serve",
-    "tmp4": "npm run tmp2 && npm run tmp3",
     "production": "npm run prod",
     "test": "mocha --compilers js:babel-register",
     "postinstall": "bower install"

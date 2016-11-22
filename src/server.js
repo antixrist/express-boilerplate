@@ -6,10 +6,10 @@ import portastic from 'portastic';
 import { findUnusedPort, onShutdown } from './utils';
 import { app } from './app';
 
+onShutdown((err, signal) => err && console.error(err.stack));
+
 const debug = Debug('app:launcher');
 const isProduction = app.get('env') == 'production';
-
-onShutdown((err, signal) => err && console.error(err.stack));
 
 (async function () {
   /** todo: установку/поиск порта перенести в app.js */

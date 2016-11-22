@@ -107,6 +107,10 @@ app.use((req, res, next) => {
 morgan.token('id', req => req.id);
 morgan.token('body', (req, res) => inspect(res.body));
 
+setTimeout(function () {
+  // throw new Error('something wrong!');
+}, 100);
+
 if (isDevelopment) {
 
 } else {
