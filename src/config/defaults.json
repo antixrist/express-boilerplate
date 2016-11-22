@@ -38,5 +38,50 @@
     "strict": true,
     "mergeParams": false,
     "caseSensitive": true
+  },
+  "security": {
+    "frameguard": {"action": "sameorigin"},
+    "hidePoweredBy": {"setTo": "PHP 5.2.8"},
+    "dnsPrefetchControl": true,
+    "ieNoOpen": true,
+    "noSniff": true,
+    "referrerPolicy": false,
+    "xssFilter": true,
+//    "hpkp": {
+//      setIf (req, res) {
+//        return !!req.secure;
+//      },
+//      "maxAge": 777600, // 9 * 24 * 60 * 60 = 9 дней в секундах
+//      "sha256s": ["AbCdEf123=", "ZyXwVu456="], // заменить на свои значения
+//      "includeSubdomains": true,
+//      "reportUri": "https://example.com/hpkp-report",
+//      "reportOnly": false
+//    },
+//    "hsts": {
+//      // or `force: true`
+//      setIf (req, res) {
+//        return !!req.secure;
+//      },
+//      "maxAge": 432000, // 5 * 24 * 60 * 60 = 6 дней в секундах
+//      "includeSubDomains": true,
+//      "preload": true
+//    },
+    "contentSecurityPolicy": {
+      "directives": {
+        "defaultSrc": ["'self'", "somecdn.com"],
+        "styleSrc": ["'self'", "'unsafe-inline'", "maxcdn.bootstrapcdn.com"],
+        "imgSrc": ["'self'", "data:"],
+        // "scriptSrc": ["'self'"],
+        // todo: печеньки не читаются. изучить про sandbox
+        // "sandbox": ["allow-forms", "allow-scripts", "allow-same-origin"],
+        "reportUri": "/report-csp-violation",
+        "objectSrc": ["'none'"] // An empty array allows nothing through
+      },
+      "reportOnly": false,
+      // or
+      // reportOnly: (req, res) => req.query.cspmode === 'debug',
+      "setAllHeaders": true,
+      "disableAndroid": true
+    }
   }
 }

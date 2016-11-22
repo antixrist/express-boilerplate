@@ -86,6 +86,14 @@ let obj = {
 // obj.recurse = obj;
 
 
+const log = {};
+
+log.log = console.log.bind(console);
+log.trace = console.trace.bind(console);
+log.info = console.info.bind(console);
+log.warn = console.warn.bind(console);
+log.error = console.error.bind(console);
+
 // logger.log(obj);
 // logger.debug(err);
 // logger.error(err);
@@ -115,4 +123,7 @@ let obj = {
 // logMgr2('log', 'hello'); // the line info is right
 
 
-export {toArray, findUnusedPort, onShutdown};
+export {toArray, findUnusedPort, onShutdown,
+  log as logger
+  // logger
+};

@@ -1,5 +1,3 @@
-/** todo: внедрить настройки в код и вытащить оттуда сюда всякие параметры */
-
 import path from 'path';
 import nconf from 'nconf';
 import {parse, stringify} from 'json5';

@@ -1,42 +1,34 @@
 require('source-map-support').install();
 
 import './setup';
-import http  from 'http';
 import Debug from 'debug';
-import { onShutdown } from './utils';
+import config from './config';
+import { onShutdown, logger } from './utils';
 import { app } from './app';
 
-const debug = Debug('app:launcher');
-const port = app.get('port');
-// const server = http.createServer(app);
+onShutdown((err, signal) => err && logger.error(err.stack));
 
-onShutdown((err, signal) => err && console.error(err.stack));
+const debug = Debug('app:server');
+const port = app.get('port') || config.get('express:port');
+
+!port && logger.warn('Port is undefined. Random port will used');
 
 /** Listen on provided port, on all network interfaces. */
-app.on('error', onError);
-app.listen(port, function (err) {
-  console.log('listen', err);
-  if (err) {
-    return onError(err);
-  }
+const server = app.listen(port, function () {
+  const address = server.address();
+  debug(`Start listening on ${address.address}:${address.port}`);
   
-  debug('Start listening on ' + port);
-
-  // шлём событие `ready` для `pm2`, если приложение запущено им
+  /** шлём событие `ready` для `pm2`, если приложение запущено им */
   process.send && process.send('ready');
 });
 
 /** Event listener for HTTP server "error" event. */
-function onError (error) {
-  console.log('onError', error);
+server.on('error', function onError (error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
   
-  let bind = typeof port === 'string'
-        ? 'Pipe ' + port
-        : 'Port ' + port
-    ;
+  let bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
   
   /** handle specific listen errors with friendly messages */
   switch (error.code) {
@@ -49,4 +41,6 @@ function onError (error) {
     default:
       throw error;
   }
-}
+});
+
+export default server;

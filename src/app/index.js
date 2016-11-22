@@ -21,7 +21,7 @@ import fileStreamRotator from 'file-stream-rotator';
 import {inspect}         from 'util';
 import Debug             from 'debug';
 import config            from '../config';
-import {toArray}         from '../utils';
+import {toArray, logger} from '../utils';
 import routes            from './routes';
 import {seo}             from './middlewares';
 
@@ -31,10 +31,6 @@ const debug = Debug('app:server');
 const isDevelopment = app.get('env') == 'development';
 
 debug(`Setup ${app.get('env')} server`);
-
-// setTimeout(function () {
-//   throw new Error('something wrong');
-// }, 100);
 
 /**
  * Устанавливаем настройки всего приложения
@@ -202,94 +198,62 @@ app.use(responseTime());
  */
 
 /** Запрет на показ в айфрейме (sameorigin - можно только с того же домена) */
-app.use(helmet.frameguard({action: 'sameorigin'})); // or { action: 'deny' }
+config.get('security:frameguard') && app.use(helmet.frameguard(config.get('security:frameguard'))); // or { action: 'deny' }
 
 /** пусть мамкины хакеры голову ломают */
-app.use(helmet.hidePoweredBy({ setTo: 'PHP 5.2.8' }));
+config.get('security:hidePoweredBy') && app.use(helmet.hidePoweredBy(config.get('security:hidePoweredBy')));
 
 /** установим "X-DNS-Prefetch-Control: off", чтобы браузеры (которые это умеют) не префетчили ip нашего домена */
-app.use(helmet.dnsPrefetchControl());
+config.get('security:dnsPrefetchControl') && app.use(helmet.dnsPrefetchControl(config.get('security:dnsPrefetchControl')));
 
 /** для старых ишаков ставим "X-Download-Options: noopen", чтобы контент, который надо скачать, они не открывали в контексте сайта */
-app.use(helmet.ieNoOpen());
+config.get('security:ieNoOpen') && app.use(helmet.ieNoOpen(config.get('security:ieNoOpen')));
 
 /** ставим "X-Content-Type-Options: nosniff", чтобы браузер доверял посланным сервером миме-типам, блочил не совпадающие и не пытался угадывать миме по содежимому загруженных файлов (а то ещё начнёт выполнять то, чего выполнять не должен) */
-app.use(helmet.noSniff());
+config.get('security:noSniff') && app.use(helmet.noSniff(config.get('security:noSniff')));
 
 /** устанавливаем "Referrer-Policy". Честно говоря лень разбираться во всех значениях: https://www.w3.org/TR/referrer-policy/#referrer-policies */
-// app.use(helmet.referrerPolicy({ policy: 'same-origin' }));
+config.get('security:referrerPolicy') && app.use(helmet.referrerPolicy(config.get('security:referrerPolicy')));
 
 /** и поставим "X-XSS-Protection: 1; mode=block" */
-app.use(helmet.xssFilter());
+config.get('security:xssFilter') && app.use(helmet.xssFilter(config.get('security:xssFilter')));
 
 /** если юзается ssl, то надо послать браузеру открытые ключи, чтобы он их сохранил и при последующих запросах оберегал юзера от скомпрометированных центров сертификации */
-app.use(helmet.hpkp({
-  setIf (req, res) {
-    return !!req.secure;
-  },
-  maxAge: 9 * 24 * 60 * 60, // 9 дней в секундах
-  sha256s: ['AbCdEf123=', 'ZyXwVu456='], // заменить на свои значения
-  includeSubdomains: true,
-  reportUri: 'https://example.com/hpkp-report',
-  reportOnly: false
-}));
+config.get('security:hpkp') && app.use(helmet.hpkp(config.get('security:hpkp')));
 
 /** опять же, если юзается ssl. говорит браузеру ходить только по https */
-app.use(helmet.hsts({
-  // or `force: true`
-  setIf (req, res) {
-    return !!req.secure;
-  },
-  maxAge: 5 * 24 * 60 * 60, // 6 дней в секундах
-  includeSubDomains: true,
-  preload: true
-}));
+config.get('security:hsts') && app.use(helmet.hsts(config.get('security:hsts')));
 
-/** todo: вынести настройки csp в конфиг */
 /** https://content-security-policy.com/ */
-app.use(helmet.contentSecurityPolicy({
-  directives: {
-    defaultSrc: ["'self'", 'somecdn.com'],
-    styleSrc: ["'self'", "'unsafe-inline'", 'maxcdn.bootstrapcdn.com'],
-    imgSrc: ["'self'", 'data:'],
-    // scriptSrc: ["'self'"],
-    // todo: печеньки не читаются. изучить про sandbox
-    // sandbox: ['allow-forms', 'allow-scripts', 'allow-same-origin'],
-    reportUri: '/report-csp-violation',
-    objectSrc: ["'none'"], // An empty array allows nothing through
-  },
-  reportOnly: false,
-  // or
-  // reportOnly: (req, res) => req.query.cspmode === 'debug',
-  setAllHeaders: true,
-  disableAndroid: true
-}));
+config.get('security:contentSecurityPolicy') && app.use(helmet.contentSecurityPolicy(config.get('security:contentSecurityPolicy')));
+
 /** роут для приёма репортов о нарушении csp (нормальные браузеры будут слать сюда отчёты) */
 /** csurf должен идти _после_ роута для приёма репортов */
 /** todo: добавить дату в лог */
-app.post('/report-csp-violation', function (req, res) {
-  if (isDevelopment) {
-    let body = req.body ? req.body : 'No data received!';
-    console.error(`CSP Violation: ${inspect(body)}`);
-  } else {
-    /** на продакшене логируем в файл, с суточной ротацией */
-    let logDirectory = path.join(cwd, '/logs');
-    !pathExists.sync(logDirectory) && fs.mkdirSync(logDirectory);
-
-    /** todo: добавить генерацию логов */
-    // app.use(morgan('csp', {
-    //   stream: fileStreamRotator.getStream({
-    //     frequency:   'daily',
-    //     date_format: 'YYYYMMDD',
-    //     filename:    path.join(logDirectory, 'csp-%DATE%.log'),
-    //     verbose:     false
-    //   })
-    // }));
-  }
-
-  res.status(204).end();
-});
-
+if (config.get('security:contentSecurityPolicy:directives:reportUri')) {
+  app.post(config.get('security:contentSecurityPolicy:directives:reportUri'), function (req, res) {
+    if (isDevelopment) {
+      let body = req.body ? req.body : 'No data received!';
+      logger.error(`CSP Violation: ${inspect(body)}`);
+    } else {
+      /** на продакшене логируем в файл, с суточной ротацией */
+      let logDirectory = path.join(cwd, '/logs');
+      !pathExists.sync(logDirectory) && fs.mkdirSync(logDirectory);
+      
+      /** todo: добавить генерацию логов */
+      // app.use(morgan('csp', {
+      //   stream: fileStreamRotator.getStream({
+      //     frequency:   'daily',
+      //     date_format: 'YYYYMMDD',
+      //     filename:    path.join(logDirectory, 'csp-%DATE%.log'),
+      //     verbose:     false
+      //   })
+      // }));
+    }
+    
+    res.status(204).end();
+  });
+}
 
 /**
  * Ну как бы можно включить парсинг sass'а на лету,
@@ -316,11 +280,12 @@ app.use(function (req, res, next) {
 
 /**
  * Если дошли сюда - значит передана (либо поймана) ошибка.
+ * todo: протестировать req.xhr
  */
 /** если это http-ошибка */
 app.use(function httpErrorsHandler (err, req, res, next) {
   if (res.headersSent) {
-    // пусть там express дальше сам разбирается
+    // пусть express дальше сам разбирается
     return next(err);
   }
   
@@ -337,11 +302,14 @@ app.use(function httpErrorsHandler (err, req, res, next) {
   status = status < 400 ? 500 : status;
   
   if (req.xhr) {
-    return res.status(status).send({
-      status:  status,
-      // текстовый статус http-ошибки
-      message: err.message,
-    });
+    return res
+      .status(status)
+      .send({
+        status:  status,
+        // текстовый статус http-ошибки
+        message: err.message,
+      })
+    ;
   }
   
   let viewName = '50x';
@@ -364,31 +332,56 @@ app.use(function httpErrorsHandler (err, req, res, next) {
 });
 
 /** если это пойманное исключение */
+/** todo: не нраица мне вся эта if-ветвистость */
 app.use(function (err, req, res, next) {
   if (res.headersSent) {
-    // пусть там express дальше сам разбирается
+    // пусть express дальше сам разбирается
     return next(err);
   }
   
-  /** todo: req.xhr */
-  
   let clientErr = new httpError.InternalServerError();
   if (isDevelopment) {
-    /** в режиме разработки рендерим страницу с ошибкой */
-    res.status(err.statusCode || clientErr.statusCode);
-    res.render('errors/trace', {
-      status:  err.statusCode || clientErr.statusCode,
-      message: err.message,
-      error:   err,
-    });
+    /** в режиме разработки выплёвываем пришедший эксепшн */
+    logger.error(err.stack);
+    if (req.xhr) {
+      res
+        .status(err.statusCode || clientErr.statusCode)
+        .send({
+          status:  err.statusCode || clientErr.statusCode,
+          message: err.message,
+          error:   err,
+        })
+      ;
+    } else {
+      res
+        .status(err.statusCode || clientErr.statusCode)
+        .render('errors/trace', {
+          status:  err.statusCode || clientErr.statusCode,
+          message: err.message,
+          stack:   err.stack,
+        })
+      ;
+    }
   } else {
-    /** в режиме продакшна ошибку пишем в лог и рендерим обычную обычную 50x */
-    console.error(err.stack);
-    res.status(clientErr.statusCode);
-    res.render('errors/50x', {
-      status:  clientErr.statusCode,
-      message: clientErr.message
-    });
+    /** в режиме продакшна сам эксепшн пишем в лог, а выплёвываем стандартную 50x */
+    logger.error(err.stack);
+    if (req.xhr) {
+      res
+        .status(err.statusCode || clientErr.statusCode)
+        .send({
+          status:  clientErr.statusCode,
+          message: clientErr.message
+        })
+      ;
+    } else {
+      res
+        .status(clientErr.statusCode)
+        .render('errors/50x', {
+          status:  clientErr.statusCode,
+          message: clientErr.message
+        })
+      ;
+    }
   }
 });
 
