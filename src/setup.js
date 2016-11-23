@@ -14,7 +14,7 @@ function setup () {
   /** настраиваем util.inspect */
   util.inspect.defaultOptions.depth          = null;
   util.inspect.defaultOptions.colors         = true;
-  util.inspect.defaultOptions.breakLength    = 9999;
+  // util.inspect.defaultOptions.breakLength    = 9999;
   util.inspect.defaultOptions.maxArrayLength = null;
   
   /** вешаем обработчик на смерть процесса */
