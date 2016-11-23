@@ -67,8 +67,10 @@
 //      "preload": true
 //    },
     "contentSecurityPolicy": {
+      // todo: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
       "directives": {
         "defaultSrc": ["'self'", "somecdn.com"],
+        // todo: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src
         "styleSrc": ["'self'", "'unsafe-inline'", "maxcdn.bootstrapcdn.com"],
         "imgSrc": ["'self'", "data:"],
         // "scriptSrc": ["'self'"],
