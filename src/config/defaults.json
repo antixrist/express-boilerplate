@@ -39,6 +39,7 @@
     "mergeParams": false,
     "caseSensitive": true
   },
+  // todo: https://securityheaders.io
   "security": {
     "frameguard": {"action": "sameorigin"},
     "hidePoweredBy": {"setTo": "PHP 5.2.8"},
