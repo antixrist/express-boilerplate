@@ -4,7 +4,8 @@
 ## Node.js
 - `pm2` (`pm2-logrotate`, [как юзать socket.io на кластеризованном приложении](https://github.com/Unitech/PM2/issues/637#issuecomment-215915328))
 - `cross-spawn` / `execa`
-- `mz` - промайзнутые стандартные библиотеки
+- `mz` - промайзнутые системные библиотеки
+- `create-error` - удобный враппер для создания собственных классов ошибок
 - 
 - `node-notifier`
 - `nodejs-dashboard`
