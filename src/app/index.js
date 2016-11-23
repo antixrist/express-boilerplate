@@ -298,11 +298,11 @@ app.use(function httpErrorsHandler (err, req, res, next) {
   if (res._header) {
     return req.socket.destroy();
   }
-  
+
   let status = err.statusCode || res.statusCode || 500;
   // default status code to 500
   status = status < 400 ? 500 : status;
-  
+
   if (req.xhr) {
     return res
       .status(status)
@@ -315,22 +315,25 @@ app.use(function httpErrorsHandler (err, req, res, next) {
   }
   
   let viewName = '50x';
-  switch (res.statusCode) {
+  switch (status) {
     case 401:
     case 403:
     case 404:
-      viewName = res.statusCode;
+      viewName = status;
       break;
     default:
-      viewName = (res.statusCode < 500) ? '40x' : viewName;
+      viewName = (status < 500) ? '40x' : viewName;
       break;
   }
   
   /** рендерим `viewName` */
-  res.render(`errors/${viewName}`, {
-    status:  res.statusCode,
-    message: err.message
-  });
+  res
+    .status(status)
+    .render(`errors/${viewName}`, {
+      status:  status,
+      message: err.message
+    })
+  ;
 });
 
 /** если это пойманное исключение */
