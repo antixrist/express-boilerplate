@@ -152,6 +152,11 @@ app.set('x-powered-by', false);
 - `is-reachable` - есть ли коннект с конкретным ресурсом
 - `node-readability` - вычленение основного текста со страницы
 
+### Кравлеры
+- `crawler`
+- `scrape-it`
+- `x-ray-crawler`
+
 #### Headless-браузеры
 - `node-horseman`
 - `nightmare`
@@ -277,10 +282,6 @@ app.set('x-powered-by', false);
 - `lunr-languages`
 - `word2vec` / `word2vec-native` / `word2vec.js`
 - `wuzzy`
-
-### Кравлеры
-- `scrape-it`
-- `x-ray-crawler`
 
 ### DI
 - `bottlejs`
