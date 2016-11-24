@@ -128,6 +128,7 @@ app.set('x-powered-by', false);
 - `json5` - json с блекджеком и комментиками
 - `JSONSchema`: `ajv`
 - `joi` / `schema-inspector` / `validator` - санитизация/валидация
+- `checkit`
 - `repository`
 - `normalizr`
 - `normalize-object`
