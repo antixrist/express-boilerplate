@@ -130,7 +130,7 @@ app.set('x-powered-by', false);
 - `joi` / `schema-inspector` / `validator` - санитизация/валидация
 - `checkit`
 - `repository`
-- `normalizr`
+- `normalizr`, `reselect` - для flux-архитектуры
 - `normalize-object`
 - `kind-of` - нормальная замена typeof
 - `deep-diff`
