@@ -71,7 +71,7 @@ app.set('x-powered-by', false);
 ### Конфигурация
 - `dotenv`
 - `nconf`
-- `config` - похож на `nconf`
+- `config` - похож на `nconf`, но вроде поширше
 - `electrode-confippet`
 - `env-cmd`
 - `rc`
@@ -199,7 +199,7 @@ app.set('x-powered-by', false);
 - `docxtemplater`
 - `excelize`
 - `exceljs`
-- `xml2js` / `fast-xml2js`
+- `xml2js` / `x2js` / `fast-xml2js`
 
 ### Генераторы (чисел, строк, данных, uid'ов)
 - `faker`
