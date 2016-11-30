@@ -71,6 +71,7 @@ app.set('x-powered-by', false);
 ### Конфигурация
 - `dotenv`
 - `nconf`
+- `config` - похож на `nconf`
 - `electrode-confippet`
 - `env-cmd`
 - `rc`
