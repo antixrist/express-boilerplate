@@ -6,6 +6,7 @@
 - `cross-spawn` / `execa`
 - `mz` - промайзнутые системные библиотеки
 - `create-error` - удобный враппер для создания собственных классов ошибок
+- `caller` - выдаёт путь модуля, который про'require'ил текущий
 - 
 - `node-notifier`
 - `nodejs-dashboard`
@@ -23,6 +24,7 @@
 - `basic-auth-connect` (deprecated) / `basic-auth`
 - `http-errors` - удобная обёртка для посыла http-ошибок
 - `negotiator` - пока не вкурил как и где юзать, но, видать, штука нужная
+- `hall` - роутер. но нафига?
 - 
 - `express-redirect`
 - `forcedomain`
@@ -56,6 +58,7 @@
 - `method-override`
 - `connect-rid` - генератор request-id
 - 
+- `kraken-js` - мощный boilerplate и конфигуратор для express'а и всякие штуки в него входящие, типа `express-enrouten`
 - `node-inspector` / `devtool` - отладка в консоли хрома
 - `errorhandler` - для рендера ошибок на клиент (only dev)
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
@@ -69,9 +72,8 @@ app.set('x-powered-by', false);
 ```
 
 ### Конфигурация
+- `nconf` / `config` / `confit`. `config` похож на `nconf`, но вроде поширше, `confit` выглядит самым вкусным (к тому же он от `kraken`'a).
 - `dotenv`
-- `nconf`
-- `config` - похож на `nconf`, но вроде поширше
 - `electrode-confippet`
 - `env-cmd`
 - `rc`
@@ -247,6 +249,7 @@ app.set('x-powered-by', false);
 - `lru-cache`
 - `cheerio`
 - `shimmer` - типа Proxy через monkeypatching
+- `pegjs` - AST-парсер произвольных синтаксических конструкций
 
 ### Очередя и таски
 - `queue3`
@@ -302,9 +305,11 @@ app.set('x-powered-by', false);
 - `apidoc`
 
 ### Деплой
-- [pod](https://github.com/yyx990803/pod)
-- [dokku](https://github.com/dokku/dokku)
-- [shipit](https://github.com/shipitjs/shipit)
+- [pm2](https://github.com/Unitech/pm2)
+- [pod](https://github.com/yyx990803/pod) - маленький аналог `pm2`
+- [rsynced](https://github.com/rumkin/rsynced) - deploy-аналог pm2, но без гита
+- [shipit](https://github.com/shipitjs/shipit) - gulp'ово/grunt'ово подобный деплойер
+- [dokku](https://github.com/dokku/dokku) - heroku + docker
 
 ## Примеры приложений
 - [hackathon-starter](https://github.com/sahat/hackathon-starter)
