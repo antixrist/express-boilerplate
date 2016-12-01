@@ -272,6 +272,7 @@ app.set('x-powered-by', false);
 - `mailgen` - html-шаблон для мыла
 
 ## Изображения
+- `is-svg`
 - `sharp`
 - `image-size`
 - `image-type`
