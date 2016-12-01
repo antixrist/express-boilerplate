@@ -193,6 +193,7 @@ app.set('x-powered-by', false);
 - `filenamify-url`
 - `humanize-url`
 - `normalize-url`
+- `prepend-http` - ну такое, особо бессмысленное
 - `protocolify`
 - `urijs`
 - `url-pattern`
