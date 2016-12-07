@@ -329,3 +329,4 @@ app.set('x-powered-by', false);
 - `vkey`
 - `drop-anywhere` - для d'n'd загрузки файлов где угодно на странице
 - `focus` - нахождение цетральной сущности на изображении для последующей фокусировки или кропа
+- `criticalcss` / `critical` / `penthouse` - critical css
