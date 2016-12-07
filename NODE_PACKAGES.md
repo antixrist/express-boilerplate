@@ -265,7 +265,7 @@ app.set('x-powered-by', false);
 
 ### Email
 - `nodemailer`
-- `mailgen` - html-шаблон для мыла
+- `mailgen` / `mailmason` - html-шаблон для мыла
 
 ## Изображения
 - `sharp`
