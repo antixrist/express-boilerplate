@@ -250,7 +250,10 @@ app.set('x-powered-by', false);
 - `lru-cache`
 - `cheerio`
 - `shimmer` - типа Proxy через monkeypatching
-- `pegjs` - AST-парсер произвольных синтаксических конструкций
+
+### AST-парсеры
+- `pegjs` - произвольные синтаксические конструкции
+- `esprima` - парсер ECMAScript на ECMAScript
 
 ### Очередя и таски
 - `queue3`
