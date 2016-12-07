@@ -7,6 +7,7 @@
 - `mz` - промайзнутые системные библиотеки
 - `create-error` - удобный враппер для создания собственных классов ошибок
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
+- `shelljs` - bash-функции прямо в ноде
 - 
 - `node-notifier`
 - `nodejs-dashboard`
@@ -50,7 +51,7 @@
 - 
 - `portastic` - нахождение свободных локальных портов (удобно для dev-запуска)
 - `serve-static` (встроен в сам экспресс)
-- `http-proxy-middleware`
+- `http-proxy-middleware` - полезная гибкая штука для перенаправления запросов на другие сервера
 - `express-request-language`
 - `rest-sugar` - обёртка для rest. нормальный сахар для rest'а надо поискать
 - `express-resource` (очень старый) / `restler` - rest
@@ -59,7 +60,7 @@
 - `connect-rid` - генератор request-id
 - 
 - `kraken-js` - мощный boilerplate и конфигуратор для express'а и всякие штуки в него входящие, типа `express-enrouten`
-- `node-inspector` / `devtool` - отладка в консоли хрома
+- `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
 - `errorhandler` - для рендера ошибок на клиент (only dev)
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
 - `express-status-monitor`
