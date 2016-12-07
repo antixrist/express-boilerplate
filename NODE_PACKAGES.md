@@ -90,7 +90,7 @@ app.set('x-powered-by', false);
 - `path-exists`
 - `mkdirp`
 - `del`
-- `parse-filepath` - доабвляет некоторые поля к стандартному выводу
+- `parse-filepath` - добавляет некоторые поля к стандартному выводу
 - `is-dotfile`
 - `is-absolute`
 - `is-relative`
