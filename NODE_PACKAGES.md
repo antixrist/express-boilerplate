@@ -14,6 +14,11 @@
 - `nodejs-dashboard`
 - `safe-regex` - проверка регулярок на быстроту выполнения - Regular expression Denial of Service (ReDoS)
 
+### Тесты
+- `ava`
+- `chai`
+- `mocha`
+
 ### Express.js
 - `express-generator`
 - `compression`
