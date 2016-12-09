@@ -109,6 +109,7 @@ app.set('x-powered-by', false);
 - `ioredis` / `redis`, `redlock`
 - `reds` - поиск в редисе
 - `kue` - очередь с приоритетами в редисе (но для этих целей лучше брать `rabbitmq`)
+- `tortoise` - клиент для rabbitmq
 
 ### Права
 - `acl`
@@ -322,6 +323,7 @@ app.set('x-powered-by', false);
 - [hackathon-starter](https://github.com/sahat/hackathon-starter)
 - [holyjs](https://github.com/holyjs/holyjs)
 - [node-daemons](https://github.com/pipll/node-daemons) - с демонами на node.js
+- [multi-process-nodejs-example](https://github.com/RisingStack/multi-process-nodejs-example) - воркеры, rabbit, redis
 
 ## Front
 - `asap` / `next-tick` / `setimmediate` - как только, так сразу. Кроссбраузерный `process.nextTick`
