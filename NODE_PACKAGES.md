@@ -285,7 +285,7 @@ app.set('x-powered-by', false);
 
 ## Изображения
 - `is-svg`
-- `sharp`
+- `sharp` / `jimp` - полнофункциональная манипуляция
 - `image-size`
 - `image-type`
 - `tesseract.js` - распознавалка текста
