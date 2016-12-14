@@ -8,10 +8,16 @@
 - `create-error` - удобный враппер для создания собственных классов ошибок
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
 - `shelljs` - bash-функции прямо в ноде
+- `precommit-hook` / `husky` - годная тулза запускающая npm-скрипты на коммиты
 - 
 - `node-notifier`
 - `nodejs-dashboard`
 - `safe-regex` - проверка регулярок на быстроту выполнения - Regular expression Denial of Service (ReDoS)
+
+### Тесты
+- `ava`
+- `chai`
+- `mocha`
 
 ### Express.js
 - `express-generator`
@@ -280,7 +286,7 @@ app.set('x-powered-by', false);
 
 ## Изображения
 - `is-svg`
-- `sharp`
+- `sharp` / `jimp` - полнофункциональная манипуляция
 - `image-size`
 - `image-type`
 - `tesseract.js` - распознавалка текста
