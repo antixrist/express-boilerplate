@@ -149,6 +149,7 @@ app.set('x-powered-by', false);
 - `proxy-agent`
 - `caw`
 - `got`
+- `wreck`
 - `request` (`request-promise`), `@request/interface`, `@request/api`
 - `needle`
 - `node-fetch`
