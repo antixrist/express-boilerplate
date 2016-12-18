@@ -182,6 +182,7 @@ app.set('x-powered-by', false);
 - `random-useragent`
 
 #### Печеньки
+- `js-cookie`
 - `cookie`
 - `tough-cookie`
 - `cookies.txt`
