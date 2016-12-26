@@ -152,6 +152,7 @@ app.set('x-powered-by', false);
 - `yn` - parse yes/no like values
 
 ### Рекваестеры
+- `dnscache`
 - `proxy-agent`
 - `caw`
 - `got`
