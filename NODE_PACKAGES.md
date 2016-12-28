@@ -149,6 +149,7 @@ app.set('x-powered-by', false);
 - `diff`
 - `jiff`
 - `fastest-clone`
+- `deepmerge`
 - `yn` - parse yes/no like values
 
 ### Рекваестеры
