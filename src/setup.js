@@ -1,6 +1,12 @@
-import util  from 'util';
+import util from 'util';
 import death from 'death';
 import { onShutdown } from './utils';
+
+/**
+ * вот когда `NODE_ENV` установлен в 'development' (из cli или напрямую),
+ * то соурсмапы генерируются прям как надо. хз что за магия
+ */
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 let initialized = false;
 
@@ -42,16 +48,17 @@ function setup () {
   });
   
   /**
-   * ловим необработанные promise-исключения.
-   * если не надо, чтобы процесс умирал,
-   * то подключить `loud-rejection` вместо `hard-rejection`.
-   * тогда коллбек будет вызываться для каждого непойманного
-   * исключения поочерёдно _в момент остановки процесса_!
-   * (а не в момент выброса жтого исключения)
-   *
-   * В версиях ноды >7.0 использование `process.on('unhandledRejection')` выбрасывает DeprecationWarning.
-   * Так что, в принципе, этот обработчик можно удалить и просто следить за тем,
-   * чтобы во всех используемых промисах был установлен catch-обработчик.
+   * 'SIGUSR2' - этот сигнал посылает `nodemon` во время перезапуска приложения
    */
-  // require('hard-rejection')(onShutdownRunner);
+  const nodemonSignal = 'SIGUSR2';
+  process.once(nodemonSignal, function () {
+    /** если есть кастомные обработчики */
+    if (onShutdown.handlers.length) {
+      /** поочереди синхронно их выполняем */
+      onShutdown.handlers.forEach(cb => cb(null, nodemonSignal));
+    }
+    
+    /** убиваем сами себя (кхе-кхе) */
+    process.kill(process.pid, nodemonSignal);
+  });
 }

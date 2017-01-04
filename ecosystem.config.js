@@ -54,7 +54,7 @@ module.exports = {
       ref:           "origin/production",
       repo:          "git@repo_address:path/to/project.git",
       path:          "/path/to/deploy",
-      "post-deploy": "yarn install --production && npm rebuild && yarn run build && pm2 startOrGracefulReload ecosystem.config.js --env production"
+      "post-deploy": "yarn install && npm rebuild && yarn run build && pm2 startOrGracefulReload ecosystem.config.js --env production"
     },
     // dev:        {
     //   user:          "node",

@@ -1,12 +1,6 @@
 {
-  "verbose": true,
-  "delay": "2000",
-  "ext": "js,json,html",
-  "ignore": [
-    "logs",
-    "dist",
-    "views",
-    "public",
-    "bower_components"
-  ]
+  "verbose": false,
+  "delay": "1000",
+  "ext": "js,json",
+  "watch": "build"
 }

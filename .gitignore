@@ -4,6 +4,7 @@ tmp
 ._.DS_Store
 .idea
 npm-debug.log
-logs
-dist
+/logs
+/dist
+/build
 yarn-error.log

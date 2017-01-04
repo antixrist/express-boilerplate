@@ -344,6 +344,8 @@ app.use(function (err, req, res, next) {
     return next(err);
   }
   
+  /** todo: переменная err может не быть инстансом Error! соответственно и err.stack может не быть */
+  
   let clientErr = new httpError.InternalServerError();
   if (isDevelopment) {
     /** в режиме разработки выплёвываем пришедший эксепшн */
@@ -369,7 +371,7 @@ app.use(function (err, req, res, next) {
     }
   } else {
     /** в режиме продакшна сам эксепшн пишем в лог, а выплёвываем стандартную 50x */
-    logger.error(err.stack);
+    logger.error(err.stack || err);
     if (req.xhr) {
       res
         .status(err.statusCode || clientErr.statusCode)
