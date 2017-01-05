@@ -1,4 +1,4 @@
-import './setup';
+import './utils/bootstrap';
 import Debug from 'debug';
 import config from './config';
 import { onShutdown, logger } from './utils';

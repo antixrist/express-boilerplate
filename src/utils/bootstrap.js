@@ -1,6 +1,6 @@
 import util from 'util';
 import death from 'death';
-import { onShutdown } from './utils';
+import { onShutdown } from './';
 
 /**
  * вот когда `NODE_ENV` установлен в 'development' (из cli или напрямую),
