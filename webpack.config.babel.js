@@ -51,7 +51,7 @@ const config = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.json', '.json5'],
+    extensions: ['.js', '.json', '.json5', '.node'],
     modules: ['node_modules'],
     alias: {}
   },
