@@ -19,7 +19,13 @@
     }
   },
   "db": {
-
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "database": "dbname",
+    "namedPlaceholders": true,
+    "supportBigNumbers": true
+    //"multipleStatements": true
   },
   "locals": {
 

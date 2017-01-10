@@ -1,19 +1,27 @@
-import _         from 'lodash';
-import tracer    from 'tracer';
+import _ from 'lodash';
+import tracer from 'tracer';
 import portastic from 'portastic';
+
+/**
+ * @param {function} cb
+ */
+export function onShutdown (cb) {
+  onShutdown.handlers.push(cb);
+}
+onShutdown.handlers = [];
 
 /**
  * @param {*} something
  * @returns {Array}
  */
-const toArray = function toArray (something = []) {
+export function toArray (something = []) {
   let retVal = something;
-
+  
   retVal = (!!retVal) ? retVal : [];
   retVal = (_.isArray(retVal)) ? retVal : [retVal];
-
+  
   return retVal;
-};
+}
 
 /**
  * @param min
@@ -21,78 +29,72 @@ const toArray = function toArray (something = []) {
  * @param step
  * @returns {Number|null}
  */
-const findUnusedPort = async function findUnusedPort (min = 3000, max = 65535, step = 1000) {
+export async function findUnusedPort (min = 3000, max = 65535, step = 1000) {
   let ports = await portastic.find({
     min: min,
     max: max
   });
-
+  
   return ports.length
     ? ports[0]
     : min < max
-      ? await findUnusedPort(min + step, max, step)
-      : null
-  ;
-};
-
-/**
- * @param {function} cb
- */
-const onShutdown = (cb) => onShutdown.handlers.push(cb);
-onShutdown.handlers = [];
+           ? await findUnusedPort(min + step, max, step)
+           : null
+    ;
+}
 
 
-var colors = require('colors/safe');
-const logger = tracer.console({
-  format: "{{timestamp}} <{{title}}> {{file}}:{{line}} ({{method}}) {{message}}",
-  dateformat: "isoDateTime",
-  preprocess: function(data) {
-  },
-  transport: function(data) {
-    console.log(data.output);
-  },
-  filters: [{
-    //log: do nothing
-    trace: colors.magenta,
-    debug: colors.cyan,
-    info: colors.green,
-    warn: colors.yellow,
-    error: colors.red.bold
-  }],
-  level: 'log',
-  methods: ['log', 'trace', 'debug', 'info', 'warn', 'error'],
-  stackIndex: 0,
-  inspectOpt: {
-    depth: null
-    // showHidden: true,
-  }
-});
-
-let err = new Error('Something wrong!');
-let obj = {
-  Request: [
-    {
-      IsValid:           [true],
-      ItemSearchRequest: [
-        {
-          ResponseGroup: ['Small', 'OfferSummary'],
-          Sort:          ['salesrank'],
-          SearchIndex:   ['DVD']
-        }
-      ]
-    }
-  ]
-};
+// var colors = require('colors/safe');
+// const logger = tracer.console({
+//   format: "{{timestamp}} <{{title}}> {{file}}:{{line}} ({{method}}) {{message}}",
+//   dateformat: "isoDateTime",
+//   preprocess: function(data) {
+//   },
+//   transport: function(data) {
+//     console.log(data.output);
+//   },
+//   filters: [{
+//     //log: do nothing
+//     trace: colors.magenta,
+//     debug: colors.cyan,
+//     info: colors.green,
+//     warn: colors.yellow,
+//     error: colors.red.bold
+//   }],
+//   level: 'log',
+//   methods: ['log', 'trace', 'debug', 'info', 'warn', 'error'],
+//   stackIndex: 0,
+//   inspectOpt: {
+//     depth: null
+//     // showHidden: true,
+//   }
+// });
+//
+// let err = new Error('Something wrong!');
+// let obj = {
+//   Request: [
+//     {
+//       IsValid:           [true],
+//       ItemSearchRequest: [
+//         {
+//           ResponseGroup: ['Small', 'OfferSummary'],
+//           Sort:          ['salesrank'],
+//           SearchIndex:   ['DVD']
+//         }
+//       ]
+//     }
+//   ]
+// };
 // obj.recurse = obj;
 
 
-const log = {};
+export const logger = {};
 
-log.log = console.log.bind(console);
-log.trace = console.trace.bind(console);
-log.info = console.info.bind(console);
-log.warn = console.warn.bind(console);
-log.error = console.error.bind(console);
+logger.log = console.log.bind(console);
+logger.trace = console.trace.bind(console);
+logger.info = console.info.bind(console);
+logger.warn = console.warn.bind(console);
+logger.error = console.error.bind(console);
 
 // logger.log(obj);
 // logger.debug(err);
@@ -121,9 +123,3 @@ log.error = console.error.bind(console);
 // logger2.log('hello'); // the line info is error
 // logMgr1('log', 'hello'); // the line info is error
 // logMgr2('log', 'hello'); // the line info is right
-
-
-export {toArray, findUnusedPort, onShutdown,
-  log as logger
-  // logger
-};
