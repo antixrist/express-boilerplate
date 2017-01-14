@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import glob from 'glob';
 import BannerPlugin from 'webpack/lib/BannerPlugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 import HotModuleReplacementPlugin from 'webpack/lib/HotModuleReplacementPlugin';
 
 const cwd = process.cwd();
@@ -84,6 +86,12 @@ const config = {
     aggregateTimeout: 200,
   },
   plugins: [
+    new CopyWebpackPlugin([{
+      context: SCRIPTS_SOURCES,
+      from: '**/*.!(js)',
+      to: ''
+    }]),
+    new CircularDependencyPlugin({ failOnError: false }),
     new BannerPlugin({
       banner: `require('source-map-support').install({ environment: 'node' });`,
       raw: true,

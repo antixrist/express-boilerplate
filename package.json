@@ -55,6 +55,8 @@
     "babel-plugin-closure-elimination": "^1.1.14",
     "babel-polyfill": "^6.20.0",
     "babel-preset-env": "^1.1.6",
+    "circular-dependency-plugin": "^2.0.0",
+    "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^3.1.4",
     "glob": "^7.1.1",
     "json5-loader": "^0.6.0",
