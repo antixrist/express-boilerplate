@@ -228,6 +228,7 @@ app.set('x-powered-by', false);
 - `random-seed`
 
 #### Комбинаторика
+- `cartesian`
 - `js-combinatorics`
 - `math-combination`
 
