@@ -258,11 +258,15 @@ app.set('x-powered-by', false);
 - `filesize` - человекопятный размер файлов
 - `pretty-hrtime` - человекопятный `process.hrtime()`
 - `humanize-number` - человекопонятные числа
-- `iconv-lite`
-- `jschardet` - определение кодировки
 - `lru-cache`
 - `cheerio`
 - `shimmer` - типа Proxy через monkeypatching
+
+### Кодировки
+- `encoding`
+- `iconv-lite`
+- `iconv`
+- `jschardet` - определение кодировки
 
 ### AST-парсеры
 - `pegjs` - произвольные синтаксические конструкции
