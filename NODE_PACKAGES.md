@@ -151,6 +151,7 @@ app.set('x-powered-by', false);
 - `fastest-clone`
 - `deepmerge`
 - `yn` - parse yes/no like values
+- `jsesc` - шибко умное экранирование
 
 ### Рекваестеры
 - `dnscache`
@@ -322,6 +323,11 @@ app.set('x-powered-by', false);
 - `webpack`
 - `chokidar` / `watchpack`
 - `browser-sync`
+
+### Тестирование
+- `supertest`
+- `chai`
+- `mocha`
 
 ### Генерация документации
 - `apidoc`
