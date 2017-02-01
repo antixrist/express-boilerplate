@@ -86,8 +86,8 @@ app.set('x-powered-by', false);
 - `rc`
 - `configstore` - удобно записывать пользовательские конфиги, например
 
-### Обработка ошибок
-- `death`
+### Обработка ошибок и завершения процесса
+- `death` / `signal-exit`
 - `loud-rejection`
 
 ### Кластеризация процессов
@@ -262,6 +262,7 @@ app.set('x-powered-by', false);
 - `lru-cache`
 - `cheerio`
 - `shimmer` - типа Proxy через monkeypatching
+- `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
 
 ### Кодировки
 - `encoding`

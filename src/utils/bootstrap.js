@@ -1,5 +1,6 @@
 import util from 'util';
 import death from 'death';
+// import onExit from 'signal-exit';
 import { onShutdown } from './';
 
 /**
