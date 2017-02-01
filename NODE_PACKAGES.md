@@ -133,7 +133,7 @@ app.set('x-powered-by', false);
 - `eyes` - цветной вывод данных
 - `inquirer` - cli-промптер
 - `minimist` / `yargs` - парсер cli-аргументов
-- `progress` - настраиваемый прогресс-бар
+- `progress` / `gauge` - настраиваемый прогресс-бар
 
 ### Данные
 - `json5` - json с блекджеком и комментиками
