@@ -275,6 +275,7 @@ app.set('x-powered-by', false);
 - `esprima` - парсер ECMAScript на ECMAScript
 
 ### Очередя и таски
+- `kue`
 - `queue3`
 - `enqueue`
 - `argumentable-queue`
