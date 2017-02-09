@@ -105,6 +105,7 @@ app.set('x-powered-by', false);
 - `is-absolute`
 - `is-relative`
 - `relative` - расширенный `path.relative()`
+- `proper-lockfile` / `file-lock`
 
 ### DB
 - `mysql2`
@@ -263,6 +264,7 @@ app.set('x-powered-by', false);
 - `cheerio`
 - `shimmer` - типа Proxy через monkeypatching
 - `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
+- `retry`
 
 ### Кодировки
 - `encoding`
