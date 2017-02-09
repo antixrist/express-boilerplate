@@ -279,6 +279,7 @@ app.set('x-powered-by', false);
 - `queue3`
 - `enqueue`
 - `argumentable-queue`
+- `generic-pool`
 - `node-schedule`
 - `cron`
 - `cron-parser`
