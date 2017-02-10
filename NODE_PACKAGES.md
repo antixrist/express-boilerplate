@@ -224,6 +224,7 @@ app.set('x-powered-by', false);
 - `hashids` / `identifier` - строки из чисел
 - `node-uuid` / `uid-safe`
 - `shortid`
+- `sguid`
 
 #### Псевдорандом с посевом
 - `mersenne-twister`
