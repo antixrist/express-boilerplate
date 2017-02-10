@@ -309,6 +309,7 @@ app.set('x-powered-by', false);
 - `graphicsmagick2`
 
 ### Морфология и текст
+- `phpmorphy`
 - `leven` - самый быстрый левенштейн
 - `az`
 - `fuzzyset.js`
@@ -328,6 +329,7 @@ app.set('x-powered-by', false);
 - `webpack`
 - `chokidar` / `watchpack`
 - `browser-sync`
+- `parallelshell`
 
 ### Тестирование
 - `supertest`
