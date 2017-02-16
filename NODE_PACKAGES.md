@@ -13,6 +13,7 @@
 - `node-notifier`
 - `nodejs-dashboard`
 - `safe-regex` - проверка регулярок на быстроту выполнения - Regular expression Denial of Service (ReDoS)
+- `reify` - врубает `import` без бабелей/вебпаков
 
 ### Тесты
 - `ava`
