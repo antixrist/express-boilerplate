@@ -118,6 +118,7 @@ app.set('x-powered-by', false);
 - `kue` - очередь с приоритетами в редисе (но для этих целей лучше брать `rabbitmq`)
 - `tortoise` - клиент для rabbitmq
 - `store` - нормальная полная кроссбраузерная обёртка над localStorage
+- `dom-storage` - sessionStorage & localStorage для NodeJS
 
 ### Права
 - `acl`
