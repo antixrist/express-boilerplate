@@ -131,7 +131,7 @@ app.set('x-powered-by', false);
 - `microlog`
 - `chalk` - раскраска
 - `better-console` - добавление console.table-методов
-- `cllc` / `multispinner` / `observatory` / `ora` - вывод с лоадером (вроде как)
+- `cllc` / `multispinner` / `observatory` / `ora` - вывод с лоадером
 - `commander` - настройка cli-аргументов для запуска приложения (с блекджеком и генератором справки)
 - `liftoff` - bin'арник для своего пакета
 - `eyes` - цветной вывод данных
