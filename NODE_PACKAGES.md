@@ -106,7 +106,7 @@ app.set('x-powered-by', false);
 - `is-absolute`
 - `is-relative`
 - `relative` - расширенный `path.relative()`
-- `proper-lockfile` / `file-lock`
+- `proper-lockfile` - `lock`-файл
 
 ### DB
 - `mysql2`
