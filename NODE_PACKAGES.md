@@ -265,7 +265,7 @@ app.set('x-powered-by', false);
 - `pretty-hrtime` - человекопятный `process.hrtime()`
 - `humanize-number` - человекопонятные числа
 - `lru-cache`
-- `cheerio`
+- `cheerio` / `whacko`
 - `shimmer` - типа Proxy через monkeypatching
 - `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
 - `retry`
