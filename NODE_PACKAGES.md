@@ -69,8 +69,6 @@
 - 
 - `kraken-js` - мощный boilerplate и конфигуратор для express'а и всякие штуки в него входящие, типа `express-enrouten`
 - `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
-- `errorhandler` - для рендера ошибок на клиент (only dev)
-- `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
 - `express-status-monitor`
 - 
 - `express-expose` - выдёргивание серверных методов и переменных на фронт в шаблонизатор (особо не нужен, но мало ли)
@@ -89,8 +87,11 @@ app.set('x-powered-by', false);
 - `configstore` - удобно записывать пользовательские конфиги, например
 
 ### Обработка ошибок и завершения процесса
+- `errorhandler` - для рендера ошибок на клиент (only dev)
+- `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
 - `death` / `signal-exit`
 - `loud-rejection`
+- `stacktrace-js`
 
 ### Кластеризация процессов
 - `strong-cluster-control`
