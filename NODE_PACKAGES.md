@@ -119,8 +119,9 @@ app.set('x-powered-by', false);
 - `reds` - поиск в редисе
 - `kue` - очередь с приоритетами в редисе (но для этих целей лучше брать `rabbitmq`)
 - `tortoise` - клиент для rabbitmq
-- `store` - нормальная полная кроссбраузерная обёртка над localStorage
-- `dom-storage` - sessionStorage & localStorage для NodeJS
+- `store` - нормальная полная кроссбраузерная обёртка над localStorage. можно сделать асинхронным для обёртки над редисом или типа того. В ноде хорошо работает в связке с `node-localstorage`.
+- `localforage` - то же, что и `store`, только над `indexeddb`, `websql`, `localstorage`. Асинхронный.
+- `node-localstorage` - localStorage для NodeJS
 
 ### Права
 - `acl`
