@@ -130,7 +130,7 @@ app.set('x-powered-by', false);
 ### Консоль
 - `object-inspect`
 - `debug`
-- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
+- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
 - `microlog`
 - `chalk` - раскраска
 - `better-console` - добавление console.table-методов
