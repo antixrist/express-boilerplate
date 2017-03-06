@@ -5,7 +5,7 @@
 - `pm2` (`pm2-logrotate`, [как юзать socket.io на кластеризованном приложении](https://github.com/Unitech/PM2/issues/637#issuecomment-215915328))
 - `cross-spawn` / `execa`
 - `mz` - промайзнутые системные библиотеки
-- `create-error` - удобный враппер для создания собственных классов ошибок
+- `create-error` / `es6-error` - враппер для создания собственных классов ошибок
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
 - `shelljs` - bash-функции прямо в ноде
 - `precommit-hook` / `husky` - годная тулза запускающая npm-скрипты на коммиты
