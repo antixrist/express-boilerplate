@@ -5,7 +5,6 @@
 - `pm2` (`pm2-logrotate`, [как юзать socket.io на кластеризованном приложении](https://github.com/Unitech/PM2/issues/637#issuecomment-215915328))
 - `cross-spawn` / `execa`
 - `mz` - промайзнутые системные библиотеки
-- `create-error` / `es6-error` - враппер для создания собственных классов ошибок
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
 - `shelljs` - bash-функции прямо в ноде
 - `precommit-hook` / `husky` - годная тулза запускающая npm-скрипты на коммиты
@@ -87,11 +86,12 @@ app.set('x-powered-by', false);
 - `configstore` - удобно записывать пользовательские конфиги, например
 
 ### Обработка ошибок и завершения процесса
+- `create-error` / `es6-error` - враппер для создания собственных классов ошибок
+- `stacktrace-js` - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
 - `errorhandler` - для рендера ошибок на клиент (only dev)
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
 - `death` / `signal-exit`
 - `loud-rejection`
-- `stacktrace-js`
 
 ### Кластеризация процессов
 - `strong-cluster-control`
