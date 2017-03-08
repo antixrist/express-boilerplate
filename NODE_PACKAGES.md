@@ -266,6 +266,7 @@ app.set('x-powered-by', false);
 - `shimmer` - типа Proxy через monkeypatching
 - `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
 - `retry`
+- `stringify-object`
 
 ### Кодировки
 - `encoding`
