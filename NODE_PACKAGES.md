@@ -30,7 +30,6 @@
 - `response-time`
 - `connect-timeout`
 - `basic-auth-connect` (deprecated) / `basic-auth`
-- `http-errors` - удобная обёртка для посыла http-ошибок
 - `negotiator` - пока не вкурил как и где юзать, но, видать, штука нужная
 - `hall` - роутер. но нафига?
 - 
@@ -86,8 +85,9 @@ app.set('x-powered-by', false);
 - `configstore` - удобно записывать пользовательские конфиги, например
 
 ### Обработка ошибок и завершения процесса
+- `http-errors` - удобная обёртка для посыла http-ошибок
 - `create-error` / `es6-error` - враппер для создания собственных классов ошибок
-- `stacktrace-js` - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
+- `stacktrace-js` (асинхронный) / `stacktrace-parser` (синхронный, используется в ReactNative) - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
 - `errorhandler` - для рендера ошибок на клиент (only dev)
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
 - `death` / `signal-exit`
@@ -191,6 +191,7 @@ app.set('x-powered-by', false);
 
 #### Юзер-агентики
 - `random-useragent`
+- `bowser` - определитель для фронта
 
 #### Печеньки
 - `js-cookie`
