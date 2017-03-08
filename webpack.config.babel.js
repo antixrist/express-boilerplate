@@ -4,6 +4,8 @@ import glob from 'glob';
 import BannerPlugin from 'webpack/lib/BannerPlugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
+
+// todo: https://hackernoon.com/hot-reload-all-the-things-ec0fed8ab0
 import HotModuleReplacementPlugin from 'webpack/lib/HotModuleReplacementPlugin';
 
 const cwd = process.cwd();

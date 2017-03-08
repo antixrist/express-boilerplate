@@ -5,7 +5,6 @@
 - `pm2` (`pm2-logrotate`, [как юзать socket.io на кластеризованном приложении](https://github.com/Unitech/PM2/issues/637#issuecomment-215915328))
 - `cross-spawn` / `execa`
 - `mz` - промайзнутые системные библиотеки
-- `create-error` - удобный враппер для создания собственных классов ошибок
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
 - `shelljs` - bash-функции прямо в ноде
 - `precommit-hook` / `husky` - годная тулза запускающая npm-скрипты на коммиты
@@ -13,6 +12,8 @@
 - `node-notifier`
 - `nodejs-dashboard`
 - `safe-regex` - проверка регулярок на быстроту выполнения - Regular expression Denial of Service (ReDoS)
+- `reify` - врубает `import` без бабелей/вебпаков
+- `open` - открывает ссылку в дефолтовом браузере системы
 
 ### Тесты
 - `ava`
@@ -67,8 +68,6 @@
 - 
 - `kraken-js` - мощный boilerplate и конфигуратор для express'а и всякие штуки в него входящие, типа `express-enrouten`
 - `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
-- `errorhandler` - для рендера ошибок на клиент (only dev)
-- `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
 - `express-status-monitor`
 - 
 - `express-expose` - выдёргивание серверных методов и переменных на фронт в шаблонизатор (особо не нужен, но мало ли)
@@ -87,6 +86,10 @@ app.set('x-powered-by', false);
 - `configstore` - удобно записывать пользовательские конфиги, например
 
 ### Обработка ошибок и завершения процесса
+- `create-error` / `es6-error` - враппер для создания собственных классов ошибок
+- `stacktrace-js` - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
+- `errorhandler` - для рендера ошибок на клиент (only dev)
+- `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
 - `death` / `signal-exit`
 - `loud-rejection`
 
@@ -105,7 +108,7 @@ app.set('x-powered-by', false);
 - `is-absolute`
 - `is-relative`
 - `relative` - расширенный `path.relative()`
-- `proper-lockfile` / `file-lock`
+- `proper-lockfile` - `lock`-файл
 
 ### DB
 - `mysql2`
@@ -116,6 +119,9 @@ app.set('x-powered-by', false);
 - `reds` - поиск в редисе
 - `kue` - очередь с приоритетами в редисе (но для этих целей лучше брать `rabbitmq`)
 - `tortoise` - клиент для rabbitmq
+- `store` - нормальная полная кроссбраузерная обёртка над localStorage. можно сделать асинхронным для обёртки над редисом или типа того. В ноде хорошо работает в связке с `node-localstorage`.
+- `localforage` - то же, что и `store`, только над `indexeddb`, `websql`, `localstorage`. Асинхронный.
+- `node-localstorage` - localStorage для NodeJS
 
 ### Права
 - `acl`
@@ -124,11 +130,11 @@ app.set('x-powered-by', false);
 ### Консоль
 - `object-inspect`
 - `debug`
-- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
+- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
 - `microlog`
 - `chalk` - раскраска
 - `better-console` - добавление console.table-методов
-- `cllc` / `multispinner` / `observatory` / `ora` - вывод с лоадером (вроде как)
+- `cllc` / `multispinner` / `observatory` / `ora` - вывод с лоадером
 - `commander` - настройка cli-аргументов для запуска приложения (с блекджеком и генератором справки)
 - `liftoff` - bin'арник для своего пакета
 - `eyes` - цветной вывод данных
@@ -262,10 +268,11 @@ app.set('x-powered-by', false);
 - `pretty-hrtime` - человекопятный `process.hrtime()`
 - `humanize-number` - человекопонятные числа
 - `lru-cache`
-- `cheerio`
+- `cheerio` / `whacko`
 - `shimmer` - типа Proxy через monkeypatching
 - `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
 - `retry`
+- `ware` - создание кастомной чепочки мидлварей (прям как в express'е)
 - `stringify-object`
 
 ### Кодировки
