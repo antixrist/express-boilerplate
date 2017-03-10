@@ -224,7 +224,15 @@ app.set('x-powered-by', false);
 - `excelize`
 - `exceljs`
 - `xml2js` / `x2js` / `fast-xml2js`
+
+### Стримы
 - `csv-stringify`, `fast-csv`
+- `JSONStream`
+- `event-stream`
+- `through2`
+- `isstream`
+- `lazypipe`
+- `destroy`
 
 ### Генераторы (чисел, строк, данных, uid'ов)
 - `faker`
@@ -288,13 +296,6 @@ app.set('x-powered-by', false);
 - `cron-parser`
 - `node-schedule`
 - `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
-
-### Стримы
-- `event-stream`
-- `through2`
-- `isstream`
-- `lazypipe`
-- `destroy`
 
 ### Кодировки
 - `encoding`
