@@ -319,7 +319,7 @@ app.set('x-powered-by', false);
 - `tesseract.js` - распознавалка текста
 - `exif2` / `gm-exif` / `libexif`
 - `gify` - делает гифку из видео
-- `graphicsmagick2`
+- `gm` / `graphicsmagick2`
 
 ### Морфология и текст
 - `phpmorphy`
