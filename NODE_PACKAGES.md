@@ -224,6 +224,7 @@ app.set('x-powered-by', false);
 - `excelize`
 - `exceljs`
 - `xml2js` / `x2js` / `fast-xml2js`
+- `csv-stringify`, `fast-csv`
 
 ### Генераторы (чисел, строк, данных, uid'ов)
 - `faker`
@@ -246,9 +247,11 @@ app.set('x-powered-by', false);
 - `murmurhash-native` - быстрое и (вроде как) наименее коллизионное хэширование
 - `object-hash`
 - `json-stable-stringify`
+- `stringify-object`
 
 ### Полезности
 - `lodash`
+- `string` - если лодашевских методов работы со строками будет не хватать
 - `bluebird`
 - `mz` - promise-обёртка над системными функциями
 - `pify` - промисификатор
@@ -271,20 +274,8 @@ app.set('x-powered-by', false);
 - `lru-cache`
 - `cheerio` / `whacko`
 - `shimmer` - типа Proxy через monkeypatching
-- `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
 - `retry`
 - `ware` - создание кастомной чепочки мидлварей (прям как в express'е)
-- `stringify-object`
-
-### Кодировки
-- `encoding`
-- `iconv-lite`
-- `iconv`
-- `jschardet` - определение кодировки
-
-### AST-парсеры
-- `pegjs` - произвольные синтаксические конструкции
-- `esprima` - парсер ECMAScript на ECMAScript
 
 ### Очередя и таски
 - `kue`
@@ -296,6 +287,7 @@ app.set('x-powered-by', false);
 - `cron`
 - `cron-parser`
 - `node-schedule`
+- `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
 
 ### Стримы
 - `event-stream`
@@ -303,6 +295,16 @@ app.set('x-powered-by', false);
 - `isstream`
 - `lazypipe`
 - `destroy`
+
+### Кодировки
+- `encoding`
+- `iconv-lite`
+- `iconv`
+- `jschardet` - определение кодировки
+
+### AST-парсеры
+- `pegjs` - произвольные синтаксические конструкции
+- `esprima` - парсер ECMAScript на ECMAScript
 
 ### Email
 - `nodemailer`
