@@ -326,6 +326,7 @@ app.set('x-powered-by', false);
 - `lunr-languages`
 - `word2vec` / `word2vec-native` / `word2vec.js`
 - `wuzzy`
+- `@google-cloud/speech` - разпознавание теста из аудио с помощью google cloud api (есть русский язык)
 
 ### DI
 - `bottlejs`
