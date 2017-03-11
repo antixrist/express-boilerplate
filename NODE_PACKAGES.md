@@ -183,11 +183,13 @@ app.set('x-powered-by', false);
 #### Headless-браузеры
 - `node-horseman`
 - `nightmare`
+- `uirecorder` - что-то вроде selenium от alibaba'ы
 [весь список](https://github.com/dhamaniasad/HeadlessBrowsers)
 
 #### Проксики
 - `proxy-search`
 - `proxylist`
+- `anyproxy` - свой прокси-сервер на ноде от alibaba'ы
 
 #### Юзер-агентики
 - `random-useragent`
