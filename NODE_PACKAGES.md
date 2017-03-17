@@ -201,6 +201,7 @@ app.set('x-powered-by', false);
 - `tough-cookie`
 - `cookies.txt`
 - `react-cookie`
+- `cookies` - это для express'а/koa, и вряд ли нужен
 
 #### Скриншотилки
 - `pageres`
