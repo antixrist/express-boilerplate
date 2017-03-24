@@ -85,13 +85,13 @@ app.set('x-powered-by', false);
 - `configstore` - удобно записывать пользовательские конфиги, например
 
 ### Обработка ошибок и завершения процесса
+- `loud-rejection` / `uncaught` - ловля необработанных ошибок/реджектов для ноды и браузеров
 - `http-errors` - удобная обёртка для посыла http-ошибок
 - `create-error` / `es6-error` - враппер для создания собственных классов ошибок
 - `stacktrace-js` (асинхронный) / `stacktrace-parser` (синхронный, используется в ReactNative) - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
 - `errorhandler` - для рендера ошибок на клиент (only dev)
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
 - `death` / `signal-exit`
-- `loud-rejection`
 
 ### Кластеризация процессов
 - `strong-cluster-control`
