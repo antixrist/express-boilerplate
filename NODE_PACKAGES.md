@@ -261,7 +261,7 @@ app.set('x-powered-by', false);
 - `stringify-object`
 
 ### Полезности
-- `lodash`
+- `lodash` / `iterare`
 - `string` - если лодашевских методов работы со строками будет не хватать
 - `bluebird`
 - `mz` - promise-обёртка над системными функциями
