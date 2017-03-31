@@ -70,6 +70,7 @@
 - `express-status-monitor`
 - 
 - `express-expose` - выдёргивание серверных методов и переменных на фронт в шаблонизатор (особо не нужен, но мало ли)
+- `greenlock` - клиент для `let's encrypt` (вроде как) 
 
 ```javascript
 app.set('strict routing', true);
