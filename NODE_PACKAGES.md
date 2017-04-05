@@ -355,6 +355,7 @@ app.set('x-powered-by', false);
 - `supertest`
 - `chai`
 - `mocha`
+- `nodeunit`
 
 ### Генерация документации
 - `apidoc`
