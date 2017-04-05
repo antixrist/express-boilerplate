@@ -146,7 +146,7 @@ app.set('x-powered-by', false);
 ### Данные
 - `json5` - json с блекджеком и комментиками
 - `JSONSchema`: `ajv`
-- `joi` / `schema-inspector` / `validator` - санитизация/валидация
+- `joi` / `schema-inspector` / `validator` / `forms` - санитизация/валидация
 - `checkit`
 - `repository`
 - `normalizr`, `reselect` - для flux-архитектуры
