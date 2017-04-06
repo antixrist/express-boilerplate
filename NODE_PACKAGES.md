@@ -237,6 +237,8 @@ app.set('x-powered-by', false);
 - `isstream`
 - `lazypipe`
 - `destroy`
+- `end-of-stream` / `on-stream-end`
+- `highland`
 
 ### Генераторы (чисел, строк, данных, uid'ов)
 - `faker`
@@ -264,7 +266,7 @@ app.set('x-powered-by', false);
 ### Полезности
 - `lodash` / `iterare`
 - `string` - если лодашевских методов работы со строками будет не хватать
-- `bluebird`
+- `bluebird` / `relike` (для промисификации)
 - `mz` - promise-обёртка над системными функциями
 - `pify` - промисификатор
 - `thunkify` - callback'ифицирует callbacks, arrays, generators, generator functions, and promises
@@ -275,7 +277,7 @@ app.set('x-powered-by', false);
 - `d` - удобный описатель дескрипторов свойств
 - `delegates` - делегация методов и пропертей прототипа к какому-либо свойству этого прототипа
 - `escape-html`
-- `function-done`
+- `function-done` / `always-done`
 - `object-path` / `dottie` - продвинутый `_.get()`
 - `numeral` - работа с числами
 - `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов)
