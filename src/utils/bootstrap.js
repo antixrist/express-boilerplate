@@ -15,6 +15,9 @@ util.inspect.defaultOptions.colors         = true;
 // util.inspect.defaultOptions.breakLength    = 9999;
 util.inspect.defaultOptions.maxArrayLength = null;
 
+// todo: http://thecodebarbarian.com/unhandled-promise-rejections-in-node.js.html
+// todo: https://nodejs.org/api/process.html#process_event_rejectionhandled
+
 /** вешаем обработчик на смерть процесса */
 death({
   uncaughtException: true,

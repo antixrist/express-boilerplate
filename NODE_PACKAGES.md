@@ -303,6 +303,7 @@ app.set('x-powered-by', false);
 - `cron-parser`
 - `node-schedule`
 - `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
+- [`BitArray.js`](https://github.com/brockwhittaker/BitArray.js) Очень оптимизированный массив для хранения битовых флагов
 
 ### Кодировки
 - `encoding`
