@@ -160,6 +160,7 @@ app.set('x-powered-by', false);
 - `deepmerge`
 - `yn` - parse yes/no like values
 - `jsesc` - шибко умное экранирование
+- `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
 
 ### Рекваестеры
 - `dnscache`
@@ -185,6 +186,8 @@ app.set('x-powered-by', false);
 - `node-horseman`
 - `nightmare`
 - `uirecorder` - что-то вроде selenium от alibaba'ы
+- `jsdom`/`browser-env`
+
 [весь список](https://github.com/dhamaniasad/HeadlessBrowsers)
 
 #### Проксики
@@ -303,7 +306,6 @@ app.set('x-powered-by', false);
 - `cron-parser`
 - `node-schedule`
 - `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
-- [`BitArray.js`](https://github.com/brockwhittaker/BitArray.js) Очень оптимизированный массив для хранения битовых флагов
 
 ### Кодировки
 - `encoding`
