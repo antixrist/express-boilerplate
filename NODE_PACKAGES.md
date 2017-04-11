@@ -283,7 +283,7 @@ app.set('x-powered-by', false);
 - `function-done` / `always-done`
 - `object-path` / `dottie` - продвинутый `_.get()`
 - `numeral` - работа с числами
-- `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов)
+- `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов) / `date-fns` - улучшенная (и при этом проще) библиотека для манипуляций с датами
 - `mem`
 - `filesize` - человекопятный размер файлов
 - `pretty-hrtime` - человекопятный `process.hrtime()`
