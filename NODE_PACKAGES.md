@@ -144,6 +144,14 @@ app.set('x-powered-by', false);
 - `progress` / `gauge` - настраиваемый прогресс-бар
 
 ### Данные
+- `lodash` / `iterare`
+- `object-path` / `dottie` - продвинутый `_.get()`
+- `string` - если лодашевских методов работы со строками будет не хватать
+- `numeral` - работа с числами
+- `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов) / `date-fns` - улучшенная (и при этом проще) библиотека для манипуляций с датами
+- `filesize` - человекопятный размер файлов
+- `pretty-hrtime` - человекопятный `process.hrtime()`
+- `humanize-number` - человекопонятные числа
 - `json5` - json с блекджеком и комментиками
 - `JSONSchema`: `ajv`
 - `joi` / `schema-inspector` / `validator` / `forms` - санитизация/валидация
@@ -163,6 +171,7 @@ app.set('x-powered-by', false);
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
 
 ### Рекваестеры
+- `retry`
 - `dnscache`
 - `proxy-agent`
 - `caw`
@@ -177,18 +186,21 @@ app.set('x-powered-by', false);
 - `is-reachable` - есть ли коннект с конкретным ресурсом
 - `node-readability` - вычленение основного текста со страницы
 
+#### Парсинг dom'а
+- `jsdom` / `browser-env`
+- `cheerio` / `whacko`
+
+#### Headless-браузеры и парсинг dom'а
+- `node-horseman`
+- `nightmare`
+- `uirecorder` - что-то вроде selenium от alibaba'ы
+
+[весь список](https://github.com/dhamaniasad/HeadlessBrowsers)
+
 ### Кравлеры
 - `crawler`
 - `scrape-it`
 - `x-ray-crawler`
-
-#### Headless-браузеры
-- `node-horseman`
-- `nightmare`
-- `uirecorder` - что-то вроде selenium от alibaba'ы
-- `jsdom`/`browser-env`
-
-[весь список](https://github.com/dhamaniasad/HeadlessBrowsers)
 
 #### Проксики
 - `proxy-search`
@@ -267,8 +279,6 @@ app.set('x-powered-by', false);
 - `stringify-object`
 
 ### Полезности
-- `lodash` / `iterare`
-- `string` - если лодашевских методов работы со строками будет не хватать
 - `bluebird` / `relike` (для промисификации)
 - `mz` - promise-обёртка над системными функциями
 - `pify` - промисификатор
@@ -281,17 +291,8 @@ app.set('x-powered-by', false);
 - `delegates` - делегация методов и пропертей прототипа к какому-либо свойству этого прототипа
 - `escape-html`
 - `function-done` / `always-done`
-- `object-path` / `dottie` - продвинутый `_.get()`
-- `numeral` - работа с числами
-- `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов) / `date-fns` - улучшенная (и при этом проще) библиотека для манипуляций с датами
-- `mem`
-- `filesize` - человекопятный размер файлов
-- `pretty-hrtime` - человекопятный `process.hrtime()`
-- `humanize-number` - человекопонятные числа
-- `lru-cache`
-- `cheerio` / `whacko`
+- `mem` / `lru-cache`
 - `shimmer` - типа Proxy через monkeypatching
-- `retry`
 - `ware` - создание кастомной чепочки мидлварей (прям как в express'е)
 
 ### Очередя и таски
