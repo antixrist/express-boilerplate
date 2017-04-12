@@ -118,7 +118,7 @@ app.set('x-powered-by', false);
     - `knex`, `bookshelf`
     - `sequelize` (`sequelize-auto`, `sequelize-definer`, `sequelize-hierarchy`, `sequelize-values`)
 - `pg` / `pg-bluebird` / `pg-native`
-- `ioredis` / `redis`, `redlock`
+- `ioredis` / `redis` / `hiredis`, `redlock`
 - `reds` - поиск в редисе
 - `kue` - очередь с приоритетами в редисе (но для этих целей лучше брать `rabbitmq`)
 - `tortoise` - клиент для rabbitmq
