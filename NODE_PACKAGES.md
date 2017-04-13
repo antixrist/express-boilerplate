@@ -171,6 +171,7 @@ app.set('x-powered-by', false);
 - `yn` - parse yes/no like values
 - `jsesc` - шибко умное экранирование
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
+- `pako` - zlib для js
 
 ### Рекваестеры и http-тулзы
 - `retry`
