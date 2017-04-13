@@ -172,7 +172,7 @@ app.set('x-powered-by', false);
 - `jsesc` - шибко умное экранирование
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
 
-### Рекваестеры
+### Рекваестеры и http-тулзы
 - `retry`
 - `dnscache`
 - `proxy-agent`
@@ -187,6 +187,7 @@ app.set('x-powered-by', false);
 - `is-online` - есть ли коннект с интернетом
 - `is-reachable` - есть ли коннект с конкретным ресурсом
 - `node-readability` - вычленение основного текста со страницы
+- `follow-redirects`
 
 #### Парсинг dom'а
 - `jsdom` / `browser-env`
