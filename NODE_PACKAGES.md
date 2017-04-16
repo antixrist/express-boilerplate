@@ -179,6 +179,7 @@ app.set('x-powered-by', false);
 - `jsesc` - шибко умное экранирование
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
 - `pako` - zlib для js
+- `google-libphonenumber` - крутая штука для парсинга номеров телефонов
 
 ### Рекваестеры и http-тулзы
 - `retry`
@@ -352,6 +353,7 @@ app.set('x-powered-by', false);
 - `wuzzy`
 - `@google-cloud/speech` - разпознавание теста из аудио с помощью google cloud api (есть русский язык)
 - `franc` - определение языка
+- `@google-cloud/language` - определение языка, тональности текста, сущностей, предложений, токенов, etc. Это обёртка для Google Cloud Api. 
 
 ### DI
 - `bottlejs`
