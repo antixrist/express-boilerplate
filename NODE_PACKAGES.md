@@ -268,7 +268,7 @@ app.set('x-powered-by', false);
 - `sguid`
 
 #### Псевдорандом с посевом
-- `mersenne-twister`
+- `random-js` / `mersenne-twister`
 - `random-seed`
 
 #### Комбинаторика
