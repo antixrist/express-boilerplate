@@ -79,6 +79,13 @@ app.set('strict routing', true);
 app.set('x-powered-by', false);
 ```
 
+### Koa
+- `koa-router` (почти полностью повторяет экспрессовый роутер) / `koa-route` (облегчённая версия)
+
+### Сокеты
+- `socket.io` - стандарт дефакто, но давным-давно раздулся и уехал не в ту сторону.
+- `sockjs` - проще, понятнее, предсказуемее.
+
 ### Конфигурация
 - `nconf` / `config` / `confit`. `config` похож на `nconf`, но вроде поширше, `confit` выглядит самым вкусным (к тому же он от `kraken`'a).
 - `dotenv`
@@ -288,7 +295,6 @@ app.set('x-powered-by', false);
 - `pify` - промисификатор
 - `thunkify` - callback'ифицирует callbacks, arrays, generators, generator functions, and promises
 - `co`
-- `socket.io`
 - `inherits`
 - `sliced`
 - `d` - удобный описатель дескрипторов свойств
