@@ -291,7 +291,7 @@ app.set('x-powered-by', false);
 - `stringify-object`
 
 ### Полезности
-- `bluebird` / `relike` (для промисификации)
+- `bluebird` / `relike` / `awaiting` (для промисификации)
 - `mz` - promise-обёртка над системными функциями
 - `pify` - промисификатор
 - `thunkify` - callback'ифицирует callbacks, arrays, generators, generator functions, and promises
