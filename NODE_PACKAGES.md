@@ -180,6 +180,13 @@ app.set('x-powered-by', false);
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
 - `pako` - zlib для js
 - `google-libphonenumber` - крутая штука для парсинга номеров телефонов
+- `quickselect`
+- `bintrees` - самосортируемая структура с бинарным поиском
+- `simple-statistics` - статистические функции (в т.ч. комбинаторика и перестановки)
+- `cartesian` - комбинаторика
+- `js-combinatorics` - комбинаторика
+- `math-combination` - комбинаторика
+
 
 ### Рекваестеры и http-тулзы
 - `retry`
@@ -260,6 +267,7 @@ app.set('x-powered-by', false);
 - `csv-stringify`, `fast-csv`
 - `JSONStream`
 - `event-stream`
+- `split2`
 - `through2`
 - `isstream`
 - `lazypipe`
@@ -279,11 +287,6 @@ app.set('x-powered-by', false);
 - `random-js` / `mersenne-twister`
 - `random-seed`
 
-#### Комбинаторика
-- `cartesian`
-- `js-combinatorics`
-- `math-combination`
-
 ### Хэширование
 - `murmurhash-native` - быстрое и (вроде как) наименее коллизионное хэширование
 - `object-hash`
@@ -302,7 +305,7 @@ app.set('x-powered-by', false);
 - `delegates` - делегация методов и пропертей прототипа к какому-либо свойству этого прототипа
 - `escape-html`
 - `function-done` / `always-done`
-- `mem` / `lru-cache`
+- `mem` / `lru-cache` / `hashlru`
 - `shimmer` - типа Proxy через monkeypatching
 - `ware` - создание кастомной чепочки мидлварей (прям как в express'е)
 
@@ -359,8 +362,13 @@ app.set('x-powered-by', false);
 - `bottlejs`
 
 ### Карты
+- `rbush`, `kdbush`, `geokdbush` - браузерный spatial индекс из двухмерных точек для быстрого поиска вхождений в радиус и прямоугольную область (в т.ч. с учётом земной проекции).
+- `@turf/turf` - d3 для карт. быстрая гео-математика/геометрия (в т.ч. поиск вхождений, etc)
 - `proj4` - перевод из одной проекции в другую
 - `wkx` - парсинг geojson (для браузера в том числе)
+- `simplify-js` - сглаживание polyline-кривой
+- `earcut` / `libtess` - расчёт триангуляции для полигона и набора точек
+- `geojsonvt` - нарезка geojson'а на векторные тайлы (для оптимизации рендеринга)
 
 ### Сборка
 - `gulp`
