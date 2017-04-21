@@ -16,6 +16,7 @@
 - `safe-regex` - проверка регулярок на быстроту выполнения - Regular expression Denial of Service (ReDoS)
 - `reify` - врубает `import` без бабелей/вебпаков
 - `open` - открывает ссылку в дефолтовом браузере системы
+- `toobusy-js`
 
 ### Тесты
 - `ava`
