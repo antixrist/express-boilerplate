@@ -17,6 +17,7 @@
 - `reify` - врубает `import` без бабелей/вебпаков
 - `open` - открывает ссылку в дефолтовом браузере системы
 - `toobusy-js`
+- `light-cycle` - реализация hashringcycle (аналог round-robin) для выбора шардов на лету
 
 ### Тесты
 - `ava`
@@ -163,7 +164,7 @@ app.set('x-powered-by', false);
 - `pretty-hrtime` - человекопятный `process.hrtime()`
 - `humanize-number` - человекопонятные числа
 - `json5` - json с блекджеком и комментиками
-- `JSONSchema`: `ajv`
+- `JSONSchema` / `ajv` - создание и валидация JSONScheme'ы
 - `joi` / `schema-inspector` / `validator` / `forms` - санитизация/валидация
 - `checkit`
 - `repository`
@@ -187,6 +188,7 @@ app.set('x-powered-by', false);
 - `cartesian` - комбинаторика
 - `js-combinatorics` - комбинаторика
 - `math-combination` - комбинаторика
+- `cuint` / `bignumber.js` / `long`
 
 
 ### Рекваестеры и http-тулзы
@@ -270,6 +272,7 @@ app.set('x-powered-by', false);
 - `event-stream`
 - `split2`
 - `through2`
+- `shaper` - ограничитель скорости потока
 - `isstream`
 - `lazypipe`
 - `destroy`
