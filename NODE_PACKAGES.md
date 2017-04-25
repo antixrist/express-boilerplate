@@ -366,6 +366,8 @@ app.set('x-powered-by', false);
 - `bottlejs`
 
 ### Карты
+[Здесь](https://www.npmjs.com/~mourner) [много](https://www.npmjs.com/~mapbox-admin) интересного
+
 - `rbush`, `kdbush`, `geokdbush` - браузерный spatial индекс из двухмерных точек для быстрого поиска вхождений в радиус и прямоугольную область (в т.ч. с учётом земной проекции).
 - `@turf/turf` - d3 для карт. быстрая гео-математика/геометрия (в т.ч. поиск вхождений, etc)
 - `proj4` - перевод из одной проекции в другую
@@ -373,10 +375,13 @@ app.set('x-powered-by', false);
 - `simplify-js` - сглаживание polyline-кривой
 - `earcut` / `libtess` - расчёт триангуляции для полигона и набора точек
 - `geojsonvt` - нарезка geojson'а на векторные тайлы (для оптимизации рендеринга)
+- `geojson-utils` - line intersections, point in polygon, radius filtering, distance between two points, etc
+- `leaflet-pip` / `point-in-polygon`
+- `polylabel` / `@mapbox/polylabel` - нахождение оптимальной точки для расположения лейбла внутри полигона
 
 ### Сборка
 - `gulp`
-- `webpack`
+- `webpack`, `webworkify-webpack`
 - `chokidar` / `watchpack`
 - `browser-sync`
 - `parallelshell`
