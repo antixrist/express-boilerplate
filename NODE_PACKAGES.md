@@ -389,8 +389,7 @@ app.set('x-powered-by', false);
 
 ### Тестирование
 - `supertest`
-- `chai`
-- `mocha`
+- `chai`-`mocha` / `karma`-`jasmin`
 - `nodeunit`
 
 ### Генерация документации
