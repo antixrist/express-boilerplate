@@ -181,6 +181,7 @@ app.set('x-powered-by', false);
 - `jsesc` - шибко умное экранирование
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
 - `pako` - zlib для js
+- `lz-string` - мощное сжатие/декомпрессия строк для хранения, к примеру, в localStorage
 - `google-libphonenumber` - крутая штука для парсинга номеров телефонов
 - `quickselect`
 - `bintrees` - самосортируемая структура с бинарным поиском
