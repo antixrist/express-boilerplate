@@ -25,6 +25,8 @@
 - `mocha`
 
 ### Express.js
+- [pillarjs](https://github.com/pillarjs) - много low-level вкусняшек
+- `keygrip` - подпись и валидации подписанных данных (module for signing and verifying data (such as cookies or URLs) through a rotating credential system)
 - `express-generator`
 - `compression`
 - `vhost` - для поддоменов (например `api.domain.tld`)
