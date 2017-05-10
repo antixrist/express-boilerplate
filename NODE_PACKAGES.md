@@ -76,7 +76,7 @@
 - `express-status-monitor`
 - 
 - `express-expose` - выдёргивание серверных методов и переменных на фронт в шаблонизатор (особо не нужен, но мало ли)
-- `greenlock` - клиент для `let's encrypt` (вроде как) 
+- `greenlock` - клиент для `let's encrypt` (вроде как)
 
 ```javascript
 app.set('strict routing', true);
@@ -89,6 +89,7 @@ app.set('x-powered-by', false);
 ### Сокеты
 - `socket.io` - стандарт дефакто, но давным-давно раздулся и уехал не в ту сторону.
 - `sockjs` - проще, понятнее, предсказуемее.
+- `sticky-session` - шаринг сессий между воркерами (например, с помощью `cluster`)
 
 ### Конфигурация
 - `nconf` / `config` / `confit`. `config` похож на `nconf`, но вроде поширше, `confit` выглядит самым вкусным (к тому же он от `kraken`'a).
@@ -192,7 +193,7 @@ app.set('x-powered-by', false);
 - `js-combinatorics` - комбинаторика
 - `math-combination` - комбинаторика
 - `cuint` / `bignumber.js` / `long` / `bn.js`
-
+- `json-depth-stream` - потоковый парсер огромных json'ов
 
 ### Рекваестеры и http-тулзы
 - `retry`
@@ -219,6 +220,7 @@ app.set('x-powered-by', false);
 - `node-horseman`
 - `nightmare`
 - `uirecorder` - что-то вроде selenium от alibaba'ы
+- [Chrome Headless](https://developers.google.com/web/updates/2017/04/headless-chrome)
 
 [весь список](https://github.com/dhamaniasad/HeadlessBrowsers)
 
@@ -247,6 +249,7 @@ app.set('x-powered-by', false);
 #### Скриншотилки
 - `pageres`
 - `webshot`
+- [Скриншотилка на базе безголового хрома](https://medium.com/@dschnr/using-headless-chrome-as-an-automated-screenshot-tool-4b07dffba79a)
 
 ### Урлы и IP
 - `parseurl`, `qs`
@@ -271,7 +274,7 @@ app.set('x-powered-by', false);
 
 ### Стримы
 - `csv-stringify`, `fast-csv`
-- `JSONStream`
+- `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
 - `event-stream`
 - `split2`
 - `through2`
@@ -293,6 +296,7 @@ app.set('x-powered-by', false);
 #### Псевдорандом с посевом
 - `random-js` / `mersenne-twister`
 - `random-seed`
+- `brorand` - кросс-платформенный `crypto.getRandomValues`
 
 ### Хэширование
 - `murmurhash-native` - быстрое и (вроде как) наименее коллизионное хэширование
@@ -338,6 +342,7 @@ app.set('x-powered-by', false);
 ### AST-парсеры
 - `pegjs` - произвольные синтаксические конструкции
 - `esprima` - парсер ECMAScript на ECMAScript
+- `parser-base` - каркас для строкового парсера (подобие `json5`)
 
 ### Email
 - `nodemailer` / `postmark`
@@ -393,6 +398,7 @@ app.set('x-powered-by', false);
 - `supertest`
 - `chai`-`mocha` / `karma`-`jasmin`
 - `nodeunit`
+- `jest`
 
 ### Генерация документации
 - `apidoc`
