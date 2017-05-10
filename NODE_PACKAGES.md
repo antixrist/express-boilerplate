@@ -188,7 +188,7 @@ app.set('x-powered-by', false);
 - `cartesian` - комбинаторика
 - `js-combinatorics` - комбинаторика
 - `math-combination` - комбинаторика
-- `cuint` / `bignumber.js` / `long`
+- `cuint` / `bignumber.js` / `long` / `bn.js`
 
 
 ### Рекваестеры и http-тулзы
