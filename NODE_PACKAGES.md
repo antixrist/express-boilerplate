@@ -25,6 +25,8 @@
 - `mocha`
 
 ### Express.js
+- [pillarjs](https://github.com/pillarjs) - много low-level вкусняшек
+- `keygrip` - подпись и валидации подписанных данных (module for signing and verifying data (such as cookies or URLs) through a rotating credential system)
 - `express-generator`
 - `compression`
 - `vhost` - для поддоменов (например `api.domain.tld`)
@@ -157,7 +159,7 @@ app.set('x-powered-by', false);
 ### Данные
 - `lodash` / `iterare`
 - `object-path` / `dottie` - продвинутый `_.get()`
-- `string` - если лодашевских методов работы со строками будет не хватать
+- `string` / `strman` - если лодашевских методов работы со строками будет не хватать
 - `numeral` - работа с числами
 - `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов) / `date-fns` - улучшенная (и при этом проще) библиотека для манипуляций с датами
 - `filesize` - человекопятный размер файлов
@@ -181,6 +183,7 @@ app.set('x-powered-by', false);
 - `jsesc` - шибко умное экранирование
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
 - `pako` - zlib для js
+- `lz-string` - мощное сжатие/декомпрессия строк для хранения, к примеру, в localStorage
 - `google-libphonenumber` - крутая штука для парсинга номеров телефонов
 - `quickselect`
 - `bintrees` - самосортируемая структура с бинарным поиском
@@ -388,8 +391,7 @@ app.set('x-powered-by', false);
 
 ### Тестирование
 - `supertest`
-- `chai`
-- `mocha`
+- `chai`-`mocha` / `karma`-`jasmin`
 - `nodeunit`
 
 ### Генерация документации
