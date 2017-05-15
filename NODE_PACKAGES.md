@@ -107,6 +107,7 @@ app.set('x-powered-by', false);
 - `errorhandler` - для рендера ошибок на клиент (only dev)
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
 - `death` / `signal-exit`
+- `node-report`
 
 ### Кластеризация процессов
 - `strong-cluster-control`
