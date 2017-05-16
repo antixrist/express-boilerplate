@@ -116,6 +116,8 @@ app.set('x-powered-by', false);
 - `anymatch` - матчер по чему угодно (глоб, регэксп, етс)
 - `chokidar` - слушатель фс
 - `fs-extra`
+- `glob` / `globby`
+- `klaw` - фс-walker на стримах
 - `path-exists`
 - `mkdirp`
 - `del`
@@ -320,6 +322,7 @@ app.set('x-powered-by', false);
 - `mem` / `lru-cache` / `hashlru`
 - `shimmer` - типа Proxy через monkeypatching
 - `ware` - создание кастомной чепочки мидлварей (прям как в express'е)
+- `archiver` - архиватор
 
 ### Очередя и таски
 - `kue`
