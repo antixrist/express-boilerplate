@@ -102,7 +102,7 @@ app.set('x-powered-by', false);
 
 ### Обработка ошибок и завершения процесса
 - `loud-rejection` / `uncaught` - ловля необработанных ошибок/реджектов для ноды и браузеров
-- `http-errors` - удобная обёртка для посыла http-ошибок
+- `http-errors` / `boom` - удобная обёртка для посыла http-ошибок
 - `create-error` / `es6-error` - враппер для создания собственных классов ошибок
 - `stacktrace-js` (асинхронный) / `stacktrace-parser` (синхронный, используется в ReactNative) - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
 - `errorhandler` - для рендера ошибок на клиент (only dev)
@@ -117,7 +117,7 @@ app.set('x-powered-by', false);
 - `anymatch` - матчер по чему угодно (глоб, регэксп, етс)
 - `chokidar` - слушатель фс
 - `fs-extra`
-- `glob` / `globby`
+- `glob` / `globby` / `glob-all`
 - `klaw` - фс-walker на стримах
 - `path-exists`
 - `mkdirp`
@@ -151,7 +151,7 @@ app.set('x-powered-by', false);
 - `debug`
 - `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
 - `microlog`
-- `chalk` - раскраска
+- `chalk` / `ansicolors` - раскраска
 - `better-console` - добавление console.table-методов
 - `cllc` / `multispinner` / `observatory` / `ora` / `draftlog` - вывод с лоадером
 - `commander` - настройка cli-аргументов для запуска приложения (с блекджеком и генератором справки)
@@ -166,10 +166,11 @@ app.set('x-powered-by', false);
 - `object-path` / `dottie` - продвинутый `_.get()`
 - `string` / `strman` - если лодашевских методов работы со строками будет не хватать
 - `numeral` - работа с числами
-- `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов) / `date-fns` - улучшенная (и при этом проще) библиотека для манипуляций с датами
+- `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов) / `date-fns` - улучшенная (и при этом проще) библиотека для манипуляций с датами / `jstimezonedetect` - для браузера (в основном)
 - `filesize` - человекопятный размер файлов
 - `pretty-hrtime` - человекопятный `process.hrtime()`
 - `humanize-number` - человекопонятные числа
+- `expiry-js` - парсер длительностей (1M, 1Y, 1h, 1m, 1s, 1ms, etc)
 - `json5` - json с блекджеком и комментиками
 - `JSONSchema` / `ajv` - создание и валидация JSONScheme'ы
 - `joi` / `schema-inspector` / `validator` / `forms` - санитизация/валидация
@@ -188,6 +189,7 @@ app.set('x-powered-by', false);
 - `jsesc` - шибко умное экранирование
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
 - `pako` - zlib для js
+- `yauzl` - unzip
 - `lz-string` - мощное сжатие/декомпрессия строк для хранения, к примеру, в localStorage
 - `google-libphonenumber` - крутая штука для парсинга номеров телефонов
 - `quickselect`
@@ -380,6 +382,11 @@ app.set('x-powered-by', false);
 ### DI
 - `bottlejs`
 
+### Цвета
+- `color`
+- `tinycolor2`
+- `tinygradient`
+
 ### Карты
 [Здесь](https://www.npmjs.com/~mourner) [много](https://www.npmjs.com/~mapbox-admin) интересного
 
@@ -392,6 +399,7 @@ app.set('x-powered-by', false);
 - `geojsonvt` - нарезка geojson'а на векторные тайлы (для оптимизации рендеринга)
 - `geojson-utils` - line intersections, point in polygon, radius filtering, distance between two points, etc
 - `leaflet-pip` / `point-in-polygon`
+- `leaflet-draw` - добавление мышкой линий/полигонов/кружочков на leaflet-карту
 - `polylabel` / `@mapbox/polylabel` - нахождение оптимальной точки для расположения лейбла внутри полигона
 
 ### Сборка
@@ -431,3 +439,7 @@ app.set('x-powered-by', false);
 - `drop-anywhere` - для d'n'd загрузки файлов где угодно на странице
 - `focus` - нахождение цетральной сущности на изображении для последующей фокусировки или кропа
 - `criticalcss` / `critical` / `penthouse` - critical css
+- `trunc-text`
+- `trunc-html`
+- `insane` - `jevix` для js
+- `resize-observer-polyfill`
