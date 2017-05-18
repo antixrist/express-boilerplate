@@ -320,6 +320,7 @@ app.set('x-powered-by', false);
 - `escape-html`
 - `function-done` / `always-done`
 - `mem` / `lru-cache` / `hashlru`
+- `fast-memoize`
 - `shimmer` - типа Proxy через monkeypatching
 - `ware` - создание кастомной чепочки мидлварей (прям как в express'е)
 - `archiver` - архиватор
