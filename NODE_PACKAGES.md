@@ -2,14 +2,16 @@
 
 ## Запуск с babel'ем
 [example-node-server](https://github.com/babel/example-node-server)
+[примеры скриптов запуска в `package.json`](https://github.com/comerc/yobr)
 
 ## Node.js
 - `pm2` (`pm2-logrotate`, [как юзать socket.io на кластеризованном приложении](https://github.com/Unitech/PM2/issues/637#issuecomment-215915328))
+- `hotel` - управление и старт локальных dev-доменов для локальных проектов на всевозможных технологиях
 - `cross-spawn` / `execa`
 - `mz` - промайзнутые системные библиотеки
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
 - `shelljs` - bash-функции прямо в ноде
-- `precommit-hook` / `husky` - годная тулза запускающая npm-скрипты на коммиты
+- `precommit-hook` - тулза запускающая npm-скрипты на коммиты / `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками
 - `app-module-path` - require хук, для маппинга кастомной рутовой директории
 - `node-notifier`
 - `nodejs-dashboard`
@@ -18,7 +20,8 @@
 - `open` - открывает ссылку в дефолтовом браузере системы
 - `toobusy-js`
 - `light-cycle` - реализация hashringcycle (аналог round-robin) для выбора шардов на лету
-- `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками
+- `hyper` - кроссплатформенный терминал на electron'е
+- `mediacenterjs` - браузерный персональный медиацентр
 
 ### Тесты
 - `ava`
@@ -62,7 +65,7 @@
 - `ratelimiter` - rate limit запросов с хранилищем в редисе (но по-хорошему этим должен заниматься nginx)
 - `on-finished`
 - 
-- `portastic` - нахождение свободных локальных портов (удобно для dev-запуска)
+- `portastic` - нахождение свободных локальных портов (удобно для dev-запуска) / `portscanner` - тоже самое, но, возможно, рабоает и для внешних айпишников
 - `serve-static` (встроен в сам экспресс)
 - `http-proxy-middleware` - полезная гибкая штука для перенаправления запросов на другие сервера
 - `express-request-language`
@@ -108,6 +111,7 @@ app.set('x-powered-by', false);
 - `errorhandler` - для рендера ошибок на клиент (only dev)
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
 - `death` / `signal-exit`
+- `tree-kill` - убить self-процесс и все дочерние форки
 - `node-report`
 
 ### Кластеризация процессов
@@ -116,18 +120,19 @@ app.set('x-powered-by', false);
 ### ФС
 - `anymatch` - матчер по чему угодно (глоб, регэксп, етс)
 - `chokidar` - слушатель фс
-- `fs-extra`
+- `fs-extra`, `graceful-fs`
 - `glob` / `globby` / `glob-all`
 - `klaw` - фс-walker на стримах
 - `path-exists`
 - `mkdirp`
-- `del`
+- `del` / `ncp`
 - `parse-filepath` - добавляет некоторые поля к стандартному выводу
 - `is-dotfile`
 - `is-absolute`
 - `is-relative`
 - `relative` - расширенный `path.relative()`
 - `proper-lockfile` - `lock`-файл
+- `steno` - помогает при конкурентной запси в файл - делает все вызовы на запись последовательно
 
 ### DB
 - `mysql2`
@@ -141,6 +146,7 @@ app.set('x-powered-by', false);
 - `store` - нормальная полная кроссбраузерная обёртка над localStorage. можно сделать асинхронным для обёртки над редисом или типа того. В ноде хорошо работает в связке с `node-localstorage`.
 - `localforage` - то же, что и `store`, только над `indexeddb`, `websql`, `localstorage`. Асинхронный.
 - `node-localstorage` - localStorage для NodeJS
+- `lowdb` - файловая json-бд поверх lodash'а
 
 ### Права
 - `acl`
@@ -179,14 +185,13 @@ app.set('x-powered-by', false);
 - `normalizr`, `reselect` - для flux-архитектуры
 - `normalize-object`
 - `kind-of` - нормальная замена typeof
-- `deep-diff`
 - `tableize` - схлопывает json-структуру в объект вида `{'level1key': 'level1value', 'level1key.level2key': 'level2value'}`
-- `diff`
-- `jiff`
+- `deep-diff` / `diff` / `jsondiffpatch` / `jiff`
 - `fastest-clone`
 - `deepmerge`
 - `yn` - parse yes/no like values
 - `jsesc` - шибко умное экранирование
+- `insane` - `jevix` для js
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
 - `pako` - zlib для js
 - `yauzl` - unzip
@@ -217,6 +222,7 @@ app.set('x-powered-by', false);
 - `is-reachable` - есть ли коннект с конкретным ресурсом
 - `node-readability` - вычленение основного текста со страницы
 - `follow-redirects`
+- `nock` - mock'и для http-запросов (удобно для тестирования и заглушки api)
 
 #### Парсинг dom'а
 - `jsdom` / `browser-env`
@@ -227,6 +233,7 @@ app.set('x-powered-by', false);
 - `node-horseman`
 - `nightmare`
 - `uirecorder` - что-то вроде selenium от alibaba'ы
+- `leadfoot` - кроссплатформенная обёртка над Selenium
 - [Chrome Headless](https://developers.google.com/web/updates/2017/04/headless-chrome)
 
 [весь список](https://github.com/dhamaniasad/HeadlessBrowsers)
@@ -304,6 +311,7 @@ app.set('x-powered-by', false);
 - `random-js` / `mersenne-twister`
 - `random-seed`
 - `brorand` - кросс-платформенный `crypto.getRandomValues`
+- `chance`
 
 ### Хэширование
 - `murmurhash-native` - быстрое и (вроде как) наименее коллизионное хэширование
@@ -441,5 +449,5 @@ app.set('x-powered-by', false);
 - `criticalcss` / `critical` / `penthouse` - critical css
 - `trunc-text`
 - `trunc-html`
-- `insane` - `jevix` для js
 - `resize-observer-polyfill`
+- `file-saver`
