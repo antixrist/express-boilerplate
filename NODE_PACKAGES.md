@@ -18,6 +18,7 @@
 - `open` - открывает ссылку в дефолтовом браузере системы
 - `toobusy-js`
 - `light-cycle` - реализация hashringcycle (аналог round-robin) для выбора шардов на лету
+- `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками
 
 ### Тесты
 - `ava`
@@ -218,6 +219,7 @@ app.set('x-powered-by', false);
 #### Парсинг dom'а
 - `jsdom` / `browser-env`
 - `cheerio` / `whacko`
+- `semantic-schema-parser` - парсер schema.org
 
 #### Headless-браузеры и парсинг dom'а
 - `node-horseman`
