@@ -155,8 +155,6 @@ app.set('x-powered-by', false);
 
 ### Консоль
 - `object-inspect`
-- `debug`
-- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
 - `microlog`
 - `chalk` / `ansicolors` - раскраска
 - `better-console` - добавление console.table-методов
@@ -167,6 +165,11 @@ app.set('x-powered-by', false);
 - `inquirer` - cli-промптер
 - `minimist` / `yargs` - парсер cli-аргументов
 - `progress` / `gauge` - настраиваемый прогресс-бар
+
+### Логирование
+- `debug`
+- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
+- `gelf-stream` - https://habrahabr.ru/company/2gis/blog/329128/
 
 ### Данные
 - `lodash` / `iterare`
