@@ -169,7 +169,7 @@ app.set('x-powered-by', false);
 ### Логирование
 - `debug`
 - `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
-- `gelf-stream` - https://habrahabr.ru/company/2gis/blog/329128/
+- `gelf-stream` / `gelf-pro` - https://habrahabr.ru/company/2gis/blog/329128/
 
 ### Данные
 - `lodash` / `iterare`
