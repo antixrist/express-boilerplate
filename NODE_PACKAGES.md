@@ -410,6 +410,7 @@ app.set('x-powered-by', false);
 - `leaflet-pip` / `point-in-polygon`
 - `leaflet-draw` - добавление мышкой линий/полигонов/кружочков на leaflet-карту
 - `polylabel` / `@mapbox/polylabel` - нахождение оптимальной точки для расположения лейбла внутри полигона
+- `delaunator` - самая быстрая триангуляция
 
 ### Сборка
 - `gulp`
