@@ -22,6 +22,7 @@
 - `light-cycle` - реализация hashringcycle (аналог round-robin) для выбора шардов на лету
 - `hyper` - кроссплатформенный терминал на electron'е
 - `mediacenterjs` - браузерный персональный медиацентр
+- `detect-node` - запущен ли текущий код из под ноды
 
 ### Тесты
 - `ava`
@@ -89,7 +90,13 @@ app.set('x-powered-by', false);
 
 ### Koa
 - `koa-router` (почти полностью повторяет экспрессовый роутер) / `koa-route` (облегчённая версия) / `koa-trie-router` (или `wayfarer`) - composable роуты, как в express'е
-- `koa-mount` - чтобы как в express'е - можно монтировать инстанс в другой инстанс
+- `koa-mount` - чтобы как в express'е - можно монтировать инстанс в роут другого инстанса
+- `koa-session` - на куках / `koa-generic-session` - на редисе/монге/mysql/pg/sequelize/etc
+- `koa-redis`
+- `koa-static` / `koa-send` / `koa-etag` / `koa-conditional-get` - для статики
+- `koa-compress`
+- `koa-views`
+- `koa-logger`
 
 ### Сокеты
 - `socket.io` - стандарт дефакто, но давным-давно раздулся и уехал не в ту сторону.
@@ -114,6 +121,10 @@ app.set('x-powered-by', false);
 - `death` / `signal-exit`
 - `tree-kill` - убить self-процесс и все дочерние форки
 - `node-report`
+- `trace` - максимально удлиняет стек вызовов в стектрейсах
+- `clarify` - вырезает из стектрейсов строки с системными вызовами (`node --stack_trace_limit=100 -r trace -r clarify wired.js`)
+- `stack-chain` - кастомный парсер стектрейсов для маппинга/фильтрации/etc
+[пример с trace, clarify и stack-chain](https://gist.github.com/antixrist/88b3d77f803377944789f02357b83c89)
 
 ### Кластеризация процессов
 - `strong-cluster-control`
@@ -443,6 +454,7 @@ app.set('x-powered-by', false);
 - [holyjs](https://github.com/holyjs/holyjs)
 - [node-daemons](https://github.com/pipll/node-daemons) - с демонами на node.js
 - [multi-process-nodejs-example](https://github.com/RisingStack/multi-process-nodejs-example) - воркеры, rabbit, redis
+- [koa-chat](https://github.com/iliakan/koa-chat) пример от Ильи Кантора
 
 ## Front
 - `asap` / `next-tick` / `setimmediate` - как только, так сразу. Кроссбраузерный `process.nextTick`
