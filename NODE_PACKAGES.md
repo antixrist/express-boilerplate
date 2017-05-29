@@ -473,3 +473,13 @@ app.set('x-powered-by', false);
 - `resize-observer-polyfill`
 - `file-saver`
 - `appmetrics.js` - обертка над User Timing API, с возможностью отправки всего намерянного в GA.
+- `dom-serialize` - сериализация dom-нод в строку
+- `block-elements` - определяет, является ли тег блочным (по названию)
+
+### Полифиллы:
+- `custom-event`
+- `Stickyfill`
+- `bounding-client-rect`
+- `mutation-observer`
+- `blob`
+- `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen`
