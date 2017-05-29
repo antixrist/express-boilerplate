@@ -420,6 +420,7 @@ app.set('x-powered-by', false);
 - `color`
 - `tinycolor2`
 - `tinygradient`
+- `chromatism`
 
 ### Карты
 [Здесь](https://www.npmjs.com/~mourner) [много](https://www.npmjs.com/~mapbox-admin) интересного
