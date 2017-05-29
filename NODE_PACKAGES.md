@@ -4,6 +4,15 @@
 [example-node-server](https://github.com/babel/example-node-server)
 [примеры скриптов запуска в `package.json`](https://github.com/comerc/yobr)
 
+## Примеры приложений
+- [hackathon-starter](https://github.com/sahat/hackathon-starter)
+- [holyjs](https://github.com/holyjs/holyjs)
+- [node-daemons](https://github.com/pipll/node-daemons) - с демонами на node.js
+- [multi-process-nodejs-example](https://github.com/RisingStack/multi-process-nodejs-example) - воркеры, rabbit, redis
+- [koa-chat](https://github.com/iliakan/koa-chat) пример от Ильи Кантора
+- [Task-Manager-API](https://github.com/GiperScriper/Task-Manager-API) Rest с авторизацией через jsonwebtoken
+- [express-mongo-db](https://github.com/floatdrop/express-mongo-db)
+
 ## Node.js
 - `pm2` (`pm2-logrotate`, [как юзать socket.io на кластеризованном приложении](https://github.com/Unitech/PM2/issues/637#issuecomment-215915328))
 - `hotel` - управление и старт локальных dev-доменов для локальных проектов на всевозможных технологиях
@@ -23,6 +32,8 @@
 - `hyper` - кроссплатформенный терминал на electron'е
 - `mediacenterjs` - браузерный персональный медиацентр
 - `detect-node` - запущен ли текущий код из под ноды
+- `localtunnel` - шарит локальный адрес наружу
+- `npm-check` - тулза для обновления зависимостей с консольным ui
 
 ### Тесты
 - `ava`
@@ -54,7 +65,7 @@
 - `cookie-signature` - подпись кук
 - `connect-redis` (сессии в редисе) / `express-mysql-session` (сессии в mysql)
 - `passport` и его стратегии (в т.ч. `passport-local`, `passport-hash`)
-- `bcrypt` / `bcrypt-nodejs` / `pwd` / `pswd` для паролей
+- `bcrypt` / `bcrypt-nodejs` / `bcryptjs` / `pwd` / `pswd` для паролей
 - `express-urlrewrite` - 301 редирект
 - `passport.socketio` / `express-socket.io-session` - шаринг сессии между экспрессом и socket.io
 - `clearsitedata` - устанавливает специальный заголовок, чтобы браузер почистил кэш, куки, стораджи (полезно при логауте)
@@ -166,7 +177,6 @@ app.set('x-powered-by', false);
 
 ### Консоль
 - `object-inspect`
-- `microlog`
 - `chalk` / `ansicolors` - раскраска
 - `better-console` - добавление console.table-методов
 - `cllc` / `multispinner` / `observatory` / `ora` / `draftlog` - вывод с лоадером
@@ -179,6 +189,7 @@ app.set('x-powered-by', false);
 
 ### Логирование
 - `debug`
+- `microlog`
 - `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
 - `gelf-stream` / `gelf-pro` - https://habrahabr.ru/company/2gis/blog/329128/
 
@@ -222,7 +233,7 @@ app.set('x-powered-by', false);
 - `json-depth-stream` - потоковый парсер огромных json'ов
 
 ### Рекваестеры и http-тулзы
-- `retry`
+- `retry` / `tolerance`
 - `dnscache`
 - `proxy-agent`
 - `caw`
@@ -321,6 +332,7 @@ app.set('x-powered-by', false);
 - `node-uuid` / `uid-safe`
 - `shortid`
 - `sguid`
+- `randexp` - генерация строки по регэкспу
 
 #### Псевдорандом с посевом
 - `random-js` / `mersenne-twister`
@@ -362,7 +374,6 @@ app.set('x-powered-by', false);
 - `node-schedule`
 - `cron`
 - `cron-parser`
-- `node-schedule`
 - `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
 
 ### Кодировки
@@ -449,13 +460,6 @@ app.set('x-powered-by', false);
 - [shipit](https://github.com/shipitjs/shipit) - gulp'ово/grunt'ово подобный деплойер
 - [dokku](https://github.com/dokku/dokku) - heroku + docker
 
-## Примеры приложений
-- [hackathon-starter](https://github.com/sahat/hackathon-starter)
-- [holyjs](https://github.com/holyjs/holyjs)
-- [node-daemons](https://github.com/pipll/node-daemons) - с демонами на node.js
-- [multi-process-nodejs-example](https://github.com/RisingStack/multi-process-nodejs-example) - воркеры, rabbit, redis
-- [koa-chat](https://github.com/iliakan/koa-chat) пример от Ильи Кантора
-
 ## Front
 - `asap` / `next-tick` / `setimmediate` - как только, так сразу. Кроссбраузерный `process.nextTick`
 - `simulant` - симуляция реальных браузерных событий
@@ -468,3 +472,4 @@ app.set('x-powered-by', false);
 - `trunc-html`
 - `resize-observer-polyfill`
 - `file-saver`
+- `appmetrics.js` - обертка над User Timing API, с возможностью отправки всего намерянного в GA.
