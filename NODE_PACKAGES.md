@@ -447,9 +447,7 @@ app.set('x-powered-by', false);
 
 ### Тестирование
 - `supertest`
-- `chai`-`mocha` / `karma`-`jasmin`
-- `nodeunit`
-- `jest`
+- `mocha` (`chai`) / `jasmin` (`karma`) / `nodeunit` / `ava` / `tape` / `jest`
 
 ### Генерация документации
 - `apidoc`
