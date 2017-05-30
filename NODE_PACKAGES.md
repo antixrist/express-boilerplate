@@ -15,6 +15,8 @@
 
 ## Node.js
 - `pm2` (`pm2-logrotate`, [как юзать socket.io на кластеризованном приложении](https://github.com/Unitech/PM2/issues/637#issuecomment-215915328))
+- `cote` - набор библиотек для построения микросервисного кластера ([статья](https://habrahabr.ru/company/ruvds/blog/329784/))
+- `axon` - zeromq на ноде
 - `hotel` - управление и старт локальных dev-доменов для локальных проектов на всевозможных технологиях
 - `cross-spawn` / `execa`
 - `mz` - промайзнутые системные библиотеки
