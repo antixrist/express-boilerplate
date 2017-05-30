@@ -265,6 +265,7 @@ app.set('x-powered-by', false);
 [весь список](https://github.com/dhamaniasad/HeadlessBrowsers)
 
 ### Кравлеры
+- `simplecrawler`
 - `crawler`
 - `scrape-it`
 - `x-ray-crawler`
