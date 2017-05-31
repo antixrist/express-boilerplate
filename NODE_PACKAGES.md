@@ -76,10 +76,10 @@
 - `lusca` / `helmet` (`helmet` лучше)
 - `csurf` - csrf (этот лучше)
 - `cors`
-- `ratelimiter` - rate limit запросов с хранилищем в редисе (но по-хорошему этим должен заниматься nginx)
+- `ratelimiter` - rate limit запросов с хранилищем в редисе / `limiter` (но по-хорошему этим должен заниматься nginx)
 - `on-finished`
 - 
-- `portastic` - нахождение свободных локальных портов (удобно для dev-запуска) / `portscanner` - тоже самое, но, возможно, рабоает и для внешних айпишников
+- `portastic` - нахождение свободных локальных портов (удобно для dev-запуска) / `portscanner` - тоже самое, но, возможно, работает и для внешних айпишников / `get-port` - берёт заданный порт либо рандомный, если занят
 - `serve-static` (встроен в сам экспресс)
 - `http-proxy-middleware` - полезная гибкая штука для перенаправления запросов на другие сервера
 - `express-request-language`
@@ -111,6 +111,12 @@ app.set('x-powered-by', false);
 - `koa-views`
 - `koa-logger`
 
+### Прочие фреймворки
+- `cote`
+- `micro`
+- `studio`
+- `socketcluster`
+
 ### Сокеты
 - `socket.io` - стандарт дефакто, но давным-давно раздулся и уехал не в ту сторону.
 - `sockjs` - проще, понятнее, предсказуемее.
@@ -126,11 +132,12 @@ app.set('x-powered-by', false);
 
 ### Обработка ошибок и завершения процесса
 - `loud-rejection` / `uncaught` - ловля необработанных ошибок/реджектов для ноды и браузеров
-- `http-errors` / `boom` - удобная обёртка для посыла http-ошибок
+- `http-errors` / `boom` - удобная обёртка для посыла http-ошибок / `micro-boom`
 - `create-error` / `es6-error` - враппер для создания собственных классов ошибок
 - `stacktrace-js` (асинхронный) / `stacktrace-parser` (синхронный, используется в ReactNative) - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
 - `errorhandler` - для рендера ошибок на клиент (only dev)
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
+- [ещё пример создания http-ошибок](https://www.npmjs.com/package/micro#error-handling)
 - `death` / `signal-exit`
 - `tree-kill` - убить self-процесс и все дочерние форки
 - `node-report`
@@ -235,7 +242,6 @@ app.set('x-powered-by', false);
 - `json-depth-stream` - потоковый парсер огромных json'ов
 
 ### Рекваестеры и http-тулзы
-- `retry` / `tolerance`
 - `dnscache`
 - `proxy-agent`
 - `caw`
@@ -326,6 +332,7 @@ app.set('x-powered-by', false);
 - `lazypipe`
 - `destroy`
 - `end-of-stream` / `on-stream-end`
+- `stream-throttle`
 - `highland`
 
 ### Генераторы (чисел, строк, данных, uid'ов)
@@ -368,7 +375,9 @@ app.set('x-powered-by', false);
 - `archiver` - архиватор
 
 ### Очередя и таски
-- `kue`
+- `retry` / `tolerance`
+- `function-rate-limit`
+- `kue` - очередя на редисе
 - `queue3`
 - `enqueue`
 - `argumentable-queue`
