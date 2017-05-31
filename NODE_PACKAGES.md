@@ -12,8 +12,10 @@
 - [koa-chat](https://github.com/iliakan/koa-chat) пример от Ильи Кантора
 - [Task-Manager-API](https://github.com/GiperScriper/Task-Manager-API) Rest с авторизацией через jsonwebtoken
 - [express-mongo-db](https://github.com/floatdrop/express-mongo-db)
+- [node-express-realworld-example-app](https://github.com/gothinkster/node-express-realworld-example-app)
 
 ## Node.js
+- `learnyounode` - интерактивная cli-обучалка
 - `pm2` (`pm2-logrotate`, [как юзать socket.io на кластеризованном приложении](https://github.com/Unitech/PM2/issues/637#issuecomment-215915328))
 - `cote` - набор библиотек для построения микросервисного кластера ([статья](https://habrahabr.ru/company/ruvds/blog/329784/))
 - `axon` - zeromq на ноде
@@ -277,6 +279,8 @@ app.set('x-powered-by', false);
 - `crawler`
 - `scrape-it`
 - `x-ray-crawler`
+- `recrawler`
+- `node-simple-crawler`
 
 #### Проксики
 - `proxy-search`
@@ -322,7 +326,7 @@ app.set('x-powered-by', false);
 - `xml2js` / `x2js` / `fast-xml2js`
 
 ### Стримы
-- `csv-stringify`, `fast-csv`
+- `csv-stringify`, `fast-csv` / `csv-streamify`
 - `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
 - `event-stream`
 - `split2`
