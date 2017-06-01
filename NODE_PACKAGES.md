@@ -135,8 +135,9 @@ app.set('x-powered-by', false);
 ### Обработка ошибок и завершения процесса
 - `loud-rejection` / `uncaught` - ловля необработанных ошибок/реджектов для ноды и браузеров
 - `http-errors` / `boom` - удобная обёртка для посыла http-ошибок / `micro-boom`
-- `create-error` / `es6-error` - враппер для создания собственных классов ошибок
+- `create-error` / `es6-error` / `super-error` - враппер для создания собственных классов ошибок
 - `stacktrace-js` (асинхронный) / `stacktrace-parser` (синхронный, используется в ReactNative) - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
+- `errio` / `serialize-error` - объект ошибки в json
 - `errorhandler` - для рендера ошибок на клиент (only dev)
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
 - [ещё пример создания http-ошибок](https://www.npmjs.com/package/micro#error-handling)
@@ -147,6 +148,8 @@ app.set('x-powered-by', false);
 - `clarify` - вырезает из стектрейсов строки с системными вызовами (`node --stack_trace_limit=100 -r trace -r clarify wired.js`)
 - `stack-chain` - кастомный парсер стектрейсов для маппинга/фильтрации/etc
 [пример с trace, clarify и stack-chain](https://gist.github.com/antixrist/88b3d77f803377944789f02357b83c89)
+- [подходы к локальной обработке ошибок](https://learn.javascript.ru/exception)
+- сервисы для отправки и анализа непойманных ошибок: https://errorception.com/ http://www.muscula.com/
 
 ### Кластеризация процессов
 - `strong-cluster-control`
