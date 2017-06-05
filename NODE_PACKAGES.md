@@ -502,3 +502,4 @@ app.set('x-powered-by', false);
 - `mutation-observer`
 - `blob`
 - `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen`
+- `smoothscroll-polyfill`
