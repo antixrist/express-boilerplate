@@ -273,6 +273,7 @@ app.set('x-powered-by', false);
 - `nightmare`
 - `uirecorder` - что-то вроде selenium от alibaba'ы
 - `leadfoot` - кроссплатформенная обёртка над Selenium
+- `taxi-rank` - тоже обёртка над Selenium
 - [Chrome Headless](https://developers.google.com/web/updates/2017/04/headless-chrome)
 
 [весь список](https://github.com/dhamaniasad/HeadlessBrowsers)
