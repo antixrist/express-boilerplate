@@ -38,6 +38,7 @@
 - `detect-node` - запущен ли текущий код из под ноды
 - `localtunnel` - шарит локальный адрес наружу
 - `npm-check` - тулза для обновления зависимостей с консольным ui
+- `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
 
 ### Тесты
 - `ava`
@@ -92,7 +93,6 @@
 - `connect-rid` - генератор request-id
 - 
 - `kraken-js` - мощный boilerplate и конфигуратор для express'а и всякие штуки в него входящие, типа `express-enrouten`
-- `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
 - `express-status-monitor`
 - 
 - `express-expose` - выдёргивание серверных методов и переменных на фронт в шаблонизатор (особо не нужен, но мало ли)
