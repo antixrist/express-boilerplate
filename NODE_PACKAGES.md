@@ -258,17 +258,22 @@ app.set('x-powered-by', false);
 - `follow-redirects`
 - `nock` - mock'и для http-запросов (удобно для тестирования и заглушки api)
 
-#### Парсинг dom'а
+### Парсинг dom'а
 - `jsdom` / `browser-env`
 - `cheerio` / `whacko`
 - `semantic-schema-parser` - парсер schema.org
 
-#### Headless-браузеры и парсинг dom'а
+### Тестирование
+- `supertest`
+- `mocha` (`chai`) / `jasmin` (`karma`) / `nodeunit` / `ava` / `tape` / `jest`
+
+### Headless-браузеры и тестирование
 - `node-horseman`
 - `nightmare`
 - `uirecorder` - что-то вроде selenium от alibaba'ы
-- `leadfoot` - кроссплатформенная обёртка над Selenium
-- `taxi-rank` - тоже обёртка над Selenium
+- `leadfoot` (кроссплатформенная) / `taxi-rank` / `webdriverio` - обёртки над Selenium
+- `nightwatch` - тестировщик для работы с phantom/chromedriver напрямую, к тому же комбайн: инструмент для общения с браузером, фреймворк для тестов и библиотека ассертов.
+- `codeceptjs-(webdriverio|nightmare|protractor)` - тест-фреймворк с обёртками над headless-браузерами
 - [Chrome Headless](https://developers.google.com/web/updates/2017/04/headless-chrome)
 
 [весь список](https://github.com/dhamaniasad/HeadlessBrowsers)
@@ -459,11 +464,6 @@ app.set('x-powered-by', false);
 - `chokidar` / `watchpack`
 - `browser-sync`
 - `parallelshell`
-
-### Тестирование
-- `supertest`
-- `mocha` (`chai`) / `jasmin` (`karma`) / `nodeunit` / `ava` / `tape` / `jest`
-- `nightwatch` - тестировщик для работы с phantom/chromedriver напрямую 
 
 ### Генерация документации
 - `apidoc`
