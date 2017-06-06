@@ -48,7 +48,7 @@
 - `vhost` - для поддоменов (например `api.domain.tld`)
 - `body-parser`
 - `multer` для `multipart/form-data`
-- `morgan` для логов со стриммингом, `file-stream-rotator` для ротации
+- `morgan` для логов со стриммингом
 - `response-time`
 - `connect-timeout`
 - `basic-auth-connect` (deprecated) / `basic-auth`
@@ -153,7 +153,7 @@ app.set('x-powered-by', false);
 - `anymatch` - матчер по чему угодно (глоб, регэксп, етс)
 - `chokidar` - слушатель фс
 - `fs-extra`, `graceful-fs`
-- `glob` / `globby` / `glob-all`
+- `is-glob` / `glob` / `globby` / `glob-all`
 - `klaw` - фс-walker на стримах
 - `path-exists`
 - `mkdirp`
@@ -164,7 +164,8 @@ app.set('x-powered-by', false);
 - `is-relative`
 - `relative` - расширенный `path.relative()`
 - `proper-lockfile` - `lock`-файл
-- `steno` - помогает при конкурентной запси в файл - делает все вызовы на запись последовательно
+- `tmp` - работа с временными файлами и директориями
+- `steno` - помогает при конкурентной записи в файл - делает все вызовы на запись последовательно
 
 ### DB
 - `mysql2`
@@ -201,6 +202,7 @@ app.set('x-powered-by', false);
 - `microlog`
 - `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
 - `gelf-stream` / `gelf-pro` - https://habrahabr.ru/company/2gis/blog/329128/
+- `streamroller` / `file-stream-rotator` - ротация файлов логов
 
 ### Данные
 - `lodash` / `iterare`
@@ -292,6 +294,7 @@ app.set('x-powered-by', false);
 - `anyproxy` - свой прокси-сервер на ноде от alibaba'ы
 
 #### Юзер-агентики
+- `useragent` - парсер/матчер/компаратор юзерагентов
 - `random-useragent`
 - `bowser` - определитель для фронта
 
