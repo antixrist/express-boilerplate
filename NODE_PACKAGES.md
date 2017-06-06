@@ -40,11 +40,6 @@
 - `npm-check` - тулза для обновления зависимостей с консольным ui
 - `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
 
-### Тесты
-- `ava`
-- `chai`
-- `mocha`
-
 ### Express.js
 - [pillarjs](https://github.com/pillarjs) - много low-level вкусняшек
 - `keygrip` - подпись и валидации подписанных данных (module for signing and verifying data (such as cookies or URLs) through a rotating credential system)
@@ -468,6 +463,7 @@ app.set('x-powered-by', false);
 ### Тестирование
 - `supertest`
 - `mocha` (`chai`) / `jasmin` (`karma`) / `nodeunit` / `ava` / `tape` / `jest`
+- `nightwatch` - тестировщик для работы с phantom/chromedriver напрямую 
 
 ### Генерация документации
 - `apidoc`
