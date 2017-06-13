@@ -6,6 +6,7 @@
 
 ## Примеры приложений
 - [hackathon-starter](https://github.com/sahat/hackathon-starter)
+- [Node.JS, Koa.js REST, Jade, MongoDB, Passport, Mongoose, Redis, Websocket](https://github.com/OlegLustenko/Koa_Mongo_Redis_Socket_IO_Passport)
 - [holyjs](https://github.com/holyjs/holyjs)
 - [node-daemons](https://github.com/pipll/node-daemons) - с демонами на node.js
 - [multi-process-nodejs-example](https://github.com/RisingStack/multi-process-nodejs-example) - воркеры, rabbit, redis
@@ -14,6 +15,10 @@
 - [express-mongo-db](https://github.com/floatdrop/express-mongo-db)
 - [node-express-realworld-example-app](https://github.com/gothinkster/node-express-realworld-example-app)
 - [коротенький пример для api](https://gist.github.com/mistakster/1dd845b617fb3a3f7dbb)
+- [пример multi-process приложения](https://github.com/HowProgrammingWorks/InterProcessCommunication)
+- [примеры http-серверов - кластеризованных и нет, на фреймворках и нет](https://github.com/HowProgrammingWorks/NodeServer)
+- [пример полноценного приложения парсера лайков](https://github.com/likeastore/collector)
+- [пример полноценного приложения с тасками и задачами](https://github.com/likeastore/jobber)
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
@@ -21,7 +26,7 @@
 - `cote` - набор библиотек для построения микросервисного кластера ([статья](https://habrahabr.ru/company/ruvds/blog/329784/))
 - `axon` - zeromq на ноде
 - `hotel` - управление и старт локальных dev-доменов для локальных проектов на всевозможных технологиях
-- `cross-spawn` / `execa`
+- `cross-spawn` / `execa` / `respawn`
 - `mz` - промайзнутые системные библиотеки
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
 - `shelljs` - bash-функции прямо в ноде
@@ -60,6 +65,7 @@
 - `forcedomain`
 - `express-uncapitalize` (todo: проверить - возможно `express` имеет встроенные средства для таких редиректов)
 - `redirect-trailing-slash` / `express-slash`
+- `maintenance` - перевод приложения в режим "обслуживания" через post-запрос к определённому урлу с отдачей статичной страницы
 - 
 - `express-session`
 - `cookie-parser`
@@ -133,6 +139,7 @@ app.set('x-powered-by', false);
 - `http-errors` / `boom` - удобная обёртка для посыла http-ошибок / `micro-boom`
 - `create-error` / `es6-error` / `super-error` - враппер для создания собственных классов ошибок
 - `stacktrace-js` (асинхронный) / `stacktrace-parser` (синхронный, используется в ReactNative) - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
+- `show-js-error`, [trackajax](https://github.com/hcodes/trackajax) - трекинг ajax-ошибок в метрику
 - `errio` / `serialize-error` - объект ошибки в json
 - `errorhandler` - для рендера ошибок на клиент (only dev)
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
@@ -204,6 +211,7 @@ app.set('x-powered-by', false);
 - `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
 - `gelf-stream` / `gelf-pro` - https://habrahabr.ru/company/2gis/blog/329128/
 - `streamroller` / `file-stream-rotator` - ротация файлов логов
+- [пример обёртки для системы логирования](https://github.com/likeastore/jobber/blob/0ab763b5f1ad25e57774e6e7e73192db3b38430a/source/utils/logger.js)
 
 ### Данные
 - `lodash` / `iterare`
@@ -211,6 +219,8 @@ app.set('x-powered-by', false);
 - `string` / `strman` - если лодашевских методов работы со строками будет не хватать
 - `numeral` - работа с числами
 - `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов) / `date-fns` - улучшенная (и при этом проще) библиотека для манипуляций с датами / `jstimezonedetect` - для браузера (в основном)
+- `date.js` - парсер человекопонятных дат английском языке
+- `human-interval` - парсер человекопонятных интервалов на английском языке
 - `filesize` - человекопятный размер файлов
 - `pretty-hrtime` - человекопятный `process.hrtime()`
 - `humanize-number` - человекопонятные числа
@@ -391,6 +401,7 @@ app.set('x-powered-by', false);
 - `retry` / `tolerance`
 - `function-rate-limit`
 - `kue` - очередя на редисе
+- `agenda` - очередя на монге
 - `queue3`
 - `enqueue`
 - `argumentable-queue`
@@ -400,6 +411,7 @@ app.set('x-powered-by', false);
 - `cron`
 - `cron-parser`
 - `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
+- [пример на async-await'ах](https://gist.github.com/antixrist/d75c46692ed8a9035d05056449184e98)
 
 ### Кодировки
 - `encoding`
@@ -428,14 +440,19 @@ app.set('x-powered-by', false);
 
 ### Морфология и текст
 - `phpmorphy`
-- `leven` - самый быстрый левенштейн
+- `natural` - огромный набор инструментов для работы с натуральным языком (токенайзер, дистанции, префиксные деревья, стеммеры, классификаторы, сравнение звучанийб n-граммы, tf-idf, спеллчекер для английского, части речи)
 - `az`
-- `fuzzyset.js`
+- `wordpos` - части речи для английского
+- `leven` - самый быстрый левенштейн
+- `fuzzyset.js` / `string_score` / `fuse.js` - матчинг строк
 - `lunr-languages`
+- `petrovich` - склонение русских фио
 - `word2vec` / `word2vec-native` / `word2vec.js`
-- `wuzzy`
+- `wuzzy` - похожесть строк разными алгоритмами
+- `convert-layout` - смена раскладки переданной строки
 - `@google-cloud/speech` - разпознавание теста из аудио с помощью google cloud api (есть русский язык)
 - `franc` - определение языка
+- `yaspeller` - спеллчекер через яндексовое api
 - `@google-cloud/language` - определение языка, тональности текста, сущностей, предложений, токенов, etc. Это обёртка для Google Cloud Api. 
 
 ### DI
@@ -483,6 +500,7 @@ app.set('x-powered-by', false);
 ## Front
 - `asap` / `next-tick` / `setimmediate` - как только, так сразу. Кроссбраузерный `process.nextTick`
 - `simulant` - симуляция реальных браузерных событий
+- `@flowjs/flow.js` - загрузка файлов с примером бекенда на ноде
 - `smartcrop`
 - `vkey`
 - `drop-anywhere` - для d'n'd загрузки файлов где угодно на странице
@@ -494,7 +512,13 @@ app.set('x-powered-by', false);
 - `file-saver`
 - `appmetrics.js` - обертка над User Timing API, с возможностью отправки всего намерянного в GA.
 - `dom-serialize` - сериализация dom-нод в строку
+- `fingerprintjs2`
+- `banks-db` - определение банка по номеру карты
+- `evercookie`
 - `block-elements` - определяет, является ли тег блочным (по названию)
+- [обертка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
+- [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
+- [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
 
 ### Полифиллы:
 - `custom-event`
@@ -504,3 +528,7 @@ app.set('x-powered-by', false);
 - `blob`
 - `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen`
 - `smoothscroll-polyfill`
+
+### nginx
+- [конфиг с настроенным кешем от h5bp](https://github.com/h5bp/server-configs-nginx)
+- [конфиг для http2/https, ipv6, load balancing'ом, нормальные заголовки для GeoIP](https://github.com/certsimple/nginx-http2-load-balancing-config)
