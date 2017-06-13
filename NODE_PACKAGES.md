@@ -137,9 +137,9 @@ app.set('x-powered-by', false);
 ### Обработка ошибок и завершения процесса
 - `loud-rejection` / `uncaught` - ловля необработанных ошибок/реджектов для ноды и браузеров
 - `http-errors` / `boom` - удобная обёртка для посыла http-ошибок / `micro-boom`
-- `create-error` / `es6-error` / `super-error` - враппер для создания собственных классов ошибок
+- `create-error` / `es6-error` / `super-error`, [ещё гист на тему](https://gist.github.com/antixrist/f930d527c4b370c59f779639710bac2e) - враппер для создания собственных классов ошибок
 - `stacktrace-js` (асинхронный) / `stacktrace-parser` (синхронный, используется в ReactNative) - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
-- `show-js-error`, [trackajax](https://github.com/hcodes/trackajax) - трекинг ajax-ошибок в метрику
+- `show-js-error`, [трекинг ajax-ошибок в метрику](https://github.com/hcodes/trackajax)
 - `errio` / `serialize-error` - объект ошибки в json
 - `errorhandler` - для рендера ошибок на клиент (only dev)
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
@@ -204,6 +204,7 @@ app.set('x-powered-by', false);
 - `inquirer` - cli-промптер
 - `minimist` / `yargs` - парсер cli-аргументов
 - `progress` / `gauge` - настраиваемый прогресс-бар
+- [форматирование `console.time`а](https://gist.github.com/antixrist/5dec38b757ead8adca186c067cf6f2f2)
 
 ### Логирование
 - `debug`
@@ -519,6 +520,7 @@ app.set('x-powered-by', false);
 - [обертка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
 - [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
+- [залогинен ли юзер в соц.сетях](https://gist.github.com/antixrist/dbc4630fd4dab2d3bf3b0aa92a534363)
 
 ### Полифиллы:
 - `custom-event`
