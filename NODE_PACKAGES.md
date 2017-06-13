@@ -1,5 +1,7 @@
 Ещё много не откаталогизированного [здесь](https://github.com/antixrist?utf8=%E2%9C%93&tab=repositories&q=&type=fork&language=)
 
+`searchparser` - Огромный список поисковых систем с урлами параметрами для поиска в них [repo](https://github.com/dangrossman/node-searchparser)
+
 ## Запуск с babel'ем
 [example-node-server](https://github.com/babel/example-node-server)
 [примеры скриптов запуска в `package.json`](https://github.com/comerc/yobr)
@@ -19,6 +21,7 @@
 - [примеры http-серверов - кластеризованных и нет, на фреймворках и нет](https://github.com/HowProgrammingWorks/NodeServer)
 - [пример полноценного приложения парсера лайков](https://github.com/likeastore/collector)
 - [пример полноценного приложения с тасками и задачами](https://github.com/likeastore/jobber)
+- [actionhero - фреймворк с комплектом на все случаи жизни: кластер, таски, кеш, чат, логирование, файловый сервер, etc](https://github.com/actionhero/actionhero)
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
@@ -45,6 +48,7 @@
 - `localtunnel` - шарит локальный адрес наружу
 - `npm-check` - тулза для обновления зависимостей с консольным ui
 - `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
+- [пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 
 ### Express.js
 - [pillarjs](https://github.com/pillarjs) - много low-level вкусняшек
@@ -98,7 +102,7 @@
 - `express-status-monitor`
 - 
 - `express-expose` - выдёргивание серверных методов и переменных на фронт в шаблонизатор (особо не нужен, но мало ли)
-- `greenlock` - клиент для `let's encrypt` (вроде как)
+- `greenlock` - клиент для `let's encrypt` (вроде как). туда же: `greenlock-express`, `auto-sni`
 
 ```javascript
 app.set('strict routing', true);
@@ -125,6 +129,7 @@ app.set('x-powered-by', false);
 - `socket.io` - стандарт дефакто, но давным-давно раздулся и уехал не в ту сторону.
 - `sockjs` - проще, понятнее, предсказуемее.
 - `sticky-session` - шаринг сессий между воркерами (например, с помощью `cluster`)
+- `primus` - универсальная обёртка над всеми socket-realtime фреймворками
 
 ### Конфигурация
 - `nconf` / `config` / `confit`. `config` похож на `nconf`, но вроде поширше, `confit` выглядит самым вкусным (к тому же он от `kraken`'a).
@@ -215,7 +220,7 @@ app.set('x-powered-by', false);
 - [пример обёртки для системы логирования](https://github.com/likeastore/jobber/blob/0ab763b5f1ad25e57774e6e7e73192db3b38430a/source/utils/logger.js)
 
 ### Данные
-- `lodash` / `iterare`
+- `lodash` / `iterare` / `fast.js`
 - `object-path` / `dottie` - продвинутый `_.get()`
 - `string` / `strman` - если лодашевских методов работы со строками будет не хватать
 - `numeral` - работа с числами
@@ -275,6 +280,7 @@ app.set('x-powered-by', false);
 ### Парсинг dom'а
 - `jsdom` / `browser-env`
 - `cheerio` / `whacko`
+- `readability` - вычленение основного и главного из всей страницы
 - `semantic-schema-parser` - парсер schema.org
 
 ### Тестирование
@@ -289,6 +295,7 @@ app.set('x-powered-by', false);
 - `leadfoot` (кроссплатформенная) / `taxi-rank` / `webdriverio` - обёртки над Selenium
 - `nightwatch` - тестировщик для работы с phantom/chromedriver напрямую, к тому же комбайн: инструмент для общения с браузером, фреймворк для тестов и библиотека ассертов.
 - `codeceptjs-(webdriverio|nightmare|protractor)` - тест-фреймворк с обёртками над headless-браузерами
+- `robotjs` - полная кроссплатформенная desktop-автоматизация
 - [Chrome Headless](https://developers.google.com/web/updates/2017/04/headless-chrome)
 
 [весь список](https://github.com/dhamaniasad/HeadlessBrowsers)
@@ -300,10 +307,12 @@ app.set('x-powered-by', false);
 - `x-ray-crawler`
 - `recrawler`
 - `node-simple-crawler`
+- `osmosis` - интересный
 
 #### Проксики
 - `proxy-search`
 - `proxylist`
+- `http-proxy` - свой прокси-сервер на ноде
 - `anyproxy` - свой прокси-сервер на ноде от alibaba'ы
 
 #### Юзер-агентики
@@ -322,6 +331,7 @@ app.set('x-powered-by', false);
 #### Скриншотилки
 - `pageres`
 - `webshot`
+- `html2canvas`
 - [Скриншотилка на базе безголового хрома](https://medium.com/@dschnr/using-headless-chrome-as-an-automated-screenshot-tool-4b07dffba79a)
 
 ### Урлы и IP
@@ -347,6 +357,7 @@ app.set('x-powered-by', false);
 
 ### Стримы
 - `csv-stringify`, `fast-csv` / `csv-streamify`
+- `html-tokenize`
 - `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
 - `event-stream`
 - `split2`
@@ -511,12 +522,21 @@ app.set('x-powered-by', false);
 - `trunc-html`
 - `resize-observer-polyfill`
 - `file-saver`
+- `rader` - слайдер от 2gis'а
 - `appmetrics.js` - обертка над User Timing API, с возможностью отправки всего намерянного в GA.
 - `dom-serialize` - сериализация dom-нод в строку
+- `zingtouch` - touch-гестуры
+- `blankshield` - безопасный `target="_blank"`
 - `fingerprintjs2`
+- `jquery.payment` - форма для банковской карты [repo](https://github.com/stripe/jquery.payment)
+- `card-info` - форма для банковской карты [repo](https://github.com/iserdmi/card-info)
+- `card` - форма для банковской карты [repo](https://github.com/jessepollak/card)
+- `payment` - форма для банковской карты [repo](https://github.com/jessepollak/payment)
 - `banks-db` - определение банка по номеру карты
-- `evercookie`
+- `evercookie` - [repo](https://github.com/samyk/evercookie)
 - `block-elements` - определяет, является ли тег блочным (по названию)
+- `platform` - полное определение платформы юзера\
+- `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
 - [обертка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
 - [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
@@ -528,9 +548,14 @@ app.set('x-powered-by', false);
 - `bounding-client-rect`
 - `mutation-observer`
 - `blob`
-- `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen`
+- `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen` / `screenfull.js`
 - `smoothscroll-polyfill`
+- `buffer`
 
 ### nginx
 - [конфиг с настроенным кешем от h5bp](https://github.com/h5bp/server-configs-nginx)
 - [конфиг для http2/https, ipv6, load balancing'ом, нормальные заголовки для GeoIP](https://github.com/certsimple/nginx-http2-load-balancing-config)
+
+
+##
+- `pencil` - [repo](https://github.com/evolus/pencil) d'n'd билдер дизайна и интерфейсов на электроне
