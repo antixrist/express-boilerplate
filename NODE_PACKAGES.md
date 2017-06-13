@@ -22,6 +22,7 @@
 - [пример полноценного приложения парсера лайков](https://github.com/likeastore/collector)
 - [пример полноценного приложения с тасками и задачами](https://github.com/likeastore/jobber)
 - [actionhero - фреймворк с комплектом на все случаи жизни: кластер, таски, кеш, чат, логирование, файловый сервер, etc](https://github.com/actionhero/actionhero)
+- [Настройка проекта на Node.JS с нуля](https://github.com/xanf/javascript.ninja-node-boilerplate), [видео](https://www.youtube.com/watch?v=RW5JjiFg2uw&index=7&list=WL)
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
