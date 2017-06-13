@@ -13,6 +13,7 @@
 - [Task-Manager-API](https://github.com/GiperScriper/Task-Manager-API) Rest с авторизацией через jsonwebtoken
 - [express-mongo-db](https://github.com/floatdrop/express-mongo-db)
 - [node-express-realworld-example-app](https://github.com/gothinkster/node-express-realworld-example-app)
+- [коротенький пример для api](https://gist.github.com/mistakster/1dd845b617fb3a3f7dbb)
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
