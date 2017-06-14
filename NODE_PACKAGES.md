@@ -215,7 +215,7 @@ app.set('x-powered-by', false);
 ### Логирование
 - `debug`
 - `microlog`
-- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
+- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` / `lggr` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный)
 - `gelf-stream` / `gelf-pro` - https://habrahabr.ru/company/2gis/blog/329128/
 - `streamroller` / `file-stream-rotator` - ротация файлов логов
 - [пример обёртки для системы логирования](https://github.com/likeastore/jobber/blob/0ab763b5f1ad25e57774e6e7e73192db3b38430a/source/utils/logger.js)
