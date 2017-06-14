@@ -319,7 +319,6 @@ app.set('x-powered-by', false);
 #### Юзер-агентики
 - `useragent` - парсер/матчер/компаратор юзерагентов
 - `random-useragent`
-- `bowser` - определитель для фронта
 
 #### Печеньки
 - `js-cookie`
@@ -528,6 +527,7 @@ app.set('x-powered-by', false);
 - `dom-serialize` - сериализация dom-нод в строку
 - `zingtouch` - touch-гестуры
 - `blankshield` - безопасный `target="_blank"`
+- `bowser` - определитель юзерагента для фронта
 - `fingerprintjs2`
 - `jquery.payment` - форма для банковской карты [repo](https://github.com/stripe/jquery.payment)
 - `card-info` - форма для банковской карты [repo](https://github.com/iserdmi/card-info)
@@ -536,7 +536,7 @@ app.set('x-powered-by', false);
 - `banks-db` - определение банка по номеру карты
 - `evercookie` - [repo](https://github.com/samyk/evercookie)
 - `block-elements` - определяет, является ли тег блочным (по названию)
-- `platform` - полное определение платформы юзера\
+- `platform` - полное определение платформы юзера
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
 - `isInViewport` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар
 
