@@ -538,6 +538,8 @@ app.set('x-powered-by', false);
 - `block-elements` - определяет, является ли тег блочным (по названию)
 - `platform` - полное определение платформы юзера\
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
+- `isInViewport` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар
+
 - [обертка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
 - [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
