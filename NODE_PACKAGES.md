@@ -191,7 +191,8 @@ app.set('x-powered-by', false);
 - `ioredis` / `redis` / `hiredis`, `redlock`
 - `reds` - поиск в редисе
 - `kue` - очередь с приоритетами в редисе (но для этих целей лучше брать `rabbitmq`)
-- `tortoise` - клиент для rabbitmq
+- ``amqplib`` / `tortoise` - клиент для rabbitmq
+- `rethinkdb`
 - `store` - нормальная полная кроссбраузерная обёртка над localStorage. можно сделать асинхронным для обёртки над редисом или типа того. В ноде хорошо работает в связке с `node-localstorage`.
 - `localforage` - то же, что и `store`, только над `indexeddb`, `websql`, `localstorage`. Асинхронный.
 - `node-localstorage` - localStorage для NodeJS
@@ -494,6 +495,17 @@ app.set('x-powered-by', false);
 - `polylabel` / `@mapbox/polylabel` - нахождение оптимальной точки для расположения лейбла внутри полигона
 - `delaunator` - самая быстрая триангуляция
 
+### SVG и геометрия
+- `d3`
+- `svg-intersections` - алгоритмы нахождения пересечений разных фигур
+- [kevlindev](http://www.kevlindev.com/) - много разнообразной математики на js - [пересечения](http://www.kevlindev.com/geometry/2D/intersections/index.htm) [фигур](http://www.kevlindev.com/gui/math/intersection/index.htm), [геометрия фигур](http://www.kevlindev.com/gui/shapes/shape/index.htm) и [прочее](http://www.kevlindev.com/gui/)
+
+### Графы
+- `d3`
+- `d3-glyphedge`
+- `greuler`
+- `ngraph`, в т.ч. `ngraph.forcelayout`, `ngraph.remove-overlaps`, `ngraph.quadtreebh` и прочие от [@anvaka](https://github.com/anvaka)
+
 ### Сборка
 - `gulp`
 - `webpack`, `webworkify-webpack`
@@ -542,6 +554,7 @@ app.set('x-powered-by', false);
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
 - `isInViewport` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар
 
+- `analytics.js` - аналитика от segment.io
 - [обертка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
 - [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
@@ -562,5 +575,5 @@ app.set('x-powered-by', false);
 - [конфиг для http2/https, ipv6, load balancing'ом, нормальные заголовки для GeoIP](https://github.com/certsimple/nginx-http2-load-balancing-config)
 
 
-##
+## Etc
 - `pencil` - [repo](https://github.com/evolus/pencil) d'n'd билдер дизайна и интерфейсов на электроне
