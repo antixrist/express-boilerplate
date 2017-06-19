@@ -240,6 +240,7 @@ app.set('x-powered-by', false);
 - `json5` - json с блекджеком и комментиками
 - `JSONSchema` / `ajv` - создание и валидация JSONScheme'ы
 - `joi` / `schema-inspector` / `validator` / `forms` - санитизация/валидация
+- `sanitize-html` / `escape-html`
 - `checkit`
 - `repository`
 - `normalizr`, `reselect` - для flux-архитектуры
@@ -406,7 +407,6 @@ app.set('x-powered-by', false);
 - `sliced`
 - `d` - удобный описатель дескрипторов свойств
 - `delegates` - делегация методов и пропертей прототипа к какому-либо свойству этого прототипа
-- `escape-html`
 - `function-done` / `always-done`
 - `mem` / `lru-cache` / `hashlru`
 - `fast-memoize`
@@ -484,7 +484,6 @@ app.set('x-powered-by', false);
 
 ### Карты
 [Здесь](https://www.npmjs.com/~mourner) [много](https://www.npmjs.com/~mapbox-admin) интересного
-
 - `rbush`, `kdbush`, `geokdbush` - браузерный spatial индекс из двухмерных точек для быстрого поиска вхождений в радиус и прямоугольную область (в т.ч. с учётом земной проекции).
 - `@turf/turf` - d3 для карт. быстрая гео-математика/геометрия (в т.ч. поиск вхождений, etc)
 - `proj4` - перевод из одной проекции в другую
