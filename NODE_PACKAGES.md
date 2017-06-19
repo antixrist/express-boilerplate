@@ -386,6 +386,7 @@ app.set('x-powered-by', false);
 - `shortid`
 - `sguid`
 - `randexp` - генерация строки по регэкспу
+- [gencc](https://github.com/grahamking/darkcoding-credit-card/blob/master/gencc.js) валидных номеров кредитных карт
 
 #### Псевдорандом с посевом
 - `random-js` / `mersenne-twister`
