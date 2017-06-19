@@ -363,6 +363,7 @@ app.set('x-powered-by', false);
 
 ### Стримы
 - `csv-stringify`, `fast-csv` / `csv-streamify`
+- `xml-mapping` - json в xml и обратно
 - `html-tokenize`
 - `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
 - `event-stream`
