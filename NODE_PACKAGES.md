@@ -6,6 +6,7 @@
 [example-node-server](https://github.com/babel/example-node-server)
 [примеры скриптов запуска в `package.json`](https://github.com/comerc/yobr)
 [полное описание настроики и запуска node-приложения](https://github.com/UsulPro/js-stack-from-scratch)
+[шаблон проекта от предыдущего туториала](https://github.com/verekia/js-stack-boilerplate/tree/master-no-services)
 
 ## Примеры приложений
 - [hackathon-starter](https://github.com/sahat/hackathon-starter)
