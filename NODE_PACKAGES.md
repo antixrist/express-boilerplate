@@ -411,6 +411,7 @@ app.set('x-powered-by', false);
 - `shimmer` - типа Proxy через monkeypatching
 - `ware` - создание кастомной чепочки мидлварей (прям как в express'е)
 - `archiver` - архиватор
+- `ffi` - работа с системными библиотеками без написания c++ обёрток
 
 ### Очередя и таски
 - `retry` / `tolerance`
