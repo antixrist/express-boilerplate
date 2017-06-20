@@ -27,6 +27,8 @@
 - [Настройка проекта на Node.JS с нуля](https://github.com/xanf/javascript.ninja-node-boilerplate), [видео](https://www.youtube.com/watch?v=RW5JjiFg2uw&index=7&list=WL)
 - [Исходники по книге "Building apis with nodejs"](https://github.com/caio-ribeiro-pereira/building-apis-with-nodejs)
 - [Куча примеров по взаимодействию express/koa с различными БД (neo4j, rethink, redis, etc)](https://github.com/caio-ribeiro-pereira/node-api-examples)
+- [Пример с jwt-авторизацией](https://github.com/andrewda/jwt-server-base)
+- [Создание бота для Steam по шагам](https://github.com/andrewda/node-steam-guide)
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
@@ -80,7 +82,8 @@
 - `cookie-parser`
 - `cookie-signature` - подпись кук
 - `connect-redis` (сессии в редисе) / `express-mysql-session` (сессии в mysql)
-- `passport` и его стратегии (в т.ч. `passport-local`, `passport-hash`)
+- `passport` и его стратегии (в т.ч. `passport-local`, `passport-hash`, `passport-securelogin`)
+- `securelogin` - [описание](https://github.com/sakurity/securelogin)
 - `bcrypt` / `bcrypt-nodejs` / `bcryptjs` / `pwd` / `pswd` для паролей
 - `express-urlrewrite` - 301 редирект
 - `passport.socketio` / `express-socket.io-session` - шаринг сессии между экспрессом и socket.io
