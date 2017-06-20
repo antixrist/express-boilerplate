@@ -545,6 +545,7 @@ app.set('x-powered-by', false);
 - `resize-observer-polyfill`
 - `file-saver`
 - `rader` - слайдер от 2gis'а
+- `geoloc` - геолокация с фронта путём опроса свободных источников от 2gis'а
 - `appmetrics.js` - обертка над User Timing API, с возможностью отправки всего намерянного в GA.
 - `dom-serialize` - сериализация dom-нод в строку
 - `zingtouch` - touch-гестуры
@@ -561,6 +562,7 @@ app.set('x-powered-by', false);
 - `platform` - полное определение платформы юзера
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
 - `isInViewport` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар
+- `vue-awesome-swiper` - слайдер
 
 - `analytics.js` - аналитика от segment.io
 - [обертка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
