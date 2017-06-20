@@ -347,7 +347,7 @@ app.set('x-powered-by', false);
 ### Урлы и IP
 - `parseurl`, `qs`
 - `ip`
-- `geoip-lite` / `maxmind` (+ поискать для [sypexgeo](https://sypexgeo.net/ru/stats/))
+- `geoip-lite` / `maxmind` (+ поискать для [sypexgeo](https://sypexgeo.net/ru/stats/)). Свой сервис - [freegeoip](https://github.com/fiorix/freegeoip)
 - `fast-url-parser` и `querystringparser`
 - `url-parse-lax` - расширенный url.parse - без протоколов и с ip
 - `encodeurl`
