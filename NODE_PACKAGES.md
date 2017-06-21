@@ -576,6 +576,7 @@ app.set('x-powered-by', false);
 
 ### Полифиллы:
 - `custom-event`
+- `matchmedia-polyfill`
 - `Stickyfill`
 - `bounding-client-rect`
 - `mutation-observer`
