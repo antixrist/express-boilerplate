@@ -54,6 +54,8 @@
 - `detect-node` - запущен ли текущий код из под ноды
 - `localtunnel` - шарит локальный адрес наружу
 - `npm-check` - тулза для обновления зависимостей с консольным ui
+- `cross-env` - для кроссплатформенной установки переменных окружения из `npm run`
+- `concurrently` - для запуска нескольких одновременных задач из `npm run`
 - `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
 - [пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 
@@ -561,9 +563,10 @@ app.set('x-powered-by', false);
 - `block-elements` - определяет, является ли тег блочным (по названию)
 - `platform` - полное определение платформы юзера
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
-- `isInViewport` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и его [форк](https://github.com/CHEWX/hc-sticky)
+- `isInViewport` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky)
 - `flexslider`, `vue-awesome-swiper` - слайдер
 - `simple-web-worker`
+- [break-on-access](https://github.com/paulirish/break-on-access) - оочень полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
 
 - `analytics.js` - аналитика от segment.io
 - [обертка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
