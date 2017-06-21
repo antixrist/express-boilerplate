@@ -562,7 +562,8 @@ app.set('x-powered-by', false);
 - `platform` - полное определение платформы юзера
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
 - `isInViewport` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар
-- `vue-awesome-swiper` - слайдер
+- `flexslider`, `vue-awesome-swiper` - слайдер
+- `simple-web-worker`
 
 - `analytics.js` - аналитика от segment.io
 - [обертка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
