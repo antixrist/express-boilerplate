@@ -580,6 +580,7 @@ app.set('x-powered-by', false);
 - `Stickyfill`
 - `bounding-client-rect`
 - `mutation-observer`
+- `intersection-observer-polyfill`
 - `blob`
 - `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen` / `screenfull.js`
 - `smoothscroll-polyfill`
