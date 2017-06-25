@@ -192,7 +192,7 @@ app.set('x-powered-by', false);
 - `steno` - помогает при конкурентной записи в файл - делает все вызовы на запись последовательно
 
 ### DB
-- `mysql2`
+- `mysql2` / `mariasql`
     - `knex`, `bookshelf`
     - `sequelize` (`sequelize-auto`, `sequelize-definer`, `sequelize-hierarchy`, `sequelize-values`)
     - `objection`
