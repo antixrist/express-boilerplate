@@ -195,6 +195,7 @@ app.set('x-powered-by', false);
 - `mysql2`
     - `knex`, `bookshelf`
     - `sequelize` (`sequelize-auto`, `sequelize-definer`, `sequelize-hierarchy`, `sequelize-values`)
+    - `objection`
 - `pg` / `pg-bluebird` / `pg-native`
 - `ioredis` / `redis` / `hiredis`, `redlock`
 - `reds` - поиск в редисе
