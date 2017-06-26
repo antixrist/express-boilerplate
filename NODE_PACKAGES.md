@@ -155,7 +155,7 @@ app.set('x-powered-by', false);
 - `create-error` / `es6-error` / `super-error`, [ещё гист на тему](https://gist.github.com/antixrist/f930d527c4b370c59f779639710bac2e) - враппер для создания собственных классов ошибок
 - `stacktrace-js` (асинхронный) / `stacktrace-parser` (синхронный, используется в ReactNative) - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
 - `show-js-error`, [трекинг ajax-ошибок в метрику](https://github.com/hcodes/trackajax)
-- `errio` / `serialize-error` - объект ошибки в json
+- `serialize-error` - объект ошибки в json
 - `errorhandler` - для рендера ошибок на клиент (only dev)
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
 - [ещё пример создания http-ошибок](https://www.npmjs.com/package/micro#error-handling)
