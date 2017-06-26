@@ -181,6 +181,7 @@ app.set('x-powered-by', false);
 - `path-exists`
 - `mkdirp`
 - `del` / `ncp`
+- `move-concurrently` - самое быстрое (на сколько вообще возможно) перемещение файлов
 - `parse-filepath` - добавляет некоторые поля к стандартному выводу
 - `is-dotfile`
 - `is-absolute`
@@ -190,6 +191,7 @@ app.set('x-powered-by', false);
 - `proper-lockfile` - `lock`-файл
 - `tmp` - работа с временными файлами и директориями
 - `steno` - помогает при конкурентной записи в файл - делает все вызовы на запись последовательно
+- `cacache` - умное управление файловым кешем
 
 ### DB
 - `mysql2` / `mariasql`
@@ -383,6 +385,7 @@ app.set('x-powered-by', false);
 - `end-of-stream` / `on-stream-end`
 - `stream-throttle`
 - `highland`
+- `duplexify` (для `stream1` и `stream2`) / `duplexer2` (для `stream3`) - объединяет writable и readable стримы в один
 
 ### Генераторы (чисел, строк, данных, uid'ов)
 - `faker`
@@ -411,6 +414,7 @@ app.set('x-powered-by', false);
 - `mz` - promise-обёртка над системными функциями
 - `pify` - промисификатор
 - `thunkify` - callback'ифицирует callbacks, arrays, generators, generator functions, and promises
+- `inflight` / `promise-inflight` - оборачивает функцию таким образом, что можно вызывать функцию-обёртку несколько раз с разными коллбеками, а когда вызов функции завершит выполнение, то все коллбеки будут выполненны последовательно и асинхронно
 - `co`
 - `inherits`
 - `sliced`
@@ -419,6 +423,7 @@ app.set('x-powered-by', false);
 - `function-done` / `always-done`
 - `mem` / `lru-cache` / `hashlru`
 - `fast-memoize`
+- `wrappy` - оборачивает функцию, перенося все кастомные пропертя этой функции в обёртку. полезно (внезапно) для обёрток
 - `shimmer` - типа Proxy через monkeypatching
 - `ware` - создание кастомной чепочки мидлварей (прям как в express'е)
 - `archiver` - архиватор
@@ -453,7 +458,7 @@ app.set('x-powered-by', false);
 
 ### Email
 - `nodemailer` / `postmark`
-- `mailgen` / `mailmason` - html-шаблон для мыла
+- `mailgen` / `mailmason` / [bojler](https://github.com/Slicejack/bojler) - html-шаблоны для мыла
 
 ## Изображения
 - `is-svg`
@@ -490,6 +495,7 @@ app.set('x-powered-by', false);
 - `tinycolor2`
 - `tinygradient`
 - `chromatism`
+- `gpotter-gradient` - из заданного градиента выдёргивает цвет из любого места
 
 ### Карты
 [Здесь](https://www.npmjs.com/~mourner) [много](https://www.npmjs.com/~mapbox-admin) интересного
