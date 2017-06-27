@@ -167,7 +167,7 @@ app.set('x-powered-by', false);
 - `clarify` - вырезает из стектрейсов строки с системными вызовами (`node --stack_trace_limit=100 -r trace -r clarify wired.js`)
 - `stack-chain` - кастомный парсер стектрейсов для маппинга/фильтрации/etc
 [пример с trace, clarify и stack-chain](https://gist.github.com/antixrist/88b3d77f803377944789f02357b83c89)
-- [подходы к локальной обработке ошибок](https://learn.javascript.ru/exception)
+- [подходы к локальной обработке ошибок](https://learn.javascript.ru/exception) и их [логирования на сервер](https://habrahabr.ru/post/324366/)
 - сервисы для отправки и анализа непойманных ошибок: https://sentry.io/ https://errorception.com/ http://www.muscula.com/
 
 ### Кластеризация процессов
