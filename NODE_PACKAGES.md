@@ -250,7 +250,7 @@ app.set('x-powered-by', false);
 - `json5` - json с блекджеком и комментиками
 - `JSONSchema` / `ajv` - создание и валидация JSONScheme'ы
 - `joi` / `schema-inspector` / `validator` / `forms` - санитизация/валидация
-- `sanitize-html` / `escape-html`
+- `sanitize-html` / `escape-html` / `he`
 - `checkit`
 - `repository`
 - `normalizr`, `reselect` - для flux-архитектуры
@@ -552,7 +552,6 @@ app.set('x-powered-by', false);
 - `criticalcss` / `critical` / `penthouse` - critical css
 - `trunc-text`
 - `trunc-html`
-- `resize-observer-polyfill`
 - `file-saver`
 - `rader` - слайдер от 2gis'а
 - `geoloc` - геолокация с фронта путём опроса свободных источников от 2gis'а
@@ -583,12 +582,14 @@ app.set('x-powered-by', false);
 - [залогинен ли юзер в соц.сетях](https://gist.github.com/antixrist/dbc4630fd4dab2d3bf3b0aa92a534363)
 
 ### Полифиллы:
+[polyfill-service](https://github.com/Financial-Times/polyfill-service)
 - `custom-event`
+- `resize-observer-polyfill`
 - `matchmedia-polyfill`
 - `Stickyfill`
 - `bounding-client-rect`
 - `mutation-observer`
-- `intersection-observer-polyfill`
+- `intersection-observer`
 - `blob`
 - `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen` / `screenfull.js`
 - `smoothscroll-polyfill`
