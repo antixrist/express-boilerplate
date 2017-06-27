@@ -56,6 +56,8 @@
 - `npm-check` - тулза для обновления зависимостей с консольным ui
 - `cross-env` - для кроссплатформенной установки переменных окружения из `npm run`
 - `concurrently` - для запуска нескольких одновременных задач из `npm run`
+- `is-ci` - проверяет, запущен ли код в ci-окружении
+- `is-ci-cli` - позволяет для разных ci-окружений запускать разные npm-скрипты
 - `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
 - [пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 
@@ -550,6 +552,8 @@ app.set('x-powered-by', false);
 - `drop-anywhere` - для d'n'd загрузки файлов где угодно на странице
 - `focus` - нахождение цетральной сущности на изображении для последующей фокусировки или кропа
 - `criticalcss` / `critical` / `penthouse` - critical css
+- `scrollbarwidth`
+- `simplebar` - кроссбраузерный кастомный скролл
 - `trunc-text`
 - `trunc-html`
 - `file-saver`
@@ -583,6 +587,8 @@ app.set('x-powered-by', false);
 
 ### Полифиллы:
 [polyfill-service](https://github.com/Financial-Times/polyfill-service) - смысл в том, чтобы использовать из этого сервиса только браузерное api. Для полифиллинга языковых средств используется `babel-polyfill`. Или наоборот? Включать отсюда всё, а из `babel-polyfill` добавлять всё остальное?
+- `store` - враппер над localStorage'м с fallback'ами на всё, что только возможно
+- `dexie` - враппер над IndexedDB
 - `custom-event`
 - `resize-observer-polyfill`
 - `matchmedia-polyfill`
