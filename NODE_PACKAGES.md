@@ -154,7 +154,7 @@ app.set('x-powered-by', false);
 - `loud-rejection` / `uncaught` - ловля необработанных ошибок/реджектов для ноды и браузеров
 - `http-errors` / `boom` - удобная обёртка для посыла http-ошибок / `micro-boom`
 - `create-error` / `es6-error` / `super-error`, [ещё гист на тему](https://gist.github.com/antixrist/f930d527c4b370c59f779639710bac2e) - враппер для создания собственных классов ошибок
-- `stacktrace-js` (асинхронный) / `stacktrace-parser` (синхронный, используется в ReactNative) / `tracekit` - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
+- `stacktrace-js` (асинхронный) / `stacktrace-parser` (синхронный, используется в ReactNative) / `tracekit` / `error-stack-parser` (похоже на правду) - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
 - `show-js-error`, [трекинг ajax-ошибок в метрику](https://github.com/hcodes/trackajax)
 - `serialize-error` - объект ошибки в json
 - `errorhandler` - для рендера ошибок на клиент (only dev)
