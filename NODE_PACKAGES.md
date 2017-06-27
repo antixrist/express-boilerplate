@@ -591,6 +591,7 @@ app.set('x-powered-by', false);
 - `store` - враппер над localStorage'м с fallback'ами на всё, что только возможно
 - `dexie` - враппер над IndexedDB
 - `custom-event`
+- `url-search-params`
 - `resize-observer-polyfill`
 - `matchmedia-polyfill`
 - `Stickyfill`
