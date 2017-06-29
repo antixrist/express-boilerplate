@@ -603,7 +603,6 @@ app.set('x-powered-by', false);
 - `url-search-params`
 - `resize-observer-polyfill`
 - `matchmedia-polyfill`
-- `Stickyfill`
 - `bounding-client-rect`
 - `mutation-observer`
 - `intersection-observer`
