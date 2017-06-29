@@ -170,7 +170,13 @@ app.set('x-powered-by', false);
 - `stack-chain` - кастомный парсер стектрейсов для маппинга/фильтрации/etc
 [пример с trace, clarify и stack-chain](https://gist.github.com/antixrist/88b3d77f803377944789f02357b83c89)
 - [подходы к локальной обработке ошибок](https://learn.javascript.ru/exception) и их [логирования на сервер](https://habrahabr.ru/post/324366/)
-- сервисы для отправки и анализа непойманных ошибок: https://sentry.io/ https://errorception.com/ http://www.muscula.com/
+- сервисы для отправки и анализа непойманных ошибок:
+  - https://stacktracejs.com/
+  - https://sentry.io/
+  - https://errorception.com/
+  - http://www.muscula.com/
+  - http://rollbar.com/
+  - https://habrahabr.ru/post/324366/
 
 ### Кластеризация процессов
 - `strong-cluster-control`
@@ -558,13 +564,14 @@ app.set('x-powered-by', false);
 - `trunc-text`
 - `trunc-html`
 - `file-saver`
+- `floatthead` / `vue-floatthead` - плавающая шапка у таблиц (вроде самая нормальная из всех возможных), но на jquery
 - `rader` - слайдер от 2gis'а
 - `geoloc` - геолокация с фронта путём опроса свободных источников от 2gis'а
 - `appmetrics.js` - обертка над User Timing API, с возможностью отправки всего намерянного в GA.
 - `dom-serialize` - сериализация dom-нод в строку
 - `zingtouch` - touch-гестуры
 - `blankshield` - безопасный `target="_blank"`
-- `bowser` - определитель юзерагента для фронта
+- `bowser` - определитель девайса по юзерагенту
 - `fingerprintjs2`
 - `jquery.payment` - форма для банковской карты [repo](https://github.com/stripe/jquery.payment)
 - `card-info` - форма для банковской карты [repo](https://github.com/iserdmi/card-info)
