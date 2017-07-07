@@ -185,7 +185,7 @@ app.set('x-powered-by', false);
 
 ### Кластеризация процессов
 - `strong-cluster-control`
-globby
+
 ### ФС
 - `anymatch` - матчер по чему угодно (глоб, регэксп, етс)
 - `chokidar` - слушатель фс
