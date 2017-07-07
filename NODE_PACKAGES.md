@@ -185,7 +185,7 @@ app.set('x-powered-by', false);
 
 ### Кластеризация процессов
 - `strong-cluster-control`
-
+globby
 ### ФС
 - `anymatch` - матчер по чему угодно (глоб, регэксп, етс)
 - `chokidar` - слушатель фс
@@ -197,15 +197,33 @@ app.set('x-powered-by', false);
 - `del` / `ncp`
 - `move-concurrently` - самое быстрое (на сколько вообще возможно) перемещение файлов
 - `parse-filepath` - добавляет некоторые поля к стандартному выводу
+- `fs-write-stream-atomic`
+- `proper-lockfile` - `lock`-файл
+- `steno` - помогает при конкурентной записи в файл - делает все вызовы на запись последовательно
 - `is-dotfile`
 - `is-absolute`
 - `is-relative`
 - `relative` - расширенный `path.relative()`
 - `sanitize-filename` - очищает строку от спецсимволов и "папок", делая её валидным названием файла 
-- `proper-lockfile` - `lock`-файл
 - `tmp` - работа с временными файлами и директориями
-- `steno` - помогает при конкурентной записи в файл - делает все вызовы на запись последовательно
 - `cacache` - умное управление файловым кешем
+
+### Стримы
+- `csv-stringify`, `fast-csv` / `csv-streamify`
+- `xml-mapping` - json в xml и обратно
+- `html-tokenize`
+- `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
+- `event-stream`
+- `split2`
+- `through2`
+- `shaper` - ограничитель скорости потока
+- `isstream`
+- `lazypipe`
+- `destroy`
+- `end-of-stream` / `on-stream-end`
+- `stream-throttle`
+- `highland`
+- `duplexify` (для `stream1` и `stream2`) / `duplexer2` (для `stream3`) - объединяет writable и readable стримы в один
 
 ### DB
 - `mysql2` / `mariasql`
@@ -383,23 +401,6 @@ app.set('x-powered-by', false);
 - `excelize`
 - `exceljs`
 - `xml2js` / `x2js` / `fast-xml2js`
-
-### Стримы
-- `csv-stringify`, `fast-csv` / `csv-streamify`
-- `xml-mapping` - json в xml и обратно
-- `html-tokenize`
-- `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
-- `event-stream`
-- `split2`
-- `through2`
-- `shaper` - ограничитель скорости потока
-- `isstream`
-- `lazypipe`
-- `destroy`
-- `end-of-stream` / `on-stream-end`
-- `stream-throttle`
-- `highland`
-- `duplexify` (для `stream1` и `stream2`) / `duplexer2` (для `stream3`) - объединяет writable и readable стримы в один
 
 ### Генераторы (чисел, строк, данных, uid'ов)
 - `faker`
