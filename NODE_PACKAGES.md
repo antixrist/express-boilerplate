@@ -338,7 +338,7 @@ app.set('x-powered-by', false);
 
 ### Тестирование
 - `supertest`
-- `mocha` (`chai`) / `jasmin` (`karma`) / `nodeunit` / `ava` / `tape` / `jest`
+- `mocha` (`chai`) / `jasmin` (`karma`) / `nodeunit` / `ava` / `tape` / `jest` (`jest` / `ava` [предпочтительнее](https://habrahabr.ru/company/zfort/blog/332736/#comment_10304680))
 - `mocha-allure-reporter` - `allure` - это репортер со своим веб-интерфейсом, преферансом и графиками
 
 ### Headless-браузеры и тестирование
