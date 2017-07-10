@@ -393,8 +393,13 @@ app.set('x-powered-by', false);
 - `destroy`
 - `end-of-stream` / `on-stream-end`
 - `stream-throttle`
-- `highland`
 - `duplexify` (для `stream1` и `stream2`) / `duplexer2` (для `stream3`) - объединяет writable и readable стримы в один
+
+#### Rx
+- `highland`
+- `xstream`
+- `most`
+- `rx`
 
 ### Генераторы (чисел, строк, данных, uid'ов)
 - `faker`
