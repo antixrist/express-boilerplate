@@ -1,7 +1,5 @@
 Ещё много не откаталогизированного [здесь](https://github.com/antixrist?utf8=%E2%9C%93&tab=repositories&q=&type=fork&language=)
 
-`searchparser` - Огромный список поисковых систем с урлами параметрами для поиска в них [repo](https://github.com/dangrossman/node-searchparser)
-
 ## Запуск с babel'ем
 [example-node-server](https://github.com/babel/example-node-server)
 [примеры скриптов запуска в `package.json`](https://github.com/comerc/yobr)
@@ -34,7 +32,6 @@
 - `learnyounode` - интерактивная cli-обучалка
 - `pm2` (`pm2-logrotate`, [как юзать socket.io на кластеризованном приложении](https://github.com/Unitech/PM2/issues/637#issuecomment-215915328))
 - `cote` - набор библиотек для построения микросервисного кластера ([статья](https://habrahabr.ru/company/ruvds/blog/329784/))
-- `axon` - zeromq на ноде
 - `hotel` - управление и старт локальных dev-доменов для локальных проектов на всевозможных технологиях
 - `cross-spawn` / `execa` / `respawn`
 - `mz` - промайзнутые системные библиотеки
@@ -53,13 +50,21 @@
 - `mediacenterjs` - браузерный персональный медиацентр
 - `detect-node` - запущен ли текущий код из под ноды
 - `localtunnel` - шарит локальный адрес наружу
+- `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
+- [пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
+
+### Запуск и сборка
+- `gulp`
+- `webpack`, `webworkify-webpack`
+- `chokidar` / `watchpack`
+- `browser-sync`
+- `parallelshell`
+- `better-npm-run`
 - `npm-check` - тулза для обновления зависимостей с консольным ui
 - `cross-env` - для кроссплатформенной установки переменных окружения из `npm run`
 - `concurrently` - для запуска нескольких одновременных задач из `npm run`
 - `is-ci` - проверяет, запущен ли код в ci-окружении
 - `is-ci-cli` - позволяет для разных ci-окружений запускать разные npm-скрипты
-- `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
-- [пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 
 ### Express.js
 - [pillarjs](https://github.com/pillarjs) - много low-level вкусняшек
@@ -192,15 +197,38 @@ app.set('x-powered-by', false);
 - `del` / `ncp`
 - `move-concurrently` - самое быстрое (на сколько вообще возможно) перемещение файлов
 - `parse-filepath` - добавляет некоторые поля к стандартному выводу
+- `fs-write-stream-atomic`
+- `proper-lockfile` - `lock`-файл
+- `steno` - помогает при конкурентной записи в файл - делает все вызовы на запись последовательно
 - `is-dotfile`
 - `is-absolute`
 - `is-relative`
 - `relative` - расширенный `path.relative()`
 - `sanitize-filename` - очищает строку от спецсимволов и "папок", делая её валидным названием файла 
-- `proper-lockfile` - `lock`-файл
 - `tmp` - работа с временными файлами и директориями
-- `steno` - помогает при конкурентной записи в файл - делает все вызовы на запись последовательно
 - `cacache` - умное управление файловым кешем
+
+### Стримы
+- `csv-stringify`, `fast-csv` / `csv-streamify`
+- `xml-mapping` - json в xml и обратно
+- `html-tokenize`
+- `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
+- `event-stream`
+- `split2`
+- `through2`
+- `shaper` - ограничитель скорости потока
+- `isstream`
+- `lazypipe`
+- `destroy`
+- `end-of-stream` / `on-stream-end`
+- `stream-throttle`
+- `duplexify` (для `stream1` и `stream2`) / `duplexer2` (для `stream3`) - объединяет writable и readable стримы в один
+
+#### Rx
+- `highland`
+- `xstream`
+- `most`
+- `rx`
 
 ### DB
 - `mysql2` / `mariasql`
@@ -379,28 +407,6 @@ app.set('x-powered-by', false);
 - `exceljs`
 - `xml2js` / `x2js` / `fast-xml2js`
 
-### Стримы
-- `csv-stringify`, `fast-csv` / `csv-streamify`
-- `xml-mapping` - json в xml и обратно
-- `html-tokenize`
-- `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
-- `event-stream`
-- `split2`
-- `through2`
-- `shaper` - ограничитель скорости потока
-- `isstream`
-- `lazypipe`
-- `destroy`
-- `end-of-stream` / `on-stream-end`
-- `stream-throttle`
-- `duplexify` (для `stream1` и `stream2`) / `duplexer2` (для `stream3`) - объединяет writable и readable стримы в один
-
-#### Rx
-- `highland`
-- `xstream`
-- `most`
-- `rx`
-
 ### Генераторы (чисел, строк, данных, uid'ов)
 - `faker`
 - `faker.js`
@@ -449,6 +455,7 @@ app.set('x-powered-by', false);
 - `function-rate-limit`
 - `kue` - очередя на редисе
 - `agenda` - очередя на монге
+- `axon` - zeromq на ноде
 - `queue3`
 - `enqueue`
 - `argumentable-queue`
@@ -505,6 +512,8 @@ app.set('x-powered-by', false);
 
 ### DI
 - `bottlejs`
+- `singular`
+- `intakejs`
 
 ### Цвета
 - `color`
@@ -538,13 +547,7 @@ app.set('x-powered-by', false);
 - `d3-glyphedge`
 - `greuler`
 - `ngraph`, в т.ч. `ngraph.forcelayout`, `ngraph.remove-overlaps`, `ngraph.quadtreebh` и прочие от [@anvaka](https://github.com/anvaka)
-
-### Сборка
-- `gulp`
-- `webpack`, `webworkify-webpack`
-- `chokidar` / `watchpack`
-- `browser-sync`
-- `parallelshell`
+- `toposort`
 
 ### Генерация документации
 - `apidoc`
