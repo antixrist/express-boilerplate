@@ -570,6 +570,7 @@ app.set('x-powered-by', false);
 - `criticalcss` / `critical` / `penthouse` - critical css
 - `scrollbarwidth`
 - `simplebar` - кроссбраузерный кастомный скролл
+- `jquery-mask-plugin` / `inputmask`
 - `dropzone`
 - `trunc-text`
 - `trunc-html`
