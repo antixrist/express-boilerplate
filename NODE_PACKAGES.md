@@ -565,7 +565,8 @@ app.set('x-powered-by', false);
 - `smartcrop`
 - `vkey`
 - `drop-anywhere` - для d'n'd загрузки файлов где угодно на странице
-- `focus` - нахождение цетральной сущности на изображении для последующей фокусировки или кропа
+- `focus` - нахождение центральной сущности на изображении для последующей фокусировки или кропа
+- `noty` ([обёртка для vue](https://github.com/nikitamarcius/vue-notice)) - уведомлялка
 - `criticalcss` / `critical` / `penthouse` - critical css
 - `scrollbarwidth`
 - `simplebar` - кроссбраузерный кастомный скролл
