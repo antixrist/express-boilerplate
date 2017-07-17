@@ -241,9 +241,8 @@ app.set('x-powered-by', false);
 - `kue` - очередь с приоритетами в редисе (но для этих целей лучше брать `rabbitmq`)
 - ``amqplib`` / `tortoise` - клиент для rabbitmq
 - `rethinkdb`
-- `store` - нормальная полная кроссбраузерная обёртка над localStorage. можно сделать асинхронным для обёртки над редисом или типа того. В ноде хорошо работает в связке с `node-localstorage`.
 - `localforage` - то же, что и `store`, только над `indexeddb`, `websql`, `localstorage`. Асинхронный.
-- `node-localstorage` - localStorage для NodeJS
+- `node-localstorage` (этот держит данные в памяти) / `dom-storage` (этот пишет данные в файл) - localStorage для NodeJS
 - `lowdb` - файловая json-бд поверх lodash'а
 
 ### Права
@@ -607,6 +606,8 @@ app.set('x-powered-by', false);
 ### Полифиллы:
 [polyfill-service](https://github.com/Financial-Times/polyfill-service) - смысл в том, чтобы использовать из этого сервиса только браузерное api. Для полифиллинга языковых средств используется `babel-polyfill`. Или наоборот? Включать отсюда всё, а из `babel-polyfill` добавлять всё остальное?
 - `store` - враппер над localStorage'м с fallback'ами на всё, что только возможно
+- `store` - нормальная полная кроссбраузерная обёртка над localStorage. можно сделать асинхронным для обёртки над редисом или типа того. В ноде хорошо работает в связке с `node-localstorage` / `dom-storage`.
+- `localforage` - то же, что и `store`, только над `indexeddb`, `websql`, `localstorage`. Асинхронный.
 - `dexie` - враппер над IndexedDB
 - `custom-event`
 - `sticky-state`
