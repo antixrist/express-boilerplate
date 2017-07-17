@@ -576,6 +576,7 @@ app.set('x-powered-by', false);
 - `trunc-html`
 - `file-saver`
 - `floatthead` / `vue-floatthead` - плавающая шапка у таблиц (вроде самая нормальная из всех возможных), но на jquery
+- `vuex-loading`
 - `rader` - слайдер от 2gis'а
 - `geoloc` - геолокация с фронта путём опроса свободных источников от 2gis'а
 - `appmetrics.js` - обертка над User Timing API, с возможностью отправки всего намерянного в GA.
