@@ -483,7 +483,6 @@ app.set('x-powered-by', false);
 - `mailgen` / `mailmason` / [bojler](https://github.com/Slicejack/bojler) - html-шаблоны для мыла
 
 ## Изображения
-- `is-svg`
 - `sharp` / `jimp` - полнофункциональная манипуляция
 - `image-size`
 - `image-type`
@@ -537,9 +536,13 @@ app.set('x-powered-by', false);
 - `delaunator` - самая быстрая триангуляция
 
 ### SVG и геометрия
+- `is-svg`
 - `d3`
 - `svg-intersections` - алгоритмы нахождения пересечений разных фигур
 - [kevlindev](http://www.kevlindev.com/) - много разнообразной математики на js - [пересечения](http://www.kevlindev.com/geometry/2D/intersections/index.htm) [фигур](http://www.kevlindev.com/gui/math/intersection/index.htm), [геометрия фигур](http://www.kevlindev.com/gui/shapes/shape/index.htm) и [прочее](http://www.kevlindev.com/gui/)
+
+### Графики
+- `chartist`
 
 ### Графы
 - `d3`
@@ -575,7 +578,7 @@ app.set('x-powered-by', false);
 - `trunc-text`
 - `trunc-html`
 - `file-saver`
-- `floatthead` / `vue-floatthead` - плавающая шапка у таблиц (вроде самая нормальная из всех возможных), но на jquery
+- `floatthead` / `vue-floatthead` / [minicss](http://minicss.org/table#scrollable-tables) - плавающая шапка у таблиц (вроде самая нормальная из всех возможных), но на jquery
 - `vuex-loading`
 - `rader` - слайдер от 2gis'а
 - `geoloc` - геолокация с фронта путём опроса свободных источников от 2gis'а
