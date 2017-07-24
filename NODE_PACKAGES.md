@@ -55,7 +55,7 @@
 
 ### Запуск и сборка
 - `gulp`
-- `webpack`, `webworkify-webpack`
+- `webpack`, `webworkify-webpack` (`bundle-buddy`)
 - `chokidar` / `watchpack`
 - `browser-sync`
 - `parallelshell`
@@ -137,8 +137,8 @@ app.set('x-powered-by', false);
 - `koa-logger`
 
 ### Прочие фреймворки
-- `cote`
 - `micro`
+- `cote`
 - `studio`
 - `socketcluster`
 
@@ -260,6 +260,7 @@ app.set('x-powered-by', false);
 - `inquirer` - cli-промптер
 - `minimist` / `yargs` - парсер cli-аргументов
 - `progress` / `gauge` - настраиваемый прогресс-бар
+- `boxen` - оборачивание сообщения в настраиваемую рамку
 - [форматирование `console.time`а](https://gist.github.com/antixrist/5dec38b757ead8adca186c067cf6f2f2)
 
 ### Логирование
@@ -311,6 +312,7 @@ app.set('x-powered-by', false);
 - `math-combination` - комбинаторика
 - `cuint` / `bignumber.js` / `long` / `bn.js`
 - `json-depth-stream` - потоковый парсер огромных json'ов
+- `media-typer` - парсер mime
 
 ### Рекваестеры и http-тулзы
 - `dnscache`
@@ -545,7 +547,7 @@ app.set('x-powered-by', false);
 - `chartist`
 
 ### Графы
-- `d3`
+- `d3` (`d3-node` для node-environment)
 - `d3-glyphedge`
 - `greuler`
 - `ngraph`, в т.ч. `ngraph.forcelayout`, `ngraph.remove-overlaps`, `ngraph.quadtreebh` и прочие от [@anvaka](https://github.com/anvaka)
@@ -554,8 +556,12 @@ app.set('x-powered-by', false);
 ### Генерация документации
 - `apidoc`
 
+### Etc
+- `clipboardy` - кроссплатформенный доступ к системному буферу обмена
+
 ### Деплой
 - [pm2](https://github.com/Unitech/pm2)
+- [now](https://github.com/zeit/now)
 - [pod](https://github.com/yyx990803/pod) - маленький аналог `pm2`
 - [rsynced](https://github.com/rumkin/rsynced) - deploy-аналог pm2, но без гита
 - [shipit](https://github.com/shipitjs/shipit) - gulp'ово/grunt'ово подобный деплойер
@@ -599,6 +605,7 @@ app.set('x-powered-by', false);
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
 - `isInViewport` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky)
 - `flexslider`, `vue-awesome-swiper` - слайдер
+- `pell` - норм текстовый редактор
 - `simple-web-worker`
 - [break-on-access](https://github.com/paulirish/break-on-access) - оочень полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
 
