@@ -51,6 +51,7 @@
 - `detect-node` - запущен ли текущий код из под ноды
 - `localtunnel` - шарит локальный адрес наружу
 - `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
+- `host-env` - определение серверной платформы, на которой запущена нода
 - [пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 
 ### Запуск и сборка
@@ -258,7 +259,7 @@ app.set('x-powered-by', false);
 - `liftoff` - bin'арник для своего пакета
 - `eyes` - цветной вывод данных
 - `inquirer` - cli-промптер
-- `minimist` / `yargs` - парсер cli-аргументов
+- `minimist` / `nanomist` / `yargs` - парсер cli-аргументов
 - `progress` / `gauge` - настраиваемый прогресс-бар
 - `boxen` - оборачивание сообщения в настраиваемую рамку
 - [форматирование `console.time`а](https://gist.github.com/antixrist/5dec38b757ead8adca186c067cf6f2f2)
@@ -282,7 +283,7 @@ app.set('x-powered-by', false);
 - `filesize` - человекопятный размер файлов
 - `pretty-hrtime` - человекопятный `process.hrtime()`
 - `humanize-number` - человекопонятные числа
-- `expiry-js` - парсер длительностей (1M, 1Y, 1h, 1m, 1s, 1ms, etc)
+- `expiry-js` / `ms` - парсер длительностей (1M, 1Y, 1h, 1m, 1s, 1ms, etc)
 - `json5` - json с блекджеком и комментиками
 - `JSONSchema` / `ajv` - создание и валидация JSONScheme'ы
 - `joi` / `schema-inspector` / `validator` / `forms` - санитизация/валидация
@@ -353,6 +354,7 @@ app.set('x-powered-by', false);
 - [Chrome Headless](https://developers.google.com/web/updates/2017/04/headless-chrome)
 
 [весь список](https://github.com/dhamaniasad/HeadlessBrowsers)
+[сравнение](https://mo.github.io/2017/07/20/javascript-e2e-integration-testing.html)
 
 ### Кравлеры
 - `simplecrawler`
@@ -452,7 +454,8 @@ app.set('x-powered-by', false);
 - `ffi` - работа с системными библиотеками без написания c++ обёрток
 
 ### Очередя и таски
-- `retry` / `tolerance`
+- `retry` (`async-retry`) / `tolerance`
+- `async-throttle`
 - `function-rate-limit`
 - `kue` - очередя на редисе
 - `agenda` - очередя на монге
