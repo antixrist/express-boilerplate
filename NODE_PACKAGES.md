@@ -446,7 +446,7 @@ app.set('x-powered-by', false);
 - `function-done` / `always-done`
 - `mem` / `lru-cache` / `hashlru`
 - `fast-memoize`
-- `wrappy` - оборачивает функцию, перенося все кастомные пропертя этой функции в обёртку. полезно (внезапно) для обёрток
+- `wrappy` - оборачивает функцию, перенося все кастомные пропертя этой функции в обёртку. полезно (внезапно) для обёртокf
 - `shimmer` - типа Proxy через monkeypatching
 - `ware` - создание кастомной цепочки мидлварей (прям как в express'е)
 - `internal` - созданице цепочки тасков, как у Nightmare
@@ -488,13 +488,15 @@ app.set('x-powered-by', false);
 - `mailgen` / `mailmason` / [bojler](https://github.com/Slicejack/bojler) - html-шаблоны для мыла
 
 ## Изображения
-- `sharp` / `jimp` - полнофункциональная манипуляция
+- `sharp` / `jimp` - полнофункциональная обработка
 - `image-size`
 - `image-type`
 - `tesseract.js` - распознавалка текста
-- `exif2` / `gm-exif` / `libexif`
+- `exif2` / `gm-exif` / `libexif` / `exif-parser`
 - `gify` - делает гифку из видео
 - `gm` / `graphicsmagick2`
+- `pixelmatch` - создание diff'а изображений
+- `pngjs`, `jpeg-js`
 
 ### Морфология и текст
 - `phpmorphy`
@@ -581,6 +583,7 @@ app.set('x-powered-by', false);
 - `noty` ([обёртка для vue](https://github.com/nikitamarcius/vue-notice)) - уведомлялка
 - `criticalcss` / `critical` / `penthouse` - critical css
 - `scrollbarwidth`
+- `@nishanths/zoom.js` - zoom изображений как на medium'е
 - `simplebar` - кроссбраузерный кастомный скролл
 - `jquery-mask-plugin` / `inputmask`
 - `dropzone`
