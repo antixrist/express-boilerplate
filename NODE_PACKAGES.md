@@ -30,14 +30,13 @@
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
-- `pm2` (`pm2-logrotate`, [как юзать socket.io на кластеризованном приложении](https://github.com/Unitech/PM2/issues/637#issuecomment-215915328))
 - `cote` - набор библиотек для построения микросервисного кластера ([статья](https://habrahabr.ru/company/ruvds/blog/329784/))
 - `hotel` - управление и старт локальных dev-доменов для локальных проектов на всевозможных технологиях
 - `cross-spawn` / `execa` / `respawn`
 - `mz` - промайзнутые системные библиотеки
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
 - `shelljs` - bash-функции прямо в ноде
-- `precommit-hook` - тулза запускающая npm-скрипты на коммиты / `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками
+- `precommit-hook` - тулза запускающая npm-скрипты на коммиты / `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками, `commitizen` - интерактивка для сообщений к коммитам (fix/refactor/test/etc), validate-commit-msg` - валидатор сообщений к коммитам
 - `app-module-path` - require хук, для маппинга кастомной рутовой директории
 - `node-notifier`
 - `nodejs-dashboard`
@@ -52,6 +51,7 @@
 - `localtunnel` - шарит локальный адрес наружу
 - `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
 - `host-env` - определение серверной платформы, на которой запущена нода
+- `snyk` - автосканер кода и зависимостей на известные уязвимости
 - [пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 
 ### Запуск и сборка
@@ -100,9 +100,7 @@
 - `clearsitedata` - устанавливает специальный заголовок, чтобы браузер почистил кэш, куки, стораджи (полезно при логауте)
 - 
 - `express-validator` - для валидации данных в теле запроса (надстройка над `validator`)
-- `lusca` / `helmet` (`helmet` лучше)
-- `csurf` - csrf (этот лучше)
-- `cors`
+- `lusca` / `helmet` (`helmet` лучше), `csurf` - csrf (этот лучше), `cors`, `frameguard`
 - `ratelimiter` - rate limit запросов с хранилищем в редисе / `limiter` (но по-хорошему этим должен заниматься nginx)
 - `on-finished`
 - 
@@ -119,7 +117,7 @@
 - `kraken-js` - мощный boilerplate и конфигуратор для express'а и всякие штуки в него входящие, типа `express-enrouten`
 - `express-status-monitor`
 - 
-- `express-expose` - выдёргивание серверных методов и переменных на фронт в шаблонизатор (особо не нужен, но мало ли)
+- `express-expose` / `express-state` - выдёргивание серверных методов и переменных на фронт в шаблонизатор (особо не нужен, но мало ли)
 - `greenlock` - клиент для `let's encrypt` (вроде как). туда же: `greenlock-express`, `auto-sni`
 
 ```javascript
@@ -263,6 +261,7 @@ app.set('x-powered-by', false);
 - `minimist` / `nanomist` / `yargs` - парсер cli-аргументов
 - `progress` / `gauge` - настраиваемый прогресс-бар
 - `boxen` - оборачивание сообщения в настраиваемую рамку
+- `dedent` - убирает ведущие и крайние пробелы и переводы строк в шаблонных строках (удобно для вывода многострочного текста)
 - [форматирование `console.time`а](https://gist.github.com/antixrist/5dec38b757ead8adca186c067cf6f2f2)
 
 ### Логирование
@@ -487,6 +486,7 @@ app.set('x-powered-by', false);
 ### Email
 - `nodemailer` / `postmark`
 - `mailgen` / `mailmason` / [bojler](https://github.com/Slicejack/bojler) - html-шаблоны для мыла
+- `nonprofit-email-service`
 
 ## Изображения
 - `sharp` / `jimp` - полнофункциональная обработка
@@ -566,7 +566,7 @@ app.set('x-powered-by', false);
 - `clipboardy` - кроссплатформенный доступ к системному буферу обмена
 
 ### Деплой
-- [pm2](https://github.com/Unitech/pm2)
+- [pm2](https://github.com/Unitech/pm2) (+ `pmx`, `pm2-pager`, `pm2-logrotate`, [как юзать socket.io на кластеризованном приложении](https://github.com/Unitech/PM2/issues/637#issuecomment-215915328))
 - [now](https://github.com/zeit/now)
 - [pod](https://github.com/yyx990803/pod) - маленький аналог `pm2`
 - [rsynced](https://github.com/rumkin/rsynced) - deploy-аналог pm2, но без гита
@@ -576,6 +576,7 @@ app.set('x-powered-by', false);
 ## Front
 - `asap` / `next-tick` / `setimmediate` - как только, так сразу. Кроссбраузерный `process.nextTick`
 - `simulant` - симуляция реальных браузерных событий
+- `mousetrap` - работа с комбинациями hotkey'ев
 - `@flowjs/flow.js` - загрузка файлов с примером бекенда на ноде
 - `smartcrop`
 - `vkey`
@@ -600,15 +601,17 @@ app.set('x-powered-by', false);
 - `zingtouch` - touch-гестуры
 - `blankshield` - безопасный `target="_blank"`
 - `bowser` - определитель девайса по юзерагенту
+- `platform` - полное определение платформы юзера
+- `evercookie` - [repo](https://github.com/samyk/evercookie)
 - `fingerprintjs2`
+- `lightbox2` - модалочка для картинок на ваниле
+- `history`
 - `jquery.payment` - форма для банковской карты [repo](https://github.com/stripe/jquery.payment)
 - `card-info` - форма для банковской карты [repo](https://github.com/iserdmi/card-info)
 - `card` - форма для банковской карты [repo](https://github.com/jessepollak/card)
 - `payment` - форма для банковской карты [repo](https://github.com/jessepollak/payment)
 - `banks-db` - определение банка по номеру карты
-- `evercookie` - [repo](https://github.com/samyk/evercookie)
 - `block-elements` - определяет, является ли тег блочным (по названию)
-- `platform` - полное определение платформы юзера
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
 - `isInViewport` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky)
 - `flexslider`, `vue-awesome-swiper` - слайдер
@@ -625,8 +628,7 @@ app.set('x-powered-by', false);
 
 ### Полифиллы:
 [polyfill-service](https://github.com/Financial-Times/polyfill-service) - смысл в том, чтобы использовать из этого сервиса только браузерное api. Для полифиллинга языковых средств используется `babel-polyfill`. Или наоборот? Включать отсюда всё, а из `babel-polyfill` добавлять всё остальное?
-- `store` - враппер над localStorage'м с fallback'ами на всё, что только возможно
-- `store` - нормальная полная кроссбраузерная обёртка над localStorage. можно сделать асинхронным для обёртки над редисом или типа того. В ноде хорошо работает в связке с `node-localstorage` / `dom-storage`.
+- `store` - враппер над localStorage'м с fallback'ами на всё, что только возможно. можно сделать асинхронным для обёртки над редисом или типа того. В ноде хорошо работает в связке с `node-localstorage` / `dom-storage`.
 - `localforage` - то же, что и `store`, только над `indexeddb`, `websql`, `localstorage`. Асинхронный.
 - `dexie` - враппер над IndexedDB
 - `custom-event`
@@ -642,6 +644,7 @@ app.set('x-powered-by', false);
 - `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen` / `screenfull.js`
 - `smoothscroll-polyfill`
 - `buffer`
+- `history.js`
 
 ### nginx
 - [конфиг с настроенным кешем от h5bp](https://github.com/h5bp/server-configs-nginx)
