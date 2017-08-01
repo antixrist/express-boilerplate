@@ -79,7 +79,7 @@
 - `response-time`
 - `connect-timeout`
 - `basic-auth-connect` (deprecated) / `basic-auth`
-- `negotiator` - пока не вкурил как и где юзать, но, видать, штука нужная
+- `negotiator` / `accepts`
 - `hall` - роутер. но нафига?
 - 
 - `express-redirect`
