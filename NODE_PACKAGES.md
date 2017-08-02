@@ -421,6 +421,7 @@ app.set('x-powered-by', false);
 - [gencc](https://github.com/grahamking/darkcoding-credit-card/blob/master/gencc.js) валидных номеров кредитных карт
 
 #### Псевдорандом с посевом
+- `seedrandom`
 - `random-js` / `mersenne-twister`
 - `random-seed`
 - `brorand` - кросс-платформенный `crypto.getRandomValues`
