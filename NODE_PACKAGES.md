@@ -27,6 +27,7 @@
 - [Куча примеров по взаимодействию express/koa с различными БД (neo4j, rethink, redis, etc)](https://github.com/caio-ribeiro-pereira/node-api-examples)
 - [Пример с jwt-авторизацией](https://github.com/andrewda/jwt-server-base)
 - [Создание бота для Steam по шагам](https://github.com/andrewda/node-steam-guide)
+- [Пример с Koa, TypeORM, роутами и контроллерами](https://github.com/typeorm/typescript-koa-example)
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
@@ -234,6 +235,7 @@ app.set('x-powered-by', false);
     - `knex`, `bookshelf`
     - `sequelize` (`sequelize-auto`, `sequelize-definer`, `sequelize-hierarchy`, `sequelize-values`)
     - `objection`
+    - `typeorm`
 - `pg` / `pg-bluebird` / `pg-native`
 - `ioredis` / `redis` / `hiredis`, `redlock`
 - `reds` - поиск в редисе
