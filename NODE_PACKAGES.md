@@ -310,10 +310,6 @@ app.set('x-powered-by', false);
 - `google-libphonenumber` - крутая штука для парсинга номеров телефонов
 - `quickselect`
 - `bintrees` - самосортируемая структура с бинарным поиском
-- `simple-statistics` - статистические функции (в т.ч. комбинаторика и перестановки)
-- `cartesian` - комбинаторика
-- `js-combinatorics` - комбинаторика
-- `math-combination` - комбинаторика
 - `cuint` / `bignumber.js` / `long` / `bn.js`
 - `json-depth-stream` - потоковый парсер огромных json'ов
 - `media-typer` - парсер mime
@@ -429,6 +425,16 @@ app.set('x-powered-by', false);
 - `random-seed`
 - `brorand` - кросс-платформенный `crypto.getRandomValues`
 - `chance`
+
+### Комбинаторика
+- `simple-statistics` - статистические функции (в т.ч. комбинаторика и перестановки)
+- `cartesian`
+- `js-combinatorics`
+- `math-combination`
+- `allcombinations` - на генераторах
+- `lexicographer` - лексикографическая пермутация на генераторах
+- `get-permutations`, `get-unique-permutations`
+- `@aureooms/js-permutation`
 
 ### Хэширование
 - `murmurhash-native` - быстрое и (вроде как) наименее коллизионное хэширование
