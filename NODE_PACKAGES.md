@@ -612,8 +612,7 @@ app.set('x-powered-by', false);
 - `dom-serialize` - сериализация dom-нод в строку
 - `zingtouch` - touch-гестуры
 - `blankshield` - безопасный `target="_blank"`
-- `bowser` - определитель девайса по юзерагенту
-- `platform` - полное определение платформы юзера
+- `bowser` / `platform` / `mobile-detect`- определитель девайса по юзерагенту
 - `evercookie` - [repo](https://github.com/samyk/evercookie)
 - `fingerprintjs2`
 - `lightbox2` - модалочка для картинок на ваниле
