@@ -426,15 +426,17 @@ app.set('x-powered-by', false);
 - `brorand` - кросс-платформенный `crypto.getRandomValues`
 - `chance`
 
-### Комбинаторика
+### Комбинаторика (кейворды: `permute`, `permutation`, `combination`, `combinatorics`)
 - `simple-statistics` - статистические функции (в т.ч. комбинаторика и перестановки)
 - `cartesian`
 - `js-combinatorics`
+- `foreach-combination`
 - `math-combination`
 - `allcombinations` - на генераторах
 - `lexicographer` - лексикографическая пермутация на генераторах
 - `get-permutations`, `get-unique-permutations`
 - `@aureooms/js-permutation`
+- `generatorics` - есть и permutations, и combinations, и cartesian, и всё это на генераторах
 
 ### Хэширование
 - `murmurhash-native` - быстрое и (вроде как) наименее коллизионное хэширование
