@@ -36,13 +36,14 @@
 - `cross-spawn` / `execa` / `respawn`
 - `mz` - промайзнутые системные библиотеки
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
+- `js-meter` - замеры и форматирование потребляемой памяти/cpu/etc
 - `shelljs` - bash-функции прямо в ноде
 - `precommit-hook` - тулза запускающая npm-скрипты на коммиты / `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками, `commitizen` - интерактивка для сообщений к коммитам (fix/refactor/test/etc), validate-commit-msg` - валидатор сообщений к коммитам
 - `app-module-path` - require хук, для маппинга кастомной рутовой директории
 - `node-notifier`
 - `nodejs-dashboard`
 - `safe-regex` - проверка регулярок на быстроту выполнения - Regular expression Denial of Service (ReDoS)
-- `reify` - врубает `import` без бабелей/вебпаков
+- `reify` / `@std/esm` - врубает `import` без бабелей/вебпаков ([статья про `@std/esm`](https://blogs.windows.com/msedgedev/2017/08/10/es-modules-node-today/))
 - `open` - открывает ссылку в дефолтовом браузере системы
 - `toobusy-js`
 - `light-cycle` - реализация hashringcycle (аналог round-robin) для выбора шардов на лету
@@ -413,7 +414,7 @@ app.set('x-powered-by', false);
 - `faker`
 - `faker.js`
 - `hashids` / `identifier` - строки из чисел
-- `node-uuid` / `uid-safe`
+- `node-uuid` / `uid-safe` / `nanoid`
 - `shortid`
 - `sguid`
 - `randexp` - генерация строки по регэкспу
@@ -604,6 +605,8 @@ app.set('x-powered-by', false);
 - `trunc-text`
 - `trunc-html`
 - `file-saver`
+- `popper.js` / `tooltip.js` - замена `tether`у
+- `equalizecss` - bootstrap-like flex-сетка на sass'е
 - `floatthead` / `vue-floatthead` / [minicss](http://minicss.org/table#scrollable-tables) - плавающая шапка у таблиц (вроде самая нормальная из всех возможных), но на jquery
 - `vuex-loading`
 - `rader` - слайдер от 2gis'а
@@ -636,6 +639,7 @@ app.set('x-powered-by', false);
 - [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
 - [залогинен ли юзер в соц.сетях](https://gist.github.com/antixrist/dbc4630fd4dab2d3bf3b0aa92a534363)
+- [lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). демка: https://deanhume.github.io/lazy-observer-load/
 
 ### Полифиллы:
 [polyfill-service](https://github.com/Financial-Times/polyfill-service) - смысл в том, чтобы использовать из этого сервиса только браузерное api. Для полифиллинга языковых средств используется `babel-polyfill`. Или наоборот? Включать отсюда всё, а из `babel-polyfill` добавлять всё остальное?
