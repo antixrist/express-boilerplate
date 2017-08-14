@@ -54,6 +54,7 @@
 - `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
 - `host-env` - определение серверной платформы, на которой запущена нода
 - `snyk` - автосканер кода и зависимостей на известные уязвимости
+- `webworker-threads` - webworker'ы для ноды 
 - [пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 
 ### Запуск и сборка
