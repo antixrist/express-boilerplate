@@ -28,6 +28,7 @@
 - [Пример с jwt-авторизацией](https://github.com/andrewda/jwt-server-base)
 - [Создание бота для Steam по шагам](https://github.com/andrewda/node-steam-guide)
 - [Пример с Koa, TypeORM, роутами и контроллерами](https://github.com/typeorm/typescript-koa-example)
+- [Boilerplate с Express, GraphQL, PG (с миграциями на knex'е), авторизацией (сессии в Redis'е), рассылкой (+шаблоны для email'ов) и всё это в Docker'е](https://github.com/kriasoft/nodejs-api-starter)
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
@@ -169,6 +170,7 @@ app.set('x-powered-by', false);
 - `serialize-error` - объект ошибки в json
 - `errorhandler` - для рендера ошибок на клиент (only dev)
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
+- `pretty-error` - приятный вывод ошибок в консоли
 - [ещё пример создания http-ошибок](https://www.npmjs.com/package/micro#error-handling)
 - `death` / `signal-exit`
 - `tree-kill` - убить self-процесс и все дочерние форки
@@ -338,6 +340,7 @@ app.set('x-powered-by', false);
 - `cheerio` / `whacko`
 - `readability` - вычленение основного и главного из всей страницы
 - `semantic-schema-parser` - парсер schema.org
+- `juice` - полный инлайнинг стилей в html
 
 ### Тестирование
 - `supertest`
@@ -410,6 +413,7 @@ app.set('x-powered-by', false);
 - `excelize`
 - `exceljs`
 - `xml2js` / `x2js` / `fast-xml2js`
+- `js-xlsx` - парсер и запись xls-форматов
 
 ### Генераторы (чисел, строк, данных, uid'ов)
 - `faker`
@@ -500,7 +504,7 @@ app.set('x-powered-by', false);
 
 ### Email
 - `nodemailer` / `postmark`
-- `mailgen` / `mailmason` / [bojler](https://github.com/Slicejack/bojler) - html-шаблоны для мыла
+- `mailgen` / `mailmason` / [bojler](https://github.com/Slicejack/bojler), `email-templates` - html-шаблоны для мыла
 - `nonprofit-email-service`
 
 ## Изображения
