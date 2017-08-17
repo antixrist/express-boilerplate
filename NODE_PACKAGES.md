@@ -476,6 +476,7 @@ app.set('x-powered-by', false);
 - `axon` - zeromq на ноде
 - `queue3`
 - `enqueue`
+- `fastqueue`
 - `argumentable-queue`
 - `generic-pool`
 - `denque`
