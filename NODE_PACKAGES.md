@@ -55,7 +55,8 @@
 - `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
 - `host-env` - определение серверной платформы, на которой запущена нода
 - `snyk` - автосканер кода и зависимостей на известные уязвимости
-- `webworker-threads` - webworker'ы для ноды 
+- `webworker-threads` - webworker'ы для ноды
+- `in-publish` - обнаружение в npm-scripts факта запуска публикации пакета (во время локальной разработки), чтобы делать что-то, что не нужно делать во время dev-установки 
 - [пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 
 ### Запуск и сборка
@@ -79,6 +80,8 @@
 - `vhost` - для поддоменов (например `api.domain.tld`)
 - `body-parser`
 - `multer` для `multipart/form-data`
+- `form-data` - создаёт readable `multipart/form-data`-стримы. Для отправки данных формы и загрузки файлов в другие http-api
+- `formidable` - парсер `form-data` (специально для `multipart/form-data`-стримов)
 - `morgan` для логов со стриммингом
 - `response-time`
 - `connect-timeout`
@@ -123,6 +126,7 @@
 - 
 - `express-expose` / `express-state` - выдёргивание серверных методов и переменных на фронт в шаблонизатор (особо не нужен, но мало ли)
 - `greenlock` - клиент для `let's encrypt` (вроде как). туда же: `greenlock-express`, `auto-sni`
+- `apollo-server-express` - GraphQL
 
 ```javascript
 app.set('strict routing', true);
@@ -138,6 +142,7 @@ app.set('x-powered-by', false);
 - `koa-compress`
 - `koa-views`
 - `koa-logger`
+- `apollo-server-koa` - GraphQL
 
 ### Прочие фреймворки
 - `micro`
@@ -199,7 +204,8 @@ app.set('x-powered-by', false);
 - `klaw` - фс-walker на стримах
 - `path-exists`
 - `mkdirp`
-- `del` / `ncp`
+- `del`
+- `ncp` - асинхронное рекурсивное копирование файлов и папок
 - `move-concurrently` - самое быстрое (на сколько вообще возможно) перемещение файлов
 - `parse-filepath` - добавляет некоторые поля к стандартному выводу
 - `fs-write-stream-atomic`
@@ -261,7 +267,7 @@ app.set('x-powered-by', false);
 - `chalk` / `ansicolors` - раскраска
 - `better-console` - добавление console.table-методов
 - `cllc` / `multispinner` / `observatory` / `ora` / `draftlog` - вывод с лоадером
-- `commander` - настройка cli-аргументов для запуска приложения (с блекджеком и генератором справки)
+- `commander` / `vorpal` - настройка cli-аргументов для запуска приложения (с блекджеком и генератором справки)
 - `liftoff` - bin'арник для своего пакета
 - `eyes` - цветной вывод данных
 - `inquirer` - cli-промптер
@@ -269,6 +275,7 @@ app.set('x-powered-by', false);
 - `progress` / `gauge` - настраиваемый прогресс-бар
 - `boxen` - оборачивание сообщения в настраиваемую рамку
 - `dedent` - убирает ведущие и крайние пробелы и переводы строк в шаблонных строках (удобно для вывода многострочного текста)
+- `gtop` - консольный мониторинг системы
 - [форматирование `console.time`а](https://gist.github.com/antixrist/5dec38b757ead8adca186c067cf6f2f2)
 
 ### Логирование
@@ -317,6 +324,7 @@ app.set('x-powered-by', false);
 - `cuint` / `bignumber.js` / `long` / `bn.js`
 - `json-depth-stream` - потоковый парсер огромных json'ов
 - `media-typer` - парсер mime
+- `mime-types` - полный набор по работе с mime
 
 ### Рекваестеры и http-тулзы
 - `dnscache`
@@ -348,8 +356,9 @@ app.set('x-powered-by', false);
 - `mocha-allure-reporter` - `allure` - это репортер со своим веб-интерфейсом, преферансом и графиками
 
 ### Headless-браузеры и тестирование
-- `node-horseman`
 - `nightmare`
+- `chromeless` / `puppeteer` - обёртка над безголовым хромом
+- `node-horseman` - promise-обёртка над фантомом с апи, как у nightmare 
 - `uirecorder` - что-то вроде selenium от alibaba'ы
 - `leadfoot` (кроссплатформенная) / `taxi-rank` / `webdriverio` - обёртки над Selenium
 - `nightwatch` - тестировщик для работы с phantom/chromedriver напрямую, к тому же комбайн: инструмент для общения с браузером, фреймворк для тестов и библиотека ассертов.
@@ -414,13 +423,13 @@ app.set('x-powered-by', false);
 - `exceljs`
 - `xml2js` / `x2js` / `fast-xml2js`
 - `js-xlsx` - парсер и запись xls-форматов
+- `pdfjs-dist` - парсер и рендер pdf от mozilla'ы
 
 ### Генераторы (чисел, строк, данных, uid'ов)
 - `faker`
 - `faker.js`
 - `hashids` / `identifier` - строки из чисел
-- `node-uuid` / `uid-safe` / `nanoid`
-- `shortid`
+- `node-uuid` / `uid-safe` / `nanoid` / `cuid` / `shortid`
 - `sguid`
 - `randexp` - генерация строки по регэкспу
 - [gencc](https://github.com/grahamking/darkcoding-credit-card/blob/master/gencc.js) валидных номеров кредитных карт
@@ -506,6 +515,7 @@ app.set('x-powered-by', false);
 - `nodemailer` / `postmark`
 - `mailgen` / `mailmason` / [bojler](https://github.com/Slicejack/bojler), `email-templates` - html-шаблоны для мыла
 - `nonprofit-email-service`
+- `mailit` - готовый микросервис для отправки email'ов через http-api
 
 ## Изображения
 - `sharp` / `jimp` - полнофункциональная обработка
@@ -579,7 +589,9 @@ app.set('x-powered-by', false);
 - `toposort`
 
 ### Генерация документации
+- swagger
 - `apidoc`
+- [slate](https://github.com/lord/slate)
 
 ### Etc
 - `clipboardy` - кроссплатформенный доступ к системному буферу обмена
@@ -670,6 +682,10 @@ app.set('x-powered-by', false);
 ### nginx
 - [конфиг с настроенным кешем от h5bp](https://github.com/h5bp/server-configs-nginx)
 - [конфиг для http2/https, ipv6, load balancing'ом, нормальные заголовки для GeoIP](https://github.com/certsimple/nginx-http2-load-balancing-config)
+
+
+## Docker
+- [`portainer`](https://github.com/portainer/portainer) - лёгкое ui для docker'а
 
 
 ## Etc
