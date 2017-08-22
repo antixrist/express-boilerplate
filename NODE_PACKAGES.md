@@ -479,6 +479,7 @@ app.set('x-powered-by', false);
 - `internal` - созданице цепочки тасков, как у Nightmare
 - `archiver` - архиватор
 - `ffi` - работа с системными библиотеками без написания c++ обёрток
+- `apiai` - распознавание голоса с помощью гугловского [api.ai](https://api.ai/)
 
 ### Очередя и таски
 - `retry` (`async-retry`) / `tolerance`
