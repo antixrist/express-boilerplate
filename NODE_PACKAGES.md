@@ -622,6 +622,7 @@ app.set('x-powered-by', false);
 - `jquery-mask-plugin` / `inputmask`
 - `dropzone`
 - `webworker-promise` - promise-обёртка над webworker'ами
+- `scalable` - зачётный object-fit на scale'ах и translate'ах
 - `trunc-text`
 - `trunc-html`
 - `file-saver`
