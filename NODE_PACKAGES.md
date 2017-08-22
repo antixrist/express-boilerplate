@@ -621,6 +621,7 @@ app.set('x-powered-by', false);
 - `simplebar` - кроссбраузерный кастомный скролл
 - `jquery-mask-plugin` / `inputmask`
 - `dropzone`
+- `webworker-promise` - promise-обёртка над webworker'ами
 - `trunc-text`
 - `trunc-html`
 - `file-saver`
@@ -652,7 +653,6 @@ app.set('x-powered-by', false);
 - `pell` - норм текстовый редактор
 - `simple-web-worker`
 - [break-on-access](https://github.com/paulirish/break-on-access) - оочень полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
-
 - `analytics.js` - аналитика от segment.io
 - [обертка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
 - [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
