@@ -61,7 +61,7 @@
 
 ### Запуск и сборка
 - `gulp`
-- `webpack`, `webworkify-webpack` (`bundle-buddy`)
+- `webpack`, `webworkify-webpack` (`bundle-buddy`, `electron-webpack-dashboard`)
 - `chokidar` / `watchpack`
 - `browser-sync`
 - `parallelshell`
