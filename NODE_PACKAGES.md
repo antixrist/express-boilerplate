@@ -51,6 +51,7 @@
 - `reify` / `@std/esm` - врубает `import` без бабелей/вебпаков ([статья про `@std/esm`](https://blogs.windows.com/msedgedev/2017/08/10/es-modules-node-today/))
 - `open` - открывает ссылку в дефолтовом браузере системы
 - `toobusy-js`
+- `memwatch-next` - следит за утечками, можно зафорсить сборку мусора
 - `light-cycle` - реализация hashringcycle (аналог round-robin) для выбора шардов на лету
 - `hyper` - кроссплатформенный терминал на electron'е
 - `mediacenterjs` - браузерный персональный медиацентр
