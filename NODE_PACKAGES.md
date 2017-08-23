@@ -39,7 +39,11 @@
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
 - `js-meter` - замеры и форматирование потребляемой памяти/cpu/etc
 - `shelljs` - bash-функции прямо в ноде
-- `precommit-hook` - тулза запускающая npm-скрипты на коммиты / `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками, `commitizen` - интерактивка для сообщений к коммитам (fix/refactor/test/etc), validate-commit-msg` - валидатор сообщений к коммитам
+- `precommit-hook` - тулза запускающая npm-скрипты на коммиты
+- `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками
+- `commitizen` - интерактивка для сообщений к коммитам (fix/refactor/test/etc)-
+- `validate-commit-msg` - валидатор сообщений к коммитам
+- `standard-version` - автоматический changelog при обновлении версии на основе сообщений к коммитам
 - `app-module-path` - require хук, для маппинга кастомной рутовой директории
 - `node-notifier`
 - `nodejs-dashboard`
@@ -234,6 +238,8 @@ app.set('x-powered-by', false);
 - `end-of-stream` / `on-stream-end`
 - `stream-throttle`
 - `duplexify` (для `stream1` и `stream2`) / `duplexer2` (для `stream3`) - объединяет writable и readable стримы в один
+- `get-stream` - Собирает стрим в кучу и промисом выдаёт результат в виде строки или массива
+- `get-stdin` - То же, что и `get-stream`, но для stdin-процесса
 
 #### Rx
 - `highland`
