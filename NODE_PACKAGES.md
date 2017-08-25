@@ -461,7 +461,7 @@ app.set('x-powered-by', false);
 - `generatorics` - есть и permutations, и combinations, и cartesian, и всё это на генераторах
 
 ### Хэширование
-- `murmurhash-native` - быстрое и (вроде как) наименее коллизионное хэширование
+- `murmurhash-native` / `imurmurhash` - быстрое и (вроде как) наименее коллизионное хэширование
 - `object-hash`
 - `json-stable-stringify`
 - `stringify-object`
