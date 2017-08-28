@@ -39,7 +39,11 @@
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
 - `js-meter` - замеры и форматирование потребляемой памяти/cpu/etc
 - `shelljs` - bash-функции прямо в ноде
-- `precommit-hook` - тулза запускающая npm-скрипты на коммиты / `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками, `commitizen` - интерактивка для сообщений к коммитам (fix/refactor/test/etc), validate-commit-msg` - валидатор сообщений к коммитам
+- `precommit-hook` - тулза запускающая npm-скрипты на коммиты
+- `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками
+- `commitizen` - интерактивка для сообщений к коммитам (fix/refactor/test/etc)-
+- `validate-commit-msg` - валидатор сообщений к коммитам
+- `standard-version` - автоматический changelog при обновлении версии на основе сообщений к коммитам
 - `app-module-path` - require хук, для маппинга кастомной рутовой директории
 - `node-notifier`
 - `nodejs-dashboard`
@@ -47,6 +51,7 @@
 - `reify` / `@std/esm` - врубает `import` без бабелей/вебпаков ([статья про `@std/esm`](https://blogs.windows.com/msedgedev/2017/08/10/es-modules-node-today/))
 - `open` - открывает ссылку в дефолтовом браузере системы
 - `toobusy-js`
+- `memwatch-next` - следит за утечками, можно зафорсить сборку мусора
 - `light-cycle` - реализация hashringcycle (аналог round-robin) для выбора шардов на лету
 - `hyper` - кроссплатформенный терминал на electron'е
 - `mediacenterjs` - браузерный персональный медиацентр
@@ -61,7 +66,7 @@
 
 ### Запуск и сборка
 - `gulp`
-- `webpack`, `webworkify-webpack` (`bundle-buddy`)
+- `webpack`, `webworkify-webpack` (`bundle-buddy`, `electron-webpack-dashboard`)
 - `chokidar` / `watchpack`
 - `browser-sync`
 - `parallelshell`
@@ -234,6 +239,8 @@ app.set('x-powered-by', false);
 - `end-of-stream` / `on-stream-end`
 - `stream-throttle`
 - `duplexify` (для `stream1` и `stream2`) / `duplexer2` (для `stream3`) - объединяет writable и readable стримы в один
+- `get-stream` - Собирает стрим в кучу и промисом выдаёт результат в виде строки или массива
+- `get-stdin` - То же, что и `get-stream`, но для stdin-процесса
 
 #### Rx
 - `highland`
@@ -454,7 +461,7 @@ app.set('x-powered-by', false);
 - `generatorics` - есть и permutations, и combinations, и cartesian, и всё это на генераторах
 
 ### Хэширование
-- `murmurhash-native` - быстрое и (вроде как) наименее коллизионное хэширование
+- `murmurhash-native` / `imurmurhash` - быстрое и (вроде как) наименее коллизионное хэширование
 - `object-hash`
 - `json-stable-stringify`
 - `stringify-object`
@@ -479,6 +486,7 @@ app.set('x-powered-by', false);
 - `internal` - созданице цепочки тасков, как у Nightmare
 - `archiver` - архиватор
 - `ffi` - работа с системными библиотеками без написания c++ обёрток
+- `apiai` - распознавание голоса с помощью гугловского [api.ai](https://api.ai/)
 
 ### Очередя и таски
 - `retry` (`async-retry`) / `tolerance`
@@ -620,6 +628,8 @@ app.set('x-powered-by', false);
 - `simplebar` - кроссбраузерный кастомный скролл
 - `jquery-mask-plugin` / `inputmask`
 - `dropzone`
+- `webworker-promise` - promise-обёртка над webworker'ами
+- `scalable` - зачётный object-fit на scale'ах и translate'ах
 - `trunc-text`
 - `trunc-html`
 - `file-saver`
@@ -651,7 +661,6 @@ app.set('x-powered-by', false);
 - `pell` - норм текстовый редактор
 - `simple-web-worker`
 - [break-on-access](https://github.com/paulirish/break-on-access) - оочень полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
-
 - `analytics.js` - аналитика от segment.io
 - [обертка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
 - [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
