@@ -61,7 +61,8 @@
 - `host-env` - определение серверной платформы, на которой запущена нода
 - `snyk` - автосканер кода и зависимостей на известные уязвимости
 - `webworker-threads` - webworker'ы для ноды
-- `in-publish` - обнаружение в npm-scripts факта запуска публикации пакета (во время локальной разработки), чтобы делать что-то, что не нужно делать во время dev-установки 
+- `in-publish` - обнаружение в npm-scripts факта запуска публикации пакета (во время локальной разработки), чтобы делать что-то, что не нужно делать во время dev-установки
+- `shm-typed-array` - shared memory для node'ы
 - [пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 
 ### Запуск и сборка
@@ -290,6 +291,7 @@ app.set('x-powered-by', false);
 - `microlog`
 - `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` / `lggr` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный), `pino` ([сайт](http://getpino.io/#/)) - `pino` [должен быть самым быстрым](https://habrahabr.ru/company/ruvds/blog/334806/)
 - `gelf-stream` / `gelf-pro` - https://habrahabr.ru/company/2gis/blog/329128/
+- `mozlog`
 - `streamroller` / `file-stream-rotator` - ротация файлов логов
 - [пример обёртки для системы логирования](https://github.com/likeastore/jobber/blob/0ab763b5f1ad25e57774e6e7e73192db3b38430a/source/utils/logger.js)
 
@@ -300,6 +302,7 @@ app.set('x-powered-by', false);
 - `numeral` - работа с числами
 - `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов) / `date-fns` - улучшенная (и при этом проще) библиотека для манипуляций с датами / `jstimezonedetect` - для браузера (в основном)
 - `date.js` - парсер человекопонятных дат английском языке
+- `accounting` - парсер чисел и валют (в основном валют)
 - `human-interval` - парсер человекопонятных интервалов на английском языке
 - `filesize` - человекопятный размер файлов
 - `pretty-hrtime` - человекопятный `process.hrtime()`
@@ -328,7 +331,7 @@ app.set('x-powered-by', false);
 - `google-libphonenumber` - крутая штука для парсинга номеров телефонов
 - `quickselect`
 - `bintrees` - самосортируемая структура с бинарным поиском
-- `cuint` / `bignumber.js` / `long` / `bn.js`
+- `cuint` / `bignumber.js` / `long` / `bn.js` - big integer для js
 - `json-depth-stream` - потоковый парсер огромных json'ов
 - `media-typer` - парсер mime
 - `mime-types` - полный набор по работе с mime
@@ -492,7 +495,7 @@ app.set('x-powered-by', false);
 - `retry` (`async-retry`) / `tolerance`
 - `async-throttle`
 - `function-rate-limit`
-- `kue` - очередя на редисе
+- `kue` / `bull` / `bee-queue` - очередя на редисе
 - `agenda` - очередя на монге
 - `axon` - zeromq на ноде
 - `queue3`
@@ -539,12 +542,13 @@ app.set('x-powered-by', false);
 ### Морфология и текст
 - `phpmorphy`
 - `natural` - огромный набор инструментов для работы с натуральным языком (токенайзер, дистанции, префиксные деревья, стеммеры, классификаторы, сравнение звучаний, n-граммы, tf-idf, спеллчекер для английского, части речи)
+- `compromise` - под англ.язык и не только
 - `az`
 - `wordpos` - части речи для английского
 - `leven` - самый быстрый левенштейн
 - `fuzzyset.js` / `string_score` / `fuse.js` / `fuzzysort` - матчинг строк
 - `lunr-languages`
-- `petrovich` - склонение русских фио
+- `petrovich` / `name-case-lib-port` - склонение русских/украинских фио
 - `word2vec` / `word2vec-native` / `word2vec.js`
 - `wuzzy` - похожесть строк разными алгоритмами
 - `convert-layout` - смена раскладки переданной строки
@@ -649,7 +653,7 @@ app.set('x-powered-by', false);
 - `fingerprintjs2`
 - `lightbox2` - модалочка для картинок на ваниле
 - `history`
-- `mediaplayer` - лёгкий, расширяемый, интернациональный, доступный, кроссбраузерный, легконастраиваемый медиаплеер на ванильном js
+- `mediaplayer` / `video.js` - лёгкий, расширяемый, интернациональный, доступный, кроссбраузерный, легконастраиваемый медиаплеер на ванильном js
 - `jquery.payment` - форма для банковской карты [repo](https://github.com/stripe/jquery.payment)
 - `card-info` - форма для банковской карты [repo](https://github.com/iserdmi/card-info)
 - `card` - форма для банковской карты [repo](https://github.com/jessepollak/card)
@@ -659,6 +663,7 @@ app.set('x-powered-by', false);
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
 - `isInViewport` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky)
 - `flexslider`, `vue-awesome-swiper` - слайдер
+- `feather-icons` / `vue-feather-icon` - svg-иконки
 - `nanoscroller` - скроллер на jquery
 - `pell` - норм текстовый редактор
 - `simple-web-worker`
