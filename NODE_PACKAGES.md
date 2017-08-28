@@ -359,6 +359,7 @@ app.set('x-powered-by', false);
 - `readability` - вычленение основного и главного из всей страницы
 - `semantic-schema-parser` - парсер schema.org
 - `juice` - полный инлайнинг стилей в html
+- `page-metadata-parser` - парсинг метаданных страницы - мета-теги, opengraph
 
 ### Тестирование
 - `supertest`
@@ -553,7 +554,8 @@ app.set('x-powered-by', false);
 - `wuzzy` - похожесть строк разными алгоритмами
 - `convert-layout` - смена раскладки переданной строки
 - `@google-cloud/speech` - разпознавание теста из аудио с помощью google cloud api (есть русский язык)
-- `franc` - определение языка
+- `franc` / `guesslanguage` - определение языка
+- `node-summary` - выдёргивает основную мысль из текста
 - `yaspeller` - спеллчекер через яндексовое api
 - `@google-cloud/language` - определение языка, тональности текста, сущностей, предложений, токенов, etc. Это обёртка для Google Cloud Api. 
 
@@ -670,6 +672,7 @@ app.set('x-powered-by', false);
 - [break-on-access](https://github.com/paulirish/break-on-access) - оочень полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
 - `analytics.js` - аналитика от segment.io
 - [обертка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
+- `trafficcop` - ab-тестирование от mozilla'ы
 - [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
 - [залогинен ли юзер в соц.сетях](https://gist.github.com/antixrist/dbc4630fd4dab2d3bf3b0aa92a534363)
