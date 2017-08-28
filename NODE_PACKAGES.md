@@ -630,6 +630,7 @@ app.set('x-powered-by', false);
 - `dropzone`
 - `webworker-promise` - promise-обёртка над webworker'ами
 - `scalable` - зачётный object-fit на scale'ах и translate'ах
+- `fitty` - вписывает текст в родительский контейнер
 - `trunc-text`
 - `trunc-html`
 - `file-saver`
@@ -648,6 +649,7 @@ app.set('x-powered-by', false);
 - `fingerprintjs2`
 - `lightbox2` - модалочка для картинок на ваниле
 - `history`
+- `mediaplayer` - лёгкий, расширяемый, интернациональный, доступный, кроссбраузерный, легконастраиваемый медиаплеер на ванильном js
 - `jquery.payment` - форма для банковской карты [repo](https://github.com/stripe/jquery.payment)
 - `card-info` - форма для банковской карты [repo](https://github.com/iserdmi/card-info)
 - `card` - форма для банковской карты [repo](https://github.com/jessepollak/card)
@@ -687,6 +689,7 @@ app.set('x-powered-by', false);
 - `smoothscroll-polyfill`
 - `buffer`
 - `history.js`
+- [detect_flex](https://github.com/ergcode/ergonomic.detect_flex) - определение поддержки flexbox'ов (нормально работает в мобильниках)
 
 ### nginx
 - [конфиг с настроенным кешем от h5bp](https://github.com/h5bp/server-configs-nginx)
