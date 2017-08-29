@@ -493,7 +493,7 @@ app.set('x-powered-by', false);
 ### Очередя и таски
 - `retry` (`async-retry`) / `tolerance`
 - `async-throttle`
-- `semaphore` - 
+- `semaphore` - ограничитель одновременного доступа к ресурсу
 - `function-rate-limit`
 - `kue` / `bull` / `bee-queue` - очередя на редисе
 - `agenda` - очередя на монге
