@@ -391,6 +391,7 @@ app.set('x-powered-by', false);
 - `proxy-search`
 - `proxylist`
 - `http-proxy` - свой прокси-сервер на ноде
+- `http-mitm-proxy` - свой прокси-сервер на ноде
 - `anyproxy` - свой прокси-сервер на ноде от alibaba'ы
 
 #### Юзер-агентики
