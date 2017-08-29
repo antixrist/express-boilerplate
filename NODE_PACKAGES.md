@@ -258,10 +258,8 @@ app.set('x-powered-by', false);
 - `pg` / `pg-bluebird` / `pg-native`
 - `ioredis` / `redis` / `hiredis`, `redlock`
 - `reds` - поиск в редисе
-- `kue` - очередь с приоритетами в редисе (но для этих целей лучше брать `rabbitmq`)
-- ``amqplib`` / `tortoise` - клиент для rabbitmq
+- `amqplib` / `tortoise` - клиент для rabbitmq
 - `rethinkdb`
-- `localforage` - то же, что и `store`, только над `indexeddb`, `websql`, `localstorage`. Асинхронный.
 - `node-localstorage` (этот держит данные в памяти) / `dom-storage` (этот пишет данные в файл) - localStorage для NodeJS
 - `lowdb` - файловая json-бд поверх lodash'а
 
@@ -495,6 +493,7 @@ app.set('x-powered-by', false);
 ### Очередя и таски
 - `retry` (`async-retry`) / `tolerance`
 - `async-throttle`
+- `semaphore` - 
 - `function-rate-limit`
 - `kue` / `bull` / `bee-queue` - очередя на редисе
 - `agenda` - очередя на монге
