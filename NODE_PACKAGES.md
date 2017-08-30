@@ -539,6 +539,7 @@ app.set('x-powered-by', false);
 - `gm` / `graphicsmagick2`
 - `pixelmatch` - создание diff'а изображений
 - `pngjs`, `jpeg-js`
+- [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед отправкой на сервер)
 
 ### Морфология и текст
 - `phpmorphy`
@@ -677,6 +678,7 @@ app.set('x-powered-by', false);
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
 - [залогинен ли юзер в соц.сетях](https://gist.github.com/antixrist/dbc4630fd4dab2d3bf3b0aa92a534363)
 - [lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). демка: https://deanhume.github.io/lazy-observer-load/
+- [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед отправкой на сервер)
 - [Как правильно публиковать vue-компоненты](https://vuejsdevelopers.com/2017/07/31/vue-component-publish-npm/)
 
 ### Полифиллы:
