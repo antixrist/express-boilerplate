@@ -63,6 +63,7 @@
 - `webworker-threads` - webworker'ы для ноды
 - `in-publish` - обнаружение в npm-scripts факта запуска публикации пакета (во время локальной разработки), чтобы делать что-то, что не нужно делать во время dev-установки
 - `shm-typed-array` - shared memory для node'ы
+- `v8-natives` - вызов нативныз v8-меиодов, в т.ч. принудительный вызов gc
 - [пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 
 ### Запуск и сборка
@@ -534,6 +535,7 @@ app.set('x-powered-by', false);
 - `image-size`
 - `image-type`
 - `tesseract.js` - распознавалка текста
+- `node-openalpr` - распознавалка номерных знаков на нейронных сетях, tesseract'е и opencv
 - `exif2` / `gm-exif` / `libexif` / `exif-parser`
 - `gify` - делает гифку из видео
 - `gm` / `graphicsmagick2`
@@ -622,6 +624,9 @@ app.set('x-powered-by', false);
 ## Front
 - `asap` / `next-tick` / `setimmediate` - как только, так сразу. Кроссбраузерный `process.nextTick`
 - `simulant` - симуляция реальных браузерных событий
+- `fontfaceobserver` - promise-мониторилка загрузки веб-шрифтов, откуда бы они не загружались
+- [font-style-matcher](https://meowni.ca/font-style-matcher/) - онлайн сервис для подбора и настройки наиболее похожего fallback'чного шрифта
+- `system-font-css` - альтернатива стеку системных шрифтов
 - `mousetrap` - работа с комбинациями hotkey'ев
 - `@flowjs/flow.js` - загрузка файлов с примером бекенда на ноде
 - `smartcrop`
