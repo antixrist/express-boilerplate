@@ -99,7 +99,7 @@
 - `express-redirect`
 - `forcedomain`
 - `express-uncapitalize` (todo: проверить - возможно `express` имеет встроенные средства для таких редиректов)
-- `redirect-trailing-slash` / `express-slash`
+- `redirect-trailing-slash` / `express-slash` / `connect-slashes`
 - `maintenance` - перевод приложения в режим "обслуживания" через post-запрос к определённому урлу с отдачей статичной страницы
 - 
 - `express-session`
