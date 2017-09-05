@@ -637,8 +637,9 @@ app.set('x-powered-by', false);
 - `noty` ([обёртка для vue](https://github.com/nikitamarcius/vue-notice)) - уведомлялка
 - `criticalcss` / `critical` / `penthouse` - critical css
 - `scrollbarwidth`
-- `@nishanths/zoom.js` - zoom изображений как на medium'е
 - `simplebar` - кроссбраузерный кастомный скролл
+- `@nishanths/zoom.js` - zoom изображений как на medium'е
+- `lightbox2` - модалочка для картинок на ваниле
 - `jquery-mask-plugin` / `inputmask`
 - `dropzone`
 - `webworker-promise` - promise-обёртка над webworker'ами
@@ -660,7 +661,6 @@ app.set('x-powered-by', false);
 - `bowser` / `platform` / `mobile-detect`- определитель девайса по юзерагенту
 - `evercookie` - [repo](https://github.com/samyk/evercookie)
 - `fingerprintjs2`
-- `lightbox2` - модалочка для картинок на ваниле
 - `history`
 - `mediaplayer` / `video.js` - лёгкий, расширяемый, интернациональный, доступный, кроссбраузерный, легконастраиваемый медиаплеер на ванильном js
 - `jquery.payment` - форма для банковской карты [repo](https://github.com/stripe/jquery.payment)
@@ -683,7 +683,7 @@ app.set('x-powered-by', false);
 - [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
 - [залогинен ли юзер в соц.сетях](https://gist.github.com/antixrist/dbc4630fd4dab2d3bf3b0aa92a534363)
-- [lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). демка: https://deanhume.github.io/lazy-observer-load/
+- `lozad` / [lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). демка: https://deanhume.github.io/lazy-observer-load/
 - [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед отправкой на сервер)
 - [Как правильно публиковать vue-компоненты](https://vuejsdevelopers.com/2017/07/31/vue-component-publish-npm/)
 
