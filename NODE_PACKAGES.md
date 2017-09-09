@@ -642,7 +642,7 @@ app.set('x-powered-by', false);
 - `lightbox2` - модалочка для картинок на ваниле
 - `jquery-mask-plugin` / `inputmask`
 - `dropzone`
-- `webworker-promise` - promise-обёртка над webworker'ами
+- `webworker-promise` - promise-обёртка над webworker'ами ([статья](https://habrahabr.ru/post/337492/))
 - `scalable` - зачётный object-fit на scale'ах и translate'ах
 - `fitty` - вписывает текст в родительский контейнер
 - `trunc-text`
