@@ -60,7 +60,7 @@
 - `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
 - `host-env` - определение серверной платформы, на которой запущена нода
 - `snyk` - автосканер кода и зависимостей на известные уязвимости
-- `webworker-threads` - webworker'ы для ноды
+- `webworker-threads` / `workerpool` - webworker'ы для ноды
 - `in-publish` - обнаружение в npm-scripts факта запуска публикации пакета (во время локальной разработки), чтобы делать что-то, что не нужно делать во время dev-установки
 - `shm-typed-array` - shared memory для node'ы
 - `v8-natives` - вызов нативныз v8-меиодов, в т.ч. принудительный вызов gc
@@ -642,6 +642,7 @@ app.set('x-powered-by', false);
 - `lightbox2` - модалочка для картинок на ваниле
 - `jquery-mask-plugin` / `inputmask`
 - `dropzone`
+- `simple-web-worker`
 - `webworker-promise` - promise-обёртка над webworker'ами ([статья](https://habrahabr.ru/post/337492/))
 - `scalable` - зачётный object-fit на scale'ах и translate'ах
 - `fitty` - вписывает текст в родительский контейнер
@@ -675,7 +676,6 @@ app.set('x-powered-by', false);
 - `feather-icons` / `vue-feather-icon` - svg-иконки
 - `nanoscroller` - скроллер на jquery
 - `pell` - норм текстовый редактор
-- `simple-web-worker`
 - [break-on-access](https://github.com/paulirish/break-on-access) - оочень полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
 - `analytics.js` - аналитика от segment.io
 - [обертка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
