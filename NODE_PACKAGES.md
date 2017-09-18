@@ -63,7 +63,7 @@
 - `webworker-threads` / `workerpool` - webworker'ы для ноды
 - `in-publish` - обнаружение в npm-scripts факта запуска публикации пакета (во время локальной разработки), чтобы делать что-то, что не нужно делать во время dev-установки
 - `shm-typed-array` - shared memory для node'ы
-- `v8-natives` - вызов нативныз v8-меиодов, в т.ч. принудительный вызов gc
+- `v8-natives` - вызов нативныз v8-методов, в т.ч. принудительный вызов gc
 - [пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 
 ### Запуск и сборка
@@ -204,9 +204,9 @@ app.set('x-powered-by', false);
 - `strong-cluster-control`
 
 ### ФС
+- `fs-extra`, `graceful-fs`
 - `anymatch` - матчер по чему угодно (глоб, регэксп, етс)
 - `chokidar` - слушатель фс
-- `fs-extra`, `graceful-fs`
 - `is-glob` / `glob` / `globby` / `glob-all`
 - `klaw` - фс-walker на стримах
 - `path-exists`
@@ -334,6 +334,7 @@ app.set('x-powered-by', false);
 - `json-depth-stream` - потоковый парсер огромных json'ов
 - `media-typer` - парсер mime
 - `mime-types` - полный набор по работе с mime
+- `ellipsed` - обрезка с многоточием многострочных текстов
 
 ### Рекваестеры и http-тулзы
 - `dnscache`
@@ -473,7 +474,7 @@ app.set('x-powered-by', false);
 
 ### Полезности
 - `bluebird` / `relike` / `awaiting` (для промисификации)
-- `mz` - promise-обёртка над системными функциями
+- `p-progress` - промисы с прогрессом ([много интересного для промисов](https://github.com/sindresorhus/promise-fun))
 - `pify` - промисификатор
 - `thunkify` - callback'ифицирует callbacks, arrays, generators, generator functions, and promises
 - `inflight` / `promise-inflight` - оборачивает функцию таким образом, что можно вызывать функцию-обёртку несколько раз с разными коллбеками, а когда вызов функции завершит выполнение, то все коллбеки будут выполненны последовательно и асинхронно
@@ -678,14 +679,16 @@ app.set('x-powered-by', false);
 - `pell` - норм текстовый редактор
 - [break-on-access](https://github.com/paulirish/break-on-access) - оочень полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
 - `analytics.js` - аналитика от segment.io
-- [обертка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
-- `trafficcop` - ab-тестирование от mozilla'ы
-- [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
+- [обёртка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
 - [залогинен ли юзер в соц.сетях](https://gist.github.com/antixrist/dbc4630fd4dab2d3bf3b0aa92a534363)
 - `lozad` / [lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). демка: https://deanhume.github.io/lazy-observer-load/
 - [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед отправкой на сервер)
 - [Как правильно публиковать vue-компоненты](https://vuejsdevelopers.com/2017/07/31/vue-component-publish-npm/)
+
+### ab-тесты
+- `trafficcop` - ab-тестирование от mozilla'ы
+- [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
 
 ### Полифиллы:
 [polyfill-service](https://github.com/Financial-Times/polyfill-service) - смысл в том, чтобы использовать из этого сервиса только браузерное api. Для полифиллинга языковых средств используется `babel-polyfill`. Или наоборот? Включать отсюда всё, а из `babel-polyfill` добавлять всё остальное?
