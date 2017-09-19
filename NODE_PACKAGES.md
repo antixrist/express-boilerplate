@@ -673,7 +673,7 @@ app.set('x-powered-by', false);
 - `block-elements` - определяет, является ли тег блочным (по названию)
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
 - `isInViewport` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky)
-- `flexslider`, `vue-awesome-swiper` - слайдер
+- `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` - слайдер
 - `feather-icons` / `vue-feather-icon` - svg-иконки
 - `nanoscroller` - скроллер на jquery
 - `pell` - норм текстовый редактор
