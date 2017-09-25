@@ -533,6 +533,7 @@ app.set('x-powered-by', false);
 - `mailgen` / `mailmason` / [bojler](https://github.com/Slicejack/bojler), `email-templates` - html-шаблоны для мыла
 - `nonprofit-email-service`
 - `mailit` - готовый микросервис для отправки email'ов через http-api
+- [Bulletproof email buttons](https://buttons.cm/)
 
 ## Изображения
 - `sharp` / `jimp` - полнофункциональная обработка
