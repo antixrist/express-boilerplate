@@ -190,6 +190,7 @@ app.set('x-powered-by', false);
 - `trace` - максимально удлиняет стек вызовов в стектрейсах
 - `clarify` - вырезает из стектрейсов строки с системными вызовами (`node --stack_trace_limit=100 -r trace -r clarify wired.js`)
 - `stack-chain` - кастомный парсер стектрейсов для маппинга/фильтрации/etc
+- `stacktracey` - парсинг колстека с соурсмапами и читабельным выводом
 [пример с trace, clarify и stack-chain](https://gist.github.com/antixrist/88b3d77f803377944789f02357b83c89)
 - [подходы к локальной обработке ошибок](https://learn.javascript.ru/exception) и их [логирования на сервер](https://habrahabr.ru/post/324366/)
 - сервисы для отправки и анализа непойманных ошибок:
@@ -286,6 +287,7 @@ app.set('x-powered-by', false);
 - [форматирование `console.time`а](https://gist.github.com/antixrist/5dec38b757ead8adca186c067cf6f2f2)
 
 ### Логирование
+- `ololog`
 - `debug`
 - `microlog`
 - `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` / `lggr` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный), `pino` ([сайт](http://getpino.io/#/)) - `pino` [должен быть самым быстрым](https://habrahabr.ru/company/ruvds/blog/334806/)
@@ -665,6 +667,8 @@ app.set('x-powered-by', false);
 - `fingerprintjs2`
 - `history`
 - `mediaplayer` / `video.js` - лёгкий, расширяемый, интернациональный, доступный, кроссбраузерный, легконастраиваемый медиаплеер на ванильном js
+- `animejs` - норм такие анимашки
+- `tabbable` - находит все dom-ноды, в которые возможна фокусировка tab'ом, внутри переданного контейнера
 - `jquery.payment` - форма для банковской карты [repo](https://github.com/stripe/jquery.payment)
 - `card-info` - форма для банковской карты [repo](https://github.com/iserdmi/card-info)
 - `card` - форма для банковской карты [repo](https://github.com/jessepollak/card)
@@ -677,12 +681,13 @@ app.set('x-powered-by', false);
 - `feather-icons` / `vue-feather-icon` - svg-иконки
 - `nanoscroller` - скроллер на jquery
 - `pell` - норм текстовый редактор
+- `react-aria-modal` - правильная модалка ([статья](https://habrahabr.ru/post/338130/))
 - [break-on-access](https://github.com/paulirish/break-on-access) - оочень полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
 - `analytics.js` - аналитика от segment.io
 - [обёртка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
 - [залогинен ли юзер в соц.сетях](https://gist.github.com/antixrist/dbc4630fd4dab2d3bf3b0aa92a534363)
-- `lozad` / [lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). демка: https://deanhume.github.io/lazy-observer-load/
+- `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). демка: https://deanhume.github.io/lazy-observer-load/
 - [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед отправкой на сервер)
 - [Как правильно публиковать vue-компоненты](https://vuejsdevelopers.com/2017/07/31/vue-component-publish-npm/)
 
@@ -692,6 +697,7 @@ app.set('x-powered-by', false);
 
 ### Полифиллы:
 [polyfill-service](https://github.com/Financial-Times/polyfill-service) - смысл в том, чтобы использовать из этого сервиса только браузерное api. Для полифиллинга языковых средств используется `babel-polyfill`. Или наоборот? Включать отсюда всё, а из `babel-polyfill` добавлять всё остальное?
+- `dom4`
 - `store` - враппер над localStorage'м с fallback'ами на всё, что только возможно. можно сделать асинхронным для обёртки над редисом или типа того. В ноде хорошо работает в связке с `node-localstorage` / `dom-storage`.
 - `localforage` - то же, что и `store`, только над `indexeddb`, `websql`, `localstorage`. Асинхронный.
 - `dexie` - враппер над IndexedDB
