@@ -78,6 +78,7 @@
 - `concurrently` - для запуска нескольких одновременных задач из `npm run`
 - `is-ci` - проверяет, запущен ли код в ci-окружении
 - `is-ci-cli` - позволяет для разных ci-окружений запускать разные npm-скрипты
+- `directory-encoder` - что-то вроде `spritesmith` от filament'а
 
 ### Express.js
 - [pillarjs](https://github.com/pillarjs) - много low-level вкусняшек
@@ -633,27 +634,28 @@ app.set('x-powered-by', false);
 - `fontfaceobserver` - promise-мониторилка загрузки веб-шрифтов, откуда бы они не загружались
 - [font-style-matcher](https://meowni.ca/font-style-matcher/) - онлайн сервис для подбора и настройки наиболее похожего fallback'чного шрифта
 - `system-font-css` - альтернатива стеку системных шрифтов
+- `glyphhanger` - консольная тузла, которая пауком проходится по страничкам, смотрит какие глифы используются и сохраняет с ними файлы шрифтов (т.е. нужна для оптимизации используемых веб-шрифтов)
 - `mousetrap` - работа с комбинациями hotkey'ев
+- `tablesaw` - responsive-таблицы от filament'а (с кучей функционала)
+- `fg-select-css` - стили для кроссбраузерной кастомизации select'а от filament'а
 - `@flowjs/flow.js` - загрузка файлов с примером бекенда на ноде
 - `smartcrop`
 - `vkey`
 - `drop-anywhere` - для d'n'd загрузки файлов где угодно на странице
+- `dropzone`
 - `focus` - нахождение центральной сущности на изображении для последующей фокусировки или кропа
 - `noty` ([обёртка для vue](https://github.com/nikitamarcius/vue-notice)) - уведомлялка
 - `criticalcss` / `critical` / `penthouse` - critical css
 - `scrollbarwidth`
 - `simplebar` - кроссбраузерный кастомный скролл
-- `@nishanths/zoom.js` - zoom изображений как на medium'е
-- `lightbox2` - модалочка для картинок на ваниле
 - `jquery-mask-plugin` / `inputmask`
-- `dropzone`
 - `simple-web-worker`
 - `webworker-promise` - promise-обёртка над webworker'ами ([статья](https://habrahabr.ru/post/337492/))
 - `scalable` - зачётный object-fit на scale'ах и translate'ах
 - `fitty` - вписывает текст в родительский контейнер
 - `trunc-text`
 - `trunc-html`
-- `file-saver`
+- `file-saver`, `save-as`
 - `popper.js` / `tooltip.js` - замена `tether`у
 - `equalizecss` - bootstrap-like flex-сетка на sass'е
 - `floatthead` / `vue-floatthead` / [minicss](http://minicss.org/table#scrollable-tables) - плавающая шапка у таблиц (вроде самая нормальная из всех возможных), но на jquery
@@ -678,12 +680,17 @@ app.set('x-powered-by', false);
 - `banks-db` - определение банка по номеру карты
 - `block-elements` - определяет, является ли тег блочным (по названию)
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
-- `isInViewport` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky)
-- `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` - слайдер
+- `isInViewport` / `porthole` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky)
+- `lightbox2` - модалочка для картинок на ваниле
+- `@nishanths/zoom.js` - zoom изображений как на medium'е
+- `fg-enlarge` - zoom изображения вслед за курсором внутри контейнера, как на али 
+- `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` - каруселька
+- `@filamentgroup/tau` - 360° галерея
 - `feather-icons` / `vue-feather-icon` - svg-иконки
 - `nanoscroller` - скроллер на jquery
 - `pell` - норм текстовый редактор
 - `cleave.js` / `text-mask-all` / `imaskjs` - маски текстового ввода
+- `fg-loadcss` - асинхронная загрузка css от filament'а
 - `react-aria-modal` - правильная модалка ([статья](https://habrahabr.ru/post/338130/))
 - [break-on-access](https://github.com/paulirish/break-on-access) - оочень полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
 - `analytics.js` - аналитика от segment.io
@@ -691,8 +698,8 @@ app.set('x-powered-by', false);
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
 - [залогинен ли юзер в соц.сетях](https://gist.github.com/antixrist/dbc4630fd4dab2d3bf3b0aa92a534363)
 - `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). демка: https://deanhume.github.io/lazy-observer-load/
-- [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед отправкой на сервер)
-- [Как правильно публиковать vue-компоненты](https://vuejsdevelopers.com/2017/07/31/vue-component-publish-npm/)
+- [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед upload'ом на сервер)
+- [Как правильно публиковать](https://pablohpsilva.github.io/vuejs-component-style-guide/#/russian) [vue-компоненты](https://vuejsdevelopers.com/2017/07/31/vue-component-publish-npm/)
 
 ### ab-тесты
 - `trafficcop` - ab-тестирование от mozilla'ы
@@ -705,7 +712,7 @@ app.set('x-powered-by', false);
 - `localforage` - то же, что и `store`, только над `indexeddb`, `websql`, `localstorage`. Асинхронный.
 - `dexie` - враппер над IndexedDB
 - `custom-event`
-- `sticky-state`
+- `sticky-state` / `fixed-sticky` - второй от filament'а и используется на mail.ru'ответах
 - `object-fit-images`
 - `url-search-params`
 - `resize-observer-polyfill`
