@@ -439,7 +439,7 @@ app.set('x-powered-by', false);
 - `excelize`
 - `exceljs`
 - `xml2js` / `x2js` / `fast-xml2js`
-- `js-xlsx` - парсер и запись xls-форматов
+- `js-xlsx` / `xlsx` - парсер и запись xls-форматов
 - `pdfjs-dist` - парсер и рендер pdf от mozilla'ы
 
 ### Генераторы (чисел, строк, данных, uid'ов)
