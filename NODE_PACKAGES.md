@@ -78,7 +78,8 @@
 - `concurrently` - для запуска нескольких одновременных задач из `npm run`
 - `is-ci` - проверяет, запущен ли код в ci-окружении
 - `is-ci-cli` - позволяет для разных ci-окружений запускать разные npm-скрипты
-- `directory-encoder` - что-то вроде `spritesmith` от filament'а
+- `spritesmith` / `sprity` (`sprity-gm`) / `directory-encoder` - генераторы спрайтов и css к ним
+- `sqip` - делает из png svg'шку с градиентом основных цветов изображения
 
 ### Express.js
 - [pillarjs](https://github.com/pillarjs) - много low-level вкусняшек
@@ -635,6 +636,8 @@ app.set('x-powered-by', false);
 - [font-style-matcher](https://meowni.ca/font-style-matcher/) - онлайн сервис для подбора и настройки наиболее похожего fallback'чного шрифта
 - `system-font-css` - альтернатива стеку системных шрифтов
 - `glyphhanger` - консольная тузла, которая пауком проходится по страничкам, смотрит какие глифы используются и сохраняет с ними файлы шрифтов (т.е. нужна для оптимизации используемых веб-шрифтов)
+- `nerd-fonts` - компиляция всех популярных opensource-шрифтов в один
+- `feather-icons` / `vue-feather-icon` / `material-design-icons` - svg-иконки
 - `mousetrap` - работа с комбинациями hotkey'ев
 - `tablesaw` - responsive-таблицы от filament'а (с кучей функционала)
 - `fg-select-css` - стили для кроссбраузерной кастомизации select'а от filament'а
@@ -688,9 +691,9 @@ app.set('x-powered-by', false);
 - `@filamentgroup/tau` - 360° галерея
 - `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). демка: https://deanhume.github.io/lazy-observer-load/
 - `image-promise` - промайзнутый `new Image` с кучей правильных проверок
-- `feather-icons` / `vue-feather-icon` - svg-иконки
 - `nanoscroller` - скроллер на jquery
 - `pell` - норм текстовый редактор
+- `sentinel-js` - отслеживает появление dom-элементов с заданным селектором
 - `cleave.js` / `text-mask-all` / `imaskjs` - маски текстового ввода
 - `fg-loadcss` - асинхронная загрузка css от filament'а
 - `react-aria-modal` - правильная модалка ([статья](https://habrahabr.ru/post/338130/))
