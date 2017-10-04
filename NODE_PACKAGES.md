@@ -664,7 +664,6 @@ app.set('x-powered-by', false);
 - `popper.js` / `tooltip.js` - замена `tether`у
 - `equalizecss` - bootstrap-like flex-сетка на sass'е
 - `floatthead` / `vue-floatthead` / [minicss](http://minicss.org/table#scrollable-tables) - плавающая шапка у таблиц (вроде самая нормальная из всех возможных), но на jquery
-- `vuex-loading`
 - `rader` - слайдер от 2gis'а
 - `geoloc` - геолокация с фронта путём опроса свободных источников от 2gis'а
 - `appmetrics.js` - обертка над User Timing API, с возможностью отправки всего намерянного в GA.
@@ -698,13 +697,20 @@ app.set('x-powered-by', false);
 - `sentinel-js` - отслеживает появление dom-элементов с заданным селектором
 - `cleave.js` / `text-mask-all` / `imaskjs` - маски текстового ввода
 - `fg-loadcss` - асинхронная загрузка css от filament'а
+- `@shopify/draggable` - мощная новая drag-n-drop'алка
 - `react-aria-modal` - правильная модалка ([статья](https://habrahabr.ru/post/338130/))
+- [`micromodal`](https://micromodal.now.sh/) - тоже норм aria-модалка
 - [break-on-access](https://github.com/paulirish/break-on-access) - оочень полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
 - `analytics.js` - аналитика от segment.io
 - [обёртка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
 - [залогинен ли юзер в соц.сетях](https://gist.github.com/antixrist/dbc4630fd4dab2d3bf3b0aa92a534363)
 - [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед upload'ом на сервер)
+
+### Vue.js
+- `vuex-shared-mutations` - запускает мутации на всех открытых табах
+- `vuex-loading`
+- `vuex-cache`
 - [Как правильно публиковать](https://pablohpsilva.github.io/vuejs-component-style-guide/#/russian) [vue-компоненты](https://vuejsdevelopers.com/2017/07/31/vue-component-publish-npm/)
 
 ### ab-тесты
