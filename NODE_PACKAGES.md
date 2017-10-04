@@ -136,6 +136,7 @@
 - `express-expose` / `express-state` - выдёргивание серверных методов и переменных на фронт в шаблонизатор (особо не нужен, но мало ли)
 - `greenlock` - клиент для `let's encrypt` (вроде как). туда же: `greenlock-express`, `auto-sni`
 - `apollo-server-express` - GraphQL
+- `epilogue` - быстрое создание rest endpoint'ов
 
 ```javascript
 app.set('strict routing', true);
@@ -325,7 +326,6 @@ app.set('x-powered-by', false);
 - `deep-diff` / `diff` / `jsondiffpatch` / `jiff`
 - `fastest-clone`
 - `deepmerge`
-- `yn` - parse yes/no like values
 - `jsesc` - шибко умное экранирование
 - `insane` - `jevix` для js
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
@@ -336,10 +336,11 @@ app.set('x-powered-by', false);
 - `quickselect`
 - `bintrees` - самосортируемая структура с бинарным поиском
 - `cuint` / `bignumber.js` / `long` / `bn.js` - big integer для js
-- `json-depth-stream` - потоковый парсер огромных json'ов
 - `media-typer` - парсер mime
 - `mime-types` - полный набор по работе с mime
 - `ellipsed` - обрезка с многоточием многострочных текстов
+- `html-to-text`
+- `feed-read` - парсер rss фидов
 
 ### Рекваестеры и http-тулзы
 - `dnscache`
@@ -357,6 +358,7 @@ app.set('x-powered-by', false);
 - `node-readability` - вычленение основного текста со страницы
 - `follow-redirects`
 - `nock` - mock'и для http-запросов (удобно для тестирования и заглушки api)
+- `slimbot` - бот для телеграмма
 
 ### Парсинг dom'а
 - `jsdom` / `browser-env`
