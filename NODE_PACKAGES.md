@@ -69,7 +69,7 @@
 ### Запуск и сборка
 - `gulp`
 - `webpack`, `webworkify-webpack` (`bundle-buddy`, `electron-webpack-dashboard`)
-- `chokidar` / `watchpack`
+- `chokidar` / `watchpack` / `watchman`
 - `browser-sync`
 - `parallelshell`
 - `better-npm-run`
@@ -105,6 +105,7 @@
 - `maintenance` - перевод приложения в режим "обслуживания" через post-запрос к определённому урлу с отдачей статичной страницы
 - 
 - `express-session`
+- `sticky-session` - шаринг сессий между воркерами (например, с помощью `cluster`)
 - `cookie-parser`
 - `cookie-signature` - подпись кук
 - `connect-redis` (сессии в редисе) / `express-mysql-session` (сессии в mysql)
@@ -137,6 +138,7 @@
 - `greenlock` - клиент для `let's encrypt` (вроде как). туда же: `greenlock-express`, `auto-sni`
 - `apollo-server-express` - GraphQL
 - `epilogue` - быстрое создание rest endpoint'ов
+- `type-is` - проверка типа содержимого запроса
 
 ```javascript
 app.set('strict routing', true);
@@ -159,11 +161,12 @@ app.set('x-powered-by', false);
 - `cote`
 - `studio`
 - `socketcluster`
+- `primus`
 
 ### Сокеты
 - `socket.io` - стандарт дефакто, но давным-давно раздулся и уехал не в ту сторону.
 - `sockjs` - проще, понятнее, предсказуемее.
-- `sticky-session` - шаринг сессий между воркерами (например, с помощью `cluster`)
+- `uws` - прозрачная (почти) замена `ws` с лучшей производительностью
 - `primus` - универсальная обёртка над всеми socket-realtime фреймворками
 
 ### Конфигурация
@@ -194,7 +197,8 @@ app.set('x-powered-by', false);
 - `clarify` - вырезает из стектрейсов строки с системными вызовами (`node --stack_trace_limit=100 -r trace -r clarify wired.js`)
 - `stack-chain` - кастомный парсер стектрейсов для маппинга/фильтрации/etc
 - `stacktracey` - парсинг колстека с соурсмапами и читабельным выводом
-[пример с trace, clarify и stack-chain](https://gist.github.com/antixrist/88b3d77f803377944789f02357b83c89)
+- `stackman`
+- [пример с trace, clarify и stack-chain](https://gist.github.com/antixrist/88b3d77f803377944789f02357b83c89)
 - [подходы к локальной обработке ошибок](https://learn.javascript.ru/exception) и их [логирования на сервер](https://habrahabr.ru/post/324366/)
 - сервисы для отправки и анализа непойманных ошибок:
   - https://stacktracejs.com/
@@ -210,7 +214,7 @@ app.set('x-powered-by', false);
 ### ФС
 - `fs-extra`, `graceful-fs`
 - `anymatch` - матчер по чему угодно (глоб, регэксп, етс)
-- `chokidar` - слушатель фс
+- `chokidar` / `watchpack` / `watchman` - слушатель фс
 - `is-glob` / `glob` / `globby` / `glob-all`
 - `klaw` - фс-walker на стримах
 - `path-exists`
@@ -228,13 +232,12 @@ app.set('x-powered-by', false);
 - `relative` - расширенный `path.relative()`
 - `sanitize-filename` - очищает строку от спецсимволов и "папок", делая её валидным названием файла 
 - `tmp` - работа с временными файлами и директориями
+- `os-tmpdir`
+- `os-homedir`
+- `user-home`
 - `cacache` - умное управление файловым кешем
 
 ### Стримы
-- `csv-stringify`, `fast-csv` / `csv-streamify`
-- `xml-mapping` - json в xml и обратно
-- `html-tokenize`
-- `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
 - `event-stream`
 - `split2`
 - `through2`
@@ -293,14 +296,14 @@ app.set('x-powered-by', false);
 - `ololog`
 - `debug`
 - `microlog`
-- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` / `lggr` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный), `pino` ([сайт](http://getpino.io/#/)) - `pino` [должен быть самым быстрым](https://habrahabr.ru/company/ruvds/blog/334806/)
+- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` / `lggr` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный), `loglevel`, `pino` ([сайт](http://getpino.io/#/)) - `pino` [должен быть самым быстрым](https://habrahabr.ru/company/ruvds/blog/334806/)
 - `gelf-stream` / `gelf-pro` - https://habrahabr.ru/company/2gis/blog/329128/
 - `mozlog`
 - `streamroller` / `file-stream-rotator` - ротация файлов логов
 - [пример обёртки для системы логирования](https://github.com/likeastore/jobber/blob/0ab763b5f1ad25e57774e6e7e73192db3b38430a/source/utils/logger.js)
 
 ### Данные
-- `lodash` / `iterare` / `fast.js`
+- `lodash` / `iterare` / `fast.js` / [just](https://github.com/angus-c/just)
 - `object-path` / `dottie` - продвинутый `_.get()`
 - `string` / `strman` - если лодашевских методов работы со строками будет не хватать
 - `printable-characters` - набор функций для работы с невидимыми печатными символами (определение длины, etc)
@@ -308,24 +311,28 @@ app.set('x-powered-by', false);
 - `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов) / `date-fns` - улучшенная (и при этом проще) библиотека для манипуляций с датами / `jstimezonedetect` - для браузера (в основном) / `spacetime` - для работы с датами и временными зонами
 - `date.js` - парсер человекопонятных дат английском языке
 - `accounting` - парсер чисел и валют (в основном валют)
+- `currency-formatter` - форматтер валют
 - `human-interval` - парсер человекопонятных интервалов на английском языке
 - `filesize` - человекопятный размер файлов
 - `pretty-hrtime` - человекопятный `process.hrtime()`
 - `humanize-number` - человекопонятные числа
 - `expiry-js` / `ms` - парсер длительностей (1M, 1Y, 1h, 1m, 1s, 1ms, etc)
-- `json5` - json с блекджеком и комментиками
+- `pretty-ms` - форматирование миллисекунд
 - `JSONSchema` / `ajv` - создание и валидация JSONScheme'ы
 - `joi` / `schema-inspector` / `validator` / `forms` - санитизация/валидация
+- `isemail`
 - `sanitize-html` / `escape-html` / `he`
 - `checkit`
 - `repository`
 - `normalizr`, `reselect` - для flux-архитектуры
 - `normalize-object`
+- `serialize-javascript`
 - `kind-of` - нормальная замена typeof
 - `tableize` - схлопывает json-структуру в объект вида `{'level1key': 'level1value', 'level1key.level2key': 'level2value'}`
-- `deep-diff` / `diff` / `jsondiffpatch` / `jiff`
+- `deep-diff` / `diff` / `jsondiffpatch` / `jiff` / `just-diff`, `just-diff-apply`
 - `fastest-clone`
 - `deepmerge`
+- `deep-freeze`
 - `jsesc` - шибко умное экранирование
 - `insane` - `jevix` для js
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
@@ -335,9 +342,11 @@ app.set('x-powered-by', false);
 - `google-libphonenumber` - крутая штука для парсинга номеров телефонов
 - `quickselect`
 - `bintrees` - самосортируемая структура с бинарным поиском
-- `cuint` / `bignumber.js` / `long` / `bn.js` - big integer для js
+- `cuint` / `bignumber.js` / `long` / `bn.js` / `bigi` - big integer для js
 - `media-typer` - парсер mime
+- `mime` / `mime-db`
 - `mime-types` - полный набор по работе с mime
+- `file-type` - определятор типа файла
 - `ellipsed` - обрезка с многоточием многострочных текстов
 - `html-to-text`
 - `feed-read` - парсер rss фидов
@@ -352,21 +361,28 @@ app.set('x-powered-by', false);
 - `needle`
 - `node-fetch`
 - `superagent`
-- `download`
+- `download` / `getit`
 - `is-online` - есть ли коннект с интернетом
 - `is-reachable` - есть ли коннект с конкретным ресурсом
 - `node-readability` - вычленение основного текста со страницы
 - `follow-redirects`
+- `http-status` / `statuses`
 - `nock` - mock'и для http-запросов (удобно для тестирования и заглушки api)
 - `slimbot` - бот для телеграмма
 
-### Парсинг dom'а
+### Парсинг dom'а, json'а, csv
 - `jsdom` / `browser-env`
 - `cheerio` / `whacko`
+- `json5` - json с блекджеком и комментиками
 - `readability` - вычленение основного и главного из всей страницы
 - `semantic-schema-parser` - парсер schema.org
 - `juice` - полный инлайнинг стилей в html
 - `page-metadata-parser` - парсинг метаданных страницы - мета-теги, opengraph
+- `csv-stringify`, `fast-csv` / `csv-streamify` / `papaparse`
+- `xml-mapping` - json в xml и обратно
+- `xmldoc`
+- `html-tokenize`
+- `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
 
 ### Тестирование
 - `supertest`
@@ -436,6 +452,7 @@ app.set('x-powered-by', false);
 - `protocolify`
 - `urijs`
 - `url-pattern`
+- `slug` - делает замену пробелов и unicode-символов (даже emoji) для пригодности в урл
 
 ### Офисные форматы
 - `docxtemplater`
@@ -502,11 +519,11 @@ app.set('x-powered-by', false);
 - `apiai` - распознавание голоса с помощью гугловского [api.ai](https://api.ai/)
 
 ### Очередя и таски
-- `retry` (`async-retry`) / `tolerance`
+- `retry` (`async-retry`, `promise-retry`) / `tolerance`
 - `async-throttle`
 - `semaphore` - ограничитель одновременного доступа к ресурсу
 - `function-rate-limit`
-- `kue` / `bull` / `bee-queue` - очередя на редисе
+- `kue` (`kue-ui`) / `bull` / `bee-queue` - очередя на редисе
 - `agenda` - очередя на монге
 - `axon` - zeromq на ноде
 - `queue3`
@@ -560,7 +577,7 @@ app.set('x-powered-by', false);
 - `az`
 - `wordpos` - части речи для английского
 - `leven` - самый быстрый левенштейн
-- `fuzzyset.js` / `string_score` / `fuse.js` / `fuzzysort` - матчинг строк
+- `fuzzyset.js` / `string_score` / `fuse.js` / `fuzzaldrin` / `fuzzysort` - матчинг строк
 - `lunr-languages`
 - `petrovich` / `name-case-lib-port` - склонение русских/украинских фио
 - `word2vec` / `word2vec-native` / `word2vec.js`
@@ -597,7 +614,8 @@ app.set('x-powered-by', false);
 - `leaflet-pip` / `point-in-polygon`
 - `leaflet-draw` - добавление мышкой линий/полигонов/кружочков на leaflet-карту
 - `polylabel` / `@mapbox/polylabel` - нахождение оптимальной точки для расположения лейбла внутри полигона
-- `delaunator` - самая быстрая триангуляция
+- `delaunator` - быстрая триангуляция
+- `bound-points` - вычисление bounds из набора точек
 
 ### SVG и геометрия
 - `is-svg`
@@ -634,6 +652,7 @@ app.set('x-powered-by', false);
 ## Front
 - `asap` / `next-tick` / `setimmediate` - как только, так сразу. Кроссбраузерный `process.nextTick`
 - `simulant` - симуляция реальных браузерных событий
+- `webfontloader` - загрузка шрифтов с Google Fonts, Typekit, Fonts.com и Fontdeck
 - `fontfaceobserver` - promise-мониторилка загрузки веб-шрифтов, откуда бы они не загружались
 - [font-style-matcher](https://meowni.ca/font-style-matcher/) - онлайн сервис для подбора и настройки наиболее похожего fallback'чного шрифта
 - `system-font-css` - альтернатива стеку системных шрифтов
@@ -645,6 +664,7 @@ app.set('x-powered-by', false);
 - `fg-select-css` - стили для кроссбраузерной кастомизации select'а от filament'а
 - `@flowjs/flow.js` - загрузка файлов с примером бекенда на ноде
 - `smartcrop`
+- `copy-to-clipboard`
 - `vkey`
 - `drop-anywhere` - для d'n'd загрузки файлов где угодно на странице
 - `dropzone`
@@ -697,7 +717,9 @@ app.set('x-powered-by', false);
 - `sentinel-js` - отслеживает появление dom-элементов с заданным селектором
 - `cleave.js` / `text-mask-all` / `imaskjs` - маски текстового ввода
 - `fg-loadcss` - асинхронная загрузка css от filament'а
+- `load-script`- асинхронная загрузка js
 - `@shopify/draggable` - мощная новая drag-n-drop'алка
+- `notifyjs` - браузерные нотификации
 - `react-aria-modal` - правильная модалка ([статья](https://habrahabr.ru/post/338130/))
 - [`micromodal`](https://micromodal.now.sh/) - тоже норм aria-модалка
 - [break-on-access](https://github.com/paulirish/break-on-access) - оочень полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
