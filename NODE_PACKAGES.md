@@ -245,6 +245,7 @@ app.set('x-powered-by', false);
 - `isstream`
 - `lazypipe`
 - `destroy`
+- `pump`
 - `end-of-stream` / `on-stream-end`
 - `stream-throttle`
 - `duplexify` (для `stream1` и `stream2`) / `duplexer2` (для `stream3`) - объединяет writable и readable стримы в один
