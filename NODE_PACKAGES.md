@@ -28,6 +28,7 @@
 - [Пример с jwt-авторизацией](https://github.com/andrewda/jwt-server-base)
 - [Создание бота для Steam по шагам](https://github.com/andrewda/node-steam-guide)
 - [Пример с Koa, TypeORM, роутами и контроллерами](https://github.com/typeorm/typescript-koa-example)
+- [Каркас api от команды Koa](https://github.com/koajs/api-boilerplate)
 - [Boilerplate с Express, GraphQL, PG (с миграциями на knex'е), авторизацией (сессии в Redis'е), рассылкой (+шаблоны для email'ов) и всё это в Docker'е](https://github.com/kriasoft/nodejs-api-starter)
 
 ## Node.js
@@ -155,6 +156,7 @@ app.set('x-powered-by', false);
 - `koa-views`
 - `koa-logger`
 - `apollo-server-koa` - GraphQL
+- Много нужного есть [здесь](https://github.com/koajs)
 
 ### Прочие фреймворки
 - `micro`
