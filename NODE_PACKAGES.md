@@ -501,7 +501,7 @@ app.set('x-powered-by', false);
 - `stringify-object`
 
 ### Полезности
-- `bluebird` / `relike` / `awaiting` (для промисификации)
+- `bluebird` / `relike` / `universalify` (используется в `fs-extra`) / `awaiting` (для промисификации)
 - `p-progress` - промисы с прогрессом ([много интересного для промисов](https://github.com/sindresorhus/promise-fun))
 - `pify` - промисификатор
 - `thunkify` - callback'ифицирует callbacks, arrays, generators, generator functions, and promises
