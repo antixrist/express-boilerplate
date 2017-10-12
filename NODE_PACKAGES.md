@@ -691,6 +691,7 @@ app.set('x-powered-by', false);
 - `trunc-text`
 - `trunc-html`
 - `file-saver`, `save-as`
+- `wenk` / `balloon-css`
 - `popper.js` / `tooltip.js` - замена `tether`у
 - `equalizecss` - bootstrap-like flex-сетка на sass'е
 - `floatthead` / `vue-floatthead` / [minicss](http://minicss.org/table#scrollable-tables) - плавающая шапка у таблиц (вроде самая нормальная из всех возможных), но на jquery
@@ -720,7 +721,7 @@ app.set('x-powered-by', false);
 - `fg-enlarge` - zoom изображения вслед за курсором внутри контейнера, как на али 
 - `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` - каруселька
 - `@filamentgroup/tau` - 360° галерея
-- `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). демка: https://deanhume.github.io/lazy-observer-load/
+- `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). [демка](https://deanhume.github.io/lazy-observer-load/) / `lazysizes` - на IntersectionObserver, его советует Addy Osmani
 - `image-promise` - промайзнутый `new Image` с кучей правильных проверок
 - `nanoscroller` - скроллер на jquery
 - `pell` - норм текстовый редактор
