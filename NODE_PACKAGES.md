@@ -90,6 +90,7 @@
 - `vhost` - для поддоменов (например `api.domain.tld`)
 - `body-parser`
 - `multer` для `multipart/form-data`
+- `express-fileupload`
 - `form-data` - создаёт readable `multipart/form-data`-стримы. Для отправки данных формы и загрузки файлов в другие http-api
 - `formidable` - парсер `form-data` (специально для `multipart/form-data`-стримов)
 - `morgan` для логов со стриммингом
@@ -301,7 +302,7 @@ app.set('x-powered-by', false);
 - `ololog`
 - `debug`
 - `microlog`
-- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` / `lggr` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный) / `loglevel` / `whiner` / `pino` ([сайт](http://getpino.io/#/)) - `pino` [должен быть самым быстрым](https://habrahabr.ru/company/ruvds/blog/334806/)
+- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` / `lggr` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный) / `loglevel` (`loglevel-plugin-prefix`) / `whiner` / `pino` ([сайт](http://getpino.io/#/)) - `pino` [должен быть самым быстрым](https://habrahabr.ru/company/ruvds/blog/334806/)
 - `gelf-stream` / `gelf-pro` - https://habrahabr.ru/company/2gis/blog/329128/
 - `mozlog`
 - `streamroller` / `file-stream-rotator` - ротация файлов логов
@@ -443,6 +444,7 @@ app.set('x-powered-by', false);
 - `webshot`
 - `html2canvas`
 - [Скриншотилка на базе безголового хрома](https://medium.com/@dschnr/using-headless-chrome-as-an-automated-screenshot-tool-4b07dffba79a)
+- [Скриншотилка в pdf as-a-service на базе безголового хрома](https://github.com/alvarcarto/url-to-pdf-api)
 
 ### Урлы и IP
 - `parseurl`, `qs`
@@ -733,7 +735,7 @@ app.set('x-powered-by', false);
 - `notifyjs` - браузерные нотификации
 - `react-aria-modal` - правильная модалка ([статья](https://habrahabr.ru/post/338130/))
 - [`micromodal`](https://micromodal.now.sh/) - тоже норм aria-модалка
-- [break-on-access](https://github.com/paulirish/break-on-access) - оочень полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
+- [break-on-access](https://github.com/paulirish/break-on-access) - полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
 - `analytics.js` - аналитика от segment.io
 - [обёртка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
@@ -745,6 +747,7 @@ app.set('x-powered-by', false);
 - `vuex-loading`
 - `vuex-cache`
 - [Как правильно публиковать](https://pablohpsilva.github.io/vuejs-component-style-guide/#/russian) [vue-компоненты](https://vuejsdevelopers.com/2017/07/31/vue-component-publish-npm/)
+- `vuera` - React во Vue, Vue в React'е
 
 ### ab-тесты
 - `trafficcop` - ab-тестирование от mozilla'ы
