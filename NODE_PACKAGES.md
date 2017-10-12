@@ -220,6 +220,7 @@ app.set('x-powered-by', false);
 - `is-glob` / `glob` / `globby` / `glob-all`
 - `klaw` - фс-walker на стримах
 - `path-exists`
+- `touch` - аналог консольного
 - `mkdirp`
 - `del`
 - `ncp` - асинхронное рекурсивное копирование файлов и папок
@@ -346,7 +347,7 @@ app.set('x-powered-by', false);
 - `google-libphonenumber` - крутая штука для парсинга номеров телефонов
 - `quickselect`
 - `bintrees` - самосортируемая структура с бинарным поиском
-- `cuint` / `bignumber.js` / `long` / `bn.js` / `bigi` - big integer для js
+- `cuint` / `bignumber.js` / `long` / `bn.js` / `bigi` / `json-bigint` - big integer для js
 - `media-typer` - парсер mime
 - `mime` / `mime-db`
 - `mime-types` - полный набор по работе с mime
@@ -373,6 +374,8 @@ app.set('x-powered-by', false);
 - `http-status` / `statuses`
 - `nock` - mock'и для http-запросов (удобно для тестирования и заглушки api)
 - `slimbot` - бот для телеграмма
+- `instagram-private-api` - неофициальное api для инстаграмма с полной эмуляцией андройд-клиента ([на питоне](https://github.com/mgp25/Instagram-API/) популярнее и обновляется чаще)
+- `socks5-https-client`
 
 ### Парсинг dom'а, json'а, csv
 - `jsdom` / `browser-env`
@@ -430,7 +433,7 @@ app.set('x-powered-by', false);
 #### Печеньки
 - `js-cookie`
 - `cookie`
-- `tough-cookie`
+- `tough-cookie`, `tough-cookie-filestore`
 - `cookies.txt`
 - `react-cookie`
 - `cookies` - это для express'а/koa, и вряд ли нужен
@@ -450,6 +453,7 @@ app.set('x-powered-by', false);
 - `url-parse-lax` - расширенный url.parse - без протоколов и с ip
 - `encodeurl`
 - `filenamify-url`
+- `valid-url`
 - `humanize-url`
 - `normalize-url`
 - `prepend-http` - ну такое, особо бессмысленное
@@ -497,6 +501,7 @@ app.set('x-powered-by', false);
 ### Хэширование
 - `murmurhash-native` / `imurmurhash` - быстрое и (вроде как) наименее коллизионное хэширование
 - `object-hash`
+- `js-md5`
 - `json-stable-stringify`
 - `stringify-object`
 
@@ -512,7 +517,7 @@ app.set('x-powered-by', false);
 - `d` - удобный описатель дескрипторов свойств
 - `delegates` - делегация методов и пропертей прототипа к какому-либо свойству этого прототипа
 - `function-done` / `always-done`
-- `mem` / `lru-cache` / `hashlru`
+- `mem` / `lru-cache` / `hashlru` / `node-cache`
 - `fast-memoize`
 - `wrappy` - оборачивает функцию, перенося все кастомные пропертя этой функции в обёртку. полезно (внезапно) для обёрток
 - `shimmer` - типа Proxy через monkeypatching
@@ -565,6 +570,7 @@ app.set('x-powered-by', false);
 - `sharp` / `jimp` - полнофункциональная обработка
 - `image-size`
 - `image-type`
+- `resemblejs` - сравнение изображений
 - `tesseract.js` - распознавалка текста
 - `node-openalpr` - распознавалка номерных знаков на нейронных сетях, tesseract'е и opencv
 - `exif2` / `gm-exif` / `libexif` / `exif-parser`
