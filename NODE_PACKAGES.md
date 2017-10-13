@@ -748,6 +748,7 @@ app.set('x-powered-by', false);
 - `vuex-cache`
 - [Как правильно публиковать](https://pablohpsilva.github.io/vuejs-component-style-guide/#/russian) [vue-компоненты](https://vuejsdevelopers.com/2017/07/31/vue-component-publish-npm/)
 - `vuera` - React во Vue, Vue в React'е
+[Описание настройки SSR](https://habrahabr.ru/post/334952/)
 
 ### ab-тесты
 - `trafficcop` - ab-тестирование от mozilla'ы
