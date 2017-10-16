@@ -726,6 +726,7 @@ app.set('x-powered-by', false);
 - `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). [демка](https://deanhume.github.io/lazy-observer-load/) / `lazysizes` - на IntersectionObserver, его советует Addy Osmani
 - `image-promise` - промайзнутый `new Image` с кучей правильных проверок
 - `nanoscroller` - скроллер на jquery
+- `smooth-scrollbar`
 - `pell` - норм текстовый редактор
 - `sentinel-js` - отслеживает появление dom-элементов с заданным селектором
 - `cleave.js` / `text-mask-all` / `imaskjs` - маски текстового ввода
