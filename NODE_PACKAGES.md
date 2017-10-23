@@ -30,6 +30,7 @@
 - [Пример с Koa, TypeORM, роутами и контроллерами](https://github.com/typeorm/typescript-koa-example)
 - [Каркас api от команды Koa](https://github.com/koajs/api-boilerplate)
 - [Boilerplate с Express, GraphQL, PG (с миграциями на knex'е), авторизацией (сессии в Redis'е), рассылкой (+шаблоны для email'ов) и всё это в Docker'е](https://github.com/kriasoft/nodejs-api-starter)
+- [Полный фарш с Vue.js, passport, GraphQL, nodemailer'ом, http2, i18n, логированием, webpack'ом](https://github.com/icebob/vue-express-mongo-boilerplate)
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
