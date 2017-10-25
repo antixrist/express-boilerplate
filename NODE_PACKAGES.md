@@ -291,7 +291,7 @@ app.set('x-powered-by', false);
 - `liftoff` - bin'арник для своего пакета
 - `eyes` - цветной вывод данных
 - `inquirer` - cli-промптер
-- `minimist` / `nanomist` / `yargs` - парсер cli-аргументов
+- `minimist` / `nanomist` / `yargs` / `nopt` - парсер cli-аргументов
 - `progress` / `gauge` - настраиваемый прогресс-бар
 - `boxen` - оборачивание сообщения в настраиваемую рамку
 - `dedent` - убирает ведущие и крайние пробелы и переводы строк в шаблонных строках (удобно для вывода многострочного текста)
@@ -480,6 +480,7 @@ app.set('x-powered-by', false);
 - `node-uuid` / `uid-safe` / `nanoid` / `cuid` / `shortid`
 - `sguid`
 - `randexp` - генерация строки по регэкспу
+- `stjs` - json-шаблонизатор для генерации json'а
 - [gencc](https://github.com/grahamking/darkcoding-credit-card/blob/master/gencc.js) валидных номеров кредитных карт
 
 #### Псевдорандом с посевом
@@ -561,12 +562,14 @@ app.set('x-powered-by', false);
 - `pegjs` - произвольные синтаксические конструкции
 - `esprima` - парсер ECMAScript на ECMAScript
 - `parser-base` - каркас для строкового парсера (подобие `json5`)
+- `parsimmon` - parser combinator
 
 ### Email
 - `nodemailer` / `postmark`
 - `mailgen` / `mailmason` / [bojler](https://github.com/Slicejack/bojler), `email-templates` - html-шаблоны для мыла
 - `nonprofit-email-service`
 - `mailit` - готовый микросервис для отправки email'ов через http-api
+- `premailer` - обработка html для email (inline'инг стилей, etc)
 - [Bulletproof email buttons](https://buttons.cm/)
 
 ## Изображения
@@ -669,6 +672,7 @@ app.set('x-powered-by', false);
 - `fontfaceobserver` - promise-мониторилка загрузки веб-шрифтов, откуда бы они не загружались
 - [font-style-matcher](https://meowni.ca/font-style-matcher/) - онлайн сервис для подбора и настройки наиболее похожего fallback'чного шрифта
 - `system-font-css` - альтернатива стеку системных шрифтов
+- [fontplop](https://github.com/matthewgonzalez/fontplop) - конвертёр web-шрифтов, но под мак
 - `glyphhanger` - консольная тузла, которая пауком проходится по страничкам, смотрит какие глифы используются и сохраняет с ними файлы шрифтов (т.е. нужна для оптимизации используемых веб-шрифтов)
 - `nerd-fonts` - компиляция всех популярных opensource-шрифтов в один
 - `feather-icons` / `vue-feather-icon` / `material-design-icons` - svg-иконки
@@ -679,6 +683,8 @@ app.set('x-powered-by', false);
 - `smartcrop`
 - `copy-to-clipboard`
 - `vkey`
+- `parsleyjs` - валидатор форм
+- `pretty-checkbox` - чекбоксы на scss'е
 - `drop-anywhere` - для d'n'd загрузки файлов где угодно на странице
 - `dropzone`
 - `focus` - нахождение центральной сущности на изображении для последующей фокусировки или кропа
@@ -719,7 +725,7 @@ app.set('x-powered-by', false);
 - `block-elements` - определяет, является ли тег блочным (по названию)
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
 - `isInViewport` / `porthole` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky)
-- `lightbox2` - модалочка для картинок на ваниле
+- `lightbox2` / `photoswipe` (используется на vc.ru) - модалочка для картинок
 - `@nishanths/zoom.js` - zoom изображений как на medium'е
 - `fg-enlarge` - zoom изображения вслед за курсором внутри контейнера, как на али 
 - `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` - каруселька
