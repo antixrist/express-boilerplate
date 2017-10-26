@@ -561,6 +561,7 @@ app.set('x-powered-by', false);
 ### AST-парсеры
 - `aps-rql` - https://habrahabr.ru/company/odin_ingram_micro/blog/331774/
 - `pegjs` - произвольные синтаксические конструкции
+- `fastparse`
 - `esprima` - парсер ECMAScript на ECMAScript
 - `parser-base` - каркас для строкового парсера (подобие `json5`)
 - `parsimmon` - parser combinator
