@@ -217,6 +217,7 @@ app.set('x-powered-by', false);
 
 ### ФС
 - `fs-extra`, `graceful-fs`
+- `node-dir` - доп.плюшки для работы с директориями
 - `anymatch` - матчер по чему угодно (глоб, регэксп, етс)
 - `chokidar` / `watchpack` / `watchman` - слушатель фс
 - `is-glob` / `glob` / `globby` / `glob-all`
