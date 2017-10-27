@@ -731,7 +731,7 @@ app.set('x-powered-by', false);
 - `lightbox2` / `photoswipe` (используется на vc.ru) - модалочка для картинок
 - `@nishanths/zoom.js` - zoom изображений как на medium'е
 - `fg-enlarge` - zoom изображения вслед за курсором внутри контейнера, как на али 
-- `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` - каруселька
+- `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` / `flickity` - каруселька
 - `@filamentgroup/tau` - 360° галерея
 - `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). [демка](https://deanhume.github.io/lazy-observer-load/) / `lazysizes` - на IntersectionObserver, его советует Addy Osmani
 - `image-promise` - промайзнутый `new Image` с кучей правильных проверок
