@@ -552,6 +552,7 @@ app.set('x-powered-by', false);
 - `cron-parser`
 - `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
 - [пример на async-await'ах](https://gist.github.com/antixrist/d75c46692ed8a9035d05056449184e98)
+- [wal-лог](https://habrahabr.ru/company/mailru/blog/341498/#comment_10503842)
 
 ### Кодировки
 - `encoding`
