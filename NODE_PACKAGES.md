@@ -613,6 +613,8 @@ app.set('x-powered-by', false);
 - `bottlejs`
 - `singular`
 - `intakejs`
+- `di.js` - от яндексойда + [статья на хабре](https://habrahabr.ru/company/yandex/blog/341710/)
+- `inversify` - мощный, для typescript'а
 
 ### Цвета
 - `color`
