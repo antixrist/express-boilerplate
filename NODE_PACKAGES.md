@@ -31,6 +31,7 @@
 - [Каркас api от команды Koa](https://github.com/koajs/api-boilerplate)
 - [Boilerplate с Express, GraphQL, PG (с миграциями на knex'е), авторизацией (сессии в Redis'е), рассылкой (+шаблоны для email'ов) и всё это в Docker'е](https://github.com/kriasoft/nodejs-api-starter)
 - [Полный фарш с Vue.js, passport, GraphQL, nodemailer'ом, http2, i18n, логированием, webpack'ом](https://github.com/icebob/vue-express-mongo-boilerplate)
+- [Пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
@@ -67,7 +68,7 @@
 - `in-publish` - обнаружение в npm-scripts факта запуска публикации пакета (во время локальной разработки), чтобы делать что-то, что не нужно делать во время dev-установки
 - `shm-typed-array` - shared memory для node'ы
 - `v8-natives` - вызов нативныз v8-методов, в т.ч. принудительный вызов gc
-- [пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
+- `pkg` - упаковывает всё node.js-приложение в один исполняемый файл
 
 ### Запуск и сборка
 - `gulp`
@@ -113,11 +114,9 @@
 - `cookie-parser`
 - `cookie-signature` - подпись кук
 - `connect-redis` (сессии в редисе) / `express-mysql-session` (сессии в mysql)
-- `passport` и его стратегии (в т.ч. `passport-local`, `passport-hash`, `passport-securelogin`)
 - `securelogin` - [описание](https://github.com/sakurity/securelogin)
 - `bcrypt` / `bcrypt-nodejs` / `bcryptjs` / `pwd` / `pswd` для паролей
 - `express-urlrewrite` - 301 редирект
-- `passport.socketio` / `express-socket.io-session` - шаринг сессии между экспрессом и socket.io
 - `clearsitedata` - устанавливает специальный заголовок, чтобы браузер почистил кэш, куки, стораджи (полезно при логауте)
 - 
 - `express-validator` - для валидации данных в теле запроса (надстройка над `validator`)
@@ -173,16 +172,25 @@ app.set('x-powered-by', false);
 - `sockjs` - проще, понятнее, предсказуемее.
 - `uws` - прозрачная (почти) замена `ws` с лучшей производительностью
 - `primus` - универсальная обёртка над всеми socket-realtime фреймворками
+- `passport.socketio` / `express-socket.io-session` - шаринг сессии между экспрессом и socket.io
 
 ### Конфигурация
 - `nconf` / `config` / `confit`. `config` похож на `nconf`, но вроде поширше, `confit` выглядит самым вкусным (к тому же он от `kraken`'a).
 - `dotenv`
+- `jsonfile`
 - `electrode-confippet`
 - `env-cmd`
 - `rc`
 - `configstore` - удобно записывать пользовательские конфиги, например
 - `cosmiconfig` - для переиспользуемых пакетов
 [Подход к конфигурации для разных окружений и под docker](https://habrahabr.ru/company/southbridge/blog/334698/)
+
+### Авторизация
+- `passport` и его стратегии (в т.ч. `passport-local`, `passport-hash`, `passport-securelogin`)
+- `passwordless`
+- `jsonwebtoken`
+- `oauth` (провайдеры `hellojs`, `grant`)
+- `svg-captcha`
 
 ### Обработка ошибок и завершения процесса
 - `loud-rejection` / `uncaught` - ловля необработанных ошибок/реджектов для ноды и браузеров
@@ -360,6 +368,11 @@ app.set('x-powered-by', false);
 - `html-to-text`
 - `feed-read` - парсер rss фидов
 
+### Тестирование
+- `supertest`
+- `mocha` (`chai`) / `jasmin` (`karma`) / `nodeunit` / `ava` / `tape` / `jest` (`jest` / `ava` [предпочтительнее](https://habrahabr.ru/company/zfort/blog/332736/#comment_10304680))
+- `mocha-allure-reporter` - `allure` - это репортер со своим веб-интерфейсом, преферансом и графиками
+
 ### Рекваестеры и http-тулзы
 - `dnscache`
 - `proxy-agent`
@@ -373,7 +386,6 @@ app.set('x-powered-by', false);
 - `download` / `getit`
 - `is-online` - есть ли коннект с интернетом
 - `is-reachable` - есть ли коннект с конкретным ресурсом
-- `node-readability` - вычленение основного текста со страницы
 - `follow-redirects`
 - `http-status` / `statuses`
 - `nock` - mock'и для http-запросов (удобно для тестирования и заглушки api)
@@ -382,23 +394,27 @@ app.set('x-powered-by', false);
 - `socks5-https-client`
 
 ### Парсинг dom'а, json'а, csv
-- `jsdom` / `browser-env`
-- `cheerio` / `whacko`
+- `browser-env`
+- `jsdom` / `cheerio` / `whacko` / `parse5`
 - `json5` - json с блекджеком и комментиками
-- `readability` - вычленение основного и главного из всей страницы
+- `node-readability` / `read-art` - вычленение основного и главного из всей страницы
 - `semantic-schema-parser` - парсер schema.org
 - `juice` - полный инлайнинг стилей в html
 - `page-metadata-parser` - парсинг метаданных страницы - мета-теги, opengraph
-- `csv-stringify`, `fast-csv` / `csv-streamify` / `papaparse`
+- `csv-stringify`, `fast-csv` / `csv-streamify` / `papaparse` / `csv`
 - `xml-mapping` - json в xml и обратно
 - `xmldoc`
 - `html-tokenize`
 - `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
 
-### Тестирование
-- `supertest`
-- `mocha` (`chai`) / `jasmin` (`karma`) / `nodeunit` / `ava` / `tape` / `jest` (`jest` / `ava` [предпочтительнее](https://habrahabr.ru/company/zfort/blog/332736/#comment_10304680))
-- `mocha-allure-reporter` - `allure` - это репортер со своим веб-интерфейсом, преферансом и графиками
+### Офисные форматы
+- `docxtemplater`
+- `excelize`
+- `exceljs`
+- `xml2js` / `x2js` / `fast-xml2js`
+- `js-xlsx` / `xlsx` - парсер и запись xls-форматов
+- `pdfjs-dist` - парсер и рендер pdf от mozilla'ы
+- `pdfkit`
 
 ### Headless-браузеры и тестирование
 - `nightmare`
@@ -467,17 +483,10 @@ app.set('x-powered-by', false);
 - `url-pattern`
 - `slug` - делает замену пробелов и unicode-символов (даже emoji) для пригодности в урл
 
-### Офисные форматы
-- `docxtemplater`
-- `excelize`
-- `exceljs`
-- `xml2js` / `x2js` / `fast-xml2js`
-- `js-xlsx` / `xlsx` - парсер и запись xls-форматов
-- `pdfjs-dist` - парсер и рендер pdf от mozilla'ы
-
 ### Генераторы (чисел, строк, данных, uid'ов)
 - `faker`
 - `faker.js`
+- `json-schema-faker`
 - `hashids` / `identifier` - строки из чисел
 - `node-uuid` / `uid-safe` / `nanoid` / `cuid` / `shortid`
 - `sguid`
@@ -510,6 +519,8 @@ app.set('x-powered-by', false);
 - `js-md5`
 - `json-stable-stringify`
 - `stringify-object`
+- `hasha`
+- `bcrypt`
 
 ### Полезности
 - `bluebird` / `relike` / `universalify` (используется в `fs-extra`) / `awaiting` (для промисификации)
@@ -567,9 +578,10 @@ app.set('x-powered-by', false);
 - `esprima` - парсер ECMAScript на ECMAScript
 - `parser-base` - каркас для строкового парсера (подобие `json5`)
 - `parsimmon` - parser combinator
+- `unified`
 
 ### Email
-- `nodemailer` / `postmark`
+- `nodemailer` / `postmark` / `emailjs`
 - `mailgen` / `mailmason` / [bojler](https://github.com/Slicejack/bojler), `email-templates` - html-шаблоны для мыла
 - `nonprofit-email-service`
 - `mailit` - готовый микросервис для отправки email'ов через http-api
@@ -578,14 +590,14 @@ app.set('x-powered-by', false);
 
 ## Изображения
 - `sharp` / `jimp` - полнофункциональная обработка
+- `gm` / `graphicsmagick2`
 - `image-size`
 - `image-type`
 - `resemblejs` - сравнение изображений
 - `tesseract.js` - распознавалка текста
 - `node-openalpr` - распознавалка номерных знаков на нейронных сетях, tesseract'е и opencv
 - `exif2` / `gm-exif` / `libexif` / `exif-parser`
-- `gify` - делает гифку из видео
-- `gm` / `graphicsmagick2`
+- `gify` / `gifski` - делает гифку из видео (второй ещё и высококачественные)
 - `pixelmatch` - создание diff'а изображений
 - `pngjs`, `jpeg-js`
 - [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед отправкой на сервер)
@@ -596,6 +608,7 @@ app.set('x-powered-by', false);
 - `compromise` - под англ.язык и не только
 - `az`
 - `wordpos` - части речи для английского
+- `retext` - парсер текста на ast (работа на плагинах по принципу postcss)
 - `leven` - самый быстрый левенштейн
 - `fuzzyset.js` / `string_score` / `fuse.js` / `fuzzaldrin` / `fuzzysort` - матчинг строк
 - `lunr-languages`
@@ -706,7 +719,7 @@ app.set('x-powered-by', false);
 - `trunc-text`
 - `trunc-html`
 - `file-saver`, `save-as`
-- `wenk` / `balloon-css`
+- `wenk` / `balloon-css` / `hint.css`
 - `popper.js` / `tooltip.js` - замена `tether`у
 - `equalizecss` - bootstrap-like flex-сетка на sass'е
 - `jeet` - сетка на float'ах
@@ -751,11 +764,13 @@ app.set('x-powered-by', false);
 - `react-aria-modal` - правильная модалка ([статья](https://habrahabr.ru/post/338130/))
 - [`micromodal`](https://micromodal.now.sh/) - тоже норм aria-модалка
 - [break-on-access](https://github.com/paulirish/break-on-access) - полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
+- [Красивые кнопочки](https://github.com/alexwolfe/Buttons/)
 - `analytics.js` - аналитика от segment.io
 - [обёртка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
 - [получение ip через WebRTC](https://gist.github.com/antixrist/52e125476ee54f574046db963d522ab5)
 - [залогинен ли юзер в соц.сетях](https://gist.github.com/antixrist/dbc4630fd4dab2d3bf3b0aa92a534363)
 - [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед upload'ом на сервер)
+[Много ui-виджетов](https://github.com/dexteryy/spellbook-of-modern-webdev#ux-libraries)
 
 ### Vue.js
 - `vuex-shared-mutations` - запускает мутации на всех открытых табах
@@ -771,6 +786,7 @@ app.set('x-powered-by', false);
 
 ### Полифиллы:
 [polyfill-service](https://github.com/Financial-Times/polyfill-service) - смысл в том, чтобы использовать из этого сервиса только браузерное api. Для полифиллинга языковых средств используется `babel-polyfill`. Или наоборот? Включать отсюда всё, а из `babel-polyfill` добавлять всё остальное?
+[Здесь тоже много ссылок](https://github.com/dexteryy/spellbook-of-modern-webdev#cross-browser--polyfill-libraries)
 - `dom4`
 - `store` - враппер над localStorage'м с fallback'ами на всё, что только возможно. можно сделать асинхронным для обёртки над редисом или типа того. В ноде хорошо работает в связке с `node-localstorage` / `dom-storage`.
 - `localforage` - то же, что и `store`, только над `indexeddb`, `websql`, `localstorage`. Асинхронный.
