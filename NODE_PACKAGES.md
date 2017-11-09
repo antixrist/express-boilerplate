@@ -175,6 +175,7 @@ app.set('x-powered-by', false);
 - `passport.socketio` / `express-socket.io-session` - шаринг сессии между экспрессом и socket.io
 
 ### Конфигурация
+- `cosmiconfig` - поиск конфига по `ключ`у в package.json, в `.ключrc`, в `ключ.config.js`
 - `nconf` / `config` / `confit`. `config` похож на `nconf`, но вроде поширше, `confit` выглядит самым вкусным (к тому же он от `kraken`'a).
 - `dotenv`
 - `jsonfile`
