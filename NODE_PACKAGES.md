@@ -750,11 +750,12 @@ app.set('x-powered-by', false);
 - `@nishanths/zoom.js` - zoom изображений как на medium'е
 - `fg-enlarge` - zoom изображения вслед за курсором внутри контейнера, как на али 
 - `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` / `flickity` - каруселька
+- `handorgel` - аккордеон без зависимостей
 - `@filamentgroup/tau` - 360° галерея
 - `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). [демка](https://deanhume.github.io/lazy-observer-load/) / `lazysizes` - на IntersectionObserver, его советует Addy Osmani
 - `image-promise` - промайзнутый `new Image` с кучей правильных проверок
 - `nanoscroller` - скроллер на jquery
-- `smooth-scrollbar`
+- `smooth-scrollbar` / `smoothscroll-polyfill` (`scroll-behavior: smooth;`)
 - `pell` - норм текстовый редактор
 - `sentinel-js` - отслеживает появление dom-элементов с заданным селектором
 - `cleave.js` / `text-mask-all` / `imaskjs` - маски текстового ввода
