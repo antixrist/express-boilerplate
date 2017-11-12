@@ -787,8 +787,9 @@ app.set('x-powered-by', false);
 - [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
 
 ### Полифиллы:
-[polyfill-service](https://github.com/Financial-Times/polyfill-service) - смысл в том, чтобы использовать из этого сервиса только браузерное api. Для полифиллинга языковых средств используется `babel-polyfill`. Или наоборот? Включать отсюда всё, а из `babel-polyfill` добавлять всё остальное?
-[Здесь тоже много ссылок](https://github.com/dexteryy/spellbook-of-modern-webdev#cross-browser--polyfill-libraries)
+- [polyfill-service](https://github.com/Financial-Times/polyfill-service) - смысл в том, чтобы использовать из этого сервиса только браузерное api. Для полифиллинга языковых средств используется `babel-polyfill`. Или наоборот? Включать отсюда всё, а из `babel-polyfill` добавлять всё остальное?
+- [Здесь тоже много ссылок](https://github.com/dexteryy/spellbook-of-modern-webdev#cross-browser--polyfill-libraries)
+- [и здесь](https://github.com/Modernizr/Modernizr/blob/master/lib/polyfills.json)
 - `dom4`
 - `store` - враппер над localStorage'м с fallback'ами на всё, что только возможно. можно сделать асинхронным для обёртки над редисом или типа того. В ноде хорошо работает в связке с `node-localstorage` / `dom-storage`.
 - `localforage` - то же, что и `store`, только над `indexeddb`, `websql`, `localstorage`. Асинхронный.
