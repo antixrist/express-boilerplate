@@ -174,6 +174,7 @@ app.set('x-powered-by', false);
 - `uws` - прозрачная (почти) замена `ws` с лучшей производительностью
 - `primus` - универсальная обёртка над всеми socket-realtime фреймворками
 - `passport.socketio` / `express-socket.io-session` - шаринг сессии между экспрессом и socket.io
+- `nats` - клиент для nats-сервера на go
 
 ### Конфигурация
 - `cosmiconfig` - поиск конфига по `ключ`у в package.json, в `.ключrc`, в `ключ.config.js`
@@ -284,7 +285,6 @@ app.set('x-powered-by', false);
 - `pg` / `pg-bluebird` / `pg-native`
 - `ioredis` / `redis` / `hiredis`, `redlock`
 - `reds` - поиск в редисе
-- `amqplib` / `tortoise` - клиент для rabbitmq
 - `rethinkdb`
 - `node-localstorage` (этот держит данные в памяти) / `dom-storage` (этот пишет данные в файл) - localStorage для NodeJS
 - `lowdb` - файловая json-бд поверх lodash'а
@@ -490,7 +490,7 @@ app.set('x-powered-by', false);
 - `faker.js`
 - `json-schema-faker`
 - `hashids` / `identifier` - строки из чисел
-- `node-uuid` / `uid-safe` / `nanoid` / `cuid` / `shortid`
+- `node-uuid` / `uid-safe` / `nanoid` / `cuid` / `shortid` / `nuid`
 - `sguid`
 - `randexp` - генерация строки по регэкспу
 - `stjs` - json-шаблонизатор для генерации json'а
@@ -554,6 +554,8 @@ app.set('x-powered-by', false);
 - `kue` (`kue-ui`) / `bull` / `bee-queue` - очередя на редисе
 - `agenda` - очередя на монге
 - `axon` - zeromq на ноде
+- `amqplib` / `tortoise` - клиент для rabbitmq
+- `nats` - клиент для nats-сервера на go
 - `queue3`
 - `enqueue`
 - `fastqueue`
