@@ -722,7 +722,7 @@ app.set('x-powered-by', false);
 - `trunc-html`
 - `file-saver`, `save-as`
 - `wenk` / `balloon-css` / `hint.css`
-- `popper.js` / `tooltip.js` - замена `tether`у
+- `popper.js` (`vue-popperjs`) / `tooltip.js` - замена `tether`у
 - `equalizecss` - bootstrap-like flex-сетка на sass'е
 - `jeet` - сетка на float'ах
 - `floatthead` / `vue-floatthead` / [minicss](http://minicss.org/table#scrollable-tables) - плавающая шапка у таблиц (вроде самая нормальная из всех возможных), но на jquery
