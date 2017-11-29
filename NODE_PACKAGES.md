@@ -143,6 +143,7 @@
 - `apollo-server-express` - GraphQL
 - `epilogue` - быстрое создание rest endpoint'ов
 - `type-is` - проверка типа содержимого запроса
+- `clipboardy` - кроссплатформенный доступ к системному буферу обмена
 
 ```javascript
 app.set('strict routing', true);
@@ -677,9 +678,6 @@ app.set('x-powered-by', false);
 - `apidoc`
 - [slate](https://github.com/lord/slate)
 
-### Etc
-- `clipboardy` - кроссплатформенный доступ к системному буферу обмена
-
 ### Деплой
 - [pm2](https://github.com/Unitech/pm2) (+ `pmx`, `pm2-pager`, `pm2-logrotate`, [как юзать socket.io на кластеризованном приложении](https://github.com/Unitech/PM2/issues/637#issuecomment-215915328))
 - [now](https://github.com/zeit/now)
@@ -689,6 +687,7 @@ app.set('x-powered-by', false);
 - [dokku](https://github.com/dokku/dokku) - heroku + docker
 
 ## Front
+[plainjs.com](https://plainjs.com/) - подборка ванильных ui-виджетов и ванильных jquery-заменителей
 - `asap` / `next-tick` / `setimmediate` - как только, так сразу. Кроссбраузерный `process.nextTick`
 - `simulant` - симуляция реальных браузерных событий
 - `webfontloader` - загрузка шрифтов с Google Fonts, Typekit, Fonts.com и Fontdeck
@@ -696,7 +695,7 @@ app.set('x-powered-by', false);
 - [font-style-matcher](https://meowni.ca/font-style-matcher/) - онлайн сервис для подбора и настройки наиболее похожего fallback'чного шрифта
 - `system-font-css` - альтернатива стеку системных шрифтов
 - [fontplop](https://github.com/matthewgonzalez/fontplop) - конвертёр web-шрифтов, но под мак
-- `glyphhanger` - консольная тузла, которая пауком проходится по страничкам, смотрит какие глифы используются и сохраняет с ними файлы шрифтов (т.е. нужна для оптимизации используемых веб-шрифтов)
+- `glyphhanger` - консольная тузла, которая пауком проходится по страничкам, смотрит какие глифы используются и сохраняет с ними файлы шрифтов (т.е. нужна для оптимизации используемых веб-шрифтов), от filament'а.
 - `nerd-fonts` - компиляция всех популярных opensource-шрифтов в один
 - `feather-icons` / `vue-feather-icon` / `material-design-icons` - svg-иконки
 - `mousetrap` - работа с комбинациями hotkey'ев
@@ -715,7 +714,7 @@ app.set('x-powered-by', false);
 - `criticalcss` / `critical` / `penthouse` - critical css
 - `scrollbarwidth`
 - `simplebar` - кроссбраузерный кастомный скролл
-- `jquery-mask-plugin` / `inputmask`
+- `jquery-mask-plugin` / `inputmask` / `cleave.js` / `text-mask-all` / `imask` - маски текстового ввода
 - `simple-web-worker`
 - `webworker-promise` - promise-обёртка над webworker'ами ([статья](https://habrahabr.ru/post/337492/))
 - `scalable` - зачётный object-fit на scale'ах и translate'ах
@@ -748,7 +747,7 @@ app.set('x-powered-by', false);
 - `banks-db` - определение банка по номеру карты
 - `block-elements` - определяет, является ли тег блочным (по названию)
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
-- `isInViewport` / `porthole` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky)
+- `waypoints` / `isInViewport` / `porthole` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky) / `scrollama` - на IntersectionObserver'ах
 - `lightbox2` / `photoswipe` (используется на vc.ru) - модалочка для картинок
 - `@nishanths/zoom.js` - zoom изображений как на medium'е
 - `fg-enlarge` - zoom изображения вслед за курсором внутри контейнера, как на али 
@@ -761,7 +760,6 @@ app.set('x-powered-by', false);
 - `smooth-scrollbar` / `smoothscroll-polyfill` (`scroll-behavior: smooth;`)
 - `pell` - норм текстовый редактор
 - `sentinel-js` - отслеживает появление dom-элементов с заданным селектором
-- `cleave.js` / `text-mask-all` / `imaskjs` - маски текстового ввода
 - `fg-loadcss` - асинхронная загрузка css от filament'а
 - `load-script`- асинхронная загрузка js
 - `@shopify/draggable` - мощная новая drag-n-drop'алка
@@ -812,6 +810,7 @@ app.set('x-powered-by', false);
 - `buffer`
 - `history.js`
 - [detect_flex](https://github.com/ergcode/ergonomic.detect_flex) - определение поддержки flexbox'ов (нормально работает в мобильниках)
+- [HTML5-Progress-polyfill](https://github.com/LeaVerou/HTML5-Progress-polyfill)
 
 ### nginx
 - [конфиг с настроенным кешем от h5bp](https://github.com/h5bp/server-configs-nginx)
