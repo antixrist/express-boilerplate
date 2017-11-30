@@ -470,7 +470,7 @@ app.set('x-powered-by', false);
 
 ### Урлы и IP
 - `parseurl`, `qs`
-- `ip` / `ipaddr.js`
+- `ip` / `ipaddr.js` / `ip-address`
 - `stun` - определение своего внешнего ip-адреса по stun-протоколу ([список доступных публичных серверов](https://gist.github.com/antixrist/b529e3b231cdf5c28c8d197543ad026f)) 
 - `geoip-lite` / `maxmind` (+ поискать для [sypexgeo](https://sypexgeo.net/ru/stats/)). Свой сервис - [freegeoip](https://github.com/fiorix/freegeoip)
 - `fast-url-parser` и `querystringparser`
