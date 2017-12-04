@@ -8,7 +8,8 @@
 
 ## Примеры приложений
 - [hackathon-starter](https://github.com/sahat/hackathon-starter)
-- [Node.JS, Koa.js REST, Jade, MongoDB, Passport, Mongoose, Redis, Websocket](https://github.com/OlegLustenko/Koa_Mongo_Redis_Socket_IO_Passport)
+- [Koa.js REST, Jade, MongoDB, Passport, Mongoose, Redis, Websocket](https://github.com/OlegLustenko/Koa_Mongo_Redis_Socket_IO_Passport)
+- [Koa APi RAML (с jsonschema-валидацией запроса-ответа), PostgresSQL с Sequelize'ом, JWT, Passport'ом, Nodemailer'ом, RabbitMQ, Redis'ом, Docker'ом, Vagrant'ом, Ansible'м](https://github.com/FredericHeem/starhackit)
 - [holyjs](https://github.com/holyjs/holyjs)
 - [node-daemons](https://github.com/pipll/node-daemons) - с демонами на node.js
 - [multi-process-nodejs-example](https://github.com/RisingStack/multi-process-nodejs-example) - воркеры, rabbit, redis
@@ -151,7 +152,8 @@ app.set('x-powered-by', false);
 ```
 
 ### Koa
-- `koa-router` (почти полностью повторяет экспрессовый роутер) / `koa-route` (облегчённая версия) / `koa-trie-router` (или `wayfarer`) - composable роуты, как в express'е
+- `koa-router` (почти полностью повторяет экспрессовый роутер) / `koa-route` (облегчённая версия) / `koa-trie-router` (или `wayfarer`) - composable роуты, как в express'е / `koa-66`
+- `@koa/cors`
 - `koa-mount` - чтобы как в express'е - можно монтировать инстанс в роут другого инстанса
 - `koa-session` - на куках / `koa-generic-session` - на редисе/монге/mysql/pg/sequelize/etc
 - `koa-redis`
