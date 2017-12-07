@@ -341,7 +341,7 @@ app.set('x-powered-by', false);
 - `expiry-js` / `ms` - парсер длительностей (1M, 1Y, 1h, 1m, 1s, 1ms, etc)
 - `pretty-ms` - форматирование миллисекунд
 - `JSONSchema` / `ajv` - создание и валидация JSONScheme'ы
-- `joi` / `schema-inspector` / `validator` / `forms` - санитизация/валидация
+- `joi` / `schema-inspector` / `validator` / `forms` / `superstruct` - санитизация/валидация
 - `isemail`
 - `sanitize-html` / `escape-html` / `he`
 - `checkit`
@@ -404,7 +404,6 @@ app.set('x-powered-by', false);
 - `json5` - json с блекджеком и комментиками
 - `node-readability` / `read-art` - вычленение основного и главного из всей страницы
 - `semantic-schema-parser` - парсер schema.org
-- `juice` - полный инлайнинг стилей в html
 - `page-metadata-parser` - парсинг метаданных страницы - мета-теги, opengraph
 - `csv-stringify`, `fast-csv` / `csv-streamify` / `papaparse` / `csv`
 - `xml-mapping` - json в xml и обратно
@@ -592,7 +591,7 @@ app.set('x-powered-by', false);
 - `mailgen` / `mailmason` / [bojler](https://github.com/Slicejack/bojler), `email-templates` - html-шаблоны для мыла
 - `nonprofit-email-service`
 - `mailit` - готовый микросервис для отправки email'ов через http-api
-- `premailer` - обработка html для email (inline'инг стилей, etc)
+- `premailer` / `inlining` / `juice` - обработка html для email (inline'инг стилей, etc)
 - [Bulletproof email buttons](https://buttons.cm/)
 
 ## Изображения
@@ -797,6 +796,7 @@ app.set('x-powered-by', false);
 - `store` - враппер над localStorage'м с fallback'ами на всё, что только возможно. можно сделать асинхронным для обёртки над редисом или типа того. В ноде хорошо работает в связке с `node-localstorage` / `dom-storage`.
 - `localforage` - то же, что и `store`, только над `indexeddb`, `websql`, `localstorage`. Асинхронный.
 - `dexie` - враппер над IndexedDB
+- `fg-loadcss` - полифил для `rel=preload` от FG
 - `custom-event`
 - `sticky-state` / `fixed-sticky` - второй от filament'а и используется на mail.ru'ответах
 - `object-fit-images`
