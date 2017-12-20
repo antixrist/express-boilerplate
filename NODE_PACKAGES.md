@@ -605,11 +605,11 @@ app.set('x-powered-by', false);
 - `image-size`
 - `image-type`
 - `resemblejs` - сравнение изображений
+- `pixelmatch` - создание diff'а изображений
 - `tesseract.js` - распознавалка текста
 - `node-openalpr` - распознавалка номерных знаков на нейронных сетях, tesseract'е и opencv
 - `exif2` / `gm-exif` / `libexif` / `exif-parser`
 - `gify` / `gifski` - делает гифку из видео (второй ещё и высококачественные)
-- `pixelmatch` - создание diff'а изображений
 - `pngjs`, `jpeg-js`
 - [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед отправкой на сервер)
 
