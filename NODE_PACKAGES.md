@@ -225,7 +225,12 @@ app.set('x-powered-by', false);
   - https://errorception.com/
   - http://www.muscula.com/
   - http://rollbar.com/
+  - Raven.js
+  - airbrake.io
+  - bugsnag.com
   - https://habrahabr.ru/post/324366/
+  - https://habrahabr.ru/post/344802/
+  - https://habrahabr.ru/company/ruvds/blog/344682/
 
 ### Кластеризация процессов
 - `strong-cluster-control`
@@ -351,7 +356,7 @@ app.set('x-powered-by', false);
 - `serialize-javascript`
 - `kind-of` - нормальная замена typeof
 - `tableize` - схлопывает json-структуру в объект вида `{'level1key': 'level1value', 'level1key.level2key': 'level2value'}`
-- `deep-diff` / `diff` / `jsondiffpatch` / `jiff` / `just-diff`, `just-diff-apply`
+- `deep-diff` / `diff` / `jsondiffpatch` / `jiff` / `just-diff`, `just-diff-apply` / `arr-diff`
 - `fastest-clone`
 - `deepmerge`
 - `deep-freeze`
@@ -616,6 +621,7 @@ app.set('x-powered-by', false);
 - `wordpos` - части речи для английского
 - `retext` - парсер текста на ast (работа на плагинах по принципу postcss)
 - `leven` - самый быстрый левенштейн
+- `diff`
 - `fuzzyset.js` / `string_score` / `fuse.js` / `fuzzaldrin` / `fuzzysort` - матчинг строк
 - `lunr-languages`
 - `petrovich` / `name-case-lib-port` - склонение русских/украинских фио
