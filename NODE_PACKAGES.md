@@ -744,6 +744,7 @@ app.set('x-powered-by', false);
 - `evercookie` - [repo](https://github.com/samyk/evercookie)
 - `fingerprintjs2`
 - `history`
+- [JavaScript-autoComplete](https://github.com/Pixabay/JavaScript-autoComplete)
 - `mediaplayer` / `video.js` - лёгкий, расширяемый, интернациональный, доступный, кроссбраузерный, легконастраиваемый медиаплеер на ванильном js
 - `animejs` - норм такие анимашки
 - `tabbable` - находит все dom-ноды, в которые возможна фокусировка tab'ом, внутри переданного контейнера
