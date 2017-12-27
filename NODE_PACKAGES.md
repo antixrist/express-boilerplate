@@ -211,7 +211,7 @@ app.set('x-powered-by', false);
 - [ещё пример создания http-ошибок](https://www.npmjs.com/package/micro#error-handling)
 - `death` / `signal-exit`
 - `tree-kill` - убить self-процесс и все дочерние форки
-- `node-report`
+- `node-report` - human-readable diagnostic summary, written to file
 - `trace` - максимально удлиняет стек вызовов в стектрейсах
 - `clarify` - вырезает из стектрейсов строки с системными вызовами (`node --stack_trace_limit=100 -r trace -r clarify wired.js`)
 - `stack-chain` - кастомный парсер стектрейсов для маппинга/фильтрации/etc
