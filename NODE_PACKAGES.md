@@ -56,7 +56,7 @@
 - `reify` / `@std/esm` - врубает `import` без бабелей/вебпаков ([статья про `@std/esm`](https://blogs.windows.com/msedgedev/2017/08/10/es-modules-node-today/))
 - `open` - открывает ссылку в дефолтовом браузере системы
 - `toobusy-js`
-- `memwatch-next` - следит за утечками, можно зафорсить сборку мусора
+- `node-memwatch` / `memwatch-next` - следит за утечками, можно зафорсить сборку мусора
 - `memory-usage` - поток с мониторилкой потребления памяти
 - `light-cycle` - реализация hashringcycle (аналог round-robin) для выбора шардов на лету
 - `hyper` - кроссплатформенный терминал на electron'е
@@ -199,6 +199,7 @@ app.set('x-powered-by', false);
 - `svg-captcha`
 
 ### Обработка ошибок и завершения процесса
+- [презентация, где рассказывается про debugging](https://www.youtube.com/watch?v=Ns8eOF0Qd1U&t=25620s)
 - `loud-rejection` / `uncaught` - ловля необработанных ошибок/реджектов для ноды и браузеров
 - `http-errors` / `boom` - удобная обёртка для посыла http-ошибок / `micro-boom`
 - `create-error` / `es6-error` / `super-error`, [ещё гист на тему](https://gist.github.com/antixrist/f930d527c4b370c59f779639710bac2e) - враппер для создания собственных классов ошибок
@@ -211,7 +212,7 @@ app.set('x-powered-by', false);
 - [ещё пример создания http-ошибок](https://www.npmjs.com/package/micro#error-handling)
 - `death` / `signal-exit`
 - `tree-kill` - убить self-процесс и все дочерние форки
-- `node-report`
+- `node-report` - human-readable diagnostic summary, written to file
 - `trace` - максимально удлиняет стек вызовов в стектрейсах
 - `clarify` - вырезает из стектрейсов строки с системными вызовами (`node --stack_trace_limit=100 -r trace -r clarify wired.js`)
 - `stack-chain` - кастомный парсер стектрейсов для маппинга/фильтрации/etc
