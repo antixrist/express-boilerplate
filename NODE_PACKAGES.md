@@ -341,7 +341,7 @@ app.set('x-powered-by', false);
 - `currency-formatter` - форматтер валют
 - `human-interval` - парсер человекопонятных интервалов на английском языке
 - `filesize` - человекопятный размер файлов
-- `pretty-hrtime` - человекопятный `process.hrtime()`
+- `pretty-hrtime` / `performance-now` - человекопятный `process.hrtime()`
 - `humanize-number` - человекопонятные числа
 - `expiry-js` / `ms` - парсер длительностей (1M, 1Y, 1h, 1m, 1s, 1ms, etc)
 - `pretty-ms` - форматирование миллисекунд
