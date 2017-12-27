@@ -249,7 +249,6 @@ app.set('x-powered-by', false);
 - `ncp` - асинхронное рекурсивное копирование файлов и папок
 - `move-concurrently` - самое быстрое (на сколько вообще возможно) перемещение файлов
 - `parse-filepath` - добавляет некоторые поля к стандартному выводу
-- `fs-write-stream-atomic`
 - `proper-lockfile` - `lock`-файл
 - `steno` - помогает при конкурентной записи в файл - делает все вызовы на запись последовательно
 - `is-dotfile`
@@ -271,6 +270,7 @@ app.set('x-powered-by', false);
 - `isstream`
 - `lazypipe`
 - `destroy`
+- `fs-write-stream-atomic`
 - `pump` - обработка цепочки ошибок в pipe
 - `end-of-stream` / `on-stream-end`
 - `stream-throttle`
@@ -744,6 +744,7 @@ app.set('x-powered-by', false);
 - `evercookie` - [repo](https://github.com/samyk/evercookie)
 - `fingerprintjs2`
 - `history`
+- [JavaScript-autoComplete](https://github.com/Pixabay/JavaScript-autoComplete)
 - `mediaplayer` / `video.js` - лёгкий, расширяемый, интернациональный, доступный, кроссбраузерный, легконастраиваемый медиаплеер на ванильном js
 - `animejs` - норм такие анимашки
 - `tabbable` - находит все dom-ноды, в которые возможна фокусировка tab'ом, внутри переданного контейнера
