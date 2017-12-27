@@ -249,7 +249,6 @@ app.set('x-powered-by', false);
 - `ncp` - асинхронное рекурсивное копирование файлов и папок
 - `move-concurrently` - самое быстрое (на сколько вообще возможно) перемещение файлов
 - `parse-filepath` - добавляет некоторые поля к стандартному выводу
-- `fs-write-stream-atomic`
 - `proper-lockfile` - `lock`-файл
 - `steno` - помогает при конкурентной записи в файл - делает все вызовы на запись последовательно
 - `is-dotfile`
@@ -271,6 +270,7 @@ app.set('x-powered-by', false);
 - `isstream`
 - `lazypipe`
 - `destroy`
+- `fs-write-stream-atomic`
 - `pump` - обработка цепочки ошибок в pipe
 - `end-of-stream` / `on-stream-end`
 - `stream-throttle`
@@ -408,8 +408,10 @@ app.set('x-powered-by', false);
 - `jsdom` / `cheerio` / `whacko` / `parse5`
 - `json5` - json с блекджеком и комментиками
 - `node-readability` / `read-art` - вычленение основного и главного из всей страницы
-- `semantic-schema-parser` - парсер schema.org
+- `semantic-schema-parser` - парсер schema.org: microdata, RDFa-lite, JSON-LD
+- `web-auto-extractor` - парсер schema.org: microdata, RDFa-lite, JSON-LD
 - `page-metadata-parser` - парсинг метаданных страницы - мета-теги, opengraph
+- `open-graph-scraper` - парсер opengraph
 - `csv-stringify`, `fast-csv` / `csv-streamify` / `papaparse` / `csv`
 - `xml-mapping` - json в xml и обратно
 - `xmldoc`
@@ -451,6 +453,8 @@ app.set('x-powered-by', false);
 #### Проксики
 - `proxy-search`
 - `proxylist`
+- `auto-proxy`
+- [прокси поверх tor'а](https://stackoverflow.com/questions/19221903/how-to-add-proxy-like-tor-when-scraping-using-node-io)
 - `http-proxy` - свой прокси-сервер на ноде
 - `http-mitm-proxy` - свой прокси-сервер на ноде
 - `anyproxy` - свой прокси-сервер на ноде от alibaba'ы
@@ -569,7 +573,7 @@ app.set('x-powered-by', false);
 - `argumentable-queue`
 - `generic-pool`
 - `denque`
-- `node-schedule`
+- `node-schedule` - flexible cron-like and not-cron-like job scheduler
 - `cron`
 - `cron-parser`
 - `are-we-there-yet` - трекинг статусов выполнения у коллекции задач и стримов
@@ -744,6 +748,7 @@ app.set('x-powered-by', false);
 - `evercookie` - [repo](https://github.com/samyk/evercookie)
 - `fingerprintjs2`
 - `history`
+- [JavaScript-autoComplete](https://github.com/Pixabay/JavaScript-autoComplete)
 - `mediaplayer` / `video.js` - лёгкий, расширяемый, интернациональный, доступный, кроссбраузерный, легконастраиваемый медиаплеер на ванильном js
 - `animejs` - норм такие анимашки
 - `tabbable` - находит все dom-ноды, в которые возможна фокусировка tab'ом, внутри переданного контейнера
