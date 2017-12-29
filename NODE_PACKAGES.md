@@ -34,6 +34,7 @@
 - [Полный фарш с Vue.js, passport, GraphQL, nodemailer'ом, http2, i18n, логированием, webpack'ом](https://github.com/icebob/vue-express-mongo-boilerplate)
 - [Пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 - [Koa, Knex, crud, аутентификация, пагинации](https://github.com/gothinkster/koa-knex-realworld-example)
+- [^^^ Тоже самое ^^^, только на express'е](https://github.com/gothinkster/node-express-realworld-example-app)
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
