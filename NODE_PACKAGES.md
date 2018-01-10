@@ -407,6 +407,7 @@ app.set('x-powered-by', false);
 - `node-vk-bot-api` - бот для вк
 - `instagram-private-api` - неофициальное api для инстаграмма с полной эмуляцией андройд-клиента ([на питоне](https://github.com/mgp25/Instagram-API/) популярнее и обновляется чаще)
 - `socks5-https-client`
+- `apiai` - распознавание голоса с помощью гугловского [api.ai](https://api.ai/)
 
 ### Парсинг dom'а, json'а, csv
 - `browser-env`
