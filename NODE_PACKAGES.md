@@ -43,14 +43,6 @@
 - `cross-spawn` / `execa` / `respawn`
 - `mz` - промайзнутые системные библиотеки
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
-- `js-meter` - замеры и форматирование потребляемой памяти/cpu/etc
-- `shelljs` - bash-функции прямо в ноде
-- `shx` - кроссплатформенные bash-функции в скриптах `package.json` (обёртка над `shelljs`) 
-- `precommit-hook` - тулза запускающая npm-скрипты на коммиты
-- `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками
-- `commitizen` - интерактивка для сообщений к коммитам (fix/refactor/test/etc)-
-- `validate-commit-msg` - валидатор сообщений к коммитам
-- `standard-version` - автоматический changelog при обновлении версии на основе сообщений к коммитам
 - `app-module-path` - require хук, для маппинга кастомной рутовой директории
 - `node-notifier`
 - `nodejs-dashboard`
@@ -58,6 +50,7 @@
 - `reify` / `@std/esm` - врубает `import` без бабелей/вебпаков ([статья про `@std/esm`](https://blogs.windows.com/msedgedev/2017/08/10/es-modules-node-today/))
 - `open` - открывает ссылку в дефолтовом браузере системы
 - `toobusy-js`
+- `js-meter` - замеры и форматирование потребляемой памяти/cpu/etc
 - `node-memwatch` / `memwatch-next` - следит за утечками, можно зафорсить сборку мусора
 - `memory-usage` - поток с мониторилкой потребления памяти
 - `light-cycle` - реализация hashringcycle (аналог round-robin) для выбора шардов на лету
@@ -80,10 +73,17 @@
 - `chokidar` / `watchpack` / `watchman`
 - `browser-sync`
 - `parallelshell`
-- `better-npm-run`
-- `npm-check` - тулза для обновления зависимостей с консольным ui
-- `cross-env` - для кроссплатформенной установки переменных окружения из `npm run`
 - `concurrently` - для запуска нескольких одновременных задач из `npm run`
+- `better-npm-run`
+- `cross-env` - для кроссплатформенной установки переменных окружения из `npm run`
+- `shelljs` - bash-функции прямо в ноде
+- `shx` - кроссплатформенные bash-функции в скриптах `package.json` (обёртка над `shelljs`) 
+- `precommit-hook` - тулза запускающая npm-скрипты на коммиты
+- `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками
+- `commitizen` - интерактивка для сообщений к коммитам (fix/refactor/test/etc)-
+- `validate-commit-msg` - валидатор сообщений к коммитам
+- `standard-version` - автоматический changelog при обновлении версии на основе сообщений к коммитам
+- `npm-check` - тулза для обновления зависимостей с консольным ui
 - `is-ci` - проверяет, запущен ли код в ci-окружении
 - `is-ci-cli` - позволяет для разных ci-окружений запускать разные npm-скрипты
 - `spritesmith` / `sprity` (`sprity-gm`) / `directory-encoder` - генераторы спрайтов и css к ним
@@ -234,6 +234,7 @@ app.set('x-powered-by', false);
   - https://habrahabr.ru/post/324366/
   - https://habrahabr.ru/post/344802/
   - https://habrahabr.ru/company/ruvds/blog/344682/
+  - newrelic.com / splunk.com - полнофункциональный saas для мониторинга и аналитики
 
 ### Кластеризация процессов
 - `strong-cluster-control`
@@ -639,7 +640,8 @@ app.set('x-powered-by', false);
 - `franc` / `guesslanguage` - определение языка
 - `node-summary` - выдёргивает основную мысль из текста
 - `yaspeller` - спеллчекер через яндексовое api
-- `@google-cloud/language` - определение языка, тональности текста, сущностей, предложений, токенов, etc. Это обёртка для Google Cloud Api. 
+- `@google-cloud/language` - определение языка, тональности текста, сущностей, предложений, токенов, etc. Это обёртка для Google Cloud Api.
+- [Классификация текста от facebook'а](https://github.com/facebookresearch/fastText) 
 
 ### DI
 - `bottlejs`
@@ -733,8 +735,9 @@ app.set('x-powered-by', false);
 - `webworker-promise` - promise-обёртка над webworker'ами ([статья](https://habrahabr.ru/post/337492/))
 - `scalable` - зачётный object-fit на scale'ах и translate'ах
 - `fitty` - вписывает текст в родительский контейнер
-- `trunc-text`
 - `trunc-html`
+- `trunc-text`
+- `shear.js` - truncate текста, с учётом html-тегов
 - `file-saver`, `save-as`
 - `wenk` / `balloon-css` / `hint.css`
 - `popper.js` (`vue-popperjs`) / `tooltip.js` - замена `tether`у
