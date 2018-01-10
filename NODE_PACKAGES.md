@@ -41,6 +41,7 @@
 - `cote` - набор библиотек для построения микросервисного кластера ([статья](https://habrahabr.ru/company/ruvds/blog/329784/))
 - `hotel` - управление и старт локальных dev-доменов для локальных проектов на всевозможных технологиях
 - `cross-spawn` / `execa` / `respawn`
+- `puka` - экранирование shell-команд для `child_process.span/.exec`
 - `mz` - промайзнутые системные библиотеки
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
 - `app-module-path` - require хук, для маппинга кастомной рутовой директории
@@ -394,6 +395,7 @@ app.set('x-powered-by', false);
 - `got`
 - `wreck`
 - `request` (`request-promise`), `@request/interface`, `@request/api`
+- `request-capture-har` - захват всего `request`-траффика для последующего анализа
 - `needle`
 - `node-fetch`
 - `superagent`
