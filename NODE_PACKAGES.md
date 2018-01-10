@@ -404,6 +404,7 @@ app.set('x-powered-by', false);
 - `http-status` / `statuses`
 - `nock` - mock'и для http-запросов (удобно для тестирования и заглушки api)
 - `slimbot` - бот для телеграмма
+- `node-vk-bot-api` - бот для вк
 - `instagram-private-api` - неофициальное api для инстаграмма с полной эмуляцией андройд-клиента ([на питоне](https://github.com/mgp25/Instagram-API/) популярнее и обновляется чаще)
 - `socks5-https-client`
 
