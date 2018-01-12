@@ -789,6 +789,7 @@ app.set('x-powered-by', false);
 - `react-aria-modal` - правильная модалка ([статья](https://habrahabr.ru/post/338130/))
 - [`micromodal`](https://micromodal.now.sh/) - тоже норм aria-модалка
 - [break-on-access](https://github.com/paulirish/break-on-access) - полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
+- `devtools-detect` - кроссбраузерное определение открытого devtools'а
 - [Красивые кнопочки](https://github.com/alexwolfe/Buttons/)
 - `analytics.js` - аналитика от segment.io
 - [обёртка над GA](https://github.com/philipwalton/analyticsjs-boilerplate)
