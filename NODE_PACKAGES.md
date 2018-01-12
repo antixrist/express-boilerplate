@@ -470,6 +470,7 @@ app.set('x-powered-by', false);
 #### Юзер-агентики
 - `useragent` - парсер/матчер/компаратор юзерагентов
 - `random-useragent`
+- `ua-parser-js` - клиентский парсер user-agent'а
 
 #### Печеньки
 - `js-cookie`
