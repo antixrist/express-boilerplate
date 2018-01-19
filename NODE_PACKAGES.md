@@ -173,6 +173,7 @@ app.set('x-powered-by', false);
 - `studio`
 - `socketcluster`
 - `primus`
+- `seneca`
 
 ### Сокеты
 - `socket.io` - стандарт дефакто, но давным-давно раздулся и уехал не в ту сторону.
