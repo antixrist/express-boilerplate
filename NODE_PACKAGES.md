@@ -772,14 +772,14 @@ app.set('x-powered-by', false);
 - `block-elements` - определяет, является ли тег блочным (по названию)
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
 - `waypoints` / `isInViewport` / `porthole` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky) / `scrollama` - на IntersectionObserver'ах
+- `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). [демка](https://deanhume.github.io/lazy-observer-load/) / `lazysizes` - на IntersectionObserver, его советует Addy Osmani
+- `image-promise` - промайзнутый `new Image` с кучей правильных проверок
 - `lightbox2` / `photoswipe` (используется на vc.ru) - модалочка для картинок
 - `@nishanths/zoom.js` - zoom изображений как на medium'е
 - `fg-enlarge` - zoom изображения вслед за курсором внутри контейнера, как на али 
 - `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` / `flickity` - каруселька
 - `handorgel` - аккордеон без зависимостей
 - `@filamentgroup/tau` - 360° галерея
-- `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). [демка](https://deanhume.github.io/lazy-observer-load/) / `lazysizes` - на IntersectionObserver, его советует Addy Osmani
-- `image-promise` - промайзнутый `new Image` с кучей правильных проверок
 - `nanoscroller` - скроллер на jquery
 - `smooth-scrollbar` / `smoothscroll-polyfill` (`scroll-behavior: smooth;`)
 - `pell` - норм текстовый редактор
@@ -829,7 +829,7 @@ app.set('x-powered-by', false);
 - `matchmedia-polyfill`
 - `bounding-client-rect`
 - `mutation-observer`
-- `intersection-observer`
+- `intersection-observer` ([описание конфигурации](https://habrahabr.ru/post/348030/))
 - `blob`
 - `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen` / `screenfull.js`
 - `smoothscroll-polyfill`
