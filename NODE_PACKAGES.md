@@ -784,7 +784,7 @@ app.set('x-powered-by', false);
 - `smooth-scrollbar` / `smoothscroll-polyfill` (`scroll-behavior: smooth;`)
 - `pell` - норм текстовый редактор
 - `sentinel-js` - отслеживает появление dom-элементов с заданным селектором
-- `fg-loadcss` - асинхронная загрузка css от filament'а
+- `fg-loadcss` - асинхронная загрузка css от filament'а ([пример использования](https://gist.github.com/thedaviddias/c24763b82b9991e53928e66a0bafc9bf))
 - `load-script`- асинхронная загрузка js
 - `@shopify/draggable` - мощная новая drag-n-drop'алка
 - `notifyjs` - браузерные нотификации
