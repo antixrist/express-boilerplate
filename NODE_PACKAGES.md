@@ -709,6 +709,7 @@ app.set('x-powered-by', false);
 - [dokku](https://github.com/dokku/dokku) - heroku + docker
 
 ## Front
+[ui-плагины без jquery](http://youmightnotneedjqueryplugins.com/)
 [plainjs.com](https://plainjs.com/) - подборка ванильных ui-виджетов и ванильных jquery-заменителей
 - `asap` / `next-tick` / `setimmediate` - как только, так сразу. Кроссбраузерный `process.nextTick`
 - `simulant` - симуляция реальных браузерных событий
