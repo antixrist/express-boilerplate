@@ -713,6 +713,7 @@ app.set('x-powered-by', false);
 [plainjs.com](https://plainjs.com/) - подборка ванильных ui-виджетов и ванильных jquery-заменителей
 - `asap` / `next-tick` / `setimmediate` - как только, так сразу. Кроссбраузерный `process.nextTick`
 - `simulant` - симуляция реальных браузерных событий
+- [web-font-loading-recipes](https://github.com/zachleat/web-font-loading-recipes)
 - `webfontloader` - загрузка шрифтов с Google Fonts, Typekit, Fonts.com и Fontdeck
 - `fontfaceobserver` - promise-мониторилка загрузки веб-шрифтов, откуда бы они не загружались
 - [font-style-matcher](https://meowni.ca/font-style-matcher/) - онлайн сервис для подбора и настройки наиболее похожего fallback'чного шрифта
