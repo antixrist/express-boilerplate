@@ -70,7 +70,7 @@
 
 ### Запуск и сборка
 - `gulp`
-- `webpack`, `webworkify-webpack` (`bundle-buddy`, `electron-webpack-dashboard`)
+- `webpack` (`bundle-buddy`, `electron-webpack-dashboard`)
 - `chokidar` / `watchpack` / `watchman`
 - `browser-sync`
 - `parallelshell`
@@ -742,6 +742,7 @@ app.set('x-powered-by', false);
 - `jquery-mask-plugin` / `inputmask` / `cleave.js` / `text-mask-all` / `imask` - маски текстового ввода
 - `simple-web-worker`
 - `webworker-promise` - promise-обёртка над webworker'ами ([статья](https://habrahabr.ru/post/337492/))
+- `webworkify-webpack` / `workly` - практически прозрачная webworker'ификация
 - `scalable` - зачётный object-fit на scale'ах и translate'ах
 - `fitty` - вписывает текст в родительский контейнер
 - `trunc-html`
