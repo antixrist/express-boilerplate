@@ -547,9 +547,9 @@ app.set('x-powered-by', false);
 - `bcrypt`
 
 ### Полезности
-- `bluebird` / `relike` / `universalify` (используется в `fs-extra`) / `awaiting` (для промисификации)
+- `bluebird` / `relike` / `universalify` (используется в `fs-extra`) / `awaiting` / `pify` - промисификация
+- `awaity` - bluebird-lodash для промисов на async/await'ах
 - `p-progress` - промисы с прогрессом ([много интересного для промисов](https://github.com/sindresorhus/promise-fun))
-- `pify` - промисификатор
 - `thunkify` - callback'ифицирует callbacks, arrays, generators, generator functions, and promises
 - `inflight` / `promise-inflight` - оборачивает функцию таким образом, что можно вызывать функцию-обёртку несколько раз с разными коллбеками, а когда вызов функции завершит выполнение, то все коллбеки будут выполненны последовательно и асинхронно
 - `co`
