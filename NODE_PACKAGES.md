@@ -73,8 +73,7 @@
 - `webpack` (`bundle-buddy`, `electron-webpack-dashboard`)
 - `chokidar` / `watchpack` / `watchman`
 - `browser-sync`
-- `parallelshell`
-- `concurrently` - для запуска нескольких одновременных задач из `npm run`
+- `parallelshell` / `npm-run-all` / `concurrently` - для запуска нескольких одновременных задач из `npm run`
 - `better-npm-run`
 - `cross-env` - для кроссплатформенной установки переменных окружения из `npm run`
 - `shelljs` - bash-функции прямо в ноде
