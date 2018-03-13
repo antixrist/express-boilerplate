@@ -439,6 +439,8 @@ app.set('x-powered-by', false);
 ### Headless-браузеры и тестирование
 - `nightmare`
 - `chromeless` / `puppeteer` - обёртка над безголовым хромом
+- [парсинг с puppeteer](https://www.youtube.com/watch?v=Nn75sRAOlIY)
+- `headless-cat-n-mouse` - обнаружение и обход обнаружения headless-браузеров
 - `node-horseman` - promise-обёртка над фантомом с апи, как у nightmare 
 - `uirecorder` - что-то вроде selenium от alibaba'ы
 - `leadfoot` (кроссплатформенная) / `taxi-rank` / `webdriverio` - обёртки над Selenium
