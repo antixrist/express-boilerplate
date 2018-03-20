@@ -597,6 +597,7 @@ app.set('x-powered-by', false);
 - `encoding`
 - `iconv-lite`
 - `iconv`
+- `text-encoding`
 - `jschardet` - определение кодировки
 
 ### AST-парсеры
