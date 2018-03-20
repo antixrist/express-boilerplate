@@ -165,6 +165,7 @@ app.set('x-powered-by', false);
 - `koa-logger`
 - `apollo-server-koa` - GraphQL
 - Много нужного есть [здесь](https://github.com/koajs)
+- `path-to-regexp` - превращает строки вида `/foo/:bar` в регекспы вида `/^\/foo\/([^\/]+?)\/?$/i`
 
 ### Прочие фреймворки
 - `micro`
