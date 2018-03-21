@@ -223,6 +223,7 @@ app.set('x-powered-by', false);
 - `stacktracey` - парсинг колстека с соурсмапами и читабельным выводом
 - `stackman`
 - `@ymatuhin/onerror`
+- `error3`
 - [пример с trace, clarify и stack-chain](https://gist.github.com/antixrist/88b3d77f803377944789f02357b83c89)
 - [подходы к локальной обработке ошибок](https://learn.javascript.ru/exception) и их [логирования на сервер](https://habrahabr.ru/post/324366/)
 - сервисы для отправки и анализа непойманных ошибок:
