@@ -415,7 +415,7 @@ app.set('x-powered-by', false);
 - `socks5-https-client`
 - `apiai` - распознавание голоса с помощью гугловского [api.ai](https://api.ai/)
 
-### Парсинг dom'а, json'а, csv
+### Парсинг dom'а, json'а, csv, markdown
 - `browser-env`
 - `jsdom` / `cheerio` / `whacko` / `parse5`
 - `json5` - json с блекджеком и комментиками
@@ -429,6 +429,7 @@ app.set('x-powered-by', false);
 - `xmldoc`
 - `html-tokenize`
 - `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
+- `marked` - парсер markdown
 
 ### Офисные форматы
 - `docxtemplater`
