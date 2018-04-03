@@ -261,8 +261,7 @@ app.set('x-powered-by', false);
 - `proper-lockfile` - `lock`-файл
 - `steno` - помогает при конкурентной записи в файл - делает все вызовы на запись последовательно
 - `is-dotfile`
-- `is-absolute`
-- `is-relative`
+- `is-absolute`, `is-relative`
 - `relative` - расширенный `path.relative()`
 - `sanitize-filename` - очищает строку от спецсимволов и "папок", делая её валидным названием файла 
 - `tmp` - работа с временными файлами и директориями
@@ -342,6 +341,9 @@ app.set('x-powered-by', false);
 - `lodash` / `iterare` / `fast.js` / [just](https://github.com/angus-c/just)
 - `object-path` / `dottie` - продвинутый `_.get()`
 - `string` / `strman` - если лодашевских методов работы со строками будет не хватать
+- `JSONSchema` / `ajv` - создание и валидация JSONScheme'ы
+- `joi` / `schema-inspector` / `validator` / `forms` / `superstruct` - санитизация/валидация
+- `@sindresorhus/is`, `isemail`, `is-svg`, `isstream`, `is-glob`, `is-dotfile`, `is-absolute`, `is-relative` - проверка типов
 - `printable-characters` - набор функций для работы с невидимыми печатными символами (определение длины, etc)
 - `numeral` - работа с числами
 - `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов) / `date-fns` - улучшенная (и при этом проще) библиотека для манипуляций с датами / `jstimezonedetect` - для браузера (в основном) / `spacetime` - для работы с датами и временными зонами
@@ -354,9 +356,6 @@ app.set('x-powered-by', false);
 - `humanize-number` - человекопонятные числа
 - `expiry-js` / `ms` - парсер длительностей (1M, 1Y, 1h, 1m, 1s, 1ms, etc)
 - `pretty-ms` - форматирование миллисекунд
-- `JSONSchema` / `ajv` - создание и валидация JSONScheme'ы
-- `joi` / `schema-inspector` / `validator` / `forms` / `superstruct` - санитизация/валидация
-- `isemail`
 - `sanitize-html` / `escape-html` / `he`
 - `checkit`
 - `repository`
