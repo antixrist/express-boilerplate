@@ -187,10 +187,9 @@ app.set('x-powered-by', false);
 ### Конфигурация
 - `cosmiconfig` - поиск конфига по `ключ`у в package.json, в `.ключrc`, в `ключ.config.js`
 - `nconf` / `config` / `confit`. `config` похож на `nconf`, но вроде поширше, `confit` выглядит самым вкусным (к тому же он от `kraken`'a).
-- `dotenv`
+- `dotenv`, `env-cmd`
 - `jsonfile`
 - `electrode-confippet`
-- `env-cmd`
 - `rc`
 - `configstore` - удобно записывать пользовательские конфиги, например
 - `cosmiconfig` - для переиспользуемых пакетов
@@ -339,7 +338,8 @@ app.set('x-powered-by', false);
 
 ### Данные
 - `lodash` / `iterare` / `fast.js` / [just](https://github.com/angus-c/just)
-- `object-path` / `dottie` - продвинутый `_.get()`
+- `object-path` / `dottie` - продвинутый `_.get()`, `dot-object` - работа с json-объектами в виде dot-нотации
+- `tableize` - схлопывает (сворачивает) json-структуру в объект вида `{'level1key': 'level1value', 'level1key.level2key': 'level2value'}`
 - `string` / `strman` - если лодашевских методов работы со строками будет не хватать
 - `JSONSchema` / `ajv` - создание и валидация JSONScheme'ы
 - `joi` / `schema-inspector` / `validator` / `forms` / `superstruct` - санитизация/валидация
@@ -363,7 +363,6 @@ app.set('x-powered-by', false);
 - `normalize-object`
 - `serialize-javascript`
 - `kind-of` - нормальная замена typeof
-- `tableize` - схлопывает json-структуру в объект вида `{'level1key': 'level1value', 'level1key.level2key': 'level2value'}`
 - `deep-diff` / `diff` / `jsondiffpatch` / `jiff` / `just-diff`, `just-diff-apply` / `arr-diff`
 - `fastest-clone`
 - `deepmerge`
@@ -423,7 +422,7 @@ app.set('x-powered-by', false);
 - `web-auto-extractor` - парсер schema.org: microdata, RDFa-lite, JSON-LD
 - `page-metadata-parser` - парсинг метаданных страницы - мета-теги, opengraph
 - `open-graph-scraper` - парсер opengraph
-- `csv-stringify`, `fast-csv` / `csv-streamify` / `papaparse` / `csv`
+- `csv-stringify`, `fast-csv` / `csv-streamify` / `papaparse` / `csv` / `csvtojson`
 - `xml-mapping` - json в xml и обратно
 - `xmldoc`
 - `html-tokenize`
@@ -641,7 +640,7 @@ app.set('x-powered-by', false);
 - `az`
 - `wordpos` - части речи для английского
 - `retext` - парсер текста на ast (работа на плагинах по принципу postcss)
-- `leven` - самый быстрый левенштейн
+- `leven` - самый быстрый левенштейн, `string-similarity` - алгоритм лучше левенштейна
 - `diff`
 - `fuzzyset.js` / `string_score` / `fuse.js` / `fuzzaldrin` / `fuzzysort` - матчинг строк
 - `lunr-languages`
