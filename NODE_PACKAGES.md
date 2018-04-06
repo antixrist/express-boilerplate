@@ -35,6 +35,7 @@
 - [Пример контроллера для endpoint'ов](https://github.com/keithwhor/nodal/blob/0aa44d078a01c9d6807f254c83cdebea67bfab91/README.md)
 - [Koa, Knex, crud, аутентификация, пагинации](https://github.com/gothinkster/koa-knex-realworld-example)
 - [^^^ Тоже самое ^^^, только на express'е](https://github.com/gothinkster/node-express-realworld-example-app)
+- [Файловый шарилка на докере, с rest api и интерфейсом для разных хранилищ](https://github.com/rumkin/file-storage)
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
@@ -166,7 +167,7 @@ app.set('x-powered-by', false);
 - `koa-logger`
 - `apollo-server-koa` - GraphQL
 - Много нужного есть [здесь](https://github.com/koajs)
-- `path-to-regexp` - превращает строки вида `/foo/:bar` в регекспы вида `/^\/foo\/([^\/]+?)\/?$/i`
+- `path-to-regexp` - превращает строки вида `/foo/:bar` в регекспы вида `/^\/foo\/([^\/]+?)\/?$/i` (полезно для написания роутера, используется во `vue-router`)
 
 ### Прочие фреймворки
 - `micro`
@@ -341,8 +342,9 @@ app.set('x-powered-by', false);
 - `object-path` / `dottie` - продвинутый `_.get()`, `dot-object` - работа с json-объектами в виде dot-нотации
 - `tableize` - схлопывает (сворачивает) json-структуру в объект вида `{'level1key': 'level1value', 'level1key.level2key': 'level2value'}`
 - `string` / `strman` - если лодашевских методов работы со строками будет не хватать
+- `validation-report` - унификация формата ошибок валидации, [статья](https://habrahabr.ru/post/348530/)
 - `JSONSchema` / `ajv` - создание и валидация JSONScheme'ы
-- `joi` / `schema-inspector` / `validator` / `forms` / `superstruct` - санитизация/валидация
+- `joi` / `schema-inspector` / `validator` / `forms` / `superstruct` / `validate.it.js` - санитизация/валидация
 - `@sindresorhus/is`, `isemail`, `is-svg`, `isstream`, `is-glob`, `is-dotfile`, `is-absolute`, `is-relative` - проверка типов
 - `printable-characters` - набор функций для работы с невидимыми печатными символами (определение длины, etc)
 - `numeral` - работа с числами
@@ -572,7 +574,7 @@ app.set('x-powered-by', false);
 - `apiai` - распознавание голоса с помощью гугловского [api.ai](https://api.ai/)
 
 ### Очередя и таски
-- `retry` (`async-retry`, `promise-retry`) / `tolerance`
+- `retry` (`async-retry`, `promise-retry`, `promise-poller`) / `tolerance`
 - `async-throttle`
 - `semaphore` - ограничитель одновременного доступа к ресурсу
 - `function-rate-limit`
@@ -742,8 +744,6 @@ app.set('x-powered-by', false);
 - `focus` - нахождение центральной сущности на изображении для последующей фокусировки или кропа
 - `noty` ([обёртка для vue](https://github.com/nikitamarcius/vue-notice)) - уведомлялка
 - `criticalcss` / `critical` / `penthouse` - critical css
-- `scrollbarwidth`
-- `simplebar` - кроссбраузерный кастомный скролл
 - `jquery-mask-plugin` / `inputmask` / `cleave.js` / `text-mask-all` / `imask` - маски текстового ввода
 - `simple-web-worker`
 - `webworker-promise` - promise-обёртка над webworker'ами ([статья](https://habrahabr.ru/post/337492/))
@@ -754,6 +754,7 @@ app.set('x-powered-by', false);
 - `trunc-text`
 - `shear.js` - truncate текста, с учётом html-тегов
 - `file-saver`, `save-as`
+- `filepond` - upload'илка файлов
 - `wenk` / `balloon-css` / `hint.css`
 - `popper.js` (`vue-popperjs`) / `tooltip.js` - замена `tether`у
 - `equalizecss` - bootstrap-like flex-сетка на sass'е
@@ -789,9 +790,11 @@ app.set('x-powered-by', false);
 - `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` / `flickity` - каруселька
 - `handorgel` - аккордеон без зависимостей
 - `@filamentgroup/tau` - 360° галерея
-- `nanoscroller` - скроллер на jquery
+- `scrollbarwidth`
+- `simplebar` - кроссбраузерный кастомный скролл
+- `nanoscroller` / `scrollbooster` - скроллеры
 - `smooth-scrollbar` / `smoothscroll-polyfill` (`scroll-behavior: smooth;`)
-- `pell` - норм текстовый редактор
+- `quill` / `medium-editor` / `pell` - текстовый редактор
 - `linkifyjs` - оборачивает текстовые ссылки в html-ссылки
 - `sentinel-js` - отслеживает появление dom-элементов с заданным селектором
 - `fg-loadcss` - асинхронная загрузка css от filament'а ([пример использования](https://gist.github.com/thedaviddias/c24763b82b9991e53928e66a0bafc9bf))
