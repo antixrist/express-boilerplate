@@ -73,6 +73,7 @@
 - `gulp`
 - `webpack` (`bundle-buddy`, `electron-webpack-dashboard`)
 - `chokidar` / `watchpack` / `watchman`
+- `nodemon` - вотчинг изменений и перезапуск процесса / `onchange` - glob-вотчинг изменений и запуск таски
 - `browser-sync`
 - `parallelshell` / `npm-run-all` / `concurrently` - для запуска нескольких одновременных задач из `npm run`
 - `better-npm-run`
