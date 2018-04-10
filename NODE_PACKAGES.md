@@ -578,6 +578,7 @@ app.set('x-powered-by', false);
 - `async-throttle`
 - `semaphore` - ограничитель одновременного доступа к ресурсу
 - `function-rate-limit`
+- `p-queue` - очередя на промисах
 - `kue` (`kue-ui`) / `bull` / `bee-queue` - очередя на редисе
 - `agenda` - очередя на монге
 - `axon` - zeromq на ноде
