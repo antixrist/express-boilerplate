@@ -796,7 +796,8 @@ app.set('x-powered-by', false);
 - `simplebar` - кроссбраузерный кастомный скролл
 - `nanoscroller` / `scrollbooster` - скроллеры
 - `smooth-scrollbar` / `smoothscroll-polyfill` (`scroll-behavior: smooth;`)
-- `quill` / `medium-editor` / `pell` - текстовый редактор
+- `quill` / `medium-editor` / `pell` / `mavon-editor` (vue-компонент) - текстовый редактор
+- `auto-textarea`
 - `linkifyjs` - оборачивает текстовые ссылки в html-ссылки
 - `sentinel-js` - отслеживает появление dom-элементов с заданным селектором
 - `fg-loadcss` - асинхронная загрузка css от filament'а ([пример использования](https://gist.github.com/thedaviddias/c24763b82b9991e53928e66a0bafc9bf))
