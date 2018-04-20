@@ -82,6 +82,7 @@
 - `shx` - кроссплатформенные bash-функции в скриптах `package.json` (обёртка над `shelljs`) 
 - `precommit-hook` - тулза запускающая npm-скрипты на коммиты
 - `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками
+- `lint-staged` - запускает линтинг и форматирование только изменившихся в коммите файлов
 - `commitizen` - интерактивка для сообщений к коммитам (fix/refactor/test/etc)-
 - `validate-commit-msg` - валидатор сообщений к коммитам
 - `standard-version` - автоматический changelog при обновлении версии на основе сообщений к коммитам
@@ -340,11 +341,11 @@ app.set('x-powered-by', false);
 
 ### Данные
 - `lodash` / `iterare` / `fast.js` / [just](https://github.com/angus-c/just)
-- `object-path` / `dottie` - продвинутый `_.get()`, `dot-object` - работа с json-объектами в виде dot-нотации
+- `object-path` / `dottie` - продвинутый `_.get()`, `dot-object` / `to-object-path` - работа с json-объектами в виде dot-нотации
 - `tableize` - схлопывает (сворачивает) json-структуру в объект вида `{'level1key': 'level1value', 'level1key.level2key': 'level2value'}`
 - `string` / `strman` - если лодашевских методов работы со строками будет не хватать
 - `validation-report` - унификация формата ошибок валидации, [статья](https://habrahabr.ru/post/348530/)
-- `JSONSchema` / `ajv` - создание и валидация JSONScheme'ы
+- `JSONSchema` / `ajv` / `z-schema` - создание и валидация JSONScheme'ы
 - `joi` / `schema-inspector` / `validator` / `forms` / `superstruct` / `validate.it.js` - санитизация/валидация
 - `@sindresorhus/is`, `isemail`, `is-svg`, `isstream`, `is-glob`, `is-dotfile`, `is-absolute`, `is-relative` - проверка типов
 - `printable-characters` - набор функций для работы с невидимыми печатными символами (определение длины, etc)
@@ -399,7 +400,7 @@ app.set('x-powered-by', false);
 - `caw`
 - `got`
 - `wreck`
-- `request` (`request-promise`), `@request/interface`, `@request/api`
+- `request` (`request-promise`), `@request/interface`, `@request/api`, `requestretry`
 - `request-capture-har` - захват всего `request`-траффика для последующего анализа
 - `needle`
 - `node-fetch`
@@ -428,6 +429,7 @@ app.set('x-powered-by', false);
 - `csv-stringify`, `fast-csv` / `csv-streamify` / `papaparse` / `csv` / `csvtojson`
 - `xml-mapping` - json в xml и обратно
 - `xmldoc`
+- `pdf2json`
 - `html-tokenize`
 - `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
 - `marked` - парсер markdown
@@ -440,6 +442,7 @@ app.set('x-powered-by', false);
 - `js-xlsx` / `xlsx` - парсер и запись xls-форматов
 - `pdfjs-dist` - парсер и рендер pdf от mozilla'ы
 - `pdfkit`
+- `pdf2json`
 
 ### Headless-браузеры и тестирование
 - `nightmare`
@@ -575,7 +578,7 @@ app.set('x-powered-by', false);
 - `apiai` - распознавание голоса с помощью гугловского [api.ai](https://api.ai/)
 
 ### Очередя и таски
-- `retry` (`async-retry`, `promise-retry`, `promise-poller`) / `tolerance`
+- `retry` (`async-retry`, `promise-retry`, `promise-poller`) / `tolerance` / `requestretry`
 - `async-throttle`
 - `semaphore` - ограничитель одновременного доступа к ресурсу
 - `function-rate-limit`
@@ -704,6 +707,7 @@ app.set('x-powered-by', false);
 - `greuler`
 - `ngraph`, в т.ч. `ngraph.forcelayout`, `ngraph.remove-overlaps`, `ngraph.quadtreebh` и прочие от [@anvaka](https://github.com/anvaka)
 - `toposort`
+- `graphlib`
 
 ### Генерация документации
 - swagger
