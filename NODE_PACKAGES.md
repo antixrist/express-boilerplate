@@ -402,10 +402,12 @@ app.set('x-powered-by', false);
 - `wreck`
 - `request` (`request-promise`), `@request/interface`, `@request/api`, `requestretry`
 - `request-capture-har` - захват всего `request`-траффика для последующего анализа
+- `axios`, `axios-retry`
 - `needle`
 - `node-fetch`
 - `superagent`
 - `download` / `getit`
+- `is-retry-allowed` - на основании кода ошибки запроса определяет - можно ли делать запрос повторно
 - `is-online` - есть ли коннект с интернетом
 - `is-reachable` - есть ли коннект с конкретным ресурсом
 - `follow-redirects`
@@ -578,7 +580,8 @@ app.set('x-powered-by', false);
 - `apiai` - распознавание голоса с помощью гугловского [api.ai](https://api.ai/)
 
 ### Очередя и таски
-- `retry` (`async-retry`, `promise-retry`, `promise-poller`) / `tolerance` / `requestretry`
+- `retry` (`async-retry`, `promise-retry`, `promise-poller`) / `tolerance` / `requestretry` / `axios-retry`
+- `is-retry-allowed` - на основании кода ошибки запроса определяет - можно ли делать запрос повторно
 - `async-throttle`
 - `semaphore` - ограничитель одновременного доступа к ресурсу
 - `function-rate-limit`
