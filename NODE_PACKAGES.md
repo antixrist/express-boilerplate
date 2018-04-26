@@ -248,6 +248,7 @@ app.set('x-powered-by', false);
 
 ### ФС
 - `fs-extra`, `graceful-fs`
+- `resolve` / `enhanced-resolve` (асинхронный) - нодовый алгоритм резолва путей
 - `node-dir` - доп.плюшки для работы с директориями
 - `anymatch` - матчер по чему угодно (глоб, регэксп, етс)
 - `chokidar` / `watchpack` / `watchman` - слушатель фс
@@ -345,7 +346,7 @@ app.set('x-powered-by', false);
 - `tableize` - схлопывает (сворачивает) json-структуру в объект вида `{'level1key': 'level1value', 'level1key.level2key': 'level2value'}`
 - `string` / `strman` - если лодашевских методов работы со строками будет не хватать
 - `validation-report` - унификация формата ошибок валидации, [статья](https://habrahabr.ru/post/348530/)
-- `JSONSchema` / `ajv` / `z-schema` - создание и валидация JSONScheme'ы
+- `JSONSchema` / `ajv` , `ajv-keywords` / `z-schema` - создание и валидация JSONScheme'ы
 - `joi` / `schema-inspector` / `validator` / `forms` / `superstruct` / `validate.it.js` - санитизация/валидация
 - `@sindresorhus/is`, `isemail`, `is-svg`, `isstream`, `is-glob`, `is-dotfile`, `is-absolute`, `is-relative` - проверка типов
 - `printable-characters` - набор функций для работы с невидимыми печатными символами (определение длины, etc)
@@ -558,7 +559,8 @@ app.set('x-powered-by', false);
 - `bcrypt`
 
 ### Полезности
-- `bluebird` / `relike` / `universalify` (используется в `fs-extra`) / `awaiting` / `pify` - промисификация
+- `bluebird` / `aigle` / `neo-async` - `async` для промисов
+- `relike` / `universalify` (используется в `fs-extra`) / `awaiting` / `pify` - промисификация
 - `awaity` - bluebird-lodash для промисов на async/await'ах
 - `p-progress` - промисы с прогрессом ([много интересного для промисов](https://github.com/sindresorhus/promise-fun))
 - `thunkify` - callback'ифицирует callbacks, arrays, generators, generator functions, and promises
