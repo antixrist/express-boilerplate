@@ -809,6 +809,7 @@ app.set('x-powered-by', false);
 - `smooth-scrollbar` / `smoothscroll-polyfill` (`scroll-behavior: smooth;`)
 - `quill` / `medium-editor` / `pell` / `mavon-editor` (vue-компонент) - текстовый редактор
 - `auto-textarea`
+- `inobounce` - какой fix скролла на ios, связанный с `-webkit-overflow-scrolling`
 - `linkifyjs` - оборачивает текстовые ссылки в html-ссылки
 - `sentinel-js` - отслеживает появление dom-элементов с заданным селектором
 - `fg-loadcss` - асинхронная загрузка css от filament'а ([пример использования](https://gist.github.com/thedaviddias/c24763b82b9991e53928e66a0bafc9bf))
