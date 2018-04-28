@@ -200,6 +200,7 @@ app.set('x-powered-by', false);
 
 ### Авторизация
 - `passport` и его стратегии (в т.ч. `passport-local`, `passport-hash`, `passport-securelogin`)
+- `permit` - простой способ авторизации по Bearer токену
 - `passwordless`
 - `jsonwebtoken`
 - `oauth` (провайдеры `hellojs`, `grant`)
@@ -351,7 +352,7 @@ app.set('x-powered-by', false);
 - `@sindresorhus/is`, `isemail`, `is-svg`, `isstream`, `is-glob`, `is-dotfile`, `is-absolute`, `is-relative` - проверка типов
 - `printable-characters` - набор функций для работы с невидимыми печатными символами (определение длины, etc)
 - `numeral` - работа с числами
-- `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов) / `date-fns` - улучшенная (и при этом проще) библиотека для манипуляций с датами / `jstimezonedetect` - для браузера (в основном) / `spacetime` - для работы с датами и временными зонами
+- `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов) / `date-fns` - улучшенная (и при этом проще) библиотека для манипуляций с датами / `dayjs` - ещё одна маленькая либа для манипуляций с датами / `jstimezonedetect` - для браузера (в основном) / `spacetime` - для работы с датами и временными зонами
 - `date.js` - парсер человекопонятных дат английском языке
 - `accounting` - парсер чисел и валют (в основном валют)
 - `currency-formatter` - форматтер валют
@@ -757,7 +758,7 @@ app.set('x-powered-by', false);
 - `focus` - нахождение центральной сущности на изображении для последующей фокусировки или кропа
 - `noty` ([обёртка для vue](https://github.com/nikitamarcius/vue-notice)) - уведомлялка
 - `criticalcss` / `critical` / `penthouse` - critical css
-- `jquery-mask-plugin` / `inputmask` / `cleave.js` / `text-mask-all` / `imask` - маски текстового ввода
+- `jquery-mask-plugin` / `inputmask` / `cleave.js` / `text-mask-all` / `text-mask` / `imask` - маски текстового ввода
 - `simple-web-worker`
 - `webworker-promise` - promise-обёртка над webworker'ами ([статья](https://habrahabr.ru/post/337492/))
 - `webworkify-webpack` / `workly` - практически прозрачная webworker'ификация
@@ -783,6 +784,7 @@ app.set('x-powered-by', false);
 - `evercookie` - [repo](https://github.com/samyk/evercookie)
 - `fingerprintjs2`
 - `history`
+- `instantclick` / `turbolinks` - простой способ сделать классический сайт близким по скорости к spa
 - [JavaScript-autoComplete](https://github.com/Pixabay/JavaScript-autoComplete)
 - `mediaplayer` / `video.js` - лёгкий, расширяемый, интернациональный, доступный, кроссбраузерный, легконастраиваемый медиаплеер на ванильном js
 - `animejs` - норм такие анимашки
@@ -827,6 +829,7 @@ app.set('x-powered-by', false);
 - [залогинен ли юзер в соц.сетях](https://gist.github.com/antixrist/dbc4630fd4dab2d3bf3b0aa92a534363)
 - [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед upload'ом на сервер)
 [Много ui-виджетов](https://github.com/dexteryy/spellbook-of-modern-webdev#ux-libraries)
+[Норм scss-тема для bootstrap'а](https://github.com/tabler/tabler/tree/dev/src/assets/scss)
 
 ### Vue.js
 - `vuex-shared-mutations` - запускает мутации на всех открытых табах
