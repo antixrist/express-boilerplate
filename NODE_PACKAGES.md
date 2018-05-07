@@ -74,6 +74,7 @@
 - `webpack` (`bundle-buddy`, `electron-webpack-dashboard`)
 - `chokidar` / `watchpack` / `watchman`
 - `nodemon` - вотчинг изменений и перезапуск процесса / `onchange` - glob-вотчинг изменений и запуск таски
+- `diarrhea` - уменьшает вес бэкенд сборки, выпиливая мусор из зависимостей, [статья](https://habr.com/post/354504/)
 - `browser-sync`
 - `parallelshell` / `npm-run-all` / `concurrently` - для запуска нескольких одновременных задач из `npm run`
 - `better-npm-run`
@@ -186,6 +187,7 @@ app.set('x-powered-by', false);
 - `primus` - универсальная обёртка над всеми socket-realtime фреймворками
 - `passport.socketio` / `express-socket.io-session` - шаринг сессии между экспрессом и socket.io
 - `nats` - клиент для nats-сервера на go
+- `nchan` - клиент для nginx-модуля `nchan`, [статья](https://habr.com/post/354990/)
 
 ### Конфигурация
 - `cosmiconfig` - поиск конфига по `ключ`у в package.json, в `.ключrc`, в `ключ.config.js`
@@ -273,6 +275,7 @@ app.set('x-powered-by', false);
 - `os-homedir`
 - `user-home`
 - `cacache` - умное управление файловым кешем
+- `ssri` - работа с Subresource Integrity
 
 ### Стримы
 - `event-stream`
@@ -349,6 +352,7 @@ app.set('x-powered-by', false);
 - `validation-report` - унификация формата ошибок валидации, [статья](https://habrahabr.ru/post/348530/)
 - `JSONSchema` / `ajv` , `ajv-keywords` / `z-schema` - создание и валидация JSONScheme'ы
 - `joi` / `schema-inspector` / `validator` / `forms` / `superstruct` / `validate.it.js` - санитизация/валидация
+- `ow` - прикольная валидация аргументов функций
 - `@sindresorhus/is`, `isemail`, `is-svg`, `isstream`, `is-glob`, `is-dotfile`, `is-absolute`, `is-relative` - проверка типов
 - `printable-characters` - набор функций для работы с невидимыми печатными символами (определение длины, etc)
 - `numeral` - работа с числами
@@ -447,12 +451,13 @@ app.set('x-powered-by', false);
 - `pdfjs-dist` - парсер и рендер pdf от mozilla'ы
 - `pdfkit`
 - `pdf2json`
+- `relaxedjs` - рендер pdf'а из html/pug шаблонов, с полным использованием css, клиентском js, markdown'а и LaTex'а.
 
 ### Headless-браузеры и тестирование
 - `nightmare`
 - `chromeless` / `puppeteer` - обёртка над безголовым хромом
 - [парсинг с puppeteer](https://www.youtube.com/watch?v=Nn75sRAOlIY)
-- `headless-cat-n-mouse` - обнаружение и обход обнаружения headless-браузеров
+- `headless-cat-n-mouse` - обнаружение и обход обнаружения headless-браузеров, [репозиторий](https://github.com/paulirish/headless-cat-n-mouse)
 - `node-horseman` - promise-обёртка над фантомом с апи, как у nightmare 
 - `uirecorder` - что-то вроде selenium от alibaba'ы
 - `leadfoot` (кроссплатформенная) / `taxi-rank` / `webdriverio` - обёртки над Selenium
@@ -520,6 +525,7 @@ app.set('x-powered-by', false);
 - `protocolify`
 - `urijs`
 - `url-pattern`
+- `is-google` - по ip проверяет сделан ли запрос от гуглобота, или кто-то просто подделал user-agent, чтобы им притвориться
 - `slug` - делает замену пробелов и unicode-символов (даже emoji) для пригодности в урл
 
 ### Генераторы (чисел, строк, данных, uid'ов)
@@ -647,6 +653,7 @@ app.set('x-powered-by', false);
 - `gify` / `gifski` - делает гифку из видео (второй ещё и высококачественные)
 - `pngjs`, `jpeg-js`
 - [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед отправкой на сервер)
+- [Генерация превьюшек на лету с помощью AWS Lambda, golang, nodejs и nginx](https://habr.com/post/354226/)
 
 ### Морфология и текст
 - `phpmorphy`
@@ -755,7 +762,6 @@ app.set('x-powered-by', false);
 - `pretty-checkbox` - чекбоксы на scss'е
 - `drop-anywhere` - для d'n'd загрузки файлов где угодно на странице
 - `dropzone`
-- `focus` - нахождение центральной сущности на изображении для последующей фокусировки или кропа
 - `noty` ([обёртка для vue](https://github.com/nikitamarcius/vue-notice)) - уведомлялка
 - `criticalcss` / `critical` / `penthouse` - critical css
 - `jquery-mask-plugin` / `inputmask` / `cleave.js` / `text-mask-all` / `text-mask` / `imask` - маски текстового ввода
@@ -788,7 +794,7 @@ app.set('x-powered-by', false);
 - [JavaScript-autoComplete](https://github.com/Pixabay/JavaScript-autoComplete)
 - `mediaplayer` / `video.js` - лёгкий, расширяемый, интернациональный, доступный, кроссбраузерный, легконастраиваемый медиаплеер на ванильном js
 - `animejs` - норм такие анимашки
-- `tabbable` - находит все dom-ноды, в которые возможна фокусировка tab'ом, внутри переданного контейнера
+- `@simonwep/selection-js` - нормальная выделялка объектов курсором (как в проводнике или `brush` из `d3`)
 - `jquery.payment` - форма для банковской карты [repo](https://github.com/stripe/jquery.payment)
 - `card-info` - форма для банковской карты [repo](https://github.com/iserdmi/card-info)
 - `card` - форма для банковской карты [repo](https://github.com/jessepollak/card)
@@ -800,6 +806,7 @@ app.set('x-powered-by', false);
 - `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). [демка](https://deanhume.github.io/lazy-observer-load/) / `lazysizes` - на IntersectionObserver, его советует Addy Osmani
 - `image-promise` - промайзнутый `new Image` с кучей правильных проверок
 - `lightbox2` / `photoswipe` (используется на vc.ru) - модалочка для картинок
+- `focus` - нахождение центральной сущности на изображении для последующей фокусировки или кропа
 - `@nishanths/zoom.js` / `medium-zoom` - zoom изображений как на medium'е
 - `fg-enlarge` - zoom изображения вслед за курсором внутри контейнера, как на али 
 - `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` / `flickity` - каруселька
@@ -818,8 +825,9 @@ app.set('x-powered-by', false);
 - `load-script`- асинхронная загрузка js
 - `@shopify/draggable` - мощная новая drag-n-drop'алка
 - `notifyjs` - браузерные нотификации
-- `react-aria-modal` - правильная модалка ([статья](https://habrahabr.ru/post/338130/))
-- [`micromodal`](https://micromodal.now.sh/) - тоже норм aria-модалка
+- `tabbable` - находит все dom-ноды, в которые возможна фокусировка tab'ом, внутри переданного контейнера
+- `focus-trap` / `react-focus-lock` - при переключении фокуса tab'ом, не даёт ему выйти за границы модалки, [статья](https://habr.com/post/338130/)
+- `react-aria-modal` - правильная модалка, [статья](https://habrahabr.ru/post/338130/) /  `micromodal`- тоже норм aria-модалка / `a11y-dialog` - и ещё одна "доступная" модалка
 - [break-on-access](https://github.com/paulirish/break-on-access) - полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
 - `devtools-detect` - кроссбраузерное определение открытого devtools'а
 - [Красивые кнопочки](https://github.com/alexwolfe/Buttons/)
