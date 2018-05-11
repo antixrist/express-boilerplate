@@ -528,6 +528,10 @@ app.set('x-powered-by', false);
 - `url-pattern`
 - `is-google` - по ip проверяет сделан ли запрос от гуглобота, или кто-то просто подделал user-agent, чтобы им притвориться
 - `slug` - делает замену пробелов и unicode-символов (даже emoji) для пригодности в урл
+Чекалки ip:
+  - http://checkip.dyndns.com/
+  - http://ipinfo.io/ip
+  - https://yandex.ru/internet/
 
 ### Генераторы (чисел, строк, данных, uid'ов)
 - `faker`
