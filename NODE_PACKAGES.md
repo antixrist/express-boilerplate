@@ -36,6 +36,7 @@
 - [Koa, Knex, crud, аутентификация, пагинации](https://github.com/gothinkster/koa-knex-realworld-example)
 - [^^^ Тоже самое ^^^, только на express'е](https://github.com/gothinkster/node-express-realworld-example-app)
 - [Файловый шарилка на докере, с rest api и интерфейсом для разных хранилищ](https://github.com/rumkin/file-storage)
+- [Honeypot-логгер tcp/udp пакетов](https://github.com/hololoev/honeypot_tcpdump_logger), [статья](https://habr.com/post/358214/)
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
@@ -513,7 +514,7 @@ app.set('x-powered-by', false);
 - `is-ip`
 - `ip-regex` - регулярка для ip
 - `stun` - определение своего внешнего ip-адреса по stun-протоколу ([список доступных публичных серверов](https://gist.github.com/antixrist/b529e3b231cdf5c28c8d197543ad026f)) / `public-ip` - определение внешнего ip через dns-запрос / `internal-ip` - определение локального ip
-- `geoip-lite` / `maxmind` (+ поискать для [sypexgeo](https://sypexgeo.net/ru/stats/)). Свой сервис - [freegeoip](https://github.com/fiorix/freegeoip)
+- `geoip-lite` / `maxmind` (+ поискать для [sypexgeo](https://sypexgeo.net/ru/stats/)). Свой сервис - [freegeoip](https://github.com/fiorix/freegeoip) / `geoip-local`
 - `fast-url-parser` и `querystringparser`
 - `url-parse-lax` - расширенный url.parse - без протоколов и с ip
 - `encodeurl`
