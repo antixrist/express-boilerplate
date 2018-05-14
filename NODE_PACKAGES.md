@@ -815,6 +815,7 @@ app.set('x-powered-by', false);
 - `inobounce` - какой fix скролла на ios, связанный с `-webkit-overflow-scrolling`
 - `waypoints` / `isInViewport` / `porthole` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky) / `scrollama` - на IntersectionObserver'ах
 - `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). [демка](https://deanhume.github.io/lazy-observer-load/) / `lazysizes` - на IntersectionObserver, его советует Addy Osmani
+- `eqio` - Element css media-queries
 - `image-promise` - промайзнутый `new Image` с кучей правильных проверок
 - `lightbox2` / `photoswipe` (используется на vc.ru) - модалочка для картинок
 - `focus` - нахождение центральной сущности на изображении для последующей фокусировки или кропа
