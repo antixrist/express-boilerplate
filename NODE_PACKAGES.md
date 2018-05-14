@@ -807,6 +807,12 @@ app.set('x-powered-by', false);
 - `banks-db` - определение банка по номеру карты
 - `block-elements` - определяет, является ли тег блочным (по названию)
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
+- `scrollbarwidth`
+- `scrollparent` - нахождение ближайшего родителя со скроллом
+- `simplebar` - кроссбраузерный кастомный скролл
+- `nanoscroller` / `scrollbooster` - скроллеры
+- `smooth-scrollbar` / `smoothscroll-polyfill` (`scroll-behavior: smooth;`)
+- `inobounce` - какой fix скролла на ios, связанный с `-webkit-overflow-scrolling`
 - `waypoints` / `isInViewport` / `porthole` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky) / `scrollama` - на IntersectionObserver'ах
 - `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). [демка](https://deanhume.github.io/lazy-observer-load/) / `lazysizes` - на IntersectionObserver, его советует Addy Osmani
 - `image-promise` - промайзнутый `new Image` с кучей правильных проверок
@@ -817,13 +823,8 @@ app.set('x-powered-by', false);
 - `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` / `flickity` - каруселька
 - `handorgel` - аккордеон без зависимостей
 - `@filamentgroup/tau` - 360° галерея
-- `scrollbarwidth`
-- `simplebar` - кроссбраузерный кастомный скролл
-- `nanoscroller` / `scrollbooster` - скроллеры
-- `smooth-scrollbar` / `smoothscroll-polyfill` (`scroll-behavior: smooth;`)
 - `quill` / `medium-editor` / `pell` / `mavon-editor` (vue-компонент) - текстовый редактор
 - `auto-textarea`
-- `inobounce` - какой fix скролла на ios, связанный с `-webkit-overflow-scrolling`
 - `linkifyjs` - оборачивает текстовые ссылки в html-ссылки
 - `sentinel-js` - отслеживает появление dom-элементов с заданным селектором
 - `fg-loadcss` - асинхронная загрузка css от filament'а ([пример использования](https://gist.github.com/thedaviddias/c24763b82b9991e53928e66a0bafc9bf))
