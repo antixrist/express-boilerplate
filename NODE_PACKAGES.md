@@ -211,6 +211,7 @@ app.set('x-powered-by', false);
 
 ### Обработка ошибок и завершения процесса
 - [презентация, где рассказывается про debugging](https://www.youtube.com/watch?v=Ns8eOF0Qd1U&t=25620s)
+- [Ещё про отладку. Хардкор!](https://habr.com/company/jugru/blog/358680/)
 - `loud-rejection` / `uncaught` - ловля необработанных ошибок/реджектов для ноды и браузеров
 - `http-errors` / `boom` - удобная обёртка для посыла http-ошибок / `micro-boom`
 - `create-error` / `es6-error` / `super-error`, [ещё гист на тему](https://gist.github.com/antixrist/f930d527c4b370c59f779639710bac2e) - враппер для создания собственных классов ошибок
