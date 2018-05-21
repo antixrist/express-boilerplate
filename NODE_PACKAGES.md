@@ -393,9 +393,6 @@ app.set('x-powered-by', false);
 - `mime` / `mime-db`
 - `mime-types` - полный набор по работе с mime
 - `file-type` - определятор типа файла
-- `ellipsed` - обрезка с многоточием многострочных текстов
-- `html-to-text`
-- `feed-read` - парсер rss фидов
 
 ### Тестирование
 - `supertest`
@@ -443,6 +440,8 @@ app.set('x-powered-by', false);
 - `html-tokenize`
 - `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
 - `marked` - парсер markdown
+- `html-to-text`
+- `feed-read` - парсер rss фидов
 
 ### Офисные форматы
 - `docxtemplater`
@@ -681,7 +680,8 @@ app.set('x-powered-by', false);
 - `node-summary` - выдёргивает основную мысль из текста
 - `yaspeller` - спеллчекер через яндексовое api
 - `@google-cloud/language` - определение языка, тональности текста, сущностей, предложений, токенов, etc. Это обёртка для Google Cloud Api.
-- [Классификация текста от facebook'а](https://github.com/facebookresearch/fastText) 
+- [Классификация текста от facebook'а](https://github.com/facebookresearch/fastText)
+- [Поисковый движок (или типа того) от facebook'а](https://github.com/facebookresearch/faiss)
 
 ### DI
 - `bottlejs`
@@ -779,6 +779,7 @@ app.set('x-powered-by', false);
 - `trunc-html`
 - `trunc-text`
 - `shear.js` - truncate текста, с учётом html-тегов
+- `ellipsed` - обрезка с многоточием многострочных текстов
 - `file-saver`, `save-as`
 - `filepond` - upload'илка файлов
 - `wenk` / `balloon-css` / `hint.css`
