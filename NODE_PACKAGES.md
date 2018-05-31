@@ -710,7 +710,7 @@ app.set('x-powered-by', false);
 - `geojson-utils` - line intersections, point in polygon, radius filtering, distance between two points, etc
 - `leaflet-pip` / `point-in-polygon`
 - `leaflet-draw` - добавление мышкой линий/полигонов/кружочков на leaflet-карту
-- `polylabel` / `@mapbox/polylabel` - нахождение оптимальной точки для расположения лейбла внутри полигона
+- `polylabel` / `@mapbox/polylabel` / [mapsapi-polylabeler](https://github.com/yandex/mapsapi-polylabeler) - нахождение оптимальной точки для расположения лейбла внутри полигона + [статья от яндекса](https://habr.com/company/yandex/blog/353498/)
 - `delaunator` - быстрая триангуляция
 - `bound-points` - вычисление bounds из набора точек
 
@@ -730,6 +730,9 @@ app.set('x-powered-by', false);
 - `ngraph`, в т.ч. `ngraph.forcelayout`, `ngraph.remove-overlaps`, `ngraph.quadtreebh` и прочие от [@anvaka](https://github.com/anvaka)
 - `toposort`
 - `graphlib`
+
+### Платёжные системы
+- `yandex-checkout` - [статья](https://habr.com/company/yamoney/blog/348070/)
 
 ### Генерация документации
 - swagger
