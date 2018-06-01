@@ -24,7 +24,7 @@
 - [пример полноценного приложения парсера лайков](https://github.com/likeastore/collector)
 - [пример полноценного приложения с тасками и задачами](https://github.com/likeastore/jobber)
 - [actionhero - фреймворк с комплектом на все случаи жизни: кластер, таски, кеш, чат, логирование, файловый сервер, etc](https://github.com/actionhero/actionhero)
-- [Настройка проекта на Node.JS с нуля](https://github.com/xanf/javascript.ninja-node-boilerplate), [видео](https://www.youtube.com/watch?v=RW5JjiFg2uw&index=7&list=WL)
+- [Настройка проекта на Node.JS с нуля](https://github.com/xanf/javascript.ninja-node-boilerplate), [видео](https://www.youtube.com/watch?v=RW5JjiFg2uw)
 - [Исходники по книге "Building apis with nodejs"](https://github.com/caio-ribeiro-pereira/building-apis-with-nodejs)
 - [Куча примеров по взаимодействию express/koa с различными БД (neo4j, rethink, redis, etc)](https://github.com/caio-ribeiro-pereira/node-api-examples)
 - [Пример с jwt-авторизацией](https://github.com/andrewda/jwt-server-base)
@@ -56,7 +56,7 @@
 - `toobusy-js`
 - `js-meter` - замеры и форматирование потребляемой памяти/cpu/etc
 - `node-memwatch` / `memwatch-next` - следит за утечками, можно зафорсить сборку мусора
-- `memory-usage` - поток с мониторилкой потребления памяти
+- `memory-usage` - поток с мониторилкой потребления памяти / [кастомная мониторилка потребления памяти](https://gist.github.com/mistakster/d8844b15f852d9b4cd33cb3a9b2d6385)
 - `light-cycle` - реализация hashringcycle (аналог round-robin) для выбора шардов на лету
 - `hyper` - кроссплатформенный терминал на electron'е
 - `mediacenterjs` - браузерный персональный медиацентр
@@ -125,12 +125,10 @@
 - `cookie-signature` - подпись кук
 - `connect-redis` (сессии в редисе) / `express-mysql-session` (сессии в mysql)
 - `securelogin` - [описание](https://github.com/sakurity/securelogin)
-- `bcrypt` / `bcrypt-nodejs` / `bcryptjs` / `pwd` / `pswd` для паролей
 - `express-urlrewrite` - 301 редирект
 - `clearsitedata` - устанавливает специальный заголовок, чтобы браузер почистил кэш, куки, стораджи (полезно при логауте)
 - 
 - `express-validator` - для валидации данных в теле запроса (надстройка над `validator`)
-- `lusca` / `helmet` (`helmet` лучше), `csurf` - csrf (этот лучше), `cors`, `frameguard`
 - `host-validation` - whitelist-хостов `Host` и `Referer` заголовках для защиты от `DNS Rebinding` атак
 - `ratelimiter` - rate limit запросов с хранилищем в редисе / `limiter` (но по-хорошему этим должен заниматься nginx)
 - `on-finished`
@@ -162,8 +160,13 @@ app.set('x-powered-by', false);
 
 ### Koa
 - `koa-router` (почти полностью повторяет экспрессовый роутер) / `koa-route` (облегчённая версия) / `koa-trie-router` (или `wayfarer`) - composable роуты, как в express'е / `koa-66`
-- `@koa/cors`
 - `koa-mount` - чтобы как в express'е - можно монтировать инстанс в роут другого инстанса
+- `@koa/cors`
+- `koa-bodyparser`
+- `lusca` / `helmet` (`helmet` лучше), `csurf` - csrf (этот лучше), `cors`, `frameguard`
+- `koa-helmet`
+- `koa-jwt`, `jsonwebtoken`
+- `koa-response-time`
 - `koa-session` - на куках / `koa-generic-session` - на редисе/монге/mysql/pg/sequelize/etc
 - `koa-redis`
 - `koa-static` / `koa-send` / `koa-etag` / `koa-conditional-get` - для статики
@@ -173,6 +176,7 @@ app.set('x-powered-by', false);
 - `apollo-server-koa` - GraphQL
 - Много нужного есть [здесь](https://github.com/koajs)
 - `path-to-regexp` - превращает строки вида `/foo/:bar` в регекспы вида `/^\/foo\/([^\/]+?)\/?$/i` (полезно для написания роутера, используется во `vue-router`)
+- `bcrypt` / `bcrypt-nodejs` / `bcryptjs` / `pwd` / `pswd` для паролей
 
 ### Прочие фреймворки
 - `micro`
@@ -223,7 +227,8 @@ app.set('x-powered-by', false);
 - `api-error-handler` - http-ошибки (4xx-5xx) заворачивает в json
 - `pretty-error` - приятный вывод ошибок в консоли
 - [ещё пример создания http-ошибок](https://www.npmjs.com/package/micro#error-handling)
-- `death` / `signal-exit`
+- `death` / `signal-exit` / [пример graceful shutdown](https://github.com/kriasoft/nodejs-api-starter/blob/462df553bed197dd64ba84de8a53eee1343084fe/tools/run.js#L19-L30)
+- `http-shutdown` - правильно закрывает все сокеты и keep-alive соединения
 - `tree-kill` - убить self-процесс и все дочерние форки
 - `node-report` - human-readable diagnostic summary, written to file
 - `trace` - максимально удлиняет стек вызовов в стектрейсах
@@ -354,7 +359,7 @@ app.set('x-powered-by', false);
 - `string` / `strman` - если лодашевских методов работы со строками будет не хватать
 - `validation-report` - унификация формата ошибок валидации, [статья](https://habrahabr.ru/post/348530/)
 - `JSONSchema` / `ajv` , `ajv-keywords` / `z-schema` - создание и валидация JSONScheme'ы
-- `joi` / `schema-inspector` / `validator` / `forms` / `superstruct` / `validate.it.js` - санитизация/валидация
+- `joi` / `schema-inspector` / `validator` / `forms` / `superstruct` / `validate.it.js` / `yup` - санитизация/валидация
 - `ow` - прикольная валидация аргументов функций
 - `@sindresorhus/is`, `isemail`, `is-svg`, `isstream`, `is-glob`, `is-dotfile`, `is-absolute`, `is-relative` - проверка типов
 - `printable-characters` - набор функций для работы с невидимыми печатными символами (определение длины, etc)
@@ -543,6 +548,7 @@ app.set('x-powered-by', false);
 - `sguid`
 - `randexp` - генерация строки по регэкспу
 - `stjs` - json-шаблонизатор для генерации json'а
+- `chance`
 - [gencc](https://github.com/grahamking/darkcoding-credit-card/blob/master/gencc.js) валидных номеров кредитных карт
 
 #### Псевдорандом с посевом
@@ -572,6 +578,7 @@ app.set('x-powered-by', false);
 - `stringify-object`
 - `hasha`
 - `bcrypt`
+- `xxhashjs`
 
 ### Полезности
 - `bluebird` / `aigle` / `neo-async` - `async` для промисов
@@ -604,6 +611,7 @@ app.set('x-powered-by', false);
 - `function-rate-limit`
 - `p-queue` - очередя на промисах
 - `kue` (`kue-ui`) / `bull` / `bee-queue` - очередя на редисе
+- `node-resque` - тоже очередя на редисе (порт с ruby, судя по всему)
 - `agenda` - очередя на монге
 - `axon` - zeromq на ноде
 - `amqplib` / `tortoise` - клиент для rabbitmq
@@ -840,6 +848,7 @@ app.set('x-powered-by', false);
 - `notifyjs` - браузерные нотификации
 - `tabbable` - находит все dom-ноды, в которые возможна фокусировка tab'ом, внутри переданного контейнера
 - `focus-trap` / `react-focus-lock` - при переключении фокуса tab'ом, не даёт ему выйти за границы модалки, [статья](https://habr.com/post/338130/)
+- `@ymatuhin/onerror`
 - `react-aria-modal` - правильная модалка, [статья](https://habrahabr.ru/post/338130/) /  `micromodal`- тоже норм aria-модалка / `a11y-dialog` - и ещё одна "доступная" модалка
 - [break-on-access](https://github.com/paulirish/break-on-access) - полезная тулза, чтобы ставить брейкпоинты на любом объекте, который будет срабатывать в момент получения свойства этого объекта
 - `devtools-detect` - кроссбраузерное определение открытого devtools'а
