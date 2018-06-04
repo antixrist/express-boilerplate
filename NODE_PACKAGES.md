@@ -782,6 +782,7 @@ app.set('x-powered-by', false);
 - `dropzone`
 - `noty` ([обёртка для vue](https://github.com/nikitamarcius/vue-notice)) - уведомлялка
 - `criticalcss` / `critical` / `penthouse` - critical css
+- `critters-webpack-plugin` - плагин для webpack'а для встраивания critical css
 - `jquery-mask-plugin` / `inputmask` / `cleave.js` / `text-mask-all` / `text-mask` / `imask` - маски текстового ввода
 - `simple-web-worker`
 - `webworker-promise` - promise-обёртка над webworker'ами ([статья](https://habrahabr.ru/post/337492/))
