@@ -396,8 +396,7 @@ app.set('x-powered-by', false);
 - `bintrees` - самосортируемая структура с бинарным поиском
 - `cuint` / `bignumber.js` / `long` / `bn.js` / `bigi` / `json-bigint` - big integer для js
 - `media-typer` - парсер mime
-- `mime` / `mime-db`
-- `mime-types` - полный набор по работе с mime
+- `mime` / `mime-db` / `mime-types` - полный набор по работе с mime / `whatwg-mimetype`
 - `file-type` - определятор типа файла
 
 ### Тестирование
@@ -630,6 +629,7 @@ app.set('x-powered-by', false);
 - [wal-лог](https://habrahabr.ru/company/mailru/blog/341498/#comment_10503842)
 
 ### Кодировки
+- `whatwg-encoding`
 - `encoding`
 - `iconv-lite`
 - `iconv`
