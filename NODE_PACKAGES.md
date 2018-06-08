@@ -837,6 +837,7 @@ app.set('x-powered-by', false);
 - `@nishanths/zoom.js` / `medium-zoom` - zoom изображений как на medium'е
 - `fg-enlarge` - zoom изображения вслед за курсором внутри контейнера, как на али 
 - `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` / `flickity` - каруселька
+- `flatpickr` - календарь
 - `handorgel` - аккордеон без зависимостей
 - `@filamentgroup/tau` - 360° галерея
 - `quill` / `medium-editor` / `pell` / `mavon-editor` (vue-компонент) - текстовый редактор
