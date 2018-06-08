@@ -812,7 +812,7 @@ app.set('x-powered-by', false);
 - `history`
 - `instantclick` / `turbolinks` - простой способ сделать классический сайт близким по скорости к spa
 - [JavaScript-autoComplete](https://github.com/Pixabay/JavaScript-autoComplete)
-- `mediaplayer` / `video.js` - лёгкий, расширяемый, интернациональный, доступный, кроссбраузерный, легконастраиваемый медиаплеер на ванильном js
+- `mediaplayer` / `video.js` / `mediaelement` - лёгкий, расширяемый, интернациональный, доступный, кроссбраузерный, легконастраиваемый медиаплеер на ванильном js
 - `animejs` - норм такие анимашки
 - `@simonwep/selection-js` - нормальная выделялка объектов курсором (как в проводнике или `brush` из `d3`)
 - `jquery.payment` - форма для банковской карты [repo](https://github.com/stripe/jquery.payment)
