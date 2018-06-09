@@ -258,7 +258,7 @@ app.set('x-powered-by', false);
 - `strong-cluster-control`
 
 ### ФС
-- `fs-extra`, `graceful-fs`
+- `fs-extra`, `graceful-fs` / `upath` - улучшают встроенный `path`
 - `resolve` / `enhanced-resolve` (асинхронный) - нодовый алгоритм резолва путей
 - `node-dir` - доп.плюшки для работы с директориями
 - `anymatch` - матчер по чему угодно (глоб, регэксп, етс)
