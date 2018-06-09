@@ -836,7 +836,7 @@ app.set('x-powered-by', false);
 - `focus` - нахождение центральной сущности на изображении для последующей фокусировки или кропа
 - `@nishanths/zoom.js` / `medium-zoom` - zoom изображений как на medium'е
 - `fg-enlarge` - zoom изображения вслед за курсором внутри контейнера, как на али 
-- `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` / `flickity` - каруселька
+- `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` / `flickity` / `swiper` - каруселька
 - `flatpickr` - календарь
 - `handorgel` - аккордеон без зависимостей
 - `@filamentgroup/tau` - 360° галерея
