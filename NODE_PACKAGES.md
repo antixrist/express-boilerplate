@@ -43,7 +43,7 @@
 - `learnyounode` - интерактивная cli-обучалка
 - `cote` - набор библиотек для построения микросервисного кластера ([статья](https://habrahabr.ru/company/ruvds/blog/329784/))
 - `hotel` - управление и старт локальных dev-доменов для локальных проектов на всевозможных технологиях
-- `cross-spawn` / `execa` / `respawn`
+- `cross-spawn` / `execa` / `respawn`/ `shell-exec`
 - `puka` - экранирование shell-команд для `child_process.span/.exec`
 - `mz` - промайзнутые системные библиотеки
 - `caller` - выдаёт путь модуля, который про'require'ил текущий
@@ -68,14 +68,14 @@
 - `webworker-threads` / `workerpool` - webworker'ы для ноды
 - `in-publish` - обнаружение в npm-scripts факта запуска публикации пакета (во время локальной разработки), чтобы делать что-то, что не нужно делать во время dev-установки
 - `shm-typed-array` - shared memory для node'ы
-- `v8-natives` - вызов нативныз v8-методов, в т.ч. принудительный вызов gc
+- `v8-natives` - вызов нативных v8-методов, в т.ч. принудительный вызов gc
 - `pkg` - упаковывает всё node.js-приложение в один исполняемый файл
 
 ### Запуск и сборка
 - `gulp`
 - `webpack` (`bundle-buddy`, `electron-webpack-dashboard`)
 - `chokidar` / `watchpack` / `watchman`
-- `nodemon` - вотчинг изменений и перезапуск процесса / `onchange` - glob-вотчинг изменений и запуск таски
+- `nodemon` / `supervisor` - вотчинг изменений и перезапуск процесса / `onchange` - glob-вотчинг изменений и запуск таски
 - `diarrhea` - уменьшает вес бэкенд сборки, выпиливая мусор из зависимостей, [статья](https://habr.com/post/354504/)
 - `browser-sync`
 - `parallelshell` / `npm-run-all` / `concurrently` - для запуска нескольких одновременных задач из `npm run`
@@ -83,6 +83,7 @@
 - `cross-env` - для кроссплатформенной установки переменных окружения из `npm run`
 - `shelljs` - bash-функции прямо в ноде
 - `shx` - кроссплатформенные bash-функции в скриптах `package.json` (обёртка над `shelljs`) 
+- `npm-which` - аналог консольного `which` для наждения бинарников установленных npm-пакетов 
 - `precommit-hook` - тулза запускающая npm-скрипты на коммиты
 - `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками
 - `lint-staged` - запускает линтинг и форматирование только изменившихся в коммите файлов
@@ -203,7 +204,6 @@ app.set('x-powered-by', false);
 - `electrode-confippet`
 - `rc`
 - `configstore` - удобно записывать пользовательские конфиги, например
-- `cosmiconfig` - для переиспользуемых пакетов
 [Подход к конфигурации для разных окружений и под docker](https://habrahabr.ru/company/southbridge/blog/334698/)
 
 ### Авторизация
@@ -261,25 +261,26 @@ app.set('x-powered-by', false);
 - `fs-extra`, `graceful-fs` / `upath` - улучшают встроенный `path`
 - `resolve` / `enhanced-resolve` (асинхронный) - нодовый алгоритм резолва путей
 - `node-dir` - доп.плюшки для работы с директориями
+- `path-exists`
+- `is-absolute`, `is-relative`
+- `normalize-path`
+- `relative` - расширенный `path.relative()`
+- `sanitize-filename` - очищает строку от спецсимволов и "папок", делая её валидным названием файла 
+- `parse-filepath` - добавляет некоторые поля к стандартному выводу
 - `anymatch` - матчер по чему угодно (глоб, регэксп, етс)
 - `chokidar` / `watchpack` / `watchman` - слушатель фс
 - `is-glob` / `glob` / `globby` / `glob-all`
 - `klaw` - фс-walker на стримах
-- `path-exists`
 - `touch` - аналог консольного
 - `mkdirp`
 - `del`
 - `ncp` - асинхронное рекурсивное копирование файлов и папок
 - `move-concurrently` - самое быстрое (на сколько вообще возможно) перемещение файлов
-- `parse-filepath` - добавляет некоторые поля к стандартному выводу
 - `proper-lockfile` - `lock`-файл
 - `steno` - помогает при конкурентной записи в файл - делает все вызовы на запись последовательно
 - `is-dotfile`
-- `is-absolute`, `is-relative`
-- `relative` - расширенный `path.relative()`
-- `sanitize-filename` - очищает строку от спецсимволов и "папок", делая её валидным названием файла 
 - `tmp` - работа с временными файлами и директориями
-- `os-tmpdir`
+- `os-tmpdir` / `tempy`
 - `os-homedir`
 - `user-home`
 - `cacache` - умное управление файловым кешем
