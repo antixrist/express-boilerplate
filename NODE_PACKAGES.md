@@ -166,7 +166,7 @@ app.set('x-powered-by', false);
 - `koa-bodyparser`
 - `lusca` / `helmet` (`helmet` лучше), `csurf` - csrf (этот лучше), `cors`, `frameguard`
 - `koa-helmet`
-- `koa-jwt`, `jsonwebtoken`
+- `koa-jwt`, `jsonwebtoken` [Видео Ильи Климова о JWT](https://www.youtube.com/watch?v=_BSag4ABBMY), [репозиторий](https://github.com/jsninja-demos/node-jwt-demo)
 - `koa-response-time`
 - `koa-session` - на куках / `koa-generic-session` - на редисе/монге/mysql/pg/sequelize/etc
 - `koa-redis`
@@ -177,7 +177,7 @@ app.set('x-powered-by', false);
 - `apollo-server-koa` - GraphQL
 - Много нужного есть [здесь](https://github.com/koajs)
 - `path-to-regexp` - превращает строки вида `/foo/:bar` в регекспы вида `/^\/foo\/([^\/]+?)\/?$/i` (полезно для написания роутера, используется во `vue-router`)
-- `bcrypt` / `bcrypt-nodejs` / `bcryptjs` / `pwd` / `pswd` для паролей
+- `bcrypt` / `bcrypt-nodejs` / `pwd` / `pswd` / `bcryptjs` (этот использует Илья Климов) - для паролей
 
 ### Прочие фреймворки
 - `micro`
@@ -198,11 +198,11 @@ app.set('x-powered-by', false);
 
 ### Конфигурация
 - `cosmiconfig` - поиск конфига по `ключ`у в package.json, в `.ключrc`, в `ключ.config.js`
+- `rc` (советует Илья Климов) - подход такой же, как и у `cosmiconfig`
 - `nconf` / `config` / `confit`. `config` похож на `nconf`, но вроде поширше, `confit` выглядит самым вкусным (к тому же он от `kraken`'a).
 - `dotenv`, `env-cmd`
 - `jsonfile`
 - `electrode-confippet`
-- `rc`
 - `configstore` - удобно записывать пользовательские конфиги, например
 [Подход к конфигурации для разных окружений и под docker](https://habrahabr.ru/company/southbridge/blog/334698/)
 
@@ -307,6 +307,7 @@ app.set('x-powered-by', false);
 - `xstream`
 - `most`
 - `rx`
+- `zen-observable`
 
 ### DB
 - `mysql2` / `mariasql`
@@ -434,6 +435,8 @@ app.set('x-powered-by', false);
 - `browser-env`
 - `jsdom` / `cheerio` / `whacko` / `parse5`
 - `json5` - json с блекджеком и комментиками
+- `strip-json-comments` - тут понятно
+- `parse-strings-in-object`- строковые значения в объекте автоматически преобразовывает в соответствующие типы (`'true' = > true`, `'3.14' => 3.14`, `'null' => null`)
 - `node-readability` / `read-art` - вычленение основного и главного из всей страницы
 - `semantic-schema-parser` - парсер schema.org: microdata, RDFa-lite, JSON-LD
 - `web-auto-extractor` - парсер schema.org: microdata, RDFa-lite, JSON-LD
