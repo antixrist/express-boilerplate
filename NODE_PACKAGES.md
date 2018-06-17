@@ -315,7 +315,7 @@ app.set('x-powered-by', false);
     - `sequelize` (`sequelize-auto`, `sequelize-definer`, `sequelize-hierarchy`, `sequelize-values`)
     - `objection`
     - `typeorm`
-- `pg` / `pg-bluebird` / `pg-native`
+- `pg` / `pg-native` / `pg-promise`
 - `ioredis` / `redis` / `hiredis`, `redlock`
 - `reds` - поиск в редисе
 - `rethinkdb`
