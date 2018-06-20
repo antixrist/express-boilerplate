@@ -656,6 +656,7 @@ app.set('x-powered-by', false);
 - `mailit` - готовый микросервис для отправки email'ов через http-api
 - `premailer` / `inlining` / `juice` - обработка html для email (inline'инг стилей, etc)
 - `mjml` - годный шаблонизатор для email-писем
+- `disposable-email` - база доменов, которые используют сервисы временных email'ов
 - [Bulletproof email buttons](https://buttons.cm/)
 
 ## Изображения
