@@ -166,7 +166,7 @@ app.set('x-powered-by', false);
 - `koa-bodyparser`
 - `lusca` / `helmet` (`helmet` лучше), `csurf` - csrf (этот лучше), `cors`, `frameguard`
 - `koa-helmet`
-- `koa-jwt`, `jsonwebtoken` [Видео Ильи Климова о JWT](https://www.youtube.com/watch?v=_BSag4ABBMY), [репозиторий](https://github.com/jsninja-demos/node-jwt-demo)
+- `koa-jwt`, `jsonwebtoken`. [Видео Ильи Климова о JWT](https://www.youtube.com/watch?v=_BSag4ABBMY), [репозиторий](https://github.com/jsninja-demos/node-jwt-demo), [описание принципов JWT](https://gist.github.com/zmts/802dc9c3510d79fd40f9dc38a12bccfc)
 - `koa-response-time`
 - `koa-session` - на куках / `koa-generic-session` - на редисе/монге/mysql/pg/sequelize/etc
 - `koa-redis`
