@@ -776,7 +776,10 @@ app.set('x-powered-by', false);
 - `mousetrap` - работа с комбинациями hotkey'ев
 - `tablesaw` - responsive-таблицы от filament'а (с кучей функционала)
 - `fg-select-css` - стили для кроссбраузерной кастомизации select'а от filament'а
+- [Как правильно](https://css-tricks.com/overriding-default-button-styles/) [сбрасывать стили](https://fvsch.com/code/styling-buttons/) button'ов
 - `@flowjs/flow.js` - загрузка файлов с примером бекенда на ноде
+- `file-saver`, `save-as`
+- `filepond` - upload'илка файлов
 - `smartcrop`
 - `copy-to-clipboard`
 - `vkey`
@@ -797,8 +800,6 @@ app.set('x-powered-by', false);
 - `trunc-text`
 - `shear.js` - truncate текста, с учётом html-тегов
 - `ellipsed` - обрезка с многоточием многострочных текстов
-- `file-saver`, `save-as`
-- `filepond` - upload'илка файлов
 - `wenk` / `balloon-css` / `hint.css`
 - `popper.js` (`vue-popperjs`) / `tooltip.js` - замена `tether`у
 - `equalizecss` - bootstrap-like flex-сетка на sass'е
@@ -842,6 +843,7 @@ app.set('x-powered-by', false);
 - `fg-enlarge` - zoom изображения вслед за курсором внутри контейнера, как на али 
 - `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` / `flickity` / `swiper` - каруселька
 - `flatpickr` - календарь
+- `pickr-widget` - color picker без привязки к фреймворку
 - `handorgel` - аккордеон без зависимостей
 - `@filamentgroup/tau` - 360° галерея
 - `quill` / `medium-editor` / `pell` / `mavon-editor` (vue-компонент) - текстовый редактор
