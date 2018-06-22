@@ -97,6 +97,7 @@
 - `sqip` - делает из png svg'шку с градиентом основных цветов изображения
 
 ### Express.js
+- `server` - обёртка над `express`, с блэкджеком, async/await'ами и нормально настроенными минимально необходимыми мидлварями из коробки
 - [pillarjs](https://github.com/pillarjs) - много low-level вкусняшек
 - `keygrip` - подпись и валидации подписанных данных (module for signing and verifying data (such as cookies or URLs) through a rotating credential system)
 - `express-generator`
