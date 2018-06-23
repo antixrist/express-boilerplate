@@ -312,11 +312,11 @@ app.set('x-powered-by', false);
 
 ### DB
 - `mysql2` / `mariasql`
-    - `knex`, `bookshelf`
-    - `sequelize` (`sequelize-auto`, `sequelize-definer`, `sequelize-hierarchy`, `sequelize-values`)
-    - `objection`
-    - `typeorm`
 - `pg` / `pg-native` / `pg-promise`
+  - `knex`, `bookshelf`, `sql`
+  - `sequelize` (`sequelize-auto`, `sequelize-definer`, `sequelize-hierarchy`, `sequelize-values`)
+  - `objection`
+  - `typeorm`
 - `ioredis` / `redis` / `hiredis`, `redlock`
 - `reds` - поиск в редисе
 - `rethinkdb`
