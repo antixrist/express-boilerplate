@@ -98,6 +98,7 @@
 
 ### Express.js
 - `server` - обёртка над `express`, с блэкджеком, async/await'ами и нормально настроенными минимально необходимыми мидлварями из коробки
+- `express-promise-router` - нормальная promise-обёртка для всех методов роутера
 - [pillarjs](https://github.com/pillarjs) - много low-level вкусняшек
 - `keygrip` - подпись и валидации подписанных данных (module for signing and verifying data (such as cookies or URLs) through a rotating credential system)
 - `express-generator`
@@ -312,7 +313,7 @@ app.set('x-powered-by', false);
 
 ### DB
 - `mysql2` / `mariasql`
-- `pg` / `pg-native` / `pg-promise`
+- `pg` / `pg-native` / `pg-promise`, `pg-format` - расширенный prepare statements, [пример](https://github.com/brianc/node-postgres/issues/957#issuecomment-200000070)
   - `knex`, `bookshelf`, `sql`
   - `sequelize` (`sequelize-auto`, `sequelize-definer`, `sequelize-hierarchy`, `sequelize-values`)
   - `objection`
