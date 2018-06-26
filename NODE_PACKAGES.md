@@ -324,7 +324,7 @@ app.set('x-powered-by', false);
 - `lowdb` - файловая json-бд поверх lodash'а
 
 ### Права
-- `casl` ([статья на хабре](https://habrahabr.ru/post/334076/))
+- `casl` - [статья](https://habrahabr.ru/post/334076/) [на хабре](https://habr.com/post/414951/)
 - `acl`
 - `cancan`
 
