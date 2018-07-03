@@ -403,6 +403,7 @@ app.set('x-powered-by', false);
 - `media-typer` - парсер mime
 - `mime` / `mime-db` / `mime-types` - полный набор по работе с mime / `whatwg-mimetype`
 - `file-type` - определятор типа файла
+- `memored` - шаринг данных между форками процесса
 
 ### Тестирование
 - `supertest`
