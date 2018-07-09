@@ -907,6 +907,7 @@ app.set('x-powered-by', false);
 - `blob`
 - `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen` / `screenfull.js`
 - `smoothscroll-polyfill`
+- `css.escape`
 - `buffer`
 - `history.js`
 - [detect_flex](https://github.com/ergcode/ergonomic.detect_flex) - определение поддержки flexbox'ов (нормально работает в мобильниках)
