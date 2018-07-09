@@ -887,7 +887,7 @@ app.set('x-powered-by', false);
 - [segmentator - сегментирование траффика для ab от retail-rocket](https://github.com/RetailRocket/RetailRocket.Segmentator)
 
 ### Полифиллы:
-- [polyfill-service](https://github.com/Financial-Times/polyfill-service) - смысл в том, чтобы использовать из этого сервиса только браузерное api. Для полифиллинга языковых средств используется `babel-polyfill`. Или наоборот? Включать отсюда всё, а из `babel-polyfill` добавлять всё остальное?
+- [polyfill-service](https://github.com/Financial-Times/polyfill-service) - смысл в том, чтобы использовать из этого сервиса только браузерное api. Для полифиллинга ECMAScript использовать `babel-polyfill`.
 - [Здесь тоже много ссылок](https://github.com/dexteryy/spellbook-of-modern-webdev#cross-browser--polyfill-libraries)
 - [и здесь](https://github.com/Modernizr/Modernizr/blob/master/lib/polyfills.json)
 - `dom4`
@@ -908,6 +908,7 @@ app.set('x-powered-by', false);
 - `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen` / `screenfull.js`
 - `smoothscroll-polyfill`
 - `css.escape`
+- `scrollingelement`
 - `buffer`
 - `history.js`
 - [detect_flex](https://github.com/ergcode/ergonomic.detect_flex) - определение поддержки flexbox'ов (нормально работает в мобильниках)
