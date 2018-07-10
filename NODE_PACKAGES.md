@@ -351,7 +351,7 @@ app.set('x-powered-by', false);
 - `ololog`
 - `debug`
 - `microlog`
-- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` / `lggr` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный) / `loglevel` (`loglevel-plugin-prefix`) / `whiner` / `pino` ([сайт](http://getpino.io/#/)) - `pino` [должен быть самым быстрым](https://habrahabr.ru/company/ruvds/blog/334806/)
+- `intel` / `bunyan` / `log4js` / `tracer` / `winston` / `eazy-logger` / `glogg` / `lggr` - многоуровневое (danger/error/fatal) логирование куда угодно - консоль, файлы, stdout (`log4js` медленный, `winston` - популярный, `tracer` - интересный) / `loglevel` (`loglevel-plugin-prefix`) / `whiner` / `pino` ([сайт](http://getpino.io/#/ - `pino` [должен быть самым быстрым](https://habrahabr.ru/company/ruvds/blog/334806/) / `consola` - от команды nuxt'а
 - `gelf-stream` / `gelf-pro` - https://habrahabr.ru/company/2gis/blog/329128/
 - `mozlog`
 - `streamroller` / `file-stream-rotator` - ротация файлов логов
