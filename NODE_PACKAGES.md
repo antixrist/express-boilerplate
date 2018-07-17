@@ -803,7 +803,7 @@ app.set('x-powered-by', false);
 - `fitty` - вписывает текст в родительский контейнер
 - `trunc-html`
 - `trunc-text`
-- `shear.js` - truncate текста, с учётом html-тегов
+- `shear.js` / `truncate-html` - truncate текста, с учётом html-тегов
 - `ellipsed` - обрезка с многоточием многострочных текстов
 - `wenk` / `balloon-css` / `hint.css`
 - `popper.js` (`vue-popperjs`) / `tooltip.js` - замена `tether`у
