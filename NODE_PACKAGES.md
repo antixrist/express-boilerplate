@@ -379,7 +379,6 @@ app.set('x-powered-by', false);
 - `humanize-number` - человекопонятные числа
 - `expiry-js` / `ms` - парсер длительностей (1M, 1Y, 1h, 1m, 1s, 1ms, etc)
 - `pretty-ms` - форматирование миллисекунд
-- `sanitize-html` / `escape-html` / `he`
 - `checkit`
 - `repository`
 - `normalizr`, `reselect` - для flux-архитектуры
@@ -391,7 +390,6 @@ app.set('x-powered-by', false);
 - `deepmerge`
 - `deep-freeze`
 - `jsesc` - шибко умное экранирование
-- `insane` - `jevix` для js
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
 - `pako` - zlib для js
 - `yauzl` - unzip
@@ -801,10 +799,12 @@ app.set('x-powered-by', false);
 - `webworkify-webpack` / `workly` - практически прозрачная webworker'ификация
 - `scalable` - зачётный object-fit на scale'ах и translate'ах
 - `fitty` - вписывает текст в родительский контейнер
-- `trunc-html`
-- `trunc-text`
-- `shear.js` / `truncate-html` - truncate текста, с учётом html-тегов
 - `ellipsed` - обрезка с многоточием многострочных текстов
+- `trunc-text`
+- `trunc-html`
+- `shear.js` / `truncate-html` - truncate текста, с учётом html-тегов
+- `insane` - `jevix` для js
+- `sanitize-html` / `escape-html` / `he`
 - `wenk` / `balloon-css` / `hint.css`
 - `popper.js` (`vue-popperjs`) / `tooltip.js` - замена `tether`у
 - `equalizecss` - bootstrap-like flex-сетка на sass'е
