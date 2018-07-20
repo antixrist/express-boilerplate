@@ -837,7 +837,7 @@ app.set('x-powered-by', false);
 - `simplebar` - кроссбраузерный кастомный скролл
 - `nanoscroller` / `scrollbooster` - скроллеры
 - `smooth-scrollbar` / `smoothscroll-polyfill` (`scroll-behavior: smooth;`)
-- `inobounce` - какой fix скролла на ios, связанный с `-webkit-overflow-scrolling`
+- `inobounce` - какой-то fix скролла на ios, связанный с `-webkit-overflow-scrolling`
 - `waypoints` / `isInViewport` / `porthole` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky) / `scrollama` - на IntersectionObserver'ах
 - `lozad` / [ещё один lazyload на IntersectionObserver](https://github.com/deanhume/lazy-observer-load). [демка](https://deanhume.github.io/lazy-observer-load/) / `lazysizes` - на IntersectionObserver, его советует Addy Osmani
 - `eqio` - Element css media-queries
