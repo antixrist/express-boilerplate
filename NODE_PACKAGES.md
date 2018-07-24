@@ -38,6 +38,7 @@
 - [^^^ Тоже самое ^^^, только на express'е](https://github.com/gothinkster/node-express-realworld-example-app)
 - [Файловый шарилка на докере, с rest api и интерфейсом для разных хранилищ](https://github.com/rumkin/file-storage)
 - [Honeypot-логгер tcp/udp пакетов](https://github.com/hololoev/honeypot_tcpdump_logger), [статья](https://habr.com/post/358214/)
+- [пример с nginx и haproxy](https://github.com/schleyfox/example-node-ops), [статья](https://habr.com/company/ruvds/blog/418009/)
 
 ## Node.js
 - `learnyounode` - интерактивная cli-обучалка
@@ -135,7 +136,7 @@
 - `express-validator` - для валидации данных в теле запроса (надстройка над `validator`)
 - `host-validation` - whitelist-хостов `Host` и `Referer` заголовках для защиты от `DNS Rebinding` атак
 - `ratelimiter` - rate limit запросов с хранилищем в редисе / `limiter` (но по-хорошему этим должен заниматься nginx)
-- `on-finished`
+- `on-finished` - `on-finished` - вызывает колбэк, когда `res` завершён, в т.ч. с ошибкой или он был прерван
 - 
 - `portastic` - нахождение свободных локальных портов (удобно для dev-запуска) / `portscanner` - тоже самое, но, возможно, работает и для внешних айпишников / `get-port` - берёт заданный порт либо рандомный, если занят
 - `serve-static` (встроен в сам экспресс)
@@ -232,6 +233,7 @@ app.set('x-powered-by', false);
 - [ещё пример создания http-ошибок](https://www.npmjs.com/package/micro#error-handling)
 - `death` / `signal-exit` / [пример graceful shutdown](https://github.com/kriasoft/nodejs-api-starter/blob/462df553bed197dd64ba84de8a53eee1343084fe/tools/run.js#L19-L30)
 - `http-shutdown` - правильно закрывает все сокеты и keep-alive соединения
+- `on-finished` - вызывает колбэк, когда `res` завершён, в т.ч. с ошибкой или он был прерван
 - `tree-kill` - убить self-процесс и все дочерние форки
 - `node-report` - human-readable diagnostic summary, written to file
 - `trace` - максимально удлиняет стек вызовов в стектрейсах
