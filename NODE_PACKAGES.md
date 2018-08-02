@@ -258,6 +258,12 @@ app.set('x-powered-by', false);
   - https://habrahabr.ru/post/344802/
   - https://habrahabr.ru/company/ruvds/blog/344682/
   - newrelic.com / splunk.com - полнофункциональный saas для мониторинга и аналитики
+  - Raygun
+  - OverOps
+  - StackHunter
+  - VBATelemetry
+  - Appenlight
+  - [обзорная статья](https://habr.com/post/352680/)
 
 ### Кластеризация процессов
 - `strong-cluster-control`
