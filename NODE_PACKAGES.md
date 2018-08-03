@@ -63,7 +63,6 @@
 - `mediacenterjs` - браузерный персональный медиацентр
 - `detect-node` - запущен ли текущий код из под ноды
 - `localtunnel` - шарит локальный адрес наружу
-- `node-inspector` / `devtool` / `iron-node` - отладка в консоли хрома
 - `host-env` - определение серверной платформы, на которой запущена нода
 - `snyk` - автосканер кода и зависимостей на известные уязвимости
 - `webworker-threads` / `workerpool` - webworker'ы для ноды
@@ -97,6 +96,15 @@
 - `spritesmith` / `sprity` (`sprity-gm`) / `directory-encoder` - генераторы спрайтов и css к ним
 - `svg-mixer` - генератор svg-спрайтов
 - `sqip` - делает из png svg'шку с градиентом основных цветов изображения
+
+### Отладка
+- [В консоли хрома встроенными стредствами](https://nodejs.org/dist/latest-v10.x/docs/api/debugger.html#debugger_v8_inspector_integration_for_node_js)
+- `ndb` - в консоли хрома, но через puppeteer
+
+#### Устаревшее
+- `node-inspector`
+- `devtool`
+- `iron-node`
 
 ### Express.js
 - `server` - обёртка над `express`, с блэкджеком, async/await'ами и нормально настроенными минимально необходимыми мидлварями из коробки
@@ -464,8 +472,7 @@ app.set('x-powered-by', false);
 
 ### Офисные форматы
 - `docxtemplater`
-- `excelize`
-- `exceljs`
+- `excelize` / `exceljs` / `excel4node`
 - `xml2js` / `x2js` / `fast-xml2js`
 - `js-xlsx` / `xlsx` - парсер и запись xls-форматов
 - `pdfjs-dist` - парсер и рендер pdf от mozilla'ы
@@ -681,6 +688,7 @@ app.set('x-powered-by', false);
 - `exif2` / `gm-exif` / `libexif` / `exif-parser`
 - `gify` / `gifski` - делает гифку из видео (второй ещё и высококачественные)
 - `pngjs`, `jpeg-js`
+- `jsqr` - считывалка qr-кодов с изображений
 - [image-compressor](https://github.com/xkeshi/image-compressor) - браузерная сжималка (использовать перед отправкой на сервер)
 - [Генерация превьюшек на лету с помощью AWS Lambda, golang, nodejs и nginx](https://habr.com/post/354226/)
 
