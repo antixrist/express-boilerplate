@@ -78,6 +78,7 @@
 - `nodemon` / `supervisor` - вотчинг изменений и перезапуск процесса / `onchange` - glob-вотчинг изменений и запуск таски
 - `diarrhea` - уменьшает вес бэкенд сборки, выпиливая мусор из зависимостей, [статья](https://habr.com/post/354504/)
 - `browser-sync`
+- `bundlesize` / `sizelimit` - для контроля размеров сборки
 - `parallelshell` / `npm-run-all` / `concurrently` - для запуска нескольких одновременных задач из `npm run`
 - `better-npm-run`
 - `cross-env` - для кроссплатформенной установки переменных окружения из `npm run`
@@ -87,7 +88,7 @@
 - `precommit-hook` - тулза запускающая npm-скрипты на коммиты
 - `husky` - не даёт коммитить/пушить, если выполнение чего-то подобного: `{ "scripts": { "precommit": "npm test", "prepush": "npm test" } }` прошло с ошибками
 - `lint-staged` - запускает линтинг и форматирование только изменившихся в коммите файлов
-- `commitizen` - интерактивка для сообщений к коммитам (fix/refactor/test/etc)-
+- `commitizen` - интерактивка для сообщений к коммитам (fix/refactor/test/etc) + `cz-conventional-changelog` и `conventional-changelog-cli` - генератор ченжлогов на основе таких коммитов
 - `validate-commit-msg` - валидатор сообщений к коммитам
 - `standard-version` - автоматический changelog при обновлении версии на основе сообщений к коммитам
 - `npm-check` - тулза для обновления зависимостей с консольным ui
