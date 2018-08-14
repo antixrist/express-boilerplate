@@ -146,6 +146,7 @@
 - `host-validation` - whitelist-хостов `Host` и `Referer` заголовках для защиты от `DNS Rebinding` атак
 - `ratelimiter` - rate limit запросов с хранилищем в редисе / `limiter` (но по-хорошему этим должен заниматься nginx)
 - `on-finished` - `on-finished` - вызывает колбэк, когда `res` завершён, в т.ч. с ошибкой или он был прерван
+- `fresh` - проверяет по заголовкам - нужно отдать `304 Not Modified` или нет.
 - 
 - `portastic` - нахождение свободных локальных портов (удобно для dev-запуска) / `portscanner` - тоже самое, но, возможно, работает и для внешних айпишников / `get-port` - берёт заданный порт либо рандомный, если занят
 - `serve-static` (встроен в сам экспресс)
@@ -593,7 +594,7 @@ app.set('x-powered-by', false);
 
 ### Хэширование
 - `murmurhash-native` / `imurmurhash` - быстрое и (вроде как) наименее коллизионное хэширование
-- `object-hash`
+- `object-hash`, `hash-sum`
 - `js-md5`
 - `json-stable-stringify`
 - `stringify-object`
