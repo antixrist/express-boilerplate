@@ -73,6 +73,7 @@
 
 ### Запуск и сборка
 - `np` - нормальная замена `npm publish`
+- `pkg-ok` - некоторые автоматические проверки пакета перед публикацией 
 - `gulp`
 - `webpack` (`bundle-buddy`, `electron-webpack-dashboard`)
 - `chokidar` / `watchpack` / `watchman`
@@ -148,6 +149,7 @@
 - `host-validation` - whitelist-хостов `Host` и `Referer` заголовках для защиты от `DNS Rebinding` атак
 - `ratelimiter` - rate limit запросов с хранилищем в редисе / `limiter` (но по-хорошему этим должен заниматься nginx)
 - `on-finished` - `on-finished` - вызывает колбэк, когда `res` завершён, в т.ч. с ошибкой или он был прерван
+- `fresh` - проверяет по заголовкам - нужно отдать `304 Not Modified` или нет.
 - 
 - `portastic` - нахождение свободных локальных портов (удобно для dev-запуска) / `portscanner` - тоже самое, но, возможно, работает и для внешних айпишников / `get-port` - берёт заданный порт либо рандомный, если занят
 - `serve-static` (встроен в сам экспресс)
@@ -353,7 +355,7 @@ app.set('x-powered-by', false);
 - `object-inspect`
 - `chalk` / `ansicolors` - раскраска
 - `better-console` - добавление console.table-методов
-- `cllc` / `multispinner` / `observatory` / `ora` / `draftlog` - вывод с лоадером
+- `cllc` / `multispinner` / `observatory` / `ora` / `draftlog` / `listr` - вывод с лоадером
 - `commander` / `vorpal` - настройка cli-аргументов для запуска приложения (с блекджеком и генератором справки)
 - `liftoff` - bin'арник для своего пакета
 - `eyes` - цветной вывод данных
@@ -595,7 +597,7 @@ app.set('x-powered-by', false);
 
 ### Хэширование
 - `murmurhash-native` / `imurmurhash` - быстрое и (вроде как) наименее коллизионное хэширование
-- `object-hash`
+- `object-hash`, `hash-sum`
 - `js-md5`
 - `json-stable-stringify`
 - `stringify-object`
