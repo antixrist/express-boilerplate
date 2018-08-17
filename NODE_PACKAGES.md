@@ -64,7 +64,7 @@
 - `detect-node` - запущен ли текущий код из под ноды
 - `localtunnel` - шарит локальный адрес наружу
 - `host-env` - определение серверной платформы, на которой запущена нода
-- `snyk` - автосканер кода и зависимостей на известные уязвимости
+- `snyk` / `nsp` / `npm audit` - автосканер кода и зависимостей на известные уязвимости
 - `webworker-threads` / `workerpool` - webworker'ы для ноды
 - `in-publish` - обнаружение в npm-scripts факта запуска публикации пакета (во время локальной разработки), чтобы делать что-то, что не нужно делать во время dev-установки
 - `shm-typed-array` - shared memory для node'ы
@@ -72,6 +72,7 @@
 - `pkg` - упаковывает всё node.js-приложение в один исполняемый файл
 
 ### Запуск и сборка
+- `np` - нормальная замена `npm publish`
 - `gulp`
 - `webpack` (`bundle-buddy`, `electron-webpack-dashboard`)
 - `chokidar` / `watchpack` / `watchman`
@@ -110,6 +111,7 @@
 ### Express.js
 - `server` - обёртка над `express`, с блэкджеком, async/await'ами и нормально настроенными минимально необходимыми мидлварями из коробки
 - `express-promise-router` - нормальная promise-обёртка для всех методов роутера
+- `express-rate-limit`, `express-brute` - мидлваря для предотвращения брута, похож на rate-limit
 - [pillarjs](https://github.com/pillarjs) - много low-level вкусняшек
 - `keygrip` - подпись и валидации подписанных данных (module for signing and verifying data (such as cookies or URLs) through a rotating credential system)
 - `express-generator`
@@ -213,7 +215,7 @@ app.set('x-powered-by', false);
 - `cosmiconfig` - поиск конфига по `ключ`у в package.json, в `.ключrc`, в `ключ.config.js`
 - `rc` (советует Илья Климов) - подход такой же, как и у `cosmiconfig`
 - `nconf` / `config` / `confit`. `config` похож на `nconf`, но вроде поширше, `confit` выглядит самым вкусным (к тому же он от `kraken`'a).
-- `dotenv`, `env-cmd`
+- `dotenv` / `dotenv-safe` (отличается от `dotenv` тем, что проверяет - установлены ли все переменные, которые есть в файле `.env.example`), `env-cmd`
 - `jsonfile`
 - `electrode-confippet`
 - `configstore` - удобно записывать пользовательские конфиги, например
@@ -241,7 +243,7 @@ app.set('x-powered-by', false);
 - `pretty-error` - приятный вывод ошибок в консоли
 - [ещё пример создания http-ошибок](https://www.npmjs.com/package/micro#error-handling)
 - `death` / `signal-exit` / [пример graceful shutdown](https://github.com/kriasoft/nodejs-api-starter/blob/462df553bed197dd64ba84de8a53eee1343084fe/tools/run.js#L19-L30)
-- `http-shutdown` - правильно закрывает все сокеты и keep-alive соединения
+- `http-shutdown` - правильно закрывает все сокеты и keep-alive соединения / `server-destroy` - из той же оперы
 - `on-finished` - вызывает колбэк, когда `res` завершён, в т.ч. с ошибкой или он был прерван
 - `tree-kill` - убить self-процесс и все дочерние форки
 - `node-report` - human-readable diagnostic summary, written to file
@@ -606,6 +608,8 @@ app.set('x-powered-by', false);
 - `relike` / `universalify` (используется в `fs-extra`) / `awaiting` / `pify` - промисификация
 - `awaity` - bluebird-lodash для промисов на async/await'ах
 - `p-progress` - промисы с прогрессом ([много интересного для промисов](https://github.com/sindresorhus/promise-fun))
+- `p-cache` / `p-memoize` - lru-/кэш для результатов промисов
+- `p-timeout` - таймаут для промисов 
 - `thunkify` - callback'ифицирует callbacks, arrays, generators, generator functions, and promises
 - `inflight` / `promise-inflight` - оборачивает функцию таким образом, что можно вызывать функцию-обёртку несколько раз с разными коллбеками, а когда вызов функции завершит выполнение, то все коллбеки будут выполненны последовательно и асинхронно
 - `co`
@@ -625,11 +629,11 @@ app.set('x-powered-by', false);
 - `apiai` - распознавание голоса с помощью гугловского [api.ai](https://api.ai/)
 
 ### Очередя и таски
-- `retry` (`async-retry`, `promise-retry`, `promise-poller`) / `tolerance` / `requestretry` / `axios-retry`
+- `retry` (`async-retry`, `promise-retry`, `promise-poller`) / `tolerance` / `requestretry` / `axios-retry` / `p-retry`
 - `is-retry-allowed` - на основании кода ошибки запроса определяет - можно ли делать запрос повторно
 - `async-throttle`
 - `semaphore` - ограничитель одновременного доступа к ресурсу
-- `function-rate-limit`
+- `function-rate-limit` / `express-rate-limit`
 - `p-queue` - очередя на промисах
 - `kue` (`kue-ui`) / `bull` / `bee-queue` - очередя на редисе
 - `node-resque` - тоже очередя на редисе (порт с ruby, судя по всему)
