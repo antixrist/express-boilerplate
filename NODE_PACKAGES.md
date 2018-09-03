@@ -459,6 +459,7 @@ app.set('x-powered-by', false);
 - `browser-env`
 - `jsdom` / `cheerio` / `whacko` / `parse5`
 - `json5` - json с блекджеком и комментиками
+- `turbo-json-parse`
 - `strip-json-comments` - тут понятно
 - `parse-strings-in-object`- строковые значения в объекте автоматически преобразовывает в соответствующие типы (`'true' = > true`, `'3.14' => 3.14`, `'null' => null`)
 - `node-readability` / `read-art` - вычленение основного и главного из всей страницы
@@ -621,6 +622,7 @@ app.set('x-powered-by', false);
 - `d` - удобный описатель дескрипторов свойств
 - `delegates` - делегация методов и пропертей прототипа к какому-либо свойству этого прототипа
 - `function-done` / `always-done`
+- `generate-function` - `new Function` на стеройдах
 - `mem` / `lru-cache` / `hashlru` / `node-cache`
 - `fast-memoize`
 - `wrappy` - оборачивает функцию, перенося все кастомные пропертя этой функции в обёртку. полезно (внезапно) для обёрток
