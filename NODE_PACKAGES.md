@@ -939,6 +939,7 @@ app.set('x-powered-by', false);
 - `history.js`
 - [detect_flex](https://github.com/ergcode/ergonomic.detect_flex) - определение поддержки flexbox'ов (нормально работает в мобильниках)
 - [HTML5-Progress-polyfill](https://github.com/LeaVerou/HTML5-Progress-polyfill)
+- [Полифиллы, которые использовал github](https://githubengineering.com/removing-jquery-from-github-frontend/#polyfills)
 
 ### nginx
 - [конфиг с настроенным кешем от h5bp](https://github.com/h5bp/server-configs-nginx)
