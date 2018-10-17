@@ -380,7 +380,7 @@ app.set('x-powered-by', false);
 
 ### Данные
 - `lodash` / `iterare` / `fast.js` / [just](https://github.com/angus-c/just)
-- `object-path` / `dottie` - продвинутый `_.get()`, `dot-object` / `to-object-path` - работа с json-объектами в виде dot-нотации
+- `object-path` / `dottie` - продвинутый `_.get()`, `dot-object` / `to-object-path` / `dlv` - работа с json-объектами в виде dot-нотации
 - `tableize` - схлопывает (сворачивает) json-структуру в объект вида `{'level1key': 'level1value', 'level1key.level2key': 'level2value'}`
 - `string` / `strman` - если лодашевских методов работы со строками будет не хватать
 - `validation-report` - унификация формата ошибок валидации, [статья](https://habrahabr.ru/post/348530/)
