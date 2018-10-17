@@ -840,6 +840,7 @@ app.set('x-powered-by', false);
 - `geoloc` - геолокация с фронта путём опроса свободных источников от 2gis'а
 - `appmetrics.js` - обертка над User Timing API, с возможностью отправки всего намерянного в GA.
 - `dom-serialize` - сериализация dom-нод в строку
+- `common-tags` - годный html-шаблонизатор. как jsx, только правильный
 - `zingtouch` - touch-гестуры
 - `blankshield` - безопасный `target="_blank"`
 - `bowser` / `platform` / `mobile-detect`- определитель девайса по юзерагенту
