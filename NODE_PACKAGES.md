@@ -905,6 +905,7 @@ app.set('x-powered-by', false);
 - `vuex-shared-mutations` - запускает мутации на всех открытых табах
 - `vuex-loading`
 - `vuex-cache`
+- `vuex-persistedstate` / `vuex-persist` (этот лучше) 
 - [Как правильно публиковать](https://pablohpsilva.github.io/vuejs-component-style-guide/#/russian) [vue-компоненты](https://vuejsdevelopers.com/2017/07/31/vue-component-publish-npm/)
 - `vuera` - React во Vue, Vue в React'е
 [Описание настройки SSR](https://habrahabr.ru/post/334952/)
