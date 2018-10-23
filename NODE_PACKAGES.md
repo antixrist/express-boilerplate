@@ -473,6 +473,7 @@ app.set('x-powered-by', false);
 - `html-tokenize`
 - `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
 - `marked` - парсер markdown
+- `turndown` - html в markdown
 - `html-to-text`
 - `insane` - `jevix` для js
 - `sanitize-html` / `escape-html` / `jsesc` / `he`
