@@ -637,6 +637,7 @@ app.set('x-powered-by', false);
 - `retry` (`async-retry`, `promise-retry`, `promise-poller`) / `tolerance` / `requestretry` / `axios-retry` / `p-retry`
 - `is-retry-allowed` - на основании кода ошибки запроса определяет - можно ли делать запрос повторно
 - `async-throttle`
+- `raf-throttle` - throttle на requestAnimationFrame
 - `semaphore` - ограничитель одновременного доступа к ресурсу
 - `function-rate-limit` / `express-rate-limit`
 - `p-queue` - очередя на промисах
