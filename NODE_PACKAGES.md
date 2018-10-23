@@ -410,7 +410,6 @@ app.set('x-powered-by', false);
 - `fastest-clone`
 - `deepmerge`
 - `deep-freeze`
-- `jsesc` - шибко умное экранирование
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
 - `pako` - zlib для js
 - `yauzl` - unzip
@@ -475,6 +474,8 @@ app.set('x-powered-by', false);
 - `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
 - `marked` - парсер markdown
 - `html-to-text`
+- `insane` - `jevix` для js
+- `sanitize-html` / `escape-html` / `jsesc` / `he`
 - `feed-read` - парсер rss фидов
 
 ### Офисные форматы
@@ -830,8 +831,6 @@ app.set('x-powered-by', false);
 - `trunc-text`
 - `trunc-html`
 - `shear.js` / `truncate-html` - truncate текста, с учётом html-тегов
-- `insane` - `jevix` для js
-- `sanitize-html` / `escape-html` / `he`
 - `wenk` / `balloon-css` / `hint.css`
 - `popper.js` (`vue-popperjs`) / `tooltip.js` - замена `tether`у
 - `equalizecss` - bootstrap-like flex-сетка на sass'е
