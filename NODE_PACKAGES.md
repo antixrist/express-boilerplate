@@ -445,6 +445,7 @@ app.set('x-powered-by', false);
 - `is-retry-allowed` - на основании кода ошибки запроса определяет - можно ли делать запрос повторно
 - `is-online` - есть ли коннект с интернетом
 - `is-reachable` - есть ли коннект с конкретным ресурсом
+- `tunnel`
 - `follow-redirects`
 - `http-status` / `statuses`
 - `nock` - mock'и для http-запросов (удобно для тестирования и заглушки api)
