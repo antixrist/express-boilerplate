@@ -935,6 +935,7 @@ app.set('x-powered-by', false);
 - `blob`
 - `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen` / `screenfull.js`
 - `smoothscroll-polyfill`
+- `events-polyfill`
 - `css.escape`
 - `scrollingelement`
 - `buffer`
