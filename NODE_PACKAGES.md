@@ -380,7 +380,7 @@ app.set('x-powered-by', false);
 
 ### Данные
 - `lodash` / `iterare` / `fast.js` / [just](https://github.com/angus-c/just)
-- `object-path` / `dottie` - продвинутый `_.get()`, `dot-object` / `to-object-path` - работа с json-объектами в виде dot-нотации
+- `object-path` / `dottie` - продвинутый `_.get()`, `dot-object` / `to-object-path` / `dlv` - работа с json-объектами в виде dot-нотации
 - `tableize` - схлопывает (сворачивает) json-структуру в объект вида `{'level1key': 'level1value', 'level1key.level2key': 'level2value'}`
 - `string` / `strman` - если лодашевских методов работы со строками будет не хватать
 - `validation-report` - унификация формата ошибок валидации, [статья](https://habrahabr.ru/post/348530/)
@@ -410,7 +410,6 @@ app.set('x-powered-by', false);
 - `fastest-clone`
 - `deepmerge`
 - `deep-freeze`
-- `jsesc` - шибко умное экранирование
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
 - `pako` - zlib для js
 - `yauzl` - unzip
@@ -446,6 +445,7 @@ app.set('x-powered-by', false);
 - `is-retry-allowed` - на основании кода ошибки запроса определяет - можно ли делать запрос повторно
 - `is-online` - есть ли коннект с интернетом
 - `is-reachable` - есть ли коннект с конкретным ресурсом
+- `tunnel`
 - `follow-redirects`
 - `http-status` / `statuses`
 - `nock` - mock'и для http-запросов (удобно для тестирования и заглушки api)
@@ -474,7 +474,10 @@ app.set('x-powered-by', false);
 - `html-tokenize`
 - `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
 - `marked` - парсер markdown
+- `turndown` - html в markdown
 - `html-to-text`
+- `insane` - `jevix` для js
+- `sanitize-html` / `escape-html` / `jsesc` / `he`
 - `feed-read` - парсер rss фидов
 
 ### Офисные форматы
@@ -637,6 +640,7 @@ app.set('x-powered-by', false);
 - `retry` (`async-retry`, `promise-retry`, `promise-poller`) / `tolerance` / `requestretry` / `axios-retry` / `p-retry`
 - `is-retry-allowed` - на основании кода ошибки запроса определяет - можно ли делать запрос повторно
 - `async-throttle`
+- `raf-throttle` - throttle на requestAnimationFrame
 - `semaphore` - ограничитель одновременного доступа к ресурсу
 - `function-rate-limit` / `express-rate-limit`
 - `p-queue` - очередя на промисах
@@ -829,8 +833,6 @@ app.set('x-powered-by', false);
 - `trunc-text`
 - `trunc-html`
 - `shear.js` / `truncate-html` - truncate текста, с учётом html-тегов
-- `insane` - `jevix` для js
-- `sanitize-html` / `escape-html` / `he`
 - `wenk` / `balloon-css` / `hint.css`
 - `popper.js` (`vue-popperjs`) / `tooltip.js` - замена `tether`у
 - `equalizecss` - bootstrap-like flex-сетка на sass'е
