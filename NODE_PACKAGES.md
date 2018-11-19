@@ -110,6 +110,7 @@
 - `iron-node`
 
 ### Express.js
+- `fastify` - более быстрая замена express'у
 - `server` - обёртка над `express`, с блэкджеком, async/await'ами и нормально настроенными минимально необходимыми мидлварями из коробки
 - `express-promise-router` - нормальная promise-обёртка для всех методов роутера
 - `express-rate-limit`, `express-brute` - мидлваря для предотвращения брута, похож на rate-limit
