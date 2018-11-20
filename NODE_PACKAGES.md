@@ -935,6 +935,7 @@ app.set('x-powered-by', false);
 - `bounding-client-rect`
 - `mutation-observer`
 - `intersection-observer` ([описание конфигурации](https://habrahabr.ru/post/348030/))
+- `current-script-polyfill` - `document.currentScript` для ишаков
 - `blob`
 - `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen` / `screenfull.js`
 - `smoothscroll-polyfill`
