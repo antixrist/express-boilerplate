@@ -845,7 +845,7 @@ app.set('x-powered-by', false);
 - `appmetrics.js` - обертка над User Timing API, с возможностью отправки всего намерянного в GA.
 - `dom-serialize` - сериализация dom-нод в строку
 - `common-tags` - годный html-шаблонизатор. как jsx, только правильный
-- `zingtouch` - touch-гестуры
+- `zingtouch` / `hammerjs` / `slipjs` - touch-гестуры и события
 - `blankshield` - безопасный `target="_blank"`
 - `bowser` / `platform` / `mobile-detect`- определитель девайса по юзерагенту
 - `evercookie` - [repo](https://github.com/samyk/evercookie)
