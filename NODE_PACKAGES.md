@@ -54,7 +54,7 @@
 - `safe-regex` - проверка регулярок на быстроту выполнения - Regular expression Denial of Service (ReDoS)
 - `reify` / `@std/esm` - врубает `import` без бабелей/вебпаков ([статья про `@std/esm`](https://blogs.windows.com/msedgedev/2017/08/10/es-modules-node-today/))
 - `open` - открывает ссылку в дефолтовом браузере системы
-- `toobusy-js`
+- `toobusy-js` / `blocked` - определяет заблокирован ли event loop
 - `js-meter` - замеры и форматирование потребляемой памяти/cpu/etc
 - `node-memwatch` / `memwatch-next` - следит за утечками, можно зафорсить сборку мусора
 - `memory-usage` - поток с мониторилкой потребления памяти / [кастомная мониторилка потребления памяти](https://gist.github.com/mistakster/d8844b15f852d9b4cd33cb3a9b2d6385)
@@ -148,7 +148,7 @@
 - 
 - `express-validator` - для валидации данных в теле запроса (надстройка над `validator`)
 - `host-validation` - whitelist-хостов `Host` и `Referer` заголовках для защиты от `DNS Rebinding` атак
-- `ratelimiter` - rate limit запросов с хранилищем в редисе / `limiter` (но по-хорошему этим должен заниматься nginx)
+- `ratelimiter`, `async-ratelimiter` - rate limit запросов с хранилищем в редисе / `limiter` (но по-хорошему этим должен заниматься nginx)
 - `on-finished` - `on-finished` - вызывает колбэк, когда `res` завершён, в т.ч. с ошибкой или он был прерван
 - `fresh` - проверяет по заголовкам - нужно отдать `304 Not Modified` или нет.
 - 
