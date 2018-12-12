@@ -226,6 +226,7 @@ app.set('x-powered-by', false);
 
 ### Авторизация
 - `passport` и его стратегии (в т.ч. `passport-local`, `passport-hash`, `passport-securelogin`)
+- `grant-express` - замена `passport`-у. есть как для express'а, так и для koa
 - `permit` - простой способ авторизации по Bearer токену
 - `passwordless`
 - `jsonwebtoken`
