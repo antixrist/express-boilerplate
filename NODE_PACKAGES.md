@@ -54,7 +54,7 @@
 - `safe-regex` - проверка регулярок на быстроту выполнения - Regular expression Denial of Service (ReDoS)
 - `reify` / `@std/esm` - врубает `import` без бабелей/вебпаков ([статья про `@std/esm`](https://blogs.windows.com/msedgedev/2017/08/10/es-modules-node-today/))
 - `open` - открывает ссылку в дефолтовом браузере системы
-- `toobusy-js`
+- `toobusy-js` / `blocked` - определяет заблокирован ли event loop
 - `js-meter` - замеры и форматирование потребляемой памяти/cpu/etc
 - `node-memwatch` / `memwatch-next` - следит за утечками, можно зафорсить сборку мусора
 - `memory-usage` - поток с мониторилкой потребления памяти / [кастомная мониторилка потребления памяти](https://gist.github.com/mistakster/d8844b15f852d9b4cd33cb3a9b2d6385)
@@ -148,7 +148,7 @@
 - 
 - `express-validator` - для валидации данных в теле запроса (надстройка над `validator`)
 - `host-validation` - whitelist-хостов `Host` и `Referer` заголовках для защиты от `DNS Rebinding` атак
-- `ratelimiter` - rate limit запросов с хранилищем в редисе / `limiter` (но по-хорошему этим должен заниматься nginx)
+- `ratelimiter`, `async-ratelimiter` - rate limit запросов с хранилищем в редисе / `limiter` (но по-хорошему этим должен заниматься nginx)
 - `on-finished` - `on-finished` - вызывает колбэк, когда `res` завершён, в т.ч. с ошибкой или он был прерван
 - `fresh` - проверяет по заголовкам - нужно отдать `304 Not Modified` или нет.
 - 
@@ -226,6 +226,7 @@ app.set('x-powered-by', false);
 
 ### Авторизация
 - `passport` и его стратегии (в т.ч. `passport-local`, `passport-hash`, `passport-securelogin`)
+- `grant-express` - замена `passport`-у. есть как для express'а, так и для koa
 - `permit` - простой способ авторизации по Bearer токену
 - `passwordless`
 - `jsonwebtoken`
@@ -641,6 +642,7 @@ app.set('x-powered-by', false);
 - `retry` (`async-retry`, `promise-retry`, `promise-poller`) / `tolerance` / `requestretry` / `axios-retry` / `p-retry`
 - `is-retry-allowed` - на основании кода ошибки запроса определяет - можно ли делать запрос повторно
 - `async-throttle`
+- `async/queue` / `async/priorityQueue` 
 - `raf-throttle` - throttle на requestAnimationFrame
 - `semaphore` - ограничитель одновременного доступа к ресурсу
 - `function-rate-limit` / `express-rate-limit`
@@ -844,7 +846,7 @@ app.set('x-powered-by', false);
 - `appmetrics.js` - обертка над User Timing API, с возможностью отправки всего намерянного в GA.
 - `dom-serialize` - сериализация dom-нод в строку
 - `common-tags` - годный html-шаблонизатор. как jsx, только правильный
-- `zingtouch` - touch-гестуры
+- `zingtouch` / `hammerjs` / `slipjs` - touch-гестуры и события
 - `blankshield` - безопасный `target="_blank"`
 - `bowser` / `platform` / `mobile-detect`- определитель девайса по юзерагенту
 - `evercookie` - [repo](https://github.com/samyk/evercookie)
@@ -940,6 +942,7 @@ app.set('x-powered-by', false);
 - `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen` / `screenfull.js`
 - `smoothscroll-polyfill`
 - `events-polyfill`
+- `focus-visible` - [зачем он нужен](https://css-tricks.com/keyboard-only-focus-styles/)
 - `css.escape`
 - `scrollingelement`
 - `buffer`
