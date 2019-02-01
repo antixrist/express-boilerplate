@@ -850,7 +850,7 @@ app.set('x-powered-by', false);
 - `evercookie` - [repo](https://github.com/samyk/evercookie)
 - `fingerprintjs2`
 - `history`
-- `instantclick` / `turbolinks` - простой способ сделать классический сайт близким по скорости к spa
+- `instantclick` / `turbolinks` - простой способ сделать классический сайт близким по скорости к spa / `quicklink` - prefetch'ит ссылки во вьюпорте 
 - [JavaScript-autoComplete](https://github.com/Pixabay/JavaScript-autoComplete)
 - `mediaplayer` / `video.js` / `mediaelement` - лёгкий, расширяемый, интернациональный, доступный, кроссбраузерный, легконастраиваемый медиаплеер на ванильном js
 - `animejs` - норм такие анимашки
@@ -876,7 +876,7 @@ app.set('x-powered-by', false);
 - `focus` - нахождение центральной сущности на изображении для последующей фокусировки или кропа
 - `@nishanths/zoom.js` / `medium-zoom` - zoom изображений как на medium'е
 - `fg-enlarge` - zoom изображения вслед за курсором внутри контейнера, как на али 
-- `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` / `flickity` / `swiper` - каруселька
+- `flexslider`, `vue-awesome-swiper` / `swipejs` / `owl.carousel` / `responsive-carousel` / `flickity` / `swiper` / `siema` - каруселька
 - `flatpickr` - календарь
 - `pickr-widget` - color picker без привязки к фреймворку
 - `handorgel` - аккордеон без зависимостей
