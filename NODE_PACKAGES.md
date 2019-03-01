@@ -472,14 +472,12 @@ app.set('x-powered-by', false);
 - `csv-stringify`, `fast-csv` / `csv-streamify` / `papaparse` / `csv` / `csvtojson`
 - `xml-mapping` - json в xml и обратно
 - `xmldoc`
-- `pdf2json`
 - `html-tokenize`
 - `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
-- `marked` - парсер markdown
-- `turndown` - html в markdown
+- `marked` / `markdown-it` - md2html, `turndown` - html2md, `showdown` - в обе стороны
 - `html-to-text`
 - `insane` - `jevix` для js
-- `sanitize-html` / `escape-html` / `jsesc` / `he`
+- `sanitize-html` / `escape-html` / `jsesc` / `he` / `xss`
 - `feed-read` - парсер rss фидов
 
 ### Офисные форматы
@@ -883,7 +881,7 @@ app.set('x-powered-by', false);
 - `pickr-widget` - color picker без привязки к фреймворку
 - `handorgel` - аккордеон без зависимостей
 - `@filamentgroup/tau` - 360° галерея
-- `quill` / `medium-editor` / `pell` / `mavon-editor` (vue-компонент) - текстовый редактор
+- `quill` / `medium-editor` / `pell` / `jodit` / `trix` / [Squire](https://github.com/neilj/Squire) / `woofmark` / `mavon-editor` (на чистом vue) - текстовый редактор
 - `auto-textarea`
 - `linkifyjs` - оборачивает текстовые ссылки в html-ссылки
 - `sentinel-js` - отслеживает появление dom-элементов с заданным селектором
@@ -911,6 +909,7 @@ app.set('x-powered-by', false);
 - `vuex-loading`
 - `vuex-cache`
 - `vuex-persistedstate` / `vuex-persist` (этот лучше) 
+- `vue-functional-data-merge`
 - [Как правильно публиковать](https://pablohpsilva.github.io/vuejs-component-style-guide/#/russian) [vue-компоненты](https://vuejsdevelopers.com/2017/07/31/vue-component-publish-npm/)
 - `vuera` - React во Vue, Vue в React'е
 [Описание настройки SSR](https://habrahabr.ru/post/334952/)
