@@ -928,7 +928,7 @@ app.set('x-powered-by', false);
 - `dexie` - враппер над IndexedDB
 - `fg-loadcss` - полифил для `rel=preload` от FG
 - `custom-event`
-- `sticky-state` / `fixed-sticky` - второй от filament'а и используется на mail.ru'ответах
+- `sticky-state` / `fixed-sticky` - второй от filament'а и используется на mail.ru'ответах (не поддерживается) / `stickybits` - рабочий поддерживаемый
 - `object-fit-images`
 - `url-search-params`
 - `resize-observer-polyfill`
