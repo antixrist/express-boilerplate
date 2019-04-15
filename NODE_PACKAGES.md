@@ -864,7 +864,7 @@ app.set('x-powered-by', false);
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
 - `scrollbarwidth`
 - `scrollparent` - нахождение ближайшего родителя со скроллом
-- `simplebar` - кроссбраузерный кастомный скролл
+- `simplebar` / `baron` (от 2gis'а) - кроссбраузерный кастомный скролл
 - `nanoscroller` / `scrollbooster` - скроллеры
 - `smooth-scrollbar` / `smoothscroll-polyfill` (`scroll-behavior: smooth;`)
 - `inobounce` - какой-то fix скролла на ios, связанный с `-webkit-overflow-scrolling`
