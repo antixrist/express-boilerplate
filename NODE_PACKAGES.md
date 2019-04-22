@@ -462,6 +462,7 @@ app.set('x-powered-by', false);
 - `jsdom` / `cheerio` / `whacko` / `parse5`
 - `json5` - json с блекджеком и комментиками
 - `turbo-json-parse`
+- `@nuxt/devalue` - как `JSON.stringify`, но экранирует содержимое для предотвращения XSS.
 - `strip-json-comments` - тут понятно
 - `parse-strings-in-object`- строковые значения в объекте автоматически преобразовывает в соответствующие типы (`'true' = > true`, `'3.14' => 3.14`, `'null' => null`)
 - `node-readability` / `read-art` - вычленение основного и главного из всей страницы
