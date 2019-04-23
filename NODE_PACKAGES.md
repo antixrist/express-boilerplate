@@ -865,8 +865,8 @@ app.set('x-powered-by', false);
 - `trial-js` - предсказание клика юзера по наблюдениям за передвижениями мыши
 - `scrollbarwidth`
 - `scrollparent` - нахождение ближайшего родителя со скроллом
-- `simplebar` / `baron` (от 2gis'а) - кроссбраузерный кастомный скролл
-- `nanoscroller` / `scrollbooster` - скроллеры
+- `simplebar` / `baron` (от 2gis'а) / `simplebar` (`simplebar-vue`) - кроссбраузерный кастомный скролл
+- `scrollbooster` - drag-скроллер контента
 - `smooth-scrollbar` / `smoothscroll-polyfill` (`scroll-behavior: smooth;`)
 - `inobounce` - какой-то fix скролла на ios, связанный с `-webkit-overflow-scrolling`
 - `waypoints` / `isInViewport` / `porthole` / `jquery-viewport` / `sticky-kit` / `scrollmonitor`- попадание элемента во вьюпорт, наблюдение за скроллом, липкий сайдбар, [hc-sticky](https://github.com/somewebmedia/hc-sticky) и [его](https://github.com/ferryvg/hc-sticky) [форки](https://github.com/CHEWX/hc-sticky) / `scrollama` - на IntersectionObserver'ах
