@@ -371,6 +371,7 @@ app.set('x-powered-by', false);
 - [форматирование `console.time`а](https://gist.github.com/antixrist/5dec38b757ead8adca186c067cf6f2f2)
 
 ### Логирование
+- `abstract-logging` - заглушка для стандартных методов логирования (для подмены, если логгер не установлен)
 - `ololog`
 - `debug`
 - `microlog`
@@ -383,7 +384,7 @@ app.set('x-powered-by', false);
 ### Данные
 - `lodash` / `iterare` / `fast.js` / [just](https://github.com/angus-c/just)
 - `object-path` / `dottie` - продвинутый `_.get()`, `dot-object` / `to-object-path` / `dlv` - работа с json-объектами в виде dot-нотации
-- `tableize` - схлопывает (сворачивает) json-структуру в объект вида `{'level1key': 'level1value', 'level1key.level2key': 'level2value'}`
+- `tableize` - схлопывает (сворачивает) json-структуру в объект вида `{'level1key': 'level1value', 'level1key.level2key': 'level2value'}` / `unbend` - то же самое, но через слэш (для построения урлов)
 - `string` / `strman` - если лодашевских методов работы со строками будет не хватать
 - `validation-report` - унификация формата ошибок валидации, [статья](https://habrahabr.ru/post/348530/)
 - `JSONSchema` / `ajv` , `ajv-keywords` / `z-schema` - создание и валидация JSONScheme'ы
@@ -409,7 +410,7 @@ app.set('x-powered-by', false);
 - `serialize-javascript`
 - `kind-of` - нормальная замена typeof
 - `deep-diff` / `diff` / `jsondiffpatch` / `jiff` / `just-diff`, `just-diff-apply` / `arr-diff`
-- `fastest-clone`
+- `fastest-clone` / `rfdc` - быстрое клонирование
 - `deepmerge`
 - `deep-freeze`
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
@@ -419,7 +420,8 @@ app.set('x-powered-by', false);
 - `google-libphonenumber` - крутая штука для парсинга номеров телефонов
 - `quickselect`
 - `bintrees` - самосортируемая структура с бинарным поиском
-- `cuint` / `bignumber.js` / `long` / `bn.js` / `bigi` / `json-bigint` - big integer для js
+- `cuint` / `bignumber.js` / `long` / `bn.js` / `bigi` / `json-bigint` / `leemon` - big integer для js
+- `flatstr` - ускоряет работу с большими конкатенированными строками
 - `media-typer` - парсер mime
 - `mime` / `mime-db` / `mime-types` - полный набор по работе с mime / `whatwg-mimetype`
 - `file-type` - определятор типа файла
@@ -432,17 +434,10 @@ app.set('x-powered-by', false);
 - `mocha-allure-reporter` - `allure` - это репортер со своим веб-интерфейсом, преферансом и графиками
 
 ### Рекваестеры и http-тулзы
+- `request` (`request-promise`), `@request/interface`, `@request/api`, `requestretry` / `axios`, `axios-retry` / `ky`, `ky-universal` / `needle` / `node-fetch` / `@hapi/wreck` / `got` / `superagent` / `urllib`
 - `dnscache`
-- `proxy-agent`
-- `caw`
-- `got`
-- `wreck`
-- `request` (`request-promise`), `@request/interface`, `@request/api`, `requestretry`
+- `caw` / `proxy-agent`
 - `request-capture-har` - захват всего `request`-траффика для последующего анализа
-- `axios`, `axios-retry`
-- `needle`
-- `node-fetch`
-- `superagent`
 - `download` / `getit`
 - `is-retry-allowed` - на основании кода ошибки запроса определяет - можно ли делать запрос повторно
 - `is-online` - есть ли коннект с интернетом
@@ -524,6 +519,7 @@ app.set('x-powered-by', false);
 - `http-proxy` - свой прокси-сервер на ноде
 - `http-mitm-proxy` - свой прокси-сервер на ноде
 - `anyproxy` - свой прокси-сервер на ноде от alibaba'ы
+- `proxy-addr` - определяет адрес проксированного запроса (из объекта `req`)
 
 #### Юзер-агентики
 - `useragent` - парсер/матчер/компаратор юзерагентов
@@ -563,6 +559,7 @@ app.set('x-powered-by', false);
 - `protocolify`
 - `urijs`
 - `url-pattern`
+- `proxy-addr` - определяет адрес проксированного запроса (из объекта `req`)
 - `is-google` - по ip проверяет сделан ли запрос от гуглобота, или кто-то просто подделал user-agent, чтобы им притвориться
 - `slug` - делает замену пробелов и unicode-символов (даже emoji) для пригодности в урл
 Чекалки ip:
@@ -627,7 +624,7 @@ app.set('x-powered-by', false);
 - `delegates` - делегация методов и пропертей прототипа к какому-либо свойству этого прототипа
 - `function-done` / `always-done`
 - `generate-function` - `new Function` на стеройдах
-- `mem` / `lru-cache` / `hashlru` / `node-cache`
+- `mem` / `lru-cache` / `hashlru` / `node-cache` / `tiny-lru`
 - `fast-memoize`
 - `wrappy` - оборачивает функцию, перенося все кастомные пропертя этой функции в обёртку. полезно (внезапно) для обёрток
 - `shimmer` - типа Proxy через monkeypatching
@@ -942,6 +939,7 @@ app.set('x-powered-by', false);
 - `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen` / `screenfull.js`
 - `smoothscroll-polyfill`
 - `events-polyfill`
+- `abort-controller`
 - `focus-visible` - [зачем он нужен](https://css-tricks.com/keyboard-only-focus-styles/)
 - `css.escape`
 - `scrollingelement`
