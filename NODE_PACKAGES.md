@@ -51,7 +51,7 @@
 - `app-module-path` - require хук, для маппинга кастомной рутовой директории
 - `node-notifier`
 - `nodejs-dashboard`
-- `safe-regex` - проверка регулярок на быстроту выполнения - Regular expression Denial of Service (ReDoS)
+- `re2` - нативный биндинг к гугловскому движку регулярок `RE2`, которая обеспечивает безопасные от ReDoS регулярки.
 - `reify` / `@std/esm` - врубает `import` без бабелей/вебпаков ([статья про `@std/esm`](https://blogs.windows.com/msedgedev/2017/08/10/es-modules-node-today/))
 - `open` - открывает ссылку в дефолтовом браузере системы
 - `toobusy-js` / `blocked` - определяет заблокирован ли event loop
@@ -66,18 +66,17 @@
 - `host-env` - определение серверной платформы, на которой запущена нода
 - `snyk` / `nsp` / `npm audit` - автосканер кода и зависимостей на известные уязвимости
 - `webworker-threads` / `workerpool` - webworker'ы для ноды
-- `in-publish` - обнаружение в npm-scripts факта запуска публикации пакета (во время локальной разработки), чтобы делать что-то, что не нужно делать во время dev-установки
 - `shm-typed-array` - shared memory для node'ы
 - `v8-natives` - вызов нативных v8-методов, в т.ч. принудительный вызов gc
 - `pkg` - упаковывает всё node.js-приложение в один исполняемый файл
+- `cls-hooked`
 
 ### Запуск и сборка
 - `np` - нормальная замена `npm publish`
 - `pkg-ok` - некоторые автоматические проверки пакета перед публикацией 
-- `gulp`
 - `webpack` (`bundle-buddy`, `electron-webpack-dashboard`)
-- `chokidar` / `watchpack` / `watchman`
-- `nodemon` / `supervisor` - вотчинг изменений и перезапуск процесса / `onchange` - glob-вотчинг изменений и запуск таски
+- `watchpack` / `chokidar`
+- `nodemon` / `supervisor` / `onchange` / `chokidar-cli` - вотчинг изменений и запуск таски/процесса
 - `diarrhea` - уменьшает вес бэкенд сборки, выпиливая мусор из зависимостей, [статья](https://habr.com/post/354504/)
 - `browser-sync`
 - `bundlesize` / `sizelimit` - для контроля размеров сборки
@@ -96,6 +95,7 @@
 - `npm-check` - тулза для обновления зависимостей с консольным ui
 - `is-ci` - проверяет, запущен ли код в ci-окружении
 - `is-ci-cli` - позволяет для разных ci-окружений запускать разные npm-скрипты
+- `in-publish` - обнаружение в npm-scripts факта запуска публикации пакета (во время локальной разработки), чтобы делать что-то, что не нужно делать во время dev-установки
 - `spritesmith` / `sprity` (`sprity-gm`) / `directory-encoder` - генераторы спрайтов и css к ним
 - `svg-mixer` - генератор svg-спрайтов
 - `sqip` - делает из png svg'шку с градиентом основных цветов изображения
@@ -115,14 +115,12 @@
 - `express-promise-router` - нормальная promise-обёртка для всех методов роутера
 - `express-rate-limit`, `express-brute` - мидлваря для предотвращения брута, похож на rate-limit
 - [pillarjs](https://github.com/pillarjs) - много low-level вкусняшек
-- `keygrip` - подпись и валидации подписанных данных (module for signing and verifying data (such as cookies or URLs) through a rotating credential system)
 - `express-generator`
 - `compression`
 - `vhost` - для поддоменов (например `api.domain.tld`)
 - `body-parser`
 - `multer` для `multipart/form-data`
 - `express-fileupload`
-- `form-data` - создаёт readable `multipart/form-data`-стримы. Для отправки данных формы и загрузки файлов в другие http-api
 - `formidable` - парсер `form-data` (специально для `multipart/form-data`-стримов)
 - `morgan` для логов со стриммингом
 - `response-time`
@@ -149,11 +147,10 @@
 - `express-validator` - для валидации данных в теле запроса (надстройка над `validator`)
 - `host-validation` - whitelist-хостов `Host` и `Referer` заголовках для защиты от `DNS Rebinding` атак
 - `ratelimiter`, `async-ratelimiter` - rate limit запросов с хранилищем в редисе / `limiter` (но по-хорошему этим должен заниматься nginx)
-- `on-finished` - `on-finished` - вызывает колбэк, когда `res` завершён, в т.ч. с ошибкой или он был прерван
-- `fresh` - проверяет по заголовкам - нужно отдать `304 Not Modified` или нет.
 - 
 - `portastic` - нахождение свободных локальных портов (удобно для dev-запуска) / `portscanner` - тоже самое, но, возможно, работает и для внешних айпишников / `get-port` - берёт заданный порт либо рандомный, если занят
-- `serve-static` (встроен в сам экспресс)
+- `serve-static` - встроен в сам экспресс
+- `http-server` - http сервер статики одной командой из консоли
 - `http-proxy-middleware` - полезная гибкая штука для перенаправления запросов на другие сервера
 - `express-request-language`
 - `rest-sugar` - обёртка для rest. нормальный сахар для rest'а надо поискать
@@ -161,7 +158,6 @@
 - `join-monster` - GraphQL -> SQL
 - `method-override`
 - `connect-rid` - генератор request-id
-- 
 - `kraken-js` - мощный boilerplate и конфигуратор для express'а и всякие штуки в него входящие, типа `express-enrouten`
 - `express-status-monitor`
 - 
@@ -169,7 +165,6 @@
 - `greenlock` - клиент для `let's encrypt` (вроде как). туда же: `greenlock-express`, `auto-sni`
 - `apollo-server-express` - GraphQL
 - `epilogue` - быстрое создание rest endpoint'ов
-- `type-is` - проверка типа содержимого запроса
 - `clipboardy` - кроссплатформенный доступ к системному буферу обмена
 
 ```javascript
@@ -194,8 +189,7 @@ app.set('x-powered-by', false);
 - `koa-logger`
 - `apollo-server-koa` - GraphQL
 - Много нужного есть [здесь](https://github.com/koajs)
-- `path-to-regexp` - превращает строки вида `/foo/:bar` в регекспы вида `/^\/foo\/([^\/]+?)\/?$/i` (полезно для написания роутера, используется во `vue-router`)
-- `bcrypt` / `bcrypt-nodejs` / `pwd` / `pswd` / `bcryptjs` (этот использует Илья Климов) - для паролей
+Koa для получения списка ip просто парсит `X-Forwarded-For`, в то время как `express` использует более комплексный `proxy-addr`. Вот надо как-то подружить `koa` с `proxy-addr`.
 
 ### Прочие фреймворки
 - `micro`
@@ -236,9 +230,10 @@ app.set('x-powered-by', false);
 ### Обработка ошибок и завершения процесса
 - [презентация, где рассказывается про debugging](https://www.youtube.com/watch?v=Ns8eOF0Qd1U&t=25620s)
 - [Ещё про отладку. Хардкор!](https://habr.com/company/jugru/blog/358680/)
-- `loud-rejection` / `uncaught` - ловля необработанных ошибок/реджектов для ноды и браузеров
+- `loud-rejection` / `hard-rejection` / `make-promises-safe` (лучше) / `uncaught` - ловля необработанных ошибок/реджектов для ноды и браузеров
 - `http-errors` / `boom` - удобная обёртка для посыла http-ошибок / `micro-boom`
-- `create-error` / `es6-error` / `super-error`, [ещё гист на тему](https://gist.github.com/antixrist/f930d527c4b370c59f779639710bac2e) - враппер для создания собственных классов ошибок
+- `http-assert` - assert-обёртка над `http-errors`
+- `create-error` / `es6-error` / `error3` / `super-error`, [ещё гист на тему](https://gist.github.com/antixrist/f930d527c4b370c59f779639710bac2e) / `node-exceptions` - враппер для создания собственных классов ошибок / `verror` - на стеройдах с printf для сообщений и вложенными цепочками ошибок
 - `stacktrace-js` (асинхронный) / `stacktrace-parser` (синхронный, используется в ReactNative) / `tracekit` / `error-stack-parser` (похоже на правду) - парсер стектрейсов, унификация всего того, что выплёвывают браузеры
 - `show-js-error`, [трекинг ajax-ошибок в метрику](https://github.com/hcodes/trackajax)
 - `serialize-error` - объект ошибки в json
@@ -252,12 +247,12 @@ app.set('x-powered-by', false);
 - `tree-kill` - убить self-процесс и все дочерние форки
 - `node-report` - human-readable diagnostic summary, written to file
 - `trace` - максимально удлиняет стек вызовов в стектрейсах
-- `clarify` - вырезает из стектрейсов строки с системными вызовами (`node --stack_trace_limit=100 -r trace -r clarify wired.js`)
+- `clarify` - вырезает из стектрейсов строки с системными вызовами (`node --stack-trace-limit=1024 -r trace -r clarify wired.js`)
 - `stack-chain` - кастомный парсер стектрейсов для маппинга/фильтрации/etc
 - `stacktracey` - парсинг колстека с соурсмапами и читабельным выводом
 - `stackman`
 - `@ymatuhin/onerror`
-- `error3`
+- `youch` - генерация html-страницы с ошибкой, как в первом nuxt'е
 - [пример с trace, clarify и stack-chain](https://gist.github.com/antixrist/88b3d77f803377944789f02357b83c89)
 - [подходы к локальной обработке ошибок](https://learn.javascript.ru/exception) и их [логирования на сервер](https://habrahabr.ru/post/324366/)
 - сервисы для отправки и анализа непойманных ошибок:
@@ -291,22 +286,28 @@ app.set('x-powered-by', false);
 - `is-absolute`, `is-relative`
 - `normalize-path`
 - `relative` - расширенный `path.relative()`
+- `commondir` - находит общую родительскую папку для списка директорий (на уровне строк, а не фс)
+- `path-is-inside` - проверяет находится ли директория внутри другой (на уровне строк, а не фс)
+- `find-cache-dir` - возвращает путь к директории-кэшу внутри `node_modules` (чтобы была своя папка-помойка как у `babel-loader`-а или `eslint-loader`-а)
 - `sanitize-filename` - очищает строку от спецсимволов и "папок", делая её валидным названием файла 
 - `parse-filepath` - добавляет некоторые поля к стандартному выводу
+- `chokidar` / `watchpack` - вотчеры фс
 - `anymatch` - матчер по чему угодно (глоб, регэксп, етс)
-- `chokidar` / `watchpack` / `watchman` - слушатель фс
-- `is-glob` / `glob` / `globby` / `glob-all`
+- `glob` / `globby` / `glob-all` / `minimatch` / `multimatch`
+- `ignore` / `glob-gitignore` - glob-фильтр файлов согласно правилам `.gitignore`
+- `is-dotfile`
+- `file-type` - определятор типа файла
 - `klaw` - фс-walker на стримах
 - `touch` - аналог консольного
-- `mkdirp`
+- `mkdirp` / `make-dir` (лучше)
 - `del`
+- `filenamify`
+- `unused-filename` - добавляет к строке ` (1)`, ` (2)` и т.п., если файл с таким именем существует
 - `ncp` - асинхронное рекурсивное копирование файлов и папок
 - `move-concurrently` - самое быстрое (на сколько вообще возможно) перемещение файлов
 - `proper-lockfile` - `lock`-файл
 - `steno` - помогает при конкурентной записи в файл - делает все вызовы на запись последовательно
-- `is-dotfile`
-- `tmp` - работа с временными файлами и директориями
-- `os-tmpdir` / `tempy`
+- `tmp` / `os-tmpdir` / `tempy` / `temp-dir` - работа с временными файлами и директориями
 - `os-homedir`
 - `user-home`
 - `cacache` - умное управление файловым кешем
@@ -321,7 +322,7 @@ app.set('x-powered-by', false);
 - `lazypipe`
 - `destroy`
 - `fs-write-stream-atomic`
-- `pump` - обработка цепочки ошибок в pipe
+- `pump` - pipe'ит стримы и закрывает все, если хоть в одном из них произошла ошибка
 - `end-of-stream` / `on-stream-end`
 - `stream-throttle`
 - `duplexify` (для `stream1` и `stream2`) / `duplexer2` (для `stream3`) - объединяет writable и readable стримы в один
@@ -338,17 +339,15 @@ app.set('x-powered-by', false);
 ### DB
 - `mysql2` / `mariasql`
 - `pg` / `pg-native` / `pg-promise`, `pg-format` - расширенный prepare statements, [пример](https://github.com/brianc/node-postgres/issues/957#issuecomment-200000070)
-  - `knex`, `bookshelf`, `sql`
-  - `sequelize` (`sequelize-auto`, `sequelize-definer`, `sequelize-hierarchy`, `sequelize-values`)
-  - `objection`
-  - `typeorm`
+- `knex` / `sql` / `squel` / `sqorn` (pg only) - query builder's
+- `bookshelf` / `objection` (лучше) - эти orm поверх `knex`-а / `sequelize` (`sequelize-auto`, `sequelize-definer`, `sequelize-hierarchy`, `sequelize-values`) / `typeorm`
 - `ioredis` / `redis` / `hiredis`, `redlock`
 - `reds` - поиск в редисе
 - `rethinkdb`
 - `node-localstorage` (этот держит данные в памяти) / `dom-storage` (этот пишет данные в файл) - localStorage для NodeJS
 - `lowdb` - файловая json-бд поверх lodash'а
 
-### Права
+### Права и acl
 - `casl` - [статья](https://habrahabr.ru/post/334076/) [на хабре](https://habr.com/post/414951/)
 - `acl`
 - `cancan`
@@ -362,12 +361,13 @@ app.set('x-powered-by', false);
 - `liftoff` - bin'арник для своего пакета
 - `eyes` - цветной вывод данных
 - `inquirer` - cli-промптер
-- `minimist` / `nanomist` / `yargs` / `nopt` - парсер cli-аргументов
+- `minimist` / `nanomist` / `yargs` / `nopt` / `optionator` / `meow` - парсеры и организаторы cli-аргументов
 - `progress` / `gauge` - настраиваемый прогресс-бар
 - `boxen` - оборачивание сообщения в настраиваемую рамку
-- `dedent` - убирает ведущие и крайние пробелы и переводы строк в шаблонных строках (удобно для вывода многострочного текста)
+- `dedent` - убирает общие ведущие пробелы/табы каждой строки в шаблонных строках, выравнивая текст по левому краю
+- `table` / `text-table` (попроще) - таблицы в консоли
 - `gtop` - консольный мониторинг системы
-- `circular-json` / `json-stringify-safe` - безопасная сериализация циклических объектов
+- `update-notifier` - уведомить в консоли о наличии новой версии своего пакета (как это делает сам npm)
 - [форматирование `console.time`а](https://gist.github.com/antixrist/5dec38b757ead8adca186c067cf6f2f2)
 
 ### Логирование
@@ -382,17 +382,26 @@ app.set('x-powered-by', false);
 - [пример обёртки для системы логирования](https://github.com/likeastore/jobber/blob/0ab763b5f1ad25e57774e6e7e73192db3b38430a/source/utils/logger.js)
 
 ### Данные
-- `lodash` / `iterare` / `fast.js` / [just](https://github.com/angus-c/just)
-- `object-path` / `dottie` - продвинутый `_.get()`, `dot-object` / `to-object-path` / `dlv` - работа с json-объектами в виде dot-нотации
+- `lodash` / `iterare` / `fast.js` / [just](https://github.com/angus-c/just) / `jsprim`
+- `object-path` / `dottie` - продвинутый `_.get()`, `dot-object`, `undefsafe` / `to-object-path` / `dlv` - работа с json-объектами в виде dot-нотации, `generate-object-property`
+- `only` - замена `_.pick()` от TJ
 - `tableize` - схлопывает (сворачивает) json-структуру в объект вида `{'level1key': 'level1value', 'level1key.level2key': 'level2value'}` / `unbend` - то же самое, но через слэш (для построения урлов)
-- `string` / `strman` - если лодашевских методов работы со строками будет не хватать
-- `validation-report` - унификация формата ошибок валидации, [статья](https://habrahabr.ru/post/348530/)
-- `JSONSchema` / `ajv` , `ajv-keywords` / `z-schema` - создание и валидация JSONScheme'ы
-- `joi` / `schema-inspector` / `validator` / `forms` / `superstruct` / `validate.it.js` / `yup` - санитизация/валидация
+- `@sindresorhus/is`, `isemail`, `is-svg`, `isstream`, `is-glob`, `is-dotfile`, `is-absolute`, `is-relative` / `is-buffer` (в т.ч. для браузера) - проверка типов
+- `kind-of` - замена typeof
+- `JSONSchema` / `ajv` , `ajv-keywords` / `z-schema` - создание и валидация JSONScheme'ы, `cast-with-schema`, `json-schema-deref-sync` / `turbo-json-parse` (не поддерживает весь стандарт))
+- `type-check` - можно строить целые схемы для проверки типов, `levn` - кастует типы на основе `type-check`-схемы / `fast-json-stringify` - сериализует объект на основе схемы, кастуя значения
+- `parse-strings-in-object`- строковые значения в объекте автоматически преобразовывает в соответствующие типы (`'true' = > true`, `'3.14' => 3.14`, `'null' => null`)
+- `joi` / `schema-inspector` / `validator` / `forms` / `superstruct` / `validate.it.js` / `yup` / `checkit` - санитизация/валидация
+- `haye` - парсер строки с перечнем валидаторов как у Laravel'а
 - `ow` - прикольная валидация аргументов функций
-- `@sindresorhus/is`, `isemail`, `is-svg`, `isstream`, `is-glob`, `is-dotfile`, `is-absolute`, `is-relative` - проверка типов
-- `printable-characters` - набор функций для работы с невидимыми печатными символами (определение длины, etc)
+- `string` / `strman` - если лодашевских методов работы со строками будет не хватать
+- `romanize`, `deromanize` - конвертация в римские цифры из арабских и обратно
 - `numeral` - работа с числами
+- `google-libphonenumber` - крутая штука для парсинга номеров телефонов
+- `printable-characters` - набор функций для работы с невидимыми печатными символами (определение длины, etc)
+- `to-regex-range` - генерация регулярки для матчинга диапазонов чисел (как бы глупо ни звучало, но штука полезная для валидации всяких индексов и т.п.)
+- `safe-regex` - проверка регулярок на быстроту выполнения - Regular expression Denial of Service (ReDoS)
+- `scmp` - безопасное от timing attacks сравнение буфферов (т.е. всегда за константное время), использует нодовый `crypto.timingSafeEqual()`, если доступен
 - `moment` - это, понятное дело, дата/время (+ `helper-moment` для шаблонов) / `date-fns` - улучшенная (и при этом проще) библиотека для манипуляций с датами / `dayjs` - ещё одна маленькая либа для манипуляций с датами / `jstimezonedetect` - для браузера (в основном) / `spacetime` - для работы с датами и временными зонами
 - `date.js` - парсер человекопонятных дат английском языке
 - `accounting` - парсер чисел и валют (в основном валют)
@@ -403,28 +412,24 @@ app.set('x-powered-by', false);
 - `humanize-number` - человекопонятные числа
 - `expiry-js` / `ms` - парсер длительностей (1M, 1Y, 1h, 1m, 1s, 1ms, etc)
 - `pretty-ms` - форматирование миллисекунд
-- `checkit`
-- `repository`
 - `normalizr`, `reselect` - для flux-архитектуры
-- `normalize-object`
-- `serialize-javascript`
-- `kind-of` - нормальная замена typeof
-- `deep-diff` / `diff` / `jsondiffpatch` / `jiff` / `just-diff`, `just-diff-apply` / `arr-diff`
-- `fastest-clone` / `rfdc` - быстрое клонирование
+- `normalize-object` - нормализует все ключи объекта (рекурсивно) в выбранной нотации - camelCase, kebabCase и т.п.
+- `deep-diff` / `diff` / `jsondiffpatch` / `jiff` / `just-diff`, `just-diff-apply` / `arr-diff`, `fast-json-patch`
+- `diff` - реализация алгоритма diff'а текста (шоб можно было сделать прям как на гитхабе) / `fast-diff`
+- `deep-equal` / `fast-deep-equal`
+- `fastest-clone` / `rfdc` - быстрое клонирование / `fclone` - быстрое клонирование с учётом циклических ссылок / `deepcopy` - гибко настраивается функцией `reviewer`-ом
 - `deepmerge`
 - `deep-freeze`
 - `BitArray.js` ([git](https://github.com/brockwhittaker/BitArray.js)) Очень оптимизированный массив для хранения битовых флагов
 - `pako` - zlib для js
 - `yauzl` - unzip
 - `lz-string` - мощное сжатие/декомпрессия строк для хранения, к примеру, в localStorage
-- `google-libphonenumber` - крутая штука для парсинга номеров телефонов
 - `quickselect`
 - `bintrees` - самосортируемая структура с бинарным поиском
 - `cuint` / `bignumber.js` / `long` / `bn.js` / `bigi` / `json-bigint` / `leemon` - big integer для js
-- `flatstr` - ускоряет работу с большими конкатенированными строками
+- `flatstr` - ускоряет работу с большими конкатенированными строками (каким-то образом запускает внутреннюю оптимизацию v8)
 - `media-typer` - парсер mime
 - `mime` / `mime-db` / `mime-types` - полный набор по работе с mime / `whatwg-mimetype`
-- `file-type` - определятор типа файла
 - `memored` - шаринг данных между форками процесса
 - `theorem.js` - комбайн с вычислениями по алгебре, геометрии, статистики, работе с числами, единицами измерения и т.п.
 
@@ -444,8 +449,13 @@ app.set('x-powered-by', false);
 - `is-reachable` - есть ли коннект с конкретным ресурсом
 - `tunnel`
 - `follow-redirects`
+- `type-is` - проверка типа содержимого запроса
 - `http-status` / `statuses`
-- `nock` - mock'и для http-запросов (удобно для тестирования и заглушки api)
+- `fresh` - проверяет по заголовкам - нужно отдать `304 Not Modified` или нет.
+- `on-finished` - вызывает колбэк, когда `req` или `res` завершён, в т.ч. с ошибкой или он был прерван
+- `request-stats` - выдирает из req/res только полезную для логов инфу 
+- `form-data` - создаёт readable `multipart/form-data`-стримы. Для отправки данных формы и загрузки файлов в другие http-api
+- `nock` / `light-my-request` (от `fastify`) - mock'и для http-запросов (удобно для тестирования и заглушки api)
 - `slimbot` - бот для телеграмма
 - `node-vk-bot-api` - бот для вк
 - `instagram-private-api` - неофициальное api для инстаграмма с полной эмуляцией андройд-клиента ([на питоне](https://github.com/mgp25/Instagram-API/) популярнее и обновляется чаще)
@@ -456,10 +466,7 @@ app.set('x-powered-by', false);
 - `browser-env`
 - `jsdom` / `cheerio` / `whacko` / `parse5`
 - `json5` - json с блекджеком и комментиками
-- `turbo-json-parse`
-- `@nuxt/devalue` - как `JSON.stringify`, но экранирует содержимое для предотвращения XSS.
 - `strip-json-comments` - тут понятно
-- `parse-strings-in-object`- строковые значения в объекте автоматически преобразовывает в соответствующие типы (`'true' = > true`, `'3.14' => 3.14`, `'null' => null`)
 - `node-readability` / `read-art` - вычленение основного и главного из всей страницы
 - `semantic-schema-parser` - парсер schema.org: microdata, RDFa-lite, JSON-LD
 - `web-auto-extractor` - парсер schema.org: microdata, RDFa-lite, JSON-LD
@@ -468,13 +475,15 @@ app.set('x-powered-by', false);
 - `csv-stringify`, `fast-csv` / `csv-streamify` / `papaparse` / `csv` / `csvtojson`
 - `xml-mapping` - json в xml и обратно
 - `xmldoc`
+- `js-yaml`
 - `html-tokenize`
 - `JSONStream` / `json-depth-stream` - потоковый парсер огромных json'ов
 - `marked` / `markdown-it` - md2html, `turndown` - html2md, `showdown` - в обе стороны
 - `html-to-text`
-- `insane` - `jevix` для js
-- `sanitize-html` / `escape-html` / `jsesc` / `he` / `xss`
+- `sanitize-html` / `escape-html` / `jsesc` / `he` / `xss` / `insane` (`jevix` для js)
 - `feed-read` - парсер rss фидов
+- `braces` / `brace-expansion` - парсит и разворачивает bash-like скобки: `a/{b,c}/d` => `['a/b/d', 'a/c/d']`, `{01..03}` => `['01', '02', '03']`, `{2..10..2}` => `['2', '4', '6', '8', '10']`
+- `curly-braces` - проверяет валидность вложенных скобок. `(){}[]` и `([{}])` - валидно, а `[(])` - нет
 
 ### Офисные форматы
 - `docxtemplater`
@@ -532,10 +541,11 @@ app.set('x-powered-by', false);
 - `tough-cookie`, `tough-cookie-filestore`
 - `cookies.txt`
 - `react-cookie`
-- `cookies` - это для express'а/koa, и вряд ли нужен
+- `cookies` - это для express'а/koa, и вряд ли нужен / `node-cookie` - тоже для создания/чтения/подписи кук из/в `req`/`res`
 
 #### Скриншотилки
-- `pageres`
+- `pageres` - под капотом `capture-website`
+- `capture-website` - под капотом `puppeteer`
 - `webshot`
 - `html2canvas`
 - [Скриншотилка на базе безголового хрома](https://medium.com/@dschnr/using-headless-chrome-as-an-automated-screenshot-tool-4b07dffba79a)
@@ -551,6 +561,7 @@ app.set('x-powered-by', false);
 - `fast-url-parser` и `querystringparser`
 - `url-parse-lax` - расширенный url.parse - без протоколов и с ip
 - `encodeurl`
+- `cyrillic-to-translit-js`
 - `filenamify-url`
 - `valid-url`
 - `humanize-url`
@@ -559,7 +570,8 @@ app.set('x-powered-by', false);
 - `protocolify`
 - `urijs`
 - `url-pattern`
-- `proxy-addr` - определяет адрес проксированного запроса (из объекта `req`)
+- `proxy-addr` - определяет адрес проксированного запроса (из объекта `req`), под капотом юзает `ipaddr.js` и `forwarded`
+- `path-to-regexp` - превращает строки вида `/foo/:bar` в регекспы вида `/^\/foo\/([^\/]+?)\/?$/i` (полезно для написания роутера, используется во `vue-router`)
 - `is-google` - по ip проверяет сделан ли запрос от гуглобота, или кто-то просто подделал user-agent, чтобы им притвориться
 - `slug` - делает замену пробелов и unicode-символов (даже emoji) для пригодности в урл
 Чекалки ip:
@@ -572,7 +584,7 @@ app.set('x-powered-by', false);
 - `faker.js`
 - `json-schema-faker`
 - `hashids` / `identifier` - строки из чисел
-- `node-uuid` / `uid-safe` / `nanoid` / `cuid` / `shortid` / `nuid`
+- `node-uuid` / `uid-safe` / `nanoid` / `cuid` / `shortid` / `nuid` / `hyperid` (самый быстрый, с декодером)
 - `sguid`
 - `randexp` - генерация строки по регэкспу
 - `stjs` - json-шаблонизатор для генерации json'а
@@ -598,22 +610,24 @@ app.set('x-powered-by', false);
 - `@aureooms/js-permutation`
 - `generatorics` - есть и permutations, и combinations, и cartesian, и всё это на генераторах
 
-### Хэширование
+### Хэширование и криптография
 - `murmurhash-native` / `imurmurhash` - быстрое и (вроде как) наименее коллизионное хэширование
-- `object-hash`, `hash-sum`
-- `js-md5`
-- `json-stable-stringify`
-- `stringify-object`
-- `hasha`
-- `bcrypt`
+- `hash-sum` / `hasha` / `js-md5` / `object-hash`
 - `xxhashjs`
+- `json-stringify-safe` / `circular-json` / `stringify-object` - `JSON.stringify()` с обработкой циклических ссылок
+- `@nuxt/devalue` - как `json-stringify-safe`, но ещё экранирует js-содержимое для предотвращения XSS (чтобы напрямую в html можно было записать `'window.state = '+ devalue(state)`), обрабатывает Map/Set/date/регулярки и т.п.
+- `serialize-javascript` - от yahoo. как `@nuxt/devalue`, но `nuxt` вместо него написал свой `devalue` (возможно потому, что не обрабатывает циклические ссылки?)
+- `json-stable-stringify` - от substack'а, детерминированный `JSON.stringify()` (даже если порядок ключей разнится от среды выполнения), с лицензией зависимости есть проблемы /  `json-stable-stringify-without-jsonify` - просто форк первого без проблем с лицензиями / `fast-json-stable-stringify` - допиленный форк первого, порядок с лицензиями, но сильно быстрее / `fast-stable-stringify` - самостоятельная реализация, не проверяет на циклические ссылки и вообще без опций, поэтому самый быстрый
+- `@hapi/bourne` - `JSON.parse()` с защитой от инъекции `__proto__`
+- `bcrypt` / `bcrypt-nodejs` / `pwd` / `pswd` / `bcryptjs` (чистый js - для браузера, использует Климов) - для паролей
+- `keygrip` - подпись и валидация подписанных данных (module for signing and verifying data (such as cookies or URLs) through a rotating credential system)
+- `simple-encryptor` - криптор/декриптор строк/объектов по ключу
 
 ### Полезности
 - `bluebird` / `aigle` / `neo-async` - `async` для промисов
 - `relike` / `universalify` (используется в `fs-extra`) / `awaiting` / `pify` - промисификация
 - `awaity` - bluebird-lodash для промисов на async/await'ах
 - `p-progress` - промисы с прогрессом ([много интересного для промисов](https://github.com/sindresorhus/promise-fun))
-- `p-cache` / `p-memoize` - lru-/кэш для результатов промисов
 - `p-timeout` - таймаут для промисов 
 - `thunkify` - callback'ифицирует callbacks, arrays, generators, generator functions, and promises
 - `inflight` / `promise-inflight` - оборачивает функцию таким образом, что можно вызывать функцию-обёртку несколько раз с разными коллбеками, а когда вызов функции завершит выполнение, то все коллбеки будут выполненны последовательно и асинхронно
@@ -624,8 +638,8 @@ app.set('x-powered-by', false);
 - `delegates` - делегация методов и пропертей прототипа к какому-либо свойству этого прототипа
 - `function-done` / `always-done`
 - `generate-function` - `new Function` на стеройдах
-- `mem` / `lru-cache` / `hashlru` / `node-cache` / `tiny-lru`
-- `fast-memoize`
+- `lru-cache` / `hashlru` / `node-cache` / `tiny-lru` / `p-cache` / `sacjs`
+- `mem` / `fast-memoize` / `p-memoize` (для промисов)
 - `wrappy` - оборачивает функцию, перенося все кастомные пропертя этой функции в обёртку. полезно (внезапно) для обёрток
 - `shimmer` - типа Proxy через monkeypatching
 - `ware` / `middleware-chain` - создание кастомной цепочки мидлварей (прям как в express'е)
@@ -641,7 +655,7 @@ app.set('x-powered-by', false);
 - `async/queue` / `async/priorityQueue` 
 - `raf-throttle` - throttle на requestAnimationFrame
 - `semaphore` - ограничитель одновременного доступа к ресурсу
-- `function-rate-limit` / `express-rate-limit`
+- `function-rate-limit` / `express-rate-limit` / `rate-limiter-flexible` (универсальный)
 - `p-queue` - очередя на промисах
 - `kue` (`kue-ui`) / `bull` / `bee-queue` - очередя на редисе
 - `node-resque` - тоже очередя на редисе (порт с ruby, судя по всему)
@@ -655,6 +669,7 @@ app.set('x-powered-by', false);
 - `argumentable-queue`
 - `generic-pool`
 - `denque`
+- `@blakeembrey/deque` - двухсторонняя очередь
 - `node-schedule` - flexible cron-like and not-cron-like job scheduler
 - `cron`
 - `cron-parser`
@@ -711,12 +726,12 @@ app.set('x-powered-by', false);
 - `compromise` - под англ.язык и не только
 - `az`
 - `wordpos` - части речи для английского
-- `retext` - парсер текста на ast (работа на плагинах по принципу postcss)
 - `leven` - самый быстрый левенштейн, `string-similarity` - алгоритм лучше левенштейна
 - `diff`
 - `fuzzyset.js` / `string_score` / `fuse.js` / `fuzzaldrin` / `fuzzysort` - матчинг строк
 - `lunr-languages`
 - `petrovich` / `name-case-lib-port` - склонение русских/украинских фио
+- `stopword` - удаляет список бесполезные слова из текста (предлоги, союзы и т.п.) для многих языков, можно натренировать с помощью `stopword-trainer`.
 - `word2vec` / `word2vec-native` / `word2vec.js`
 - `wuzzy` - похожесть строк разными алгоритмами
 - `convert-layout` - смена раскладки переданной строки
@@ -934,7 +949,11 @@ app.set('x-powered-by', false);
 - `bounding-client-rect`
 - `mutation-observer`
 - `intersection-observer` ([описание конфигурации](https://habrahabr.ru/post/348030/))
+- `ric-shim` - requestIdleCallback
 - `current-script-polyfill` - `document.currentScript` для ишаков
+- `shim-keyboard-event-key` - `KeyboardEvent.key` для ишаков и Edge
+- `element-closest` - `Element.closest()` для ишаков
+- `window-location-origin` - `window.location.origin` для ишаков
 - `blob`
 - `on-full-screen`, `is-full-screen`, `request-full-screen`, `exit-full-screen` / `screenfull.js`
 - `smoothscroll-polyfill`
@@ -947,7 +966,8 @@ app.set('x-powered-by', false);
 - `history.js`
 - [detect_flex](https://github.com/ergcode/ergonomic.detect_flex) - определение поддержки flexbox'ов (нормально работает в мобильниках)
 - [HTML5-Progress-polyfill](https://github.com/LeaVerou/HTML5-Progress-polyfill)
-- [Полифиллы, которые использовал github](https://githubengineering.com/removing-jquery-from-github-frontend/#polyfills)
+- [Полифиллы, которые использовал github](https://github.blog/2018-09-06-removing-jquery-from-github-frontend/#polyfills)
+- [Список всех возможных WebApi](https://developer.mozilla.org/en-US/docs/Web/API)
 
 ### nginx
 - [конфиг с настроенным кешем от h5bp](https://github.com/h5bp/server-configs-nginx)
