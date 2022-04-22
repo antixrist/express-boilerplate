@@ -38,7 +38,7 @@
     "lodash": "^4.17.4",
     "morgan": "~1.7.0",
     "mysql2": "^1.1.2",
-    "nconf": "^0.8.4",
+    "nconf": "^0.11.4",
     "node-uuid": "^1.4.7",
     "path-exists": "^3.0.0",
     "portastic": "^1.0.1",
